@@ -28,8 +28,8 @@ a {
 }
 @font-face {
   font-family: 'iconfont';
-  src: url('iconfont/iconfont.eot');
-  src: url('iconfont/iconfont.eot?#iefix') format('embedded-opentype'), url('iconfont/iconfont.woff') format('woff'), url('iconfont/iconfont.ttf') format('truetype'), url('iconfont/iconfont.svg#iconfont') format('svg');
+  src: url(/static/font/iconfont.eot);
+  src: url(/static/font/iconfont.eot?#iefix) format('embedded-opentype'), url(/static/font/iconfont.woff) format('woff'), url(/static/font/iconfont.ttf) format('truetype'), url(/static/iconfont.svg#iconfont) format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -41,10 +41,18 @@ a {
 }
 /*flex layout*/
 .tpl-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 /*arrow */
 .arrow {
@@ -61,7 +69,8 @@ a {
   display: inline-block;
   border: .16rem solid transparent;
   border-top-color: #ffb659;
-  transform: translateY(50%);
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
 }
 .tpl-arrow-up {
   width: 0;
@@ -74,10 +83,18 @@ a {
 /*header*/
 .tpl__header {
   height: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   background: #ffb659;
   text-align: center;
 }
@@ -89,7 +106,8 @@ a {
   outline: none;
 }
 .tpl__header__toggle .icon {
-  transform: rotateZ(90deg);
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
   display: inline-block;
 }
 .tpl__header__search {
@@ -106,10 +124,18 @@ a {
 }
 .tpl__select {
   height: .8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   position: relative;
   background: #fff;
   border-bottom: 1px solid #ccc;
@@ -123,10 +149,18 @@ a {
   right: 50%;
 }
 .tpl-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   height: 1.85rem;
   padding: .25rem;
   background: #fff;

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0" name="viewport">
+  <title>商品模板</title>
+  <!--动态计算各尺寸下的fontSize-->
+  <script>
+    (function (document, window, size) {
+      var html = document.documentElement,
+        resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        calcFontSize = function () {
+          var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth
+          html.style.fontSize = 100 * (deviceWidth / size) + 'px'
+        }
+      if (!document.addEventListener) { return }
+      window.addEventListener(resizeEvent, calcFontSize, false)
+      document.addEventListener('DOMContentLoaded', calcFontSize, false)
+    })(document, window, 750)
+  </script>
+  <!--临时引入jQuery-->
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="tpl__header">
+      <div class="tpl__header__toggle"><i class="icon iconfont">&#xa002;</i></div>
+      <div class="tpl__header__search">
+        <input type="text" id="search" placeholder="请输入个人电话或名称">
+        <i class="icon iconfont">&#xe662;</i>
+      </div>
+      <div class="tpl__header__button"><img src="./images/huiyuan.png" alt="会员"></div>
+    </div>
+  </header>
+  <main>
+    <div class="tpl__select">
+      <div class="tpl__select-active">个人模板<i class="tpl-arrow-down"></i></div>
+      <div>官方模板<i class="tpl-arrow-up"></i></div>
+    </div>
+    <!--商品列表-->
+    <div class="goods-list">
+      <ul>
+        <li>
+          <div class="goods-select">
+            <label class="common-checkbox">
+              <input type="checkbox">
+              <i class="checkbox-checked"></i>
+            </label>
+          </div>
+          <div>
+            <img src="./images/tupian.png" alt="商品">
+          </div>
+          <div class="goods-desc">
+            <p class="goods-name">见对方接受地拒绝饭店烧烤金卡戴珊就是房价快速减肥都是</p>
+            <p class="goods-price">￥9999</p>
+          </div>
+        </li>
+      </ul>
+      <div class="copy-info">
+        <div>
+          <label class="common-checkbox-all" for="select-all">
+            <span class="select-container">
+              <input type="checkbox" id="select-all">
+              <i class="select-yes"></i>
+              <i class="select-bg"></i>
+            </span>
+            全选
+          </label>
+        </div>
+        <button id="confirm-copy">确认复制</button>
+      </div>
+    </div>
+    <!--<div class="tpl-list">
+      <ul>
+        <li>
+          <div class="tpl-img">
+            <img src="./images/tupian.png" alt="图片">
+            <img class="tpl-mark" src="./images/biaoshi.png">
+          </div>
+          <div>
+            <p><span class="tpl-name">陈润阳</span><span class="tpl-desc">讲师，懂事长</span></p>
+            <p class="tpl-company">重庆链脉网络科技有限公司</p>
+          </div>
+          <a href="#">查看链店</a>
+        </li>
+        <li>
+          <div class="tpl-img">
+            <img src="./images/tupian.png" alt="图片">
+            <img class="tpl-mark" src="./images/biaoshi.png">
+          </div>
+          <div>
+            <p><span class="tpl-name">陈润阳</span><span class="tpl-desc">讲师，懂事长</span></p>
+            <p class="tpl-company">重庆链脉网络科技有限公司</p>
+          </div>
+          <a href="#">查看链店</a>
+        </li>
+        <li>
+          <div class="tpl-img">
+            <img src="./images/tupian.png" alt="图片">
+            <img class="tpl-mark" src="./images/biaoshi.png">
+          </div>
+          <div>
+            <p><span class="tpl-name">陈润阳</span><span class="tpl-desc">讲师，懂事长</span></p>
+            <p class="tpl-company">重庆链脉网络科技有限公司</p>
+          </div>
+          <a href="#">查看链店</a>
+        </li>
+      </ul>
+    </div>-->
+    <!--类别选择对话框-->
+    <!--<div class="modal-type">
+      <ul class="type-list">
+        <li>类别1</li>
+        <li class="active">类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+      </ul>
+      <ul class="type-goods-list">
+        <li>类别2</li>
+        <li class="active">类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+      </ul>
+    </div>-->
+    <!--模板选择对话框-->
+    <!--<div class="modal-template">
+      <ul class="personal-list">
+        <li>类别1</li>
+        <li class="active">类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+        <li>类别1</li>
+      </ul>
+      <ul class="official-list">
+        <li>类别2</li>
+        <li class="active">类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+        <li>类别2</li>
+      </ul>
+    </div>-->
+    <!--我的分类-->
+    <!--<div class="modal-category">
+      <div class="content">
+        <div class="header">
+          <p>个人模板</p>
+          <div>
+            <span class="total-unit">共6件</span>
+            <select name="" id="">
+              <option value="1">xxx</option>
+            </select>
+          </div>
+        </div>
+        <div class="section">
+        </div>
+        <div class="footer">
+          <button class="button">取消</button>
+        </div>
+      </div>
+    </div>-->
+  </main>
+</body>
+</html>
