@@ -7,6 +7,7 @@
   <meta content="telephone=no,email=no" name="format-detection">
   <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0" name="viewport">
   <title>商品模板</title>
+  <link rel="stylesheet" href="./css/template.css">
   <!--动态计算各尺寸下的fontSize-->
   <script>
     (function (document, window, size) {
@@ -23,25 +24,32 @@
   </script>
   <!--临时引入jQuery-->
   <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
 </head>
 <body>
   <header>
     <div class="tpl__header">
-      <div class="tpl__header__toggle"><i class="icon iconfont">&#xa002;</i></div>
+      <div class="tpl__header__toggle">
+        <!--变成向上的箭头给i添加一个up class-->
+        <i class="icon iconfont">&#xa002;</i>
+      </div>
       <div class="tpl__header__search">
         <input type="text" id="search" placeholder="请输入个人电话或名称">
         <i class="icon iconfont">&#xe662;</i>
       </div>
-      <div class="tpl__header__button"><img src="./images/huiyuan.png" alt="会员"></div>
+      <div class="tpl__header__button">
+        <img src="./images/huiyuan.png" alt="会员">
+        <span class="button hide">取消</span>
+      </div>
     </div>
   </header>
   <main>
     <div class="tpl__select">
-      <div class="tpl__select-active">个人模板<i class="tpl-arrow-down"></i></div>
-      <div>官方模板<i class="tpl-arrow-up"></i></div>
+      <div>个人模板<i class="tpl-arrow-down"></i></div>
+      <div  class="tpl__select-active">官方模板<i class="tpl-arrow-up"></i></div>
     </div>
     <!--商品列表-->
-    <div class="goods-list">
+    <div class="goods-list hide">
       <ul>
         <li>
           <div class="goods-select">
@@ -73,7 +81,7 @@
         <button id="confirm-copy">确认复制</button>
       </div>
     </div>
-    <!--<div class="tpl-list">
+    <div class="tpl-list ">
       <ul>
         <li>
           <div class="tpl-img">
@@ -109,9 +117,9 @@
           <a href="#">查看链店</a>
         </li>
       </ul>
-    </div>-->
+    </div>
     <!--类别选择对话框-->
-    <!--<div class="modal-type">
+    <div class="modal-type hide">
       <ul class="type-list">
         <li>类别1</li>
         <li class="active">类别1</li>
@@ -165,9 +173,9 @@
         <li>类别2</li>
         <li>类别2</li>
       </ul>
-    </div>-->
+    </div>
     <!--模板选择对话框-->
-    <!--<div class="modal-template">
+    <div class="modal-template hide">
       <ul class="personal-list">
         <li>类别1</li>
         <li class="active">类别1</li>
@@ -221,26 +229,48 @@
         <li>类别2</li>
         <li>类别2</li>
       </ul>
-    </div>-->
+    </div>
     <!--我的分类-->
-    <!--<div class="modal-category">
+    <div class="modal-category hide">
       <div class="content">
         <div class="header">
           <p>个人模板</p>
           <div>
             <span class="total-unit">共6件</span>
-            <select name="" id="">
-              <option value="1">xxx</option>
-            </select>
+            <!--<select name="" id="">-->
+              <!--<option value="1">xxx</option>-->
+            <!--</select>-->
+            <div class="custom-select">
+              <div class="select-value">value</div>
+              <ul class="select-options-box hide">
+                <li class="select-option">
+                  <i class="select-yes"></i>
+                  <span>content</span>
+                </li>
+                <li class="select-option selected">
+                  <i class="select-yes"></i>
+                  <span>content</span>
+                </li>
+                <li class="select-option">
+                  <i class="select-yes"></i>
+                  <span>content</span>
+                </li>
+                <li class="select-option add">
+                  <i class="add-category"></i>
+                  <span>添加分类</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="section">
+
         </div>
         <div class="footer">
           <button class="button">取消</button>
         </div>
       </div>
-    </div>-->
+    </div>
   </main>
 </body>
 </html>
