@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script>
+		(function (document, window, size) {
+			var html = document.documentElement,
+					resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					calcFontSize = function () {
+						var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth
+						html.style.fontSize = 100 * (deviceWidth / size) + 'px'
+					}
+			if (!document.addEventListener) { return }
+			window.addEventListener(resizeEvent, calcFontSize, false)
+			document.addEventListener('DOMContentLoaded', calcFontSize, false)
+		})(document, window, 750)
+  </script>
+</head>
+<body>
+  <div class="tpl__header">
+    <div class="tpl__header__toggle">
+      <!--变成向上的箭头给i添加一个up class-->
+      <i class="icon iconfont">&#xa002;</i>
+    </div>
+    <div class="tpl__header__search">
+      <input type="text" id="search" placeholder="请输入个人电话或名称">
+      <i class="icon iconfont">&#xe662;</i>
+    </div>
+    <div class="tpl__header__button">
+      <img src="./images/huiyuan.png" alt="会员">
+      <span class="button hide">取消</span>
+    </div>
+  </div>
+</body>
+</html>
