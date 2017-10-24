@@ -4,18 +4,16 @@ $(function () {
   $('.tpl__select').on('click', 'div', function (e) {
     var target = $(e.currentTarget);
     var modal = $('.modal-template');
-    // if (target.hasClass('tpl__select-active') && !modal.hasClass('hide')){
-    //   modal.addClass('hide');
-    //   return
-    // }
-    // modal.removeClass('hide');
+    if (target.hasClass('tpl__select-active') && !modal.hasClass('hide')){
+      modal.addClass('hide');
+      return
+    }
+    target.hasClass('open-modal') ? (modal.removeClass('hide')) : (modal.addClass('hide'));
     $(e.currentTarget).siblings().removeClass('tpl__select-active')
-      .find('i').removeClass('tpl-arrow-up').addClass('tpl-arrow-down')
-      .end().end().addClass('tpl__select-active')
-      .find('i').addClass('tpl-arrow-up').removeClass('tpl-arrow-down')
+      .end().addClass('tpl__select-active')
   });
   // 搜索框聚焦
-  $('#search').focus(function (e) {
+  /*$('#search').focus(function (e) {
     $('.modal-template,.modal-category').addClass('hide');
     $('.tpl__header__toggle').addClass('hide').find('.icon').removeClass('up');
     $('.tpl__header__button .button').prev('img').addClass('hide').end().removeClass('hide')
@@ -24,5 +22,5 @@ $(function () {
   });
   $('.modal-category').on('click', '.footer', function (e) {
     $('.modal-category').addClass('hide')
-  })
+  })*/
 });

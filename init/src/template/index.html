@@ -5,7 +5,7 @@
   <meta content="yes" name="apple-mobile-web-app-capable">
   <meta content="yes" name="apple-touch-fullscreen">
   <meta content="telephone=no,email=no" name="format-detection">
-  <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0" name="viewport">
+  <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
   <title>商品模板</title>
   <link rel="stylesheet" href="./css/template.css">
   <!--动态计算各尺寸下的fontSize-->
@@ -27,10 +27,10 @@
   <script src="index.js"></script>
 </head>
 <body>
-  <header>
+  <header class="header-box">
     <div class="tpl__select">
-      <div class="tpl__select-active">个人模板<i class="tpl-arrow-up"></i></div>
-      <div>官方模板<i class="tpl-arrow-down"></i></div>
+      <div class="tpl__select-active">个人模板</div>
+      <div class="open-modal">官方模板</div>
     </div>
     <div class="tpl__header">
       <div class="tpl__header__search">
@@ -83,7 +83,7 @@
       </ul>
     </div>
     <!--模板选择对话框-->
-    <div class="modal-template">
+    <div class="modal-template hide">
       <ul class="type-list">
         <li>类别1</li>
         <li class="active">类别1</li>
