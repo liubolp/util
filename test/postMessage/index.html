@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>父窗口页面</title>
+  <style>
+    #ifram {
+      border: 0;
+      width: 1px;
+      min-width: 100%;
+    }
+    #iframe-box{
+      margin: 300px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="iframe-box">
+    <iframe src="http://192.168.1.100:3000/iframe.html" frameborder="0" width="100%" height="100%"
+            id="ifram"
+            sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation">
+    </iframe>
+  </div>
+<div>
+  <img src="http://member.lm720.com/upload/e/2017/10/23/2017102359eda10c1aaa4642071410.png">
+</div>
+  <script>
+    (function () {
+      window.addEventListener('message',handleMessage,false);
+      function handleMessage(e) {
+        e.data.type === 'add' ? addImg(e.data.src) : removeImg()
+      }
+      function addImg (src) {
+        var img = document.createElement('img');
+        img.src = src;
+        img.id = 'img-qr';
+        img.style.cssText = 'position: fixed;top: 50%;left: 50%;z-index: 100;width: 90%;opacity: 0;transform: translate(-50%,-50%);';
+        img.onload= function () {
+          document.querySelector('body').appendChild(img)
+        };
+        img.addEventListener('click',removeImg,false)
+      }
+      function removeImg() {
+        var img = document.querySelector('#img-qr');
+        if(img){
+          img.removeEventListener('click',removeImg);
+          img.remove()
+        }
+      }
+    })()
+  </script>
+</body>
+</html>

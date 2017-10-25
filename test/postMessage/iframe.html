@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>子窗口页面</title>
+  <style>
+    .container{
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="http://member.lm720.com/upload/e/2017/10/23/2017102359eda10c1aaa4642071410.png" alt="">
+  </div>
+  <script>
+    (function (selector) {
+      var container = document.querySelector(selector);
+      container.addEventListener('touchstart',function () {
+        var src = container.querySelector('img').src;
+        window.parent.postMessage({type: 'add',src:src}, '*')
+      },false);
+      container.addEventListener('touchend,touchcancel',function () {
+        var src = container.querySelector('img').src;
+        window.parent.postMessage({type: 'cancel',src:src}, '*')
+      },false)
+    })('.container')//'.QRcode_img'
+  </script>
+</body>
+</html>
