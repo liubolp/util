@@ -10,9 +10,17 @@
   "license": "ISC",
   "devDependencies": {
     "async-each-series": "^1.1.0",
+    "autoprefixer": "^7.1.6",
     "browser-sync": "^2.18.13",
     "connect-history-api-fallback": "^1.4.0",
     "glob": "^7.1.2",
+    "gulp-less": "^3.3.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "precss": "^2.0.0",
     "weinre": "^2.0.0-pre-I0Z7U9OV"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
   }
 }

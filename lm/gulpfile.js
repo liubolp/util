@@ -1,0 +1,12 @@
+var gulp = require('gulp')
+var less = require('gulp-less')
+var soucemaps = require('gulp-sourcemaps')
+var postcss = require('gulp-postcss')
+gulp.task('css', function () {
+  return gulp.src(['src/**/*.less'])
+    .pipe(soucemaps.init())
+    .pipe(less())
+    .pipe(postcss([require('precss'), require('autoprefixer')]))
+    .pipe(soucemaps.write('.'))
+    .pipe(gulp.dest('dist'))
+})
