@@ -7,7 +7,9 @@ ul {list-style: none;}
 li {list-style-type: none;}
 input {border: none;}
 a { text-decoration: none;}
-
+a,button,input,optgroup,select,textarea{
+  -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+}
 @font-face {
   font-family: 'iconfont';
   src: url('iconfont/iconfont.eot');
@@ -88,12 +90,17 @@ a { text-decoration: none;}
     top: -5px;
   }
 }
+.test-xx{
+  align-items: flex-start;
+}
 .common-checkbox-all{
   .common-style;
   .select-container{
     width: .32rem;
     height: .32rem;
     position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
   }
   .select-yes{
     display: none;
@@ -101,6 +108,7 @@ a { text-decoration: none;}
   :checked + .select-yes{
     display: inline-block;
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
@@ -112,6 +120,7 @@ a { text-decoration: none;}
     height: 100%;
     position: absolute;
     top: 0;
+    left: 0;
     z-index: -1;
     border-radius: 50%;
     border: 2px solid #9fa2a3;
@@ -248,10 +257,6 @@ a { text-decoration: none;}
     bottom: 0;
     border-top: 1px solid @border_color;
     background: #fff;
-    span{
-      display: inline-block;
-      vertical-align: top;
-    }
     #confirm-copy{
       width: 2.15rem;
       outline: none;

@@ -41,4 +41,10 @@ $(function () {
 			$('.select-options-box').addClass('hide')
 		}
 	});
+	$('#search').focus(function (e) {
+    $('.tpl__header__button .button').removeClass('hide').prev().addClass('hide')
+  });
+  $('.tpl__header__button .button').click(function (e) {
+    $(this).prev().removeClass('hide').end().addClass('hide')
+  })
 });

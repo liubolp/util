@@ -58,31 +58,6 @@ textarea {
   align-items: center;
   justify-content: space-around;
 }
-/*arrow */
-.arrow {
-  width: 0;
-  height: 0;
-  margin-left: 10px;
-  display: inline-block;
-  border: 10px solid transparent;
-}
-.tpl-arrow-down {
-  width: 0;
-  height: 0;
-  margin-left: 10px;
-  display: inline-block;
-  border: 10px solid transparent;
-  border-top-color: #9fa2a3;
-  transform: translateY(50%);
-}
-.tpl-arrow-up {
-  width: 0;
-  height: 0;
-  margin-left: 10px;
-  display: inline-block;
-  border: 10px solid transparent;
-  border-bottom-color: #ffb659;
-}
 /*头部搜索框*/
 .header-box {
   position: fixed;
@@ -208,6 +183,7 @@ textarea {
   box-sizing: content-box;
   padding: 2px;
   height: .36rem;
+  line-height: .36rem;
   border: 1px solid #ffb659;
   border-radius: 3px;
   color: #ffb659;

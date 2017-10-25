@@ -44,23 +44,6 @@ a,button,input,optgroup,select,textarea{
   align-items: center;
   justify-content: space-around;
 }
-/*arrow */
-.arrow{
-  width: 0;
-  height: 0;
-  margin-left: 10px;
-  display: inline-block;
-  border: 10px solid transparent;
-}
-.tpl-arrow-down{
-  .arrow;
-  border-top-color: #9fa2a3;
-  transform: translateY(50%);
-}
-.tpl-arrow-up{
-  .arrow;
-  border-bottom-color: @default_color;
-}
 
 /*头部搜索框*/
 .header-box{
@@ -106,7 +89,6 @@ a,button,input,optgroup,select,textarea{
     }
   }
 }
-
 /*模板类型选择*/
 .tpl__select{
   height: .8rem;
@@ -179,6 +161,7 @@ a,button,input,optgroup,select,textarea{
       box-sizing: content-box;
       padding: 2px;
       height: .36rem;
+      line-height: .36rem;
       border: 1px solid @default_color;
       border-radius: 3px;
       color: @default_color;
