@@ -202,17 +202,19 @@ a,button,input,optgroup,select,textarea{
     flex-grow: 1;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    img{
-      width: 1.8rem;
-      height: 2rem;
-      vertical-align: middle;
-    }
-    .outer-list{
+    .banner{
+      img{
+        width: 100%;
+        height: 1.6rem;
+        border: none;
+        vertical-align: middle;
+      }
     }
     .type-title{
       color: #818181;
       font-size: 16px;
-      margin: 5px 0;
+      font-weight: normal;
+      line-height: .7rem;
     }
     .subtype-list{
       display: flex;
@@ -224,21 +226,21 @@ a,button,input,optgroup,select,textarea{
         flex: 0 1 33.33%;
         text-align: center;
       }
+      img{
+        width: 1.8rem;
+        height: 2rem;
+        vertical-align: middle;
+      }
     }
     .link{
       display: inline-block;
-      position: relative;
-      color: #fff;
+      color: inherit;
     }
     .child-type{
-      position: absolute;
-      bottom: 0;
-      left: 0;
       width: 100%;
       height: .5rem;
       line-height: .5rem;
       text-align: center;
-      background: @default_color;
     }
   }
 }

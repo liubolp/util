@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0" name="viewport">
+  <title>商品管理</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <!--动态计算各尺寸下的fontSize-->
+  <script>
+    (function (document, window, size) {
+      var html = document.documentElement,
+        resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        calcFontSize = function () {
+          var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth
+          html.style.fontSize = 100 * (deviceWidth / size) + 'px'
+        }
+      if (!document.addEventListener) { return }
+      window.addEventListener(resizeEvent, calcFontSize, false)
+      document.addEventListener('DOMContentLoaded', calcFontSize, false)
+    })(document, window, 750)
+  </script>
+  <!--临时引入jQuery-->
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="./js/index.js"></script>
+</head>
+<body>
+  <!--所有分类-->
+  <div class="all-category hide">
+    <div class="lm__cell">
+      <div class="lm__list">
+        <div class="lm__checkbox">
+          <label class="common-checkbox">
+            <input type="checkbox">
+            <i class="checkbox-checked"></i>
+            <i class="checkbox-bg"></i>
+          </label>
+        </div>
+        <div class="lm__content">洗漱用品</div>
+        <div class="lm__icon-right">
+          <i class="iconfont">&#xa002;</i>
+        </div>
+      </div>
+      <div class="lm__list">
+        <div class="lm__checkbox">
+          <label class="common-checkbox">
+            <input type="checkbox">
+            <i class="checkbox-checked"></i>
+            <i class="checkbox-bg"></i>
+          </label>
+        </div>
+        <div class="lm__content">洗漱用品</div>
+        <div class="lm__icon-right">
+          <i class="iconfont">&#xa002;</i>
+        </div>
+      </div>
+      <div class="lm__list">
+        <div class="lm__checkbox">
+          <label class="common-checkbox">
+            <input type="checkbox">
+            <i class="checkbox-checked"></i>
+            <i class="checkbox-bg"></i>
+          </label>
+        </div>
+        <div class="lm__content">洗漱用品</div>
+        <div class="lm__icon-right">
+          <i class="iconfont">&#xa002;</i>
+        </div>
+      </div>
+      <div class="lm__list">
+        <div class="lm__checkbox">
+          <label class="common-checkbox">
+            <input type="checkbox">
+            <i class="checkbox-checked"></i>
+            <i class="checkbox-bg"></i>
+          </label>
+        </div>
+        <div class="lm__content">洗漱用品</div>
+        <div class="lm__icon-right">
+          <i class="iconfont">&#xa002;</i>
+        </div>
+      </div>
+    </div>
+    <div class="lm__cell">
+      <button class="lm__button disabled">删除</button>
+    </div>
+    <div class="lm__cell">
+      <button class="lm__button">添加分类</button>
+    </div>
+  </div>
+  <!--编辑名片-->
+  <div class="edit">
+    <div class="lm__cell">
+      <input type="text" class="lm__input" value="今天是个好日子" placeholder="请输入名片名称">
+      <i class="lm__close"></i>
+      <textarea name="" id="" rows="5" class="lm__textarea" placeholder="名片描述"></textarea>
+    </div>
+    <div class="lm__cell"></div>
+  </div>
+</body>
+</html>
