@@ -19,141 +19,165 @@
 .hide{
   display: none !important;
 }
-.disabled{
-  color: #b2b2b2;
+a,input,button{
+  .setTapColor()
 }
-
-.lm__cell{
-  margin-top: .32rem;
-  background: #fff;
+.header-fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
-.lm__list{
-  height: .7rem;
-  padding-top: .2rem;
-  position: relative;
-  margin-left: .5rem;
+.lm__header{
+  height: 1rem;
+  background: linear-gradient(to right, #ffb85b 0%, #ff8e08 100%);
   display: flex;
-  flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-between;
-  &:not(:last-child)::after{
-    .setBottomLine()
-  }
 }
-.lm__content{
-  flex: 1;
-}
-.lm__icon-right{
-  margin-right: .3rem;
-  color: #ccc;
-}
-.lm__checkbox{
-  flex: 0 1 .6rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-.lm__button{
-  -webkit-appearance: none;
-  width: 100%;
-  outline: none;
-  background: none;
-  border: none;
-  height: .8rem;
-}
-/*公用选择选择按钮*/
-.common-checkbox{
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  border-radius: 50%;
+.input-box{
   position: relative;
-  overflow: hidden;
-  [type=checkbox]{
-    visibility:hidden;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
+  margin-left: .9rem;
+  input{
+    width: 5.6rem;
+    height: 25px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    padding: 0 20px;
+    color: #bbbbbb;
   }
-  .checkbox-bg{
+  .iconfont{
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: gray;
-  }
-  .checkbox-checked{
-    position: absolute;
-    width: 40%;
-    height: 60%;
-    bottom: 0;
-    right: 0;
-    border: 1px solid #fff;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    transform: rotate(45deg) translate(-6px);
-    transform-origin: center;
-    z-index: 2;
-  }
-  :checked ~ .checkbox-bg{
-    background: red;
+    top: 3px;
+    left: 2px;
+    color: #bbbbbb;
   }
 }
-
-/*编辑名片*/
-.edit{
-  .lm__cell{
-    padding-left: .5rem;
-    position: relative;
+.toggle-bar{
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 12;
+  .select-box{
+    position: fixed;
+    top: 1rem;
+    right: 10px;
+    background: rgba(188,188,188,0.6);
+    border-radius: 5px;
+    z-index: 5;
+    li{
+      list-style: none;
+      line-height: 25px;
+      padding: 0 5px;
+      &:not(:last-child){
+        border-bottom: 1px solid #fff;
+      }
+    }
+    a{
+      color: #fff;
+    }
+    .add-post, .add-category{
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      background-size: cover;
+    }
+    .add-post{
+      background-image: url("../images/add-post.png")
+    }
+    .add-category{
+      background-image: url("../images/add-category.png");
+    }
   }
-  .lm__close{
-    position: absolute;
-    right: .5rem;
-    top: .35rem;
+  .iconfont{
+    background: url('../images/add.png');
+    background-size: cover;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
-    background: gray;
-    line-height: .7rem;
-    transform: translateY(-50%) rotate(45deg);
-    &::before{
-      content: '';
-      display: inline-block;
-      border-top: 1px solid #fff;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      transform: translateY(-50%) scaleX(.7);
-    }
-    &::after{
-      content: '';
-      display: inline-block;
-      position: absolute;
-      height: 100%;
-      border-right: 1px solid #fff;
-      top: 0;
-      right: 50%;
-      transform: translateX(50%) scaleY(.7);
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.lm__touch-select{
+  width: 100%;
+  height: .8rem;
+  line-height: .8rem;
+  background: #fff;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  &::after{
+    .setBottomLine(#ccc)
+  }
+  li{
+    list-style: none;
+    padding: 0 15px;
+    &.selected{
+      border-bottom: 2px solid #ef7f2d;
     }
   }
 }
-.lm__input{
+
+// 主体列表
+.section-box{
+  position: absolute;
+  top: 1.8rem;
   width: 100%;
-  height: .7rem;
-  border: 1px solid transparent;
-  border-bottom-color: #ccc;
-  outline: none;
-  padding-right: .5rem;
 }
-.lm__textarea{
-  width: 100%;
-  border: none;
-  min-height: 2rem;
-  outline: none;
-  padding: .1rem .5rem .1rem 0;
+.lm__list{
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 12px;
+  &-item{
+    flex: 0 1 33.33%;
+    list-style:none;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    img{
+      width: 1.4rem;
+      height: 1.4rem;
+      border: 0;
+      border-radius: 50%;
+      align-self: center;
+    }
+    .container{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      width: 2.2rem;
+      height: 2.8rem;
+      background: #fff;
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+  .item-hot{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    line-height: 26px;
+    color: #bababa;
+    a{
+      color: #bababa;
+      flex: 1;
+      text-align: right;
+    }
+    .iconfont{
+      background: url("../images/view.png") no-repeat;
+      background-size: cover;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
+  }
+  .item-desc{
+    .ellipsis()
+  }
 }

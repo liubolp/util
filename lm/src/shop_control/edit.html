@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0" name="viewport">
+  <title>商品管理</title>
+  <link rel="stylesheet" href="./css/edit.css">
+  <!--动态计算各尺寸下的fontSize-->
+  <script>
+    (function (document, window, size) {
+      var html = document.documentElement,
+        resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        calcFontSize = function () {
+          var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth
+          html.style.fontSize = 100 * (deviceWidth / size) + 'px'
+        }
+      if (!document.addEventListener) { return }
+      window.addEventListener(resizeEvent, calcFontSize, false)
+      document.addEventListener('DOMContentLoaded', calcFontSize, false)
+    })(document, window, 750)
+  </script>
+  <!--临时引入jQuery-->
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="./js/edit.js"></script>
+</head>
+<body>
+<!--所有分类-->
+<div class="all-category ">
+  <div class="lm__cell">
+    <div class="lm__list">
+      <div class="lm__checkbox">
+        <label class="common-checkbox">
+          <input type="checkbox">
+          <i class="checkbox-checked"></i>
+          <i class="checkbox-bg"></i>
+        </label>
+      </div>
+      <div class="lm__content">洗漱用品</div>
+      <div class="lm__icon-right">
+        <i class="iconfont">&#xa002;</i>
+      </div>
+    </div>
+    <div class="lm__list">
+      <div class="lm__checkbox">
+        <label class="common-checkbox">
+          <input type="checkbox">
+          <i class="checkbox-checked"></i>
+          <i class="checkbox-bg"></i>
+        </label>
+      </div>
+      <div class="lm__content">洗漱用品</div>
+      <div class="lm__icon-right">
+        <i class="iconfont">&#xa002;</i>
+      </div>
+    </div>
+    <div class="lm__list">
+      <div class="lm__checkbox">
+        <label class="common-checkbox">
+          <input type="checkbox">
+          <i class="checkbox-checked"></i>
+          <i class="checkbox-bg"></i>
+        </label>
+      </div>
+      <div class="lm__content">洗漱用品</div>
+      <div class="lm__icon-right">
+        <i class="iconfont">&#xa002;</i>
+      </div>
+    </div>
+    <div class="lm__list">
+      <div class="lm__checkbox">
+        <label class="common-checkbox">
+          <input type="checkbox">
+          <i class="checkbox-checked"></i>
+          <i class="checkbox-bg"></i>
+        </label>
+      </div>
+      <div class="lm__content">洗漱用品</div>
+      <div class="lm__icon-right">
+        <i class="iconfont">&#xa002;</i>
+      </div>
+    </div>
+  </div>
+  <div class="lm__cell">
+    <!--默认添加disabled类名，可以操作时将disabled替换为active-->
+    <button class="lm__button disabled">删除</button>
+  </div>
+  <div class="lm__cell">
+    <button class="lm__button add-category" type="button">添加分类</button>
+  </div>
+</div>
+<!--编辑名片-->
+<div class="edit hide">
+  <div class="lm__cell">
+    <input type="text" class="lm__input" value="今天是个好日子" placeholder="请输入名片名称">
+    <i class="lm__close"></i>
+    <textarea name="" id="" rows="5" class="lm__textarea" placeholder="名片描述"></textarea>
+  </div>
+  <div class="lm__cell">
+    <a href="javascript:;" class="category-select">
+      <span>分类</span>
+      <span class="current-category">洗漱用品</span>
+      <span><i class="iconfont">&#xa002;</i></span>
+    </a>
+  </div>
+  <div class="lm__cell">
+    <button class="lm__button text-left">删除名片</button>
+  </div>
+  <div class="lm__cell">
+    <!--如果输入框里有内容，可以进行保存就将button添加active类名否则添加disabled-->
+    <button class="lm__button text-left active">完成</button>
+  </div>
+</div>
+<!--编辑分类-->
+<div class="edit-category hide">
+  <div class="lm__cell input-box">
+    <input type="text" class="lm__input" value="今天是个好日子" placeholder="请输入名片名称">
+    <i class="lm__close"></i>
+  </div>
+  <div class="lm__cell">
+    <button class="lm__button text-left">删除分类</button>
+  </div>
+  <div class="lm__cell">
+    <!--可以完成时将disabled替换为active-->
+    <button class="lm__button text-left disabled">完成</button>
+  </div>
+</div>
+<!--添加分类模态框-->
+<div class="mode-category hide">
+  <div class="category-container">
+    <h3>添加分类</h3>
+    <input type="text" class="category-name" placeholder="分类名称">
+    <a href="javascript:;" class="lm__button add-complete">关闭</a>
+  </div>
+</div>
+</body>
+</html>
