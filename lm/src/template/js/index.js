@@ -1,4 +1,3 @@
-// import './css/template.less'
 $(function () {
   // 模板选择
   $('.tpl__select').on('click', 'div', function (e) {
