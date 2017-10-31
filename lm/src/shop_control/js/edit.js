@@ -13,17 +13,3 @@ $(function () {
     }
   })
 })
-export default {
-  data () {
-    return {
-      a: [100, 2]
-    }
-  },
-  created () {
-    var arr = [3, 5]
-    return [100, ...arr]
-    this.$on('test', res => {
-      console.log(res)
-    })
-  }
-}

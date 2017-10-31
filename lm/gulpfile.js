@@ -1,16 +1,16 @@
 var gulp = require('gulp')
 var less = require('gulp-less')
 var soucemaps = require('gulp-sourcemaps')
-var postcss = require('gulp-postcss')
-var broswerSync = require('browser-sync')
-var base64 = require('gulp-base64')
-var cssmin = require('gulp-cssmin')
-var rename = require('gulp-rename')
-var del = require('del')
-var babel = require('gulp-babel')
-var uglify = require('gulp-uglify')
-var imagemin = require('gulp-imagemin')
-var watch = require('gulp-watch')
+var postcss = require('gulp-postcss') // css后处理文件
+var broswerSync = require('browser-sync') // 本地和远程调试
+var base64 = require('gulp-base64') // 将小图片转为base64
+var cssmin = require('gulp-cssmin') // 压缩css文件
+var rename = require('gulp-rename') // 重命名文件
+var del = require('del') // 删除目录和文件
+var babel = require('gulp-babel') // 转换es6
+var uglify = require('gulp-uglify') // 压缩js文件
+var imagemin = require('gulp-imagemin') // 压缩图片
+var watch = require('gulp-watch') // 重新构建时只构建更改过的文件
 
 gulp.task('css', function () {
   return gulp.src(['src/**/*.less'])
@@ -58,16 +58,18 @@ gulp.task('js', function () {
 })
 gulp.task('js:min', function () {
   return gulp.src('dist/**/*.js')
+    .pipe(soucemaps.init())
     .pipe(uglify())
     .pipe(rename({
       extname: '.min.js'
     }))
+    .pipe(soucemaps.write('.'))
     .pipe(gulp.dest('dist'))
 })
 
 gulp.task('html', function () {
   return gulp.src('src/*/*.html')
-    .pipe(watch('src/*/*.htm'))
+    .pipe(watch('src/*/*.html'))
     .pipe(gulp.dest('dist'))
 })
 
