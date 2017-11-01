@@ -11,11 +11,12 @@ var babel = require('gulp-babel') // 转换es6
 var uglify = require('gulp-uglify') // 压缩js文件
 var imagemin = require('gulp-imagemin') // 压缩图片
 var watch = require('gulp-watch') // 重新构建时只构建更改过的文件
+var pug = require('gulp-pug')
 
 gulp.task('css', function () {
-  return gulp.src(['src/**/*.less'])
+  return gulp.src(['src/*/css/*.less'])
     // .pipe(soucemaps.init())
-    .pipe(watch('src/**/*.less'))
+    .pipe(watch('src/*/css/*.less'))
     .pipe(less().on('error', function (e) {
       console.error(e.message)
       this.emit('end')
@@ -39,8 +40,8 @@ gulp.task('css:min', function () {
 })
 
 gulp.task('js', function () {
-  return gulp.src(['src/**/*.js'])
-    .pipe(watch('src/**/*.js'))
+  return gulp.src(['src/*/js/*.js'])
+    .pipe(watch('src/*/js/*.js'))
     .pipe(babel({
       presets: [
         ['env', {
@@ -73,6 +74,18 @@ gulp.task('html', function () {
     .pipe(gulp.dest('dist'))
 })
 
+gulp.task('pug', function () {
+  return gulp.src('src/*/*.pug')
+    .pipe(watch('src/*/*.pug'))
+    .pipe(pug({
+      pretty: true
+    })).on('error', function (e) {
+      console.log(e.message)
+      this.emit('end')
+    })
+    .pipe(gulp.dest('dist'))
+})
+
 gulp.task('assets', function () {
   return gulp.src('src/*/images/*')
     .pipe(watch('src/*/images/*'))
@@ -97,4 +110,4 @@ gulp.task('clean', function () {
 })
 
 gulp.task('build', ['css:min', 'js:min'])
-gulp.task('default', ['css', 'html', 'js', 'assets', 'server'])
+gulp.task('default', ['css', 'html', 'pug', 'js', 'assets', 'server'])

@@ -1,0 +1,56 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='format-detection', content='telephone=no')
+    meta(
+    name='viewport'
+    content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    )
+    link(rel='stylesheet', href='./css/register.css')
+    script.
+      (function (document, window, size) {
+        var html = document.documentElement,
+          resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          calcFontSize = function () {
+            var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth
+            html.style.fontSize = 100 * (deviceWidth / size) + 'px'
+          }
+        if (!document.addEventListener) { return }
+        window.addEventListener(resizeEvent, calcFontSize, false)
+        document.addEventListener('DOMContentLoaded', calcFontSize, false)
+      })(document, window, 750)
+    script(src='http://code.jquery.com/jquery-1.12.4.min.js', defer)
+    script(src='./js/register.js', defer)
+  body
+    div#continaer
+      header
+        img.logo(src='./images/logo.png')
+      section
+        div.input-item.auth
+          i.iconfont &#xe660;
+          input(placeholder='请输入你的手机号码')
+          button#getcode(type='button') 获取验证码
+        div.input-item
+          i.iconfont &#xe614;
+          input(placeholder='请输入验证码')
+        div.input-item.password
+          i.iconfont &#xe63d;
+          input.pwd(type='password', placeholder='请输入密码')
+          i.iconfont.right.hided &#xe618;
+        div.other-entry
+          label
+            input(type='checkbox', checked)
+            | 注册即表示同意
+            a(href='javascript:;') 《用户协议》
+            i.checkbox-mask
+          a.text-button(href='javascript:;') 国际注册
+        div.button-box
+          a.button(href='javascript:;') 注册
+          a.register(href='javascript:;')
+            span 已有账号？
+            |直接登录
+      footer
+        a(href='javascript:;')
+          i.iconfont &#xe692;
+          span 联系客服
