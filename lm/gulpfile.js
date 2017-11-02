@@ -11,15 +11,16 @@ var babel = require('gulp-babel') // 转换es6
 var uglify = require('gulp-uglify') // 压缩js文件
 var imagemin = require('gulp-imagemin') // 压缩图片
 var watch = require('gulp-watch') // 重新构建时只构建更改过的文件
+var changed = require('gulp-changed') // 只传递更改过的文件
 var pug = require('gulp-pug')
 
 gulp.task('css', function () {
   return gulp.src(['src/*/css/*.less'])
-    // .pipe(soucemaps.init())
     .pipe(watch('src/*/css/*.less'))
     .pipe(less().on('error', function (e) {
       console.error(e.message)
       this.emit('end')
+      gulp.watch('src/*/css/*.less', ['css'])
     }))
     .pipe(base64({
       extensions: ['png', 'jpg', 'jpeg'],
@@ -27,15 +28,16 @@ gulp.task('css', function () {
       debug: false
     }))
     .pipe(postcss([require('precss'), require('autoprefixer')(['iOS >= 7', 'Android >= 4.1'])]))
-    // .pipe(soucemaps.write('.'))
     .pipe(gulp.dest('dist'))
 })
 gulp.task('css:min', function () {
   gulp.src(['dist/**/*.css'])
+    .pipe(soucemaps.init())
     .pipe(cssmin())
     .pipe(rename({
       extname: '.min.css'
     }))
+    .pipe(soucemaps.write('.'))
     .pipe(gulp.dest('dist'))
 })
 
@@ -54,6 +56,7 @@ gulp.task('js', function () {
     }).on('error', function (e) {
       console.error(e.message)
       this.emit('end')
+      gulp.watch('src/*/js/*.js', ['js'])
     }))
     .pipe(gulp.dest('dist'))
 })
@@ -82,6 +85,7 @@ gulp.task('pug', function () {
     })).on('error', function (e) {
       console.log(e.message)
       this.emit('end')
+      gulp.watch('src/*/*.pug', ['pug'])
     })
     .pipe(gulp.dest('dist'))
 })
