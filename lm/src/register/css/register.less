@@ -50,16 +50,21 @@ section{
   &.auth{
     position: relative;
     button{
-      background: none;
-      border: 1px solid #ccc;
+      background: @default_color;
+      border: 1px solid @default_color;
       border-radius: 5px;
       outline: none;
       position: absolute;
       padding: 0 10px;
       right: 10px;
       top: 5px;
-      color: #b3b3b3;
+      color: #fff;
       height: 30px;
+      &:disabled{
+        border: 1px solid #ccc;
+        background: none;
+        color: #b3b3b3;
+      }
     }
     input{
       padding-right: 100px;

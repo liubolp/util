@@ -7,6 +7,7 @@ html
       name='viewport'
       content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
     )
+    title 登录
     link(rel='stylesheet', href='./css/login.css')
     script.
       (function (document, window, size) {
@@ -29,15 +30,15 @@ html
       section
         div.input-item
           i.iconfont &#xe660;
-          input(placeholder='请输入你的手机号码')
+          input(placeholder='请输入你的手机号码' type='tel' name='telephone')
         div.input-item.password
           i.iconfont &#xe63d;
-          input.pwd(type='password', placeholder='请输入密码')
+          input.pwd(type='password', placeholder='请输入密码' name='password')
           i.iconfont.right.hided &#xe618;
         div.other-entry
           a.text-button(href='javascript:;') 忘记密码？
         div.button-box
-          a.button(href='javascript:;') 登录
+          a.button.login(href='javascript:;') 登录
           a.register(href='javascript:;') 立即注册
       footer
         a(href='javascript:;')

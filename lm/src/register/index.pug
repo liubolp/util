@@ -7,6 +7,7 @@ html
     name='viewport'
     content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
     )
+    title 注册
     link(rel='stylesheet', href='./css/register.css')
     script.
       (function (document, window, size) {
@@ -29,14 +30,14 @@ html
       section
         div.input-item.auth
           i.iconfont &#xe660;
-          input(placeholder='请输入你的手机号码')
-          button#getcode(type='button') 获取验证码
+          input(placeholder='请输入你的手机号码' type='tel' name='telephone' maxlength='20')
+          button#getcode(type='button' disabled) 获取验证码
         div.input-item
           i.iconfont &#xe614;
-          input(placeholder='请输入验证码')
+          input(placeholder='请输入验证码', name='verification')
         div.input-item.password
           i.iconfont &#xe63d;
-          input.pwd(type='password', placeholder='请输入密码')
+          input.pwd(type='password', placeholder='请输入密码', name='password' maxlength='20')
           i.iconfont.right.hided &#xe618;
         div.other-entry
           label
@@ -46,7 +47,7 @@ html
             i.checkbox-mask
           a.text-button(href='javascript:;') 国际注册
         div.button-box
-          a.button(href='javascript:;') 注册
+          a.button.submit(href='javascript:;') 注册
           a.register(href='javascript:;')
             span 已有账号？
             |直接登录

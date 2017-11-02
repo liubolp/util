@@ -11,9 +11,39 @@
       input.attr('type', 'password')
     }
   })
-  // 获取验证码
-  $('#getcode').click(e => {
-    // todo 调用发短信的借口
-    console.log(1)
+  // 电话号码开始输入
+  var getCode = $('#getcode')
+  $('[name=telephone]').on('input', function (e) {
+    getCode.prop('disabled', false)
   })
+    .on('blur', function (e) {
+      if (!$(this).val()) {
+        getCode.prop('disabled', true)
+      }
+    })
+  // 获取验证码
+  getCode.click(e => {
+    var isTelephone = checkTelephone($('[name=telephone]').val())
+    if (isTelephone) {
+      // todo 调用发短信的借口
+    } else {
+      // todo 提示电话号码输入错误
+    }
+  })
+  // 注册操作
+  $('a.submit').click(function (e) {
+    var telephone = $('[name=telephone]').val()
+    var verification = $('[name=verification]').val()
+    var password = $('[name=password]').val()
+    var protocol = $('[type=checkbox]').prop('checked')
+    if (telephone && verification && password && protocol) {
+      // todo 向后台发请求
+    } else {
+      // todo 提示错误信息
+    }
+  })
+  // 检查手机号码
+  function checkTelephone (tel) {
+    return /^\d{5,20}$/.test(tel.trim())
+  }
 })($)

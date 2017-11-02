@@ -11,4 +11,12 @@
       input.attr('type', 'password')
     }
   })
+  // 登录操作
+  $('a.login').click(function (e) {
+    var telephone = $('[name=telephone]').val()
+    var password = $('[name=password]').val()
+    if (telephone && password) {
+      // todo 发送请求
+    }
+  })
 })($)
