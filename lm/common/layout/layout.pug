@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    block meta
+      meta(name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,' +
+      'user-scalable=no')
+      meta(name='format-detection' content='telephone=no,email=no')
+    block script
+      script
+        include:uglify-js ../../../dist/calc_font_size.js
+    block local
+      link(rel='stylesheet' href='./css/index.css')
+    block weui
+      link(rel='stylesheet' href='http://localhost:63342/util/lm/common/weui/weui.min.css')
+      script(src='http://localhost:63342/util/lm/common/weui/weui.min.js' defer)
+      script(src='http://code.jquery.com/jquery-1.12.4.min.js', defer)
+  body
+    block content
+    block footer
+      script(src='./js/index.js' defer)

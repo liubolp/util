@@ -1,0 +1,22 @@
+extends ../../common/layout/layout
+block append meta
+  title 商脉搜索
+block content
+  header something
+  section
+    // 商脉列表
+    div.tpl-list
+      ul
+        - for (var i = 0; i < 10; i++)
+          li
+            div.tpl-img
+              img(src='./images/tupian.png' alt='图片')
+              img.tpl-mark(src='./images/biaoshi.png')
+            div
+              p
+                span.tpl-name 陈润阳
+                span.tpl-desc 讲师，董事长
+              p.tpl-company 重庆链脉网络科技有限公司
+            div.btns
+              a(href='#').add-wechat 加微信
+              a(href='#').change-post 交换名片

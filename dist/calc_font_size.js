@@ -4,13 +4,13 @@
  * 经过计算后1rem等于100px
  */
 (function (document, window, size) {
-	var html = document.documentElement,
-			resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
-			calcFontSize = function () {
-				var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth;
-				html.style.fontSize = 100 * (deviceWidth / size) + 'px';
-			};
-	if (!document.addEventListener) {return;}
-	window.addEventListener(resizeEvent, calcFontSize, false);
-	document.addEventListener('DOMContentLoaded', calcFontSize, false);
-})(document, window, 750);
+  var html = document.documentElement,
+    resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    calcFontSize = function () {
+      var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth
+      html.style.fontSize = 100 * (deviceWidth / size) + 'px'
+    }
+  if (!document.addEventListener) { return }
+  window.addEventListener(resizeEvent, calcFontSize, false)
+  document.addEventListener('DOMContentLoaded', calcFontSize, false)
+})(document, window, 750)

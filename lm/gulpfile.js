@@ -81,7 +81,8 @@ gulp.task('pug', function () {
   return gulp.src('src/*/*.pug')
     .pipe(watch('src/*/*.pug'))
     .pipe(pug({
-      pretty: true
+      // pretty: true
+      cache: true
     })).on('error', function (e) {
       console.log(e.message)
       this.emit('end')
