@@ -2,7 +2,54 @@ extends ../../common/layout/layout
 block append meta
   title 商脉搜索
 block content
-  header something
+  header.fixed
+    ul.nav-bar
+      li.selected 搜人脉
+      li 商群
+      li 名片夹
+      li 人脉统计
+    div.search-bar
+      div.search-box
+        input.search-content(placeholder='请输入姓名、手机、公司名称' name='content')
+        i.iconfont.close.hide &#xe771
+      i.iconfont.search &#xe600
+    ul.filter-bal
+      li.filter-item 行业
+        i.iconfont.down &#xe609
+        div.filter-content.hide
+          ul.first
+            - for (var i=0; i< 5; i++)
+              li(class= i==0 ? 'selected' : '') 金融证券
+          ul.second
+            - for (var i=0; i<10; i++)
+              li&attributes({class: i==1? 'selected': ''}) 婚恋交友
+                i.iconfont &#xe61b
+      li.filter-item 性别
+        i.iconfont.down &#xe609
+        div.filter-content.hide
+          ul.gender
+            li.selected 不限
+              i.iconfont &#xe61b
+            li 男
+              i.iconfont &#xe61b
+            li 女
+              i.iconfont &#xe61b
+      li.filter-item 供需
+        i.iconfont.down &#xe609
+        div.filter-content.hide
+          ul.supply
+            li.selected 我的需求
+              i.iconfont &#xe61b
+            li 我的供应
+              i.iconfont &#xe61b
+      li.filter-item 实名认证
+        i.iconfont.down &#xe609
+        div.filter-content.hide
+          ul.auth
+            li.selected 无
+              i.iconfont &#xe61b
+            li 已认证
+              i.iconfont &#xe61b
   section
     // 商脉列表
     div.tpl-list

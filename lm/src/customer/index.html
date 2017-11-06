@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>会员中心</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href="css/base.css" type="text/css" rel="stylesheet" />
+<link href="css/main.css" type="text/css" rel="stylesheet" />
+<link href="css/swiper-3.4.2.min.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="./css/index.css">
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+<script src="https://cdn.bootcss.com/Swiper/4.0.1/js/swiper.min.js" type="text/javascript" defer></script>
+
+<script defer>
+  var mySwiper;
+  window.addEventListener('load', function () {
+    $(".lyl_center_nav h2").click(function(){
+      $(".lyl_center_nav h2").not($(this)).next().slideUp();
+      $(this).next().slideToggle();
+      $(".lyl_center_nav h2").not($(this)).find(".arrow").removeClass("wj_ani");
+      $(this).find(".arrow").toggleClass("wj_ani");
+    });
+      mySwiper = new Swiper ('.swiper-container', {
+      longSwipes: false,
+      loop: true,
+      pagination : '.swiper-pagination',
+      paginationType : 'bullets'
+    });
+    setInterval(function () {
+      mySwiper.slideNext()
+    }, 4000);
+  })
+  function hide_attention(){
+    $(".mask_attention").hide();
+  }
+  function hide_newuserguide(){
+    $(".lyl_newuserguide").hide();
+  }
+</script>
+<style type="text/css">
+	.wj_ani { transform: rotateZ(90deg); transition: .2s;}
+</style>
+</head>
+
+<body class="g_flex">
+<!--底部-->
+<div class="g_footer">
+	<li><i class="iconfont">&#xa046;</i>推广</li>
+	<li><i class="iconfont">&#xa047;</i>商脉</li>
+	<li onclick=""><p><img src="images/face.jpg"></p></li>
+	<li><i class="iconfont">&#xa044;</i>链店</li>
+	<li class="select"><i class="iconfont">&#xa045;</i>我的</li>
+</div>
+<!--内容区-->
+<div class="g_box">
+	<div class="g_home bg_eee">
+		<!--头部-->
+    <div class="header-box">
+      <div class="entry-box">
+        <a href="#" class="icon-box qr"></a>
+        <a href="#" class="icon-box message new"></a>
+        <a href="#" class="icon-box setting"></a>
+      </div>
+      <div class="personal-box">
+        <a class="img-box" href="#">
+          <img src="./images/icon/xiaoxi1.png" alt="头像">
+        </a>
+        <div class="name-box">
+          <p>
+            scott
+            <i class="auth-mark"></i>
+          </p>
+          <a href="#">已实名认证</a>
+        </div>
+        <a href="#" class="sign-in"></a>
+      </div>
+    </div>
+    <!--个人信息概要-->
+    <ul class="personal-summary">
+      <li>
+        <p>12</p>
+        我的盟友
+      </li>
+      <li>
+        <p>12</p>
+        我的收入
+      </li>
+      <li>
+        <p class="iconfont">&#xe671;</p>
+        名片夹
+      </li>
+    </ul>
+    <!--会员信息概要-->
+    <ul class="customer-summary">
+      <li>
+        <span>免费会员<i class="custom-rect">去升级</i></span>
+        <p class="details">终生免费</p>
+      </li>
+      <li>
+        <span>添加商脉<i class="custom-rect">共10个</i></span>
+        <p class="details">每天10个</p>
+      </li>
+      <li>
+        <span>数据统计<i class="custom-rect">去查看</i></span>
+        <p class="details">浏览/分享量</p>
+      </li>
+    </ul>
+		<!--<div class="lyl_header_nav">
+			<li>免费<b>去升级</b><small>至2017-12-22</small></li>
+			<li>链友圈<b>10</b><small>每天10/共100个</small><p>新</p></li>
+			<li>群推<small>引爆裂变推广</small></li>
+		</div>-->
+		<!--新手引导，判断用户未开通名片则显示-->
+		<!--<div class="lyl_newuserguide">
+			<div class="close" onclick="hide_newuserguide()">×</div>
+			<img src="images/newuser_guide.jpg" onclick="show_guide()">
+		</div>-->
+		<div class="swiper-container lyl_newuserguide">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="images/newuser_guide.jpg" />
+				</div>
+				<div class="swiper-slide">
+					<img src="images/newuser_guide.jpg" />
+				</div>
+				<div class="swiper-slide">
+					<img src="images/newuser_guide.jpg" />
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+			<div class="close" onclick="hide_newuserguide()">×</div>
+		</div>
+		<!--导航区1-->
+		<div class="lyl_index_nav1">
+			<li><i class="iconfont dh_lan">&#xe669;</i>编辑主页</li>
+			<li><i class="iconfont dh_cheng">&#xe670;</i>名片复制</li>
+			<li><i class="iconfont dh_zi">&#xe664;</i>选择风格</li>
+			<li><i class="iconfont dh_shenlan">&#xe671;</i>名片夹</li>
+			<li><i class="iconfont dh_meihong">&#xe667;<p>新</p></i>邀请卡</li>
+			<li><i class="iconfont dh_huang">&#xe663;</i>商脉</li>
+			<li class="dh_hui"><i class="iconfont">&#xe65e;</i>商群</li>
+			<li><i class="iconfont dh_qing">&#xe66b;</i>分享设置</li>
+			<li class="dh_hui"><i class="iconfont">&#xe666;</i>推荐有奖</li>
+			<li class="dh_hui"><i class="iconfont">&#xe668;</i>定制名片</li>
+		</div>
+		<!--功能导航-->
+		<div class="lyl_center_nav" style="margin-bottom: 0;">
+			<h2><i class="iconfont dh_lv">&#xe65f;</i>名片制作<div class="iconfont arrow">&#xa002;</div></h2>
+			<div class="content">
+				<ul>
+				<li><i class="iconfont dh_lv">&#xa054;</i>基础资料</li>
+				<li><i class="iconfont color_zise">&#xa052;</i>扩展资料</li>
+				<li><i class="iconfont">&#xa007;</i>供需信息</li>
+				<li><i class="iconfont color_huangse">&#xa015;</i>相册</li>
+				<li><i class="iconfont color_huangse">&#xa039;</i>个性录音</li>
+				<li><i class="iconfont">&#xe651;</i>背景音乐</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="lyl_center_nav">
+			<h2><i class="iconfont dh_hong">&#xe66a;</i>推广工具<div class="iconfont arrow">&#xa002;</div></h2>
+			<div class="content">
+				<ul>
+				<li><i class="iconfont color_zise">&#xa017;</i>H5</li>
+				<li><i class="iconfont">&#xa012;</i>视频制作</li>
+				<li><i class="iconfont color_chengse">&#xa016;</i>推广海报</li>
+				<li><i class="iconfont color_lvse">&#xc005;</i>链脉秀</li>
+				<li><i class="iconfont color_lvse">&#xa009;</i>个人文章</li>
+				<li><i class="iconfont color_lvse">&#xa049;</i>能量卡<span>敬候</span></li>
+				<li><i class="iconfont color_chengse">&#xa014;</i>贺卡<span>敬候</span></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="lyl_center_nav">
+			<h2><i class="iconfont dh_huang">&#xe66c;</i>会员中心<div class="iconfont arrow">&#xa002;</div></h2>
+			<div class="content">
+				<ul>
+				<li><i class="iconfont color_zise">&#xd001;</i>会员权益</li>
+				<li><i class="iconfont color_huangse">&#xa019;</i>会员升级</li>
+				<li><i class="iconfont color_lvse">&#xa020;</i>会员续费</li>
+				<li><i class="iconfont">&#xa010;</i>会员订单</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="lyl_center_nav" style="margin-bottom: 0;">
+			<h2><i class="iconfont dh_lv">&#xe66c;</i>特色功能<div class="iconfont arrow">&#xa002;</div></h2>
+			<div class="content">
+				<ul>
+				<li><i class="iconfont color_zise">&#xe60d;</i>开通会员</li>
+				<li><i class="iconfont">&#xe659;<p>新</p></i>数据统计</li>
+				<li><i class="iconfont color_huangse">&#xa047;</i>摇一摇</li>
+				<li><i class="iconfont color_chengse">&#xa023;</i>查看留言</li>
+				<li><i class="iconfont color_lvse">&#xa005;</i>企业名片</li>
+				<li><i class="iconfont">&#xa011;</i>企业头条</li>
+				<li><i class="iconfont">&#xa021;</i>品牌编辑</li>
+				<li><i class="iconfont color_huangse">&#xa022;<p>新</p></i>收藏夹</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="lyl_center_nav">
+			<h2><i class="iconfont dh_cheng">&#xe66e;</i>联盟商家<div class="iconfont arrow">&#xa002;</div></h2>
+			<div class="content">
+				<ul>
+				<li><i class="iconfont color_chengse">&#xd006;</i>装修链店</li>
+				<li><i class="iconfont color_huangse">&#xe610;</i>商品分类</li>
+				<li><i class="iconfont color_lvse">&#xa037;</i>商品管理</li>
+				<li><i class="iconfont">&#xa044;</i>我的链店</li>
+				<li><i class="iconfont">&#xa036;</i>联盟商家<span>敬候</span></li>
+				<li><i class="iconfont color_chengse">&#xa035;</i>优惠券<span>敬候</span></li>
+				<li><i class="iconfont">&#xa038;</i>查订单</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="lyl_center_nav">
+			<h2><i class="iconfont dh_tianlan">&#xe66d;</i>客户服务<div class="iconfont arrow">&#xa002;</div></h2>
+			<div class="content">
+				<ul>
+				<li><i class="iconfont">&#xa034;<p>新</p></i>使用教程</li>
+				<li><i class="iconfont">&#xa034;</i>功能说明</li>
+				<li><i class="iconfont">&#xa005;</i>关于我们</li>
+				<li><i class="iconfont">&#xa031;</i>投诉建议</li>
+				<li><i class="iconfont">&#xa031;</i>推荐文章</li>
+				<li><i class="iconfont">&#xd004;</i>联系客服</li>
+				</ul>
+			</div>
+		</div>
+		<!--版权-->
+		<div class="copyright">由链脉科技提供运营服务<br>客服：
+			<a href="tel:4008119551">400-811-9551</a>
+		</div>
+	</div>
+</div>
+
+<!--关注公众号弹出层-->
+<div class="mask_attention" style="display: none;">
+	<img src="images/guanzhugzh.png"  onclick="location='#'">
+	<div class="but" onclick="hide_attention()">我知道了</div>
+</div>
+
+<!--新手引导弹出层-->
+<div class="mask_guide">
+	<img src="images/step1.png">
+	<img src="images/step2.png">
+	<img src="images/step3.png">
+	<img src="images/step4.png">
+	<img src="images/step5.png" style="position: absolute; bottom: 0; margin-top: auto;">
+	<!--<img src="images/step2.png" onclick="">-->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+@import "../../../common/reset/rest";
+
+@default_color:#fd9923;
+.theme-color{
+  color: @default_color !important;
+}
+body{
+  font-size: 12px;
+}
+// 头部页面
+.header-box{
+  height: 37.33vw;
+  padding: 10px 15px;
+  background: @default_color;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+img{
+  vertical-align: middle;
+}
+.entry-box{
+  display: flex;
+  justify-content: flex-end;
+  .icon-box{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    background-size: cover;
+    &.qr{
+      background-image: url("../images/icon/qr.png");
+    }
+    &.message{
+      background-image: url("../images/icon/xiaoxi1.png");
+      &.new{
+        background-image: url('../images/icon/xiaoxi.png');
+      }
+      
+    }
+    &.setting{
+      background-image: url("../images/icon/shezhi.png");
+    }
+  }
+}
+.personal-box{
+  display: flex;
+  align-items: center;
+  .img-box{
+    position: relative;
+    &::before{
+      content: '';
+      width: 4vw;
+      height: 4vw;
+      background-image: url("../images/icon/chuang.png");
+      background-size: cover;
+      position: absolute;
+      bottom: 2px;
+      left: 14vw;
+    }
+    img{
+      width: 17.33vw;
+      height: 17.33vw;
+      border: 3px solid #fff;
+      border-radius: 50%;
+    }
+  }
+  .name-box{
+    flex: 1;
+    margin-left: 15px;
+    color: #fff;
+    .auth-mark{
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      background-image: url('../images/icon/renzheng.png');
+      background-size: cover;
+      vertical-align: baseline;
+    }
+    p{
+      font-weight: bold;
+      font-size: 16px;
+    }
+    a{
+      color: #fff;
+      &::after{
+        content: '';
+        .setArrow(right, 6px, #fff, 1px);
+        top: -1px;
+      }
+    }
+  }
+  .sign-in{
+    width: 73px;
+    height: 26px;
+    background-size: cover;
+    background-image: url("../images/icon/jingjia.png");
+    margin-right: 20px;
+  }
+}
+
+// 个人信息概要
+.personal-summary{
+  display: flex;
+  height: 70px;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  background: #fff;
+  margin-bottom: 10px;
+  li{
+    flex: 1;
+  }
+  p{
+    color: @default_color;
+  }
+}
+
+// 会员信息概要
+.custom-rect{
+  font-style: normal;
+  display: inline-block;
+  background: @default_color;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  padding-right: 5px;
+  font-size: 12px;
+  margin-left: 8px;
+  line-height: normal;
+  &::before{
+    content: '';
+    width: 10px;
+    height: 100%;
+    background: #fd9923;
+    position: absolute;
+    left: -4px;
+    top: 0;
+    z-index: -1;
+    transform: skewX(-17deg);
+  }
+}
+.customer-summary{
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  height: 80px;
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 10px;
+  background: #fff;
+  .details{
+    color: @default_color;
+    .ellipsis()
+  }
+  li{
+    flex-basis: 33.33%;
+    &:not(:last-child){
+      position: relative;
+      &::after{
+        .setRightLine()
+      }
+    }
+  }
+}
