@@ -1,0 +1,66 @@
+extends ../../common/layout/layout
+block append meta
+  title 我的盟友
+block content
+  header.fixed
+    div.recommend
+      span 我的推荐人：陈润阳（15680764837）
+      a(href='#') 我的收入
+        i.iconfont &#xe608
+    div.search-bar
+      div.search-box
+        input.search-content(placeholder='输入会员昵称' name='content')
+        i.iconfont.close.hide &#xe771
+      i.iconfont.search &#xe600
+    ul.nav-bar
+      li.selected 直接会员
+        i.total 99
+      li 间接会员
+        i.total 9
+      li 合伙人
+        i.total 9999
+      li 搜索
+  section
+    div.tpl-list
+      ul
+        - for (var i = 0; i < 10; i++)
+          li
+            div.tpl-img
+              img(src='./images/tupian.png' alt='图片')
+              img.tpl-mark(src='./images/biaoshi.png')
+            div
+              p
+                span.tpl-name 陈润阳
+                span.tpl-desc 讲师，董事长
+              p.tpl-company 重庆链脉网络科技有限公司
+              time.time 2017年10月22日
+            div.btns
+              a(href='#').customer-detials 查看会员
+  div.filter-box
+    div.content
+      div.register-date
+        h3 注册日期
+        div.date-box
+          div.date-start
+            input(type='text' placeholder='2016年12月22日' name='date-start' disabled)
+            i.arrow
+          | 至
+          div.date-end
+            input(type='text' placeholder='请选择结束时间' name='date-end' disabled)
+            i.arrow
+      div.customer-level
+        h3 会员等级
+        ul.level-list
+          li
+            span 免费
+          li.selected
+            span 金星
+          li
+            span 钻石
+          li
+            span 皇冠
+          li
+            span 合伙人
+      div.result
+        a(href='#').cancel 取消
+        a(href='#').confirm 完成

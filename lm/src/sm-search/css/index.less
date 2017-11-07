@@ -33,20 +33,23 @@ header.fixed{
   left: 0;
   right: 0;
   z-index: 10;
+  background: url('../images/backg.png') no-repeat;
+  background-size: 100vw 90px;
 }
 .nav-bar{
   height: 40px;
   line-height: 40px;
-  background: #fff;
   display: flex;
   justify-content: space-around;
   text-align: center;
+  padding: 0 10px;
+  color: #808080;
   li{
     flex: 1;
     &.selected{
       position: relative;
-      color: @default_color;
-      border-bottom: 1px solid #f28300;
+      color: #fff;
+      border-bottom: 2px solid #fff;
     }
   }
 }
@@ -55,7 +58,6 @@ header.fixed{
   padding: 0 10px;
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, #ffb85b 0%, #ffa637 60%, #ff8e08 100%);
   .search-box{
     flex: 1;
     position: relative;

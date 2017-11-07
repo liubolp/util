@@ -1,0 +1,159 @@
+@import "../../../common/reset/rest";
+@font-face {
+  font-family: iconfont;
+  src: url('data:application/octet-stream;base64,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');
+}
+.iconfont{
+  font-family: iconfont !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body{
+  font-size: 12px;
+}
+li{
+  list-style: none;
+}
+@default_color: #f28300;
+@border_color: #bdbfc1;
+
+header.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.recommend{
+  height: 30px;
+  background: #d4d7d8;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+  a{
+    color: inherit;
+  }
+  .iconfont{
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.nav-bar{
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  position: relative;
+  &::after{
+    .setBottomLine(@border_color)
+  }
+  li{
+    flex: 1;
+    white-space: nowrap;
+    &.selected{
+      position: relative;
+      color: @default_color;
+      border-bottom: 2px solid @default_color;
+    }
+  }
+  .total{
+    position: relative;
+    display: inline-block;
+    font-style: normal;
+    top: -7px;
+    right: 0;
+    min-width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: red;
+    line-height: 12px;
+    padding: 0 3px;
+    color: #fff;
+  }
+}
+/*flex layout*/
+.tpl-flex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.tpl-list{
+  padding-top: 70px;
+  .title{
+    height: .7rem;
+    line-height: .7rem;
+    padding-left: .35rem;
+    color: #9fa2a3;
+  }
+  li{
+    .tpl-flex;
+    min-height: 1.85rem;
+    padding: .25rem;
+    background: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    position: relative;
+    &::after{
+      .setBottomLine(@border_color)
+    }
+    img{
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+    }
+    .tpl-img{
+      position: relative;
+      flex-basis: 1.4rem;
+      text-align: center;
+      margin-right: 10px;
+      & + div{
+        flex: 1;
+      }
+    }
+    .tpl-mark{
+      width: .2rem;
+      height: .2rem;
+      right: .1rem;
+      bottom: .2rem;
+      position: absolute;
+    }
+    .tpl-name,.tpl-company{
+      font-size: 14px;
+      color: #000;
+      margin-right: .1rem;
+      line-height: 1.5;
+      .ellipsis()
+    }
+    .time{
+      line-height: 30px;
+    }
+    .tpl-desc{
+      font-size: 12px;
+    }
+    a{
+      text-decoration: none;
+      box-sizing: content-box;
+      height: .36rem;
+      line-height: .36rem;
+      border: 1px solid @default_color;
+      border-radius: 3px;
+      color: @default_color;
+      padding: 2px 5px;
+      font-size: 14px;
+    }
+  }
+  .btns{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-self: normal;
+    text-align: center;
+    flex: 0 0 75px;
+  }
+}

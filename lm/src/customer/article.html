@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文章库</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href="css/base.css" type="text/css" rel="stylesheet" />
+<link href="css/main.css" type="text/css" rel="stylesheet" />
+  <!--todo 将jquery替换为公用路径下的-->
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+  <!--修改后的fix样式-->
+<style>
+    .fixed,.nav-bar{background:#fff}.fixed{position:fixed;top:0;left:0;right:0;z-index:10}.fixed-padding{margin-top:90px}.lyl_article_class_mid{background:#fff;margin-bottom:10px}.nav-bar{height:40px;line-height:40px;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-justify-content:space-around;justify-content:space-around;text-align:center}.nav-bar li{-webkit-box-flex:1;-webkit-flex:1;flex:1}.nav-bar li.selected{position:relative;color:#ffb659;border-bottom:2px solid #f28300}.search-bar{height:50px;padding:0 10px;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;background:-webkit-linear-gradient(left,#ffb85b 0,#ffa637 60%,#ff8e08 100%);background:linear-gradient(to right,#ffb85b 0,#ffa637 60%,#ff8e08 100%)}.search-bar .search-box{-webkit-box-flex:1;-webkit-flex:1;flex:1}.search-bar .search-content{width:100%;height:25px;border:none;padding:0 5px;background:#fff;border-radius:5px;outline:0;vertical-align:bottom;box-sizing:border-box}.search-bar .iconfont{width:30px;text-align:right;color:#fff;font-size:20px}.lyl_article_class_mid li .img{width:12vw;height:12vw;border-radius:inherit}
+  </style>
+<script>
+function show_class() {
+	$(".lyl_temp_class_all").slideToggle(200);
+}
+
+window.addEventListener('load', function () {
+  $(function () {
+    $('.nav-bar').on('click', 'li', function (e) {
+      $(this).addClass('selected').siblings().removeClass('selected')
+      // todo 切换按钮操作
+    })
+  })
+  $('.search-bar .search').click(function (e) {
+    var value = $('.search-content').val()
+    // todo 进行搜索功能
+  })
+})
+</script>
+</head>
+
+<body class="g_flex">
+<!--底部-->
+<div class="g_footer">
+	<li class="select"><i class="iconfont">&#xd001;</i>会员中心</li>
+	<li><i class="iconfont">&#xd003;</i>链空间</li>
+	<li><i class="iconfont">&#xd006;</i>链商城</li>
+	<li><i class="iconfont">&#xd005;</i>链学院</li>
+	<li><i class="iconfont">&#xd004;</i>联系客服</li>
+</div>
+<!--内容区-->
+<div class="g_box">
+	<div class="g_home">
+    <div class="fixed">
+      <div class="search-bar">
+        <div class="search-box"><input class="search-content" placeholder="搜索文章名称" name="content">
+        </div>
+        <i class="iconfont search">&#xe662</i>
+      </div>
+      <ul class="nav-bar">
+        <li class="selected">文章</li>
+        <li>神器</li>
+        <li>学院</li>
+        <li>教程</li>
+        <li>我们</li>
+      </ul>
+    </div>
+		<!--文章上部所有分类-->
+		<div class="lyl_temp_class_all">
+				<div class="in">
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				<dl><p>文章分类</p></dl>
+				</div>
+				<div class="close" onclick="show_class()">×</div>
+		</div>
+		<!--广告-->
+		<div class="lyl_article_ad  fixed-padding"><img src="images/Ld_banner.jpg"></div>
+		<!--中部分类-->
+		<div class="lyl_article_class_mid">
+			<li><div class="img"><img src="images/icon/huor.png"></div>最热</li>
+			<li><div class="img"><img src="images/icon/jing.png"></div>静心</li>
+			<li><div class="img"><img src="images/icon/zhangzhishi.png"></div>涨知识</li>
+			<li onclick="show_class()"><div class="img"><img src="images/icon/fenlei.png"></div>分类</li>
+		</div>
+		<!--文章列表-->
+		<div class="lyl_article_list">
+			<li>
+				<div class="img" style="background-image: url(images/reg_bg.jpg);"><p>原创</p></div>
+				<div class="content">
+					<b><i class="iconfont">&#xa019;</i>标题标题标题标题标题标题标题标题标题标题标题标题</b>
+					<p>摘要摘要摘要摘摘要摘要</p>
+					<small>2017-3-2&nbsp;&nbsp;阅读：1234<i>最新</i></small>
+					<i class="iconfont money">&#xe613;</i>
+				</div>
+			</li>
+			<li>
+				<div class="img" style="background-image: url(images/face.jpg);"><p>原创</p></div>
+				<div class="content">
+					<b>标题标题标题标题标题标题标题标题标题标题标题标题</b>
+					<p>摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</p>
+					<small>2017-3-2&nbsp;&nbsp;阅读：1234</small>
+				</div>
+			</li>
+			<li>
+				<div class="img" style="background-image: url(images/voice_bg.jpg);"><p>原创</p></div>
+				<div class="content">
+					<b>标题标题标题标题标题标题标题标题标题标题标题标题</b>
+					<p>摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</p>
+					<small>2017-3-2&nbsp;&nbsp;阅读：1234</small>
+				</div>
+			</li>
+			<li>
+				<div class="img" style="background-image: url(images/voice_bg.jpg);"></div>
+				<div class="content">
+					<b>标题标题标题标题标题标题标题标题标题标题标题标题</b>
+					<p>摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</p>
+					<small>2017-3-2&nbsp;&nbsp;阅读：1234</small>
+				</div>
+			</li>
+		</div>
+		<!--版权-->
+		<div class="copyright">由链脉科技提供运营服务<br>客服：
+			<a href="tel:4008119551">400-811-9551</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

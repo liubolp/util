@@ -1,0 +1,31 @@
+extends ../../common/layout/layout
+block append meta
+  title 查看合伙人
+block local
+  link(rel='stylesheet' href='css/details.css')
+block append content
+  header.fixed
+    div.recommend
+      span 我的推荐人：陈润阳（15680764837）
+      a(href='#') 我的收入
+        i.iconfont &#xe608
+    ul.nav-bar
+      li.selected 直接会员
+        i.total 99
+      li 间接会员
+        i.total 9
+  section
+    div.tpl-list
+      ul
+        - for (var i = 0; i < 10; i++)
+          li
+            div.tpl-img
+              img(src='./images/tupian.png' alt='图片')
+              img.tpl-mark(src='./images/biaoshi.png')
+            div
+              p
+                span.tpl-name 陈润阳
+                span.tpl-desc 讲师，董事长
+              p.tpl-company 重庆链脉网络科技有限公司
+              time.time 2017年10月22日
+block footer

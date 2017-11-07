@@ -11,8 +11,10 @@ html
     block local
       link(rel='stylesheet' href='./css/index.css')
     block weui
+      // todo 将weui的路径替换为项目公用路径
       link(rel='stylesheet' href='http://localhost:63342/util/lm/common/weui/weui.min.css')
       script(src='http://localhost:63342/util/lm/common/weui/weui.min.js' defer)
+      // todo 将jquery替换为项目公用的样式
       script(src='http://code.jquery.com/jquery-1.12.4.min.js', defer)
   body
     block content

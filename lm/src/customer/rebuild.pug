@@ -1,0 +1,49 @@
+extends ../../common/layout/layout
+block content
+  // 头部信息
+  div.header-box
+    div.entry-box
+      a.icon-box.qr(href='#')
+      // 如果有新消息给下面的a加上new这个class
+      a.icon-box.message.new(href='#')
+      a.icon-box.setting(href='#')
+    div.personal-box
+      a.img-box(href='#')
+        img(src='./images/icon/xiaoxi1.png')
+      div.name-box
+        p scott
+          i.auth-mark
+        a(href='#') 已实名认证
+      a.sign-in(href='#')
+  // 个人信息概要
+  ul.personal-summary
+    li
+      p 12
+      | 我的盟友
+    li
+      p 12
+      | 我的收入
+    li
+      p.iconfont &#xe671;
+      | 名片夹
+  // 会员信息概要
+  ul.customer-summary
+    li
+      span 免费会员
+        i.custom-rect 去升级
+      p.details 终生免费
+    li
+      span 添加商脉
+        i.custom-rect 共10个
+      p.details 每天10个
+    li
+      span 数据统计
+        i.custom-rect 去查看
+      p.details 浏览/分享量
+  // 快速入口
+  ul.flex.quick-entry
+    - for (var i=0; i < 10; i++)
+      li
+        a(href='#')
+          i.iconfont &#xa017;
+          p 推广海报
