@@ -29,6 +29,7 @@ gulp.task('css', function () {
     }))
     .pipe(postcss([require('precss'), require('autoprefixer')(['iOS >= 7', 'Android >= 4.1'])]))
     .pipe(gulp.dest('dist'))
+    .pipe(broswerSync.reload({stream: true}))
 })
 gulp.task('css:min', function () {
   gulp.src(['dist/**/*.css'])
@@ -59,6 +60,7 @@ gulp.task('js', function () {
       gulp.watch('src/*/js/*.js', ['js'])
     }))
     .pipe(gulp.dest('dist'))
+    .pipe(broswerSync.reload({stream: true}))
 })
 gulp.task('js:min', function () {
   return gulp.src('dist/**/*.js')
@@ -75,6 +77,7 @@ gulp.task('html', function () {
   return gulp.src('src/*/*.html')
     .pipe(watch('src/*/*.html'))
     .pipe(gulp.dest('dist'))
+    .pipe(broswerSync.reload({stream: true}))
 })
 
 gulp.task('pug', function () {
@@ -89,6 +92,7 @@ gulp.task('pug', function () {
       gulp.watch('src/*/*.pug', ['pug'])
     })
     .pipe(gulp.dest('dist'))
+    .pipe(broswerSync.reload({stream: true}))
 })
 
 gulp.task('assets', function () {

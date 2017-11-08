@@ -16,11 +16,6 @@ window.addEventListener('load', function () {
         // todo 拿到间接会员信息渲染列表
         $('.customer-detials').removeClass('ally').html('替他制作')
         $('.filter-box').hide()
-        return 0
-      } else { // 合伙人
-        // todo 拿到合伙人信息进行渲染列表
-        $('.filter-box').hide()
-        $('.customer-detials').addClass('ally').html('查看会员')
       }
     })
     // 处理筛选条件

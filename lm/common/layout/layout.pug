@@ -6,17 +6,22 @@ html
       'user-scalable=no')
       meta(name='format-detection' content='telephone=no,email=no')
     block script
+      // 不能将该标签删除
       script
         include:uglify-js ../../../dist/calc_font_size.js
-    block local
+    block localCss
       link(rel='stylesheet' href='./css/index.css')
     block weui
       // todo 将weui的路径替换为项目公用路径
-      link(rel='stylesheet' href='http://localhost:63342/util/lm/common/weui/weui.min.css')
-      script(src='http://localhost:63342/util/lm/common/weui/weui.min.js' defer)
+      link(rel='stylesheet' href='https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css')
+      // todo 将weui.js替换为项目公用路径
+      script
+        include ../../common/weui/weui.min.js
       // todo 将jquery替换为项目公用的样式
       script(src='http://code.jquery.com/jquery-1.12.4.min.js', defer)
-  body
+  body.lm-container
     block content
     block footer
+      include footer
+    block footerJs
       script(src='./js/index.js' defer)

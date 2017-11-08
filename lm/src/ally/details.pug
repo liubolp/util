@@ -1,19 +1,23 @@
 extends ../../common/layout/layout
 block append meta
   title 查看合伙人
-block local
+block localCss
   link(rel='stylesheet' href='css/details.css')
-block append content
+block content
   header.fixed
     div.recommend
-      span 我的推荐人：陈润阳（15680764837）
-      a(href='#') 我的收入
-        i.iconfont &#xe608
+      span 我的合伙人：陈润阳（15680764837）
+    div.search-bar
+      div.search-box
+        input.search-content(placeholder='输入会员昵称' name='content')
+        i.iconfont.close.hide &#xe771
+      i.iconfont.search &#xe600
     ul.nav-bar
-      li.selected 直接会员
+      li.direct.selected 直接会员
         i.total 99
-      li 间接会员
+      li.indirect 间接会员
         i.total 9
+      li.filter-btn 筛选
   section
     div.tpl-list
       ul
@@ -28,4 +32,33 @@ block append content
                 span.tpl-desc 讲师，董事长
               p.tpl-company 重庆链脉网络科技有限公司
               time.time 2017年10月22日
-block footer
+            div.btns
+              a(href='#').customer-detials 替他制作
+  div.filter-box.hide
+    div.content
+      div.register-date
+        h3 注册日期
+        div.date-box
+          div.date-start
+            input(type='text' placeholder='请选择开始时间' name='date-start' disabled)
+            i.arrow
+          | 至
+          div.date-end
+            input(type='text' placeholder='请选择结束时间' name='date-end' disabled)
+            i.arrow
+      div.customer-level
+        h3 会员等级
+        ul.level-list
+          li
+            span 免费
+          li.selected
+            span 金星
+          li
+            span 钻石
+          li
+            span 皇冠
+      div.result
+        a(href='#').cancel 取消
+        a(href='#').confirm 完成
+block footerJs
+  script(src='js/details.js')

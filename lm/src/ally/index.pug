@@ -13,13 +13,13 @@ block content
         i.iconfont.close.hide &#xe771
       i.iconfont.search &#xe600
     ul.nav-bar
-      li.selected 直接会员
+      li.direct.selected 直接会员
         i.total 99
-      li 间接会员
+      li.indirect 间接会员
         i.total 9
       li 合伙人
         i.total 9999
-      li 搜索
+      li.filter-btn 筛选
   section
     div.tpl-list
       ul
@@ -35,14 +35,14 @@ block content
               p.tpl-company 重庆链脉网络科技有限公司
               time.time 2017年10月22日
             div.btns
-              a(href='#').customer-detials 查看会员
-  div.filter-box
+              a(href='#').customer-detials 替他制作
+  div.filter-box.hide
     div.content
       div.register-date
         h3 注册日期
         div.date-box
           div.date-start
-            input(type='text' placeholder='2016年12月22日' name='date-start' disabled)
+            input(type='text' placeholder='请选择开始时间' name='date-start' disabled)
             i.arrow
           | 至
           div.date-end

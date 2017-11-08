@@ -45,5 +45,31 @@ block content
     - for (var i=0; i < 10; i++)
       li
         a(href='#')
-          i.iconfont &#xa017;
+          i.iconfont &#xa017
           p 推广海报
+  // 会员入口
+  div.accordion
+    h3.title
+      span
+        i.iconfont.thum &#xa017
+        | 会员中心
+      i.iconfont.toggle.fold &#xa002
+    ul.list
+      - for (var i=0; i < 10; i++)
+        li.item.new
+          a(href='#')
+            i.iconfont &#xa017
+            p 推广海报
+  //
+  div.accordion
+    h3.title
+      span
+        i.iconfont.thum &#xa017
+        | 会员中心
+      i.iconfont.toggle &#xa002
+    ul.list
+      - for (var i=0; i < 10; i++)
+        li.item.unable
+          a(href='#')
+            i.iconfont &#xa017
+            p 推广海报

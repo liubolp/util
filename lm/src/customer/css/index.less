@@ -14,9 +14,6 @@
 
 @default_color:#fd9923;
 @border_color:#eceff1;
-.theme-color{
-  color: @default_color !important;
-}
 body{
   font-size: 12px;
 }
@@ -28,6 +25,11 @@ li{
 }
 .flex{
   display: flex;
+}
+a{
+  color: inherit;
+  line-height: normal;
+  display: inline-block;
 }
 // 头部页面
 .header-box{
@@ -94,6 +96,7 @@ li{
       background-image: url('../images/icon/renzheng.png');
       background-size: cover;
       vertical-align: baseline;
+      margin-left: 5px;
     }
     p{
       font-weight: bold;
@@ -187,11 +190,6 @@ li{
 
 // 快速入口
 .quick-entry{
-  a{
-    color: inherit;
-    line-height: normal;
-    display: inline-block;
-  }
   flex-flow: row wrap;
   background: #fff;
   text-align: center;
@@ -204,5 +202,85 @@ li{
     flex: 0 0 20%;
     border-right: 1px solid @border_color;
     border-bottom: 1px solid @border_color;
+  }
+}
+
+// 手风琴面板
+.accordion{
+  background: #fff;
+  margin-top: 10px;
+  .title{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    border-bottom: 1px solid @border_color;
+    display: flex;
+    justify-content: space-between;
+    .toggle{
+      font-size: 16px;
+    }
+  }
+  .thum{
+    vertical-align: middle;
+  }
+  .list{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .item{
+    flex: 0 0 25%;
+    height: 1.4rem;
+    border-right: 1px solid @border_color;
+    border-bottom: 1px solid @border_color;
+    overflow: hidden;
+    &.unable{
+      position: relative;
+      &::after{
+        content: '静候';
+        background: @default_color;
+        position: absolute;
+        right: -22px;
+        top: -5px;
+        width: 62px;
+        height: 30px;
+        line-height: 40px;
+        text-align: center;
+        transform: rotate(45deg);
+        transform-origin: center;
+        color: #fff;
+        font-size: 12px;
+      }
+    }
+    &.new{
+      position: relative;
+      &::after{
+        content: '新';
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        line-height: 20px;
+        text-align: center;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+        top: 5%;
+        right: 5%;
+      }
+    }
+  }
+  a{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+  .iconfont{
+    font-size: 30px;
+    font-weight: normal;
+    &.fold{
+      transform: rotate(90deg);
+    }
   }
 }

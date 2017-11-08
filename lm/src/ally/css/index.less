@@ -19,6 +19,12 @@ li{
 input{
   -webkit-appearance: none;
 }
+ul,input,i,div{
+  .setTapColor()
+}
+.hide{
+  display: none !important;
+}
 @default_color: #f28300;
 @border_color: #bdbfc1;
 
@@ -127,8 +133,14 @@ header.fixed{
   .content{
     background: #fff;
   }
+  h3{
+    font-size: 12px;
+    font-weight: normal;
+    color: inherit;
+    flex-basis: 18%;
+  }
   .register-date{
-    padding: 0 15px;
+    padding-left: 15px;
     display: flex;
     align-items: center;
     height: 50px;
@@ -142,17 +154,22 @@ header.fixed{
     line-height: 25px;
     position: relative;
     input{
-      width: 110px;
+      width: 100px;
       height: 25px;
       outline: none;
       border-radius: 5px 0 0 5px;
       background: #fff;
       border: 1px solid @border_color;
-      margin: 0 5px;
-      padding: 0 5px;
+      margin-right: 5px;
+      padding: 0 3px;
+      font-size: 12px;
+      vertical-align: bottom;
+    }
+    .date-end input{
+      margin-left: 0;
     }
     .arrow{
-      .setArrow(down, 12px , #ccc, 1px);
+      .setArrow(down, 12px , #ccc, 2px);
       z-index: 10;
       left: -5px;
     }
@@ -175,6 +192,9 @@ header.fixed{
   }
   .customer-level{
     padding: 0 15px;
+    h3{
+      margin: 10px 0;
+    }
   }
   .level-list{
     display: flex;
@@ -231,7 +251,7 @@ header.fixed{
   justify-content: space-around;
 }
 .tpl-list{
-  padding-top: 130px;
+  padding-top: 120px;
   .title{
     height: .7rem;
     line-height: .7rem;
@@ -243,8 +263,11 @@ header.fixed{
     min-height: 1.85rem;
     padding: .25rem;
     background: #fff;
-    margin-bottom: .2rem;
     box-shadow: 0 1px 1px #ccc;
+    position: relative;
+    &::after{
+      .setBottomLine(@border_color)
+    }
     img{
       width: 1.4rem;
       height: 1.4rem;
@@ -256,7 +279,7 @@ header.fixed{
       text-align: center;
       margin-right: 10px;
       & + div{
-        flex: 1;
+        width: 3.9rem;
       }
     }
     .tpl-mark{
