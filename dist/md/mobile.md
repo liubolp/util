@@ -1,5 +1,6 @@
 ### 关于移动端网页开发的基本信息
 > [移动端web解决方案](http://www.cnblogs.com/liulinjie/p/5663015.html)
+> [meta详解](http://blog.csdn.net/aiolos1111/article/details/51754917)
 
 ```
   // 移动端视口设定
