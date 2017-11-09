@@ -96,8 +96,11 @@ header.fixed{
   position: relative;
   background: #fff;
   font-size: 14px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
   &::after{
-    .setBottomLine(@border_color)
+    .setBottomLine(@border_color);
+    width: 125%;
   }
   .filter-item{
     flex: 0 0 25%;
@@ -242,7 +245,7 @@ header.fixed{
       text-align: center;
       margin-right: 10px;
       & + div{
-        flex: 1;
+        width: 3.9rem;
       }
     }
     .tpl-mark{
@@ -257,9 +260,22 @@ header.fixed{
       color: #000;
       margin-right: .1rem;
       line-height: 1.5;
+      .ellipsis()
+    }
+    .tpl-name{
+      max-width: 70px;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+    .time{
+      line-height: 30px;
     }
     .tpl-desc{
       font-size: 12px;
+      max-width: calc(~'3.9rem - 80px');
+      display: inline-block;
+      vertical-align: bottom;
+      .ellipsis()
     }
     a{
       text-decoration: none;
@@ -279,5 +295,7 @@ header.fixed{
     justify-content: space-around;
     align-self: normal;
     text-align: center;
+    flex: 0 0 75px;
+    min-height: 70px;
   }
 }

@@ -43,6 +43,10 @@ header.fixed{
   justify-content: space-between;
   color: #fff;
   align-items: center;
+  span{
+    .ellipsis();
+    max-width: 75%;
+  }
   a{
     color: inherit;
   }
@@ -296,11 +300,20 @@ header.fixed{
       line-height: 1.5;
       .ellipsis()
     }
+    .tpl-name{
+      max-width: 70px;
+      display: inline-block;
+      vertical-align: bottom;
+    }
     .time{
       line-height: 30px;
     }
     .tpl-desc{
       font-size: 12px;
+      max-width: calc(~'3.9rem - 80px');
+      display: inline-block;
+      vertical-align: bottom;
+      .ellipsis()
     }
     a{
       text-decoration: none;

@@ -1,5 +1,317 @@
 extends ../../common/layout/layout
+block append weui
+  link(href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet")
+  script(src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js")
 block content
+  -
+    var data = {
+      // 名片制作
+      make: [
+      {
+      icon: '&#xa054;',
+      name: '基础资料',
+      isNew: false,
+      unable: true
+      },
+      {
+      icon: '&#xa007;',
+      name: '供需信息',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xa015;',
+      name: '相册',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xe651;',
+      name: '背景音乐',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xa039;',
+      name: '个性录音',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xe664;',
+      name: '选择风格',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xe669;',
+      name: '编辑名片',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xe670;',
+      name: '复制名片',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xe62d;',
+      name: '名片备份',
+      isNew: false,
+      unable: false
+      }
+    ],
+      // 快速入口
+      entry: [
+        {
+          icon: '&#xa017;',
+          name: '全民H5',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa016;',
+          name: '海报秀',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xe667;',
+          name: '邀请卡',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa009;',
+          name: '文章推广',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xc005;',
+          name: '企业秀',
+          isNew: false,
+          unable: true
+        },
+        {
+          icon: '&#xe664;',
+          name: '选择风格',
+          isNew: false,
+          unable: true
+        },
+        {
+          icon: '&#xe669;',
+          name: '编辑名片',
+          isNew: false,
+          unable: true
+        },
+        {
+          icon: '&#xe670;',
+          name: '复制名片',
+          isNew: false,
+          unable: true
+        },
+        {
+          icon: '&#xe62d;',
+          name: '名片备份',
+          isNew: false,
+          unable: true
+        },
+        {
+          icon: '&#xa012;',
+          name: '视频制作',
+          isNew: false,
+          unable: true
+        }
+      ],
+      // 会员中心
+      customer: [
+        {
+          icon: '&#xd001;',
+          name: '会员权益',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa019;',
+          name: '会员升级',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa020;',
+          name: '会员续费',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa010;',
+          name: '会员订单',
+          isNew: false,
+          unable: false
+        }
+      ],
+      // 特色功能
+      feature: [
+        {
+          icon: '&#xe60d;',
+          name: '开通会员',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xe659;',
+          name: '数据统计',
+          isNew: true,
+          unable: false
+        },
+        {
+          icon: '&#xa047;',
+          name: '摇一摇',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa023;',
+          name: '查看留言',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa005;',
+          name: '企业名片',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa011;',
+          name: '企业头条',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa021;',
+          name: '品牌编辑',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xa022;',
+          name: '收藏夹',
+          isNew: true,
+          unable: false
+        }
+      ],
+      // 联盟商家
+      alliance: [
+        {
+          icon: '&#xd006;',
+          name: '装修链店',
+          isNew: false,
+          unable: false
+        },
+        {
+          icon: '&#xe610;',
+          name: '商品分类',
+          isNew: true,
+          unable: false
+        },
+      {
+      icon: '&#xa037;',
+      name: '商品管理',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xa044;',
+      name: '我的链店',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xa036;',
+      name: '联盟商家',
+      isNew: false,
+      unable: true
+      },
+      {
+      icon: '&#xa035;',
+      name: '优惠券',
+      isNew: false,
+      unable: true
+      },
+      {
+      icon: '&#xa038;',
+      name: '查订单',
+      isNew: false,
+      unable: false
+      }
+      ],
+      // 客户服务
+      server: [
+      {
+      icon: '&#xa034;',
+      name: '使用教程',
+      isNew: true,
+      unable: false
+      },
+      {
+      icon: '&#xa034;',
+      name: '功能说明',
+      isNew: true,
+      unable: false
+      },
+      {
+      icon: '&#xa005;',
+      name: '关于我们',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xa031;',
+      name: '投诉建议',
+      isNew: false,
+      unable: false
+      },
+      {
+      icon: '&#xa031;',
+      name: '推荐文章',
+      isNew: false,
+      unable: true
+      },
+      {
+      icon: '&#xd004;',
+      name: '联系客服',
+      isNew: false,
+      unable: false
+      }
+      ]
+    }
+  mixin accordion(icon, title, data, special, first)
+    div.accordion
+      // 显示新消息给h3添加new这个class
+      h3.title
+        span
+          i.iconfont.thum&attributes(attributes)!=icon
+          | #{title}
+        // 折叠和展开的图标通过fold控制
+        i.iconfont.toggle(class={fold:first}) &#xa002
+      ul.list(style={display:first?'flex':'none'})
+        each item in data
+          // 未启用时加unable,是新功能时加new
+          li.item(class={unable: item.unable,new:item.isNew})
+            a(href='javascript:;')
+              i.iconfont&attributes(attributes)!=item.icon
+              p #{item.name}
+            // 显示新数量
+            if item.name==='查订单' || item.name==='会员订单'
+              small.num 99
+        if special
+          li.item
+            a(href='javascript:;')
+              i.iconfont.special
+              p 多名片
   // 头部信息
   div.header-box
     div.entry-box
@@ -10,6 +322,7 @@ block content
     div.personal-box
       a.img-box(href='#')
         img(src='./images/icon/xiaoxi1.png')
+        i.vip.vip_icon_0
       div.name-box
         p scott
           i.auth-mark
@@ -40,36 +353,30 @@ block content
       span 数据统计
         i.custom-rect 去查看
       p.details 浏览/分享量
+  + accordion('&#xe65f', '名片制作', data.make, true, true)(class='make')
+  div.swiper-container
+    ul.banner.swiper-wrapper
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片1')
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片2')
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片3')
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片4')
+    div.swiper-pagination
   // 快速入口
   ul.flex.quick-entry
-    - for (var i=0; i < 10; i++)
+    each item in data.entry
       li
-        a(href='#')
-          i.iconfont &#xa017
-          p 推广海报
-  // 会员入口
-  div.accordion
-    h3.title
-      span
-        i.iconfont.thum &#xa017
-        | 会员中心
-      i.iconfont.toggle.fold &#xa002
-    ul.list
-      - for (var i=0; i < 10; i++)
-        li.item.new
-          a(href='#')
-            i.iconfont &#xa017
-            p 推广海报
-  //
-  div.accordion
-    h3.title
-      span
-        i.iconfont.thum &#xa017
-        | 会员中心
-      i.iconfont.toggle &#xa002
-    ul.list
-      - for (var i=0; i < 10; i++)
-        li.item.unable
-          a(href='#')
-            i.iconfont &#xa017
-            p 推广海报
+        a(href='javascript:;')
+          i.iconfont!=item.icon
+          p= item.name
+  + accordion('&#xe66c', '会员中心', data.customer)(class='customer')
+  + accordion('&#xe65d', '特色功能', data.feature)(class='feature')
+  + accordion('&#xe66e', '商店管理', data.alliance)(class='alliance')
+  + accordion('&#xe66d', '客户服务', data.server)(class='server')

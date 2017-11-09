@@ -12,7 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@default_color:#fd9923;
+@default_color:#fe9418;
 @border_color:#eceff1;
 body{
   font-size: 12px;
@@ -50,7 +50,7 @@ a{
     margin: 0 5px;
     background-size: cover;
     &.qr{
-      background-image: url("../images/icon/qr.png");
+      background-image: url("../images/icon/erweima.png");
     }
     &.message{
       background-image: url("../images/icon/xiaoxi1.png");
@@ -68,21 +68,16 @@ a{
   align-items: center;
   .img-box{
     position: relative;
-    &::before{
-      content: '';
-      width: 4vw;
-      height: 4vw;
-      background-image: url("../images/icon/chuang.png");
-      background-size: cover;
-      position: absolute;
-      bottom: 2px;
-      left: 14vw;
-    }
     img{
       width: 17.33vw;
       height: 17.33vw;
       border: 3px solid #fff;
       border-radius: 50%;
+    }
+    .vip{
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
   .name-box{
@@ -117,6 +112,18 @@ a{
     background-size: cover;
     background-image: url("../images/icon/jingjia.png");
     margin-right: 20px;
+  }
+}
+// 广告轮播
+.swiper-container{
+  margin-top: 10px;
+  img{
+    width: 100vw;
+    height: 1rem;
+    display: inline-block;
+  }
+  .swiper-pagination-bullet-active{
+    background: @default_color;
   }
 }
 
@@ -190,6 +197,7 @@ a{
 
 // 快速入口
 .quick-entry{
+  margin-top: 10px;
   flex-flow: row wrap;
   background: #fff;
   text-align: center;
@@ -207,6 +215,21 @@ a{
 
 // 手风琴面板
 .accordion{
+  .make{
+    color: @default_color;
+  }
+  .customer{
+    color: #ff2e2e;
+  }
+  .feature{
+    color: #fdc406;
+  }
+  .alliance{
+    color: #6ab575;
+  }
+  .server{
+    color: #18a5fe;
+  }
   background: #fff;
   margin-top: 10px;
   .title{
@@ -216,12 +239,26 @@ a{
     border-bottom: 1px solid @border_color;
     display: flex;
     justify-content: space-between;
+    position: relative;
     .toggle{
       font-size: 16px;
+      color: #b3b3b3;
+    }
+    &.new::before{
+      content: '';
+      position: absolute;
+      top: 15px;
+      right: 40px;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: red;
     }
   }
   .thum{
     vertical-align: middle;
+    font-size: 16px !important;
+    margin-right: 5px;
   }
   .list{
     display: flex;
@@ -233,6 +270,7 @@ a{
     border-right: 1px solid @border_color;
     border-bottom: 1px solid @border_color;
     overflow: hidden;
+    position: relative;
     &.unable{
       position: relative;
       &::after{
@@ -268,6 +306,18 @@ a{
       }
     }
   }
+  .num{
+    position: absolute;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    color: #fff;
+    background: red;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+    padding: 0 2px;
+  }
   a{
     text-align: center;
     width: 100%;
@@ -283,4 +333,33 @@ a{
       transform: rotate(90deg);
     }
   }
+  .special{
+    background: url("../images/icon/fuzhi.png") no-repeat;
+    height: 34px;
+    background-size: 34px;
+    background-position: center;
+  }
 }
+
+// vip 图标
+/*vip图标*/
+/*免费*/
+.vip_icon_0 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -83px;}
+/*金星*/
+.vip_icon_1 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px 0px;}
+/*钻石*/
+.vip_icon_2 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -55px;}
+/*皇冠*/
+.vip_icon_3 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -27px;}
+/*创客*/
+.vip_icon_4 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -112px;}
+/*代理*/
+.vip_icon_5 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -144px;}
+/*省代理*/
+.vip_icon_6 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -174px;}
+/*市代理*/
+.vip_icon_7 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -204px;}
+/*认证V*/
+.vip_icon_8 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -234px;}
+/*运营商*/
+.vip_icon_9 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -261px;}
