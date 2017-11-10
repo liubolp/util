@@ -31,6 +31,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
+    "jstransformer-less": "^2.3.0",
     "precss": "^2.0.0",
     "pug": "^2.0.0-rc.4",
     "weinre": "^2.0.0-pre-I0Z7U9OV"

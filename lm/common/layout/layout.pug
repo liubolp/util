@@ -12,6 +12,10 @@ html
         include:uglify-js ../../../dist/calc_font_size.js
     block localCss
       link(rel='stylesheet' href='./css/index.css')
+    block footerCss
+      // todo 将底部导航公用样式替换为公用路径
+      style
+        include:less ../reset/footer.less
     block weui
       // todo 将weui的路径替换为项目公用路径
       link(rel='stylesheet' href='https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css')

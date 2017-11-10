@@ -6,7 +6,7 @@ ul {list-style: none;}
 li {list-style-type: none;}
 input {border: none;}
 a { text-decoration: none;}
-a,button,input,optgroup,select,textarea{
+a,button,input,optgroup,select,textarea,div{
   -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
 }
 @font-face {
@@ -59,7 +59,7 @@ a,button,input,optgroup,select,textarea{
   border-bottom: 1px solid @border_color;
   input {
     min-width: 5.6rem;
-    height: .5rem;
+    height: 25px;
     border-radius: 5px;
     padding: 5px 20px;
     outline: none;
@@ -71,8 +71,7 @@ a,button,input,optgroup,select,textarea{
     .icon{
       position: absolute;
       left: 2px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 3px;
       width: 16px;
       height: 16px;
       color: #b7b7b7;
@@ -203,7 +202,7 @@ a,button,input,optgroup,select,textarea{
     }
   }
   .container{
-    padding: .2rem;
+    padding: 20px;
     background: #e6e6e6;
     flex-grow: 1;
     overflow: auto;
@@ -248,6 +247,29 @@ a,button,input,optgroup,select,textarea{
       line-height: .5rem;
       text-align: center;
       display: block;
+    }
+  }
+  .nav-bar{
+    position: fixed;
+    z-index: 2;
+    width: 20px;
+    right: 0;
+    bottom: 0;
+    top: 1.8rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    background: #e3e4e5;
+    text-align: center;
+    line-height: 1.5;
+    a{
+      display: inline-block;
+      color: @default_color;
+      width: 100%;
+      &.current{
+        color: #fff;
+        background: #ffb596;
+      }
     }
   }
 }

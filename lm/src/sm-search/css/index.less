@@ -96,14 +96,14 @@ header.fixed{
   position: relative;
   background: #fff;
   font-size: 14px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+  z-index: 0;
   &::after{
     .setBottomLine(@border_color);
     width: 125%;
   }
   .filter-item{
-    flex: 0 0 25%;
+    overflow: hidden;
+    flex: 0 0 20%;
     &:not(:last-child){
       position: relative;
       &::after{
@@ -191,7 +191,7 @@ header.fixed{
   .gender,.supply,.auth{
     position: absolute;
     top: 0;
-    width: 25%;
+    width: 20%;
     background: #fff;
     li{
       padding-left: 20px;
@@ -202,13 +202,13 @@ header.fixed{
     }
   }
   .gender{
-    left: 25%;
+    left: 20%;
   }
   .supply{
-    left: 50%;
+    left: 40%;
   }
   .auth{
-    left: 75%;
+    left: 60%;
   }
 }
 

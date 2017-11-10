@@ -1,12 +1,15 @@
+@import "mixin/setOnepx";
 #lm-footer{
   @footer-color: #fd9923;
   @footer-border: #bdbfc1;
-  height: 50px;
+  height: 56px;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   background: #fff;
+  z-index: 9999;
+  line-height: normal;
   &::before{
     .setTopLine(@footer-border)
   }
@@ -29,15 +32,15 @@
     }
   }
   .iconfont{
-    font-size: 20px;
+    font-size: 28px;
   }
   .avatar{
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     border: 2px solid @footer-color;
   }
 }
 .lm-container{
-  padding-bottom: 55px;
+  padding-bottom: 60px;
 }

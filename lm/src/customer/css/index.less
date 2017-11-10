@@ -107,7 +107,7 @@ a{
     }
   }
   .sign-in{
-    width: 73px;
+    width: 76px;
     height: 26px;
     background-size: cover;
     background-image: url("../images/icon/jingjia.png");
@@ -197,7 +197,7 @@ a{
 
 // 快速入口
 .quick-entry{
-  margin-top: 10px;
+  margin: 10px 0;
   flex-flow: row wrap;
   background: #fff;
   text-align: center;
@@ -231,7 +231,6 @@ a{
     color: #18a5fe;
   }
   background: #fff;
-  margin-top: 10px;
   .title{
     height: 40px;
     line-height: 40px;
@@ -240,6 +239,7 @@ a{
     display: flex;
     justify-content: space-between;
     position: relative;
+    font-weight: normal;
     .toggle{
       font-size: 16px;
       color: #b3b3b3;
@@ -257,7 +257,7 @@ a{
   }
   .thum{
     vertical-align: middle;
-    font-size: 16px !important;
+    font-size: 20px !important;
     margin-right: 5px;
   }
   .list{
@@ -274,7 +274,7 @@ a{
     &.unable{
       position: relative;
       &::after{
-        content: '静候';
+        content: '敬候';
         background: @default_color;
         position: absolute;
         right: -22px;
@@ -363,3 +363,8 @@ a{
 .vip_icon_8 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -234px;}
 /*运营商*/
 .vip_icon_9 {display: inline-block; width: 22px; height: 23px; background: url(../images/vip_icon.png) no-repeat 0px -261px;}
+
+// 广告轮播关闭控制
+.lyl_newuserguide {position: relative; line-height: 0; margin-bottom: 10px;}
+.lyl_newuserguide img {width: 100%;}
+.lyl_newuserguide .close {position: absolute; top: 0; right: 0; z-index: 10; width: 30px; height: 30px; line-height: 30px; text-align: center; font-size: 30px; color: #fff;}
