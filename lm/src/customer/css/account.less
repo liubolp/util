@@ -1,0 +1,51 @@
+@import "../../../common/reset/rest";
+.container{
+  margin-top: 10px;
+}
+.btn{
+  padding: 0 70px;
+  margin-top: 80px;
+  a{
+    color: @default_color;
+    border: 1px solid @default_color;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+  }
+}
+.lm__access{
+  display: flex;
+  padding: 10px 15px;
+  background: #fff;
+  color: inherit;
+  position: relative;
+  &:active{
+    background: #ececec;
+  }
+  &:not(:last-child){
+    &::after{
+      .setBottomLine(#e8e8e8)
+    }
+  }
+  &-main{
+    flex: 1;
+  }
+  &-desc{
+    position: relative;
+    &::after{
+      content: '';
+      .setArrow(right, 8px, #e8e8e8, 1px)
+    }
+  }
+  .limit{
+    .ellipsis();
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 14px;
+    color: #848484;
+    max-width: 75vw;
+  }
+}

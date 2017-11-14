@@ -1,9 +1,35 @@
 extends ../../common/layout/layout
+block append meta
+  title 个人信息
 block script
 block localCss
-  link(rel='stylesheet' href='../css/personal.css')
+  link(rel='stylesheet' href='./css/personal.css')
 block weui
-block footer
 block footerJs
 block content
-  div.container xx
+  div.container
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 头像
+      div.lm__access-desc
+        img.avatar(src='./images/icon/jing.png')
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 昵称
+      div.lm__access-desc
+        span.limit 说明信息٩( 'ω' )و get！
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 实名认证
+      div.lm__access-desc
+        span.limit 无
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 账号/手机
+      div.lm__access-desc
+        span.limit 15454358456
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 我的二维码
+      div.lm__access-desc
+        img.qr(src='./images/icon/chuang.png')

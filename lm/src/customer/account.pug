@@ -1,0 +1,38 @@
+extends ../../common/layout/layout
+block append meta
+  title 账户信息
+block script
+block localCss
+  link(rel='stylesheet' href='./css/account.css')
+block weui
+block footerJs
+block content
+  div.container
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 修改手机
+      div.lm__access-desc
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 修改密码
+      div.lm__access-desc
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 绑定微信
+      div.lm__access-desc
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 解绑微信
+      div.lm__access-desc
+  div.container
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 隐私设置
+      div.lm__access-desc
+  div.container
+    a.lm__access(href='javascript:;')
+      div.lm__access-main
+        p 分享设置
+      div.lm__access-desc
+  div.btn
+    a(href='javascript:;') 取消登录

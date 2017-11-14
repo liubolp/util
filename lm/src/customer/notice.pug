@@ -1,0 +1,33 @@
+extends ../../common/layout/layout
+block append meta
+  title 消息
+block script
+block localCss
+  link(rel='stylesheet' href='./css/notice.css')
+block footerJs
+  script.
+    window.addEventListener('load', function () {
+      $(function () {
+        $('ul.tab').on('click', 'li', function (e) {
+          $(this).addClass('current').siblings().removeClass('current')
+        })
+      })
+    })
+block content
+  header.fixed
+    ul.tab
+      li 全部
+      li.current 消息
+  div.container
+    ul.msg-list
+      - for (var i =0; i<10; i++)
+        li.msg-item
+          a(href='javascript:;')
+            img(src='./images/icon/jing.png')
+            div.msg-content
+              h3.title 积分抵用
+              p.desc 这里是很多描述信息
+            div.msg-summary
+              time.time 2017-08-24
+              p
+                i.count 10

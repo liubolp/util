@@ -1,1 +1,55 @@
 @import "../../../common/reset/rest";
+li{
+  list-style: none;
+}
+.container{
+  color: #131313;
+  margin-top: 10px;
+  .avatar{
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #d9d9d9;
+    vertical-align: bottom;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    transform: scale(1.5);
+  }
+  .qr{
+    height: 25px;
+    vertical-align: bottom;
+  }
+}
+.lm__access{
+  display: flex;
+  padding: 10px 15px;
+  background: #fff;
+  color: inherit;
+  position: relative;
+  &:active{
+    background: #ececec;
+  }
+  &:not(:last-child){
+    &::after{
+      .setBottomLine(#e8e8e8)
+    }
+  }
+  &-main{
+    flex: 1;
+  }
+  &-desc{
+    position: relative;
+    &::after{
+      content: '';
+      .setArrow(right, 8px, #e8e8e8, 1px)
+    }
+  }
+  .limit{
+    .ellipsis();
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 14px;
+    color: #848484;
+    max-width: 75vw;
+  }
+}
