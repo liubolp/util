@@ -1,0 +1,74 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='format-detection', content='telephone=no')
+    meta(
+    name='viewport'
+    content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    )
+    title 选择国家或地区
+    link(rel='stylesheet', href='./css/choose.css')
+    script.
+      (function (document, window, size) {
+        var html = document.documentElement,
+          resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          calcFontSize = function () {
+            var deviceWidth = html.clientWidth > 1300 ? 1300 : html.clientWidth
+            html.style.fontSize = 100 * (deviceWidth / size) + 'px'
+          }
+        if (!document.addEventListener) { return }
+        window.addEventListener(resizeEvent, calcFontSize, false)
+        document.addEventListener('DOMContentLoaded', calcFontSize, false)
+      })(document, window, 750)
+    script(src='http://code.jquery.com/jquery-1.12.4.min.js', defer)
+    script(src='./js/register.js', defer)
+  body
+    header.fixed-box
+      input(name='keyword' placeholder='搜索')
+      span.btn
+        i.iconfont &#xe600
+    section.container
+      ul.outer-list
+        li
+          p#search-A A
+          ul.inner-list
+            li
+              a(href='javascript:;')
+                span.country 中国
+                span.code +86
+            li A2
+            li A3
+        li
+          p#search-B B
+          ul.inner-list
+            li B1
+            li B2
+            li B3
+    aside.aside
+      ul
+        li
+          a(href='javascript:;') A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A
+        li A

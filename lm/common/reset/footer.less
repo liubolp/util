@@ -1,4 +1,15 @@
 @import "mixin/setOnepx";
+@font-face {
+  font-family: iconfont;
+  src: url('//at.alicdn.com/t/font_229456_83e0k8ii6tsdobt9.ttf') format('truetype');
+}
+.iconfont{
+  font-family: "iconfont"!important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 #lm-footer{
   @footer-color: #fd9923;
   @footer-border: #bdbfc1;
@@ -9,7 +20,7 @@
   bottom: 0;
   background: #fff;
   z-index: 9999;
-  font-size: 12px;
+  font-size: 16px;
   line-height: normal;
   &::before{
     .setTopLine(@footer-border)

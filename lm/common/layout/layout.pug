@@ -13,20 +13,17 @@ html
     block localCss
       link(rel='stylesheet' href='./css/index.css')
     block footerCss
-      // todo 将底部导航公用样式替换为公用路径
-      style
-        include:less ../reset/footer.less
+      link(rel='stylesheet' href='http://member.lm720.com/skin/common/footer.min.css')
+      //- todo 将底部导航公用样式替换为公用路径
+        style
+          include:less ../reset/footer.less
     block weui
-      // todo 将weui的路径替换为项目公用路径
-      link(rel='stylesheet' href='https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css')
-      // todo 将weui.js替换为项目公用路径
-      script
-        include ../../common/weui/weui.min.js
-      // todo 将jquery替换为项目公用的样式
-      script(src='http://code.jquery.com/jquery-1.12.4.min.js', defer)
+      link(rel='stylesheet' href='http://member.lm720.com/skin/common/weui.min.css')
+      script(src='http://member.lm720.com/skin/common/weui.min.js' defer)
+      script(src='http://code.jquery.com/jquery-1.12.4.min.js' defer)
   body.lm-container
     block content
     block footer
       include footer
     block footerJs
-      script(src='./js/index.js' defer)
+      script(src='./js/index.js')
