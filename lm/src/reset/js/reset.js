@@ -45,4 +45,19 @@
   function checkTelephone (tel) {
     return /^\d{5,20}$/.test(tel.trim())
   }
+  // 更新国家和区号
+  function getParam () {
+    var search = location.search
+    if (search) {
+      var list = search.slice(1).split('&')
+      list.forEach(function (item) {
+        if (item.split('=')[0] === 'name') {
+          $('.area .flex').text(decodeURIComponent(item.split('=')[1]))
+        } else if (item.split('=')[0] === 'code') {
+          $('.auth .code').text('+' + item.split('=')[1])
+        }
+      })
+    }
+  }
+  getParam()
 })($)

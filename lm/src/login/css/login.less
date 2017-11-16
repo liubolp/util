@@ -27,6 +27,9 @@ a{
 input{
   .setTapColor()
 }
+::-webkit-input-placeholder{
+  color: #b3b3b3;
+}
 #continaer{
   width: 100vw;
   height: 100vh;
@@ -47,22 +50,23 @@ section{
 }
 .input-item{
   position: relative;
+  margin-top: 10px;
   input{
     width: 100%;
     height: 40px;
-    padding: 0 20px;
+    padding: 0 22px;
     border: 0;
     border-radius: 0;
     border-bottom: 1px solid #eee;
     background: none;
     outline: none;
-    color: #b3b3b3;
   }
   .iconfont{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: #b3b3b3;
+    color: #808080;
+    font-size: 20px;
     &:not(.right){
       left: 2px;
     }

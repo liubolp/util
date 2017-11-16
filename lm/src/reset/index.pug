@@ -26,7 +26,12 @@ html
   body
     div#continaer
       section
+        a.area(href='/register/choose.html?origin=register')
+          span 国家/区域
+          span.flex 中国
+          i.iconfont &#xe66e;
         div.input-item.auth
+          span.code +86
           i.iconfont &#xe660;
           input(placeholder='请输入你的手机号码' type='tel' name='telephone' maxlength='20')
           button#getcode(type='button' disabled) 获取验证码

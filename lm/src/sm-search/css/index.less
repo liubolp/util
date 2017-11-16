@@ -35,6 +35,12 @@ header.fixed{
   z-index: 10;
   background: url('../images/backg.png') no-repeat;
   background-size: 100vw 90px;
+  padding-bottom: 5px;
+}
+section{
+  padding-top: 40px;
+  background: url('../images/backg.png') no-repeat;
+  background-size: 100vw 90px;
 }
 .nav-bar{
   height: 40px;
@@ -96,10 +102,9 @@ header.fixed{
   position: relative;
   background: #fff;
   font-size: 14px;
-  z-index: 0;
+  z-index: 5;
   &::after{
     .setBottomLine(@border_color);
-    width: 125%;
   }
   .filter-item{
     overflow: hidden;
@@ -220,7 +225,7 @@ header.fixed{
   justify-content: space-around;
 }
 .tpl-list{
-  padding-top: 140px;
+  margin-top: 10px;
   .title{
     height: .7rem;
     line-height: .7rem;

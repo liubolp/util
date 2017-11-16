@@ -24,6 +24,9 @@ a{
   text-decoration: none;
   color: @default_color;
 }
+::-webkit-input-placeholder{
+  color: #b3b3b3;
+}
 label,input,button{
   .setTapColor()
 }
@@ -52,7 +55,7 @@ section{
   display: flex;
   justify-content: space-around;
   padding: 0 5px;
-  color: #8d8d8d;
+  color: #808080;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -86,6 +89,15 @@ section{
     }
     input{
       padding-right: 100px;
+      padding-left: 58px;
+    }
+    .code{
+      position: absolute;
+      z-index: 2;
+      font-size: 14px;
+      left: 20px;
+      top: 9px;
+      color: #808080;
     }
   }
   input{
@@ -97,7 +109,6 @@ section{
     border-bottom: 1px solid #eee;
     background: none;
     outline: none;
-    color: #b3b3b3;
     font-size: 14px;
   }
   .iconfont{
@@ -105,7 +116,7 @@ section{
     font-size: 20px;
     top: 50%;
     transform: translateY(-50%);
-    color: #b3b3b3;
+    color: #808080;
     &:not(.right){
       left: 2px;
     }

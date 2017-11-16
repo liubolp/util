@@ -41,7 +41,7 @@ li{
   .btn{
     width: 40px;
     background: #ccc;
-    border-radius: 1px 5px 5px 1px;
+    border-radius: 5px;
     color: #fff;
     text-align: center;
     margin-left: 10px;
@@ -52,17 +52,34 @@ li{
   }
 }
 .container{
-  padding-top: 55px;
+  position: absolute;
+  top: 55px;
+  width: 100%;
+  bottom: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .outer-list{
   li{
     position: relative;
+    padding-top: 21px;
   }
   [id^=search-]{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     padding: 0 15px;
     height: 21px;
     color: #818181;
+    background: #eceff1;
     line-height: normal;
+    z-index: 2;
+    &.current{
+      position: fixed;
+      top: 55px;
+      left: 0;
+    }
   }
 }
 .inner-list{
@@ -81,6 +98,11 @@ li{
     color: inherit;
     display: flex;
     justify-content: space-between;
+    padding-right: 5px;
+  }
+  .code{
+    font-size: 14px;
+    color: #999999;
   }
 }
 .aside{
@@ -89,6 +111,7 @@ li{
   right: 0;
   bottom: 0;
   width: 15px;
+  z-index: 5;
   font-size: 12px;
   text-align: center;
   line-height: normal;
