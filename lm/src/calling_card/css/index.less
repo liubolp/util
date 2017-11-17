@@ -1,0 +1,175 @@
+@import "../../../common/reset/rest";
+@border_color: #ccc;
+.hide{
+  display: none;
+}
+/*flex layout*/
+.tpl-flex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+/*头部搜索框*/
+.header-box{
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+.filter{
+  .selected{
+    color: @default_color;
+  }
+}
+.nothing{
+  padding-top: 4rem;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #b7b7b7;
+  img{
+    width: 150px;
+  }
+}
+
+.tpl__header{
+  height: 1rem;
+  .tpl-flex;
+  text-align: center;
+  background: #fff;
+  border-bottom: 1px solid @border_color;
+  input {
+    min-width: 5.6rem;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px 20px;
+    outline: none;
+    color: #b7b7b7;
+    background: #eceff1;
+    border: none;
+  }
+  &__search{
+    position: relative;
+    .icon{
+      position: absolute;
+      left: 2px;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      color: #b7b7b7;
+    }
+  }
+  &__button{
+    .button{
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      background: @default_color;
+      width: 1rem;
+      height: .5rem;
+      outline: none;
+    }
+  }
+}
+/*模板类型选择*/
+.tpl__select{
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+  .tpl-flex;
+  position: relative;
+  background: #fff;
+  color: #9fa2a3;
+  font-size: 16px;
+  a{
+    width: 50%;
+    height: 100%;
+    border-bottom: 1px solid @border_color;
+    color: inherit;
+  }
+  &::after{
+    content: '';
+    width: 0;
+    border-right: 1px solid @border_color;
+    position: absolute;
+    height: 100%;
+    right: 50%;
+  }
+  &-active{
+    color: @default_color !important;
+    border-color: @default_color !important;
+    border-width: 2px !important;
+  }
+}
+/*个人模板列表*/
+.tpl-list{
+  padding-top: 2.6rem;
+  .title{
+    height: .7rem;
+    line-height: .7rem;
+    padding-left: .35rem;
+    color: #9fa2a3;
+  }
+  li{
+    .tpl-flex;
+    height: 1.85rem;
+    padding: .25rem;
+    background: #fff;
+    margin-bottom: .2rem;
+    box-shadow: 0 1px 1px #ccc;
+    img{
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+    }
+    .tpl-img{
+      position: relative;
+      flex-basis: 1.4rem;
+      text-align: center;
+      margin-right: 10px;
+      & + div{
+        flex: 1;
+      }
+    }
+    .flex{
+      display: flex;
+      align-items: baseline;
+    }
+    .tpl-mark{
+      width: .2rem;
+      height: .2rem;
+      right: .1rem;
+      bottom: .2rem;
+      position: absolute;
+    }
+    .tpl-name,.tpl-company{
+      font-size: 14px;
+      color: #000;
+      margin-right: .1rem;
+      line-height: 1.5;
+      .ellipsis();
+    }
+    .tpl-name{
+      font-size: 16px;
+      max-width: 80px;
+    }
+    .tpl-desc{
+      .ellipsis();
+      font-size: 14px;
+      max-width: calc(~'3.6rem - 80px');
+    }
+    .tpl-company{
+      max-width: 3.6rem;
+    }
+    a{
+      text-decoration: none;
+      box-sizing: content-box;
+      padding: 2px;
+      height: .36rem;
+      line-height: .36rem;
+      border: 1px solid @default_color;
+      border-radius: 3px;
+      color: @default_color;
+    }
+  }
+}

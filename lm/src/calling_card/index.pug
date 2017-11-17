@@ -1,0 +1,36 @@
+extends ../../common/layout/layout
+block append meta
+  title 名片复制
+block content
+  header.header-box
+    div.tpl__select
+      a(href='javascript:;').tpl__select-active 用户名片
+      a(href='official.html') 官方模板
+    div.tpl__header
+      div.tpl__header__search
+        input#search(placeholder='请输入个人电话或名称' type='text')
+        i.icon.iconfont &#xe662
+      div.tpl__header__button
+        button.button 搜索
+    div.tpl__select.filter
+      a.selected(href='javascript:;') 行业
+      a(href='javascript:;') 地区
+  main
+    div.tpl-list
+      div.title 推荐商脉
+      ul
+        -for (var i=0; i < 10; i++)
+          li
+            div.tpl-img
+              img(src='./images/tupian.png')
+              img.tpl-mark(src='./images/biaoshi.png')
+            div
+              p.flex
+                span.tpl-name 陈润阳
+                span.tpl-desc 讲师，董事长
+              p.tpl-company 重庆链脉网络科技有限公司
+            a(href='javascript:;') 复制名片
+    // 如果搜索数据为空就将.tpl-list隐藏,显示下面的数据(去掉hide)
+    div.nothing.hide
+      img(src='./images/nothing.png')
+      p 暂无数据

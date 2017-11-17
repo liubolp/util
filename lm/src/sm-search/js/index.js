@@ -15,6 +15,9 @@ window.addEventListener('load', function () {
     })
     // 筛选信息
     $('.filter-bal').on('click', '.filter-item', function (e) {
+      // 获取点击元素的位置信息
+      var client = this.getBoundingClientRect()
+      $(this).find('.filter-content').css({top: client.top + client.height + 'px'})
       var arrow = $(this).children().first()
       if (arrow.hasClass('down') || ($(this).hasClass('area') && !$(this).hasClass('selected'))) {
         $('.filter-content').addClass('hide')
@@ -32,6 +35,10 @@ window.addEventListener('load', function () {
           .find('.filter-content').addClass('hide')
         arrow.addClass('down').html('&#xe609')
       }
+    }).on('touchmove', function (e) {
+      $('.filter-content').addClass('hide')
+      $('.filter-item.selected').removeClass('selected')
+        .children().filter('.iconfont').addClass('down').html('&#xe609')
     })
     // 分类删选
     $('.first,.second,.gender,.supply,.auth').on('click', 'li', function (e) {
@@ -43,10 +50,6 @@ window.addEventListener('load', function () {
     $('.nav-bar').on('click', 'li', function (e) {
       $(this).siblings().removeClass('selected')
         .end().addClass('selected')
-    })
-    // 处理筛选条件
-    $('section').on('touchmove', function (e) {
-      console.log(1)
     })
   })
 })
