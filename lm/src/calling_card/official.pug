@@ -4,6 +4,7 @@ block append meta
 block localCss
   link(rel='stylesheet' href='./css/official.css')
 block footerJs
+  script(src='./js/official.js')
 block content
   header.header-box
     div.tpl__select
@@ -30,10 +31,10 @@ block content
             ul.subtype-list
               -for(var n=0; n < 7; n++)
                 li
-                  a.link(href='javascript:;')
+                  a.link(href='category.html')
                     img(src='./images/tupian.png')
                     p.child-type 乐美佳
     ul.nav-bar
       each key in keys
         li
-          a(href=`#lm-${key}` class={current: key == 'B'})=key
+          a(href=`#lm-${key}` class={current: key == 'A'})=key

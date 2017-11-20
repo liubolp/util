@@ -1,26 +1,19 @@
 extends ../../common/layout/layout
 block append meta
-  title 名片复制
+  title 模板分类
+block localCss
+  link(rel='stylesheet' href='./css/category.css')
+block footerJs
+  script(src='./js/category.js')
 block content
-  header.header-box
-    div.tpl__select
-      a(href='javascript:;').tpl__select-active 用户名片
-      a(href='official.html') 官方模板
-    div.tpl__header
-      div.tpl__header__search
-        input#search(placeholder='请输入个人电话或名称' type='text')
-        i.icon.iconfont &#xe662
-      div.tpl__header__button
-        button.button 搜索
-    div.tpl__select.filter
-      a.industry.selected(href='javascript:;') 行业
-        i.arrow
-      a.area(href='javascript:;') 地区
-        i.arrow
+  header.header
+    div.choose
+      div.area
+        span 重庆
+        i.iconfont
+      input.content(placeholder='搜索名片')
+      i.iconfont.search &#xe662
   section
-    div.banner
-      a.content(href='javascript:;') 免费会员不能复制名片，马上升级成为会员！
-      span.close
     div.tpl-list
       ul
         -for (var i=0; i < 10; i++)

@@ -1,0 +1,79 @@
+@import "../../../common/reset/rest";
+// 头部信息
+.header{
+  position: relative;
+}
+.summary{
+  height: 3rem;
+  background: url('../images/bg.png') no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  span{
+    font-size: 14px;
+  }
+  p{
+    font-size: 12px;
+  }
+}
+.toggle-btn{
+  display: flex;
+  position: absolute;
+  top: .4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  a{
+    width: 1.7rem;
+    color: #fff;
+    &.current{
+      color: @default_color;
+      background: #fff;
+    }
+  }
+}
+.personal{
+  position: absolute;
+  bottom: -.49rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  .avatar{
+    width: .98rem;
+    height: .98rem;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    vertical-align: bottom;
+  }
+}
+// 打卡入口
+.clock{
+  height: 1.7rem;
+  background: #fff;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  padding-bottom: .1rem;
+  font-size: 12px;
+  &::after{
+    .setBottomLine()
+  }
+}
+.clock-in{
+  background: #ccc;
+  border: 0;
+  border-radius: 13px;
+  outline: none;
+  padding: 4px 10px;
+}
+.time{
+  color: @default_color;
+}

@@ -3,6 +3,9 @@
 .hide{
   display: none;
 }
+button,input,span,div{
+  .setTapColor()
+}
 /*flex layout*/
 .tpl-flex{
   display: flex;
@@ -19,6 +22,20 @@
 .filter{
   .selected{
     color: @default_color;
+    .arrow{
+      background-image: url('../images/arrow-selected.png');
+    }
+  }
+  .arrow{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    position: relative;
+    top: -2px;
+    background: url('../images/arrow-default.png') no-repeat;
+    background-size: contain;
   }
 }
 .nothing{
@@ -66,7 +83,7 @@
       border-radius: 5px;
       background: @default_color;
       width: 1rem;
-      height: .5rem;
+      height: 25px;
       outline: none;
     }
   }
@@ -103,13 +120,7 @@
 }
 /*个人模板列表*/
 .tpl-list{
-  padding-top: 2.6rem;
-  .title{
-    height: .7rem;
-    line-height: .7rem;
-    padding-left: .35rem;
-    color: #9fa2a3;
-  }
+  padding-top: 2.8rem;
   li{
     .tpl-flex;
     height: 1.85rem;
@@ -156,10 +167,10 @@
     .tpl-desc{
       .ellipsis();
       font-size: 14px;
-      max-width: calc(~'3.6rem - 80px');
+      max-width: calc(~'3.58rem - 80px');
     }
     .tpl-company{
-      max-width: 3.6rem;
+      max-width: 3.58rem;
     }
     a{
       text-decoration: none;
@@ -170,6 +181,46 @@
       border: 1px solid @default_color;
       border-radius: 3px;
       color: @default_color;
+    }
+  }
+}
+/*广告提示*/
+.banner{
+  height: .8rem;
+  background: #f3f09d;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 .25rem;
+  align-items: center;
+  position: fixed;
+  top: 2.6rem;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  .content{
+    .ellipsis();
+    max-width:94%;
+    font-size: 14px;
+    color: inherit;
+  }
+  .close{
+    width: 16px;
+    height: 16px;
+    position: relative;
+    transform: rotate(45deg);
+    &::before{
+      content: '';
+      width: 16px;
+      border-bottom: 2px solid #666;
+      position: absolute;
+      bottom: 7px;
+    }
+    &::after{
+      content: '';
+      height: 16px;
+      border-right: 2px solid #666;
+      position: absolute;
+      right: 7px;
     }
   }
 }

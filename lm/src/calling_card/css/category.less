@@ -1,0 +1,140 @@
+@import "../../../common/reset/rest";
+@border_color: #ccc;
+.hide{
+  display: none;
+}
+div,i{
+  .setTapColor()
+}
+/*头部信息*/
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  .choose{
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background: linear-gradient(to right, #fb9e23, #ff8e08);
+    color: #fff;
+    > .iconfont{
+      font-size: 22px;
+    }
+  }
+  .area{
+    span{
+      .ellipsis();
+      display: inline-block;
+      max-width: 65px;
+      vertical-align: bottom;
+    }
+    i{
+      margin: 0 5px;
+      .setArrow(down, 12px, #fff, 2px);
+    }
+  }
+  .content{
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    outline: none;
+    padding: 0 5px;
+    height: 25px;
+    flex: 1;
+    margin: 0 10px;
+  }
+}
+/*flex layout*/
+.tpl-flex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+/*空数据展示*/
+.nothing{
+  padding-top: 4rem;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #b7b7b7;
+  img{
+    width: 150px;
+  }
+}
+/*个人模板列表*/
+.tpl-list{
+  padding-top: 60px;
+  .title{
+    height: .7rem;
+    line-height: .7rem;
+    padding-left: .35rem;
+    color: #9fa2a3;
+  }
+  li{
+    .tpl-flex;
+    height: 1.85rem;
+    padding: .25rem;
+    background: #fff;
+    margin-bottom: .2rem;
+    box-shadow: 0 1px 1px #ccc;
+    img{
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+    }
+    .tpl-img{
+      position: relative;
+      flex-basis: 1.4rem;
+      text-align: center;
+      margin-right: 10px;
+      & + div{
+        flex: 1;
+      }
+    }
+    .flex{
+      display: flex;
+      align-items: baseline;
+    }
+    .tpl-mark{
+      width: .2rem;
+      height: .2rem;
+      right: .1rem;
+      bottom: .2rem;
+      position: absolute;
+    }
+    .tpl-name,.tpl-company{
+      font-size: 14px;
+      color: #000;
+      margin-right: .1rem;
+      line-height: 1.5;
+      .ellipsis();
+    }
+    .tpl-name{
+      font-size: 16px;
+      max-width: 80px;
+    }
+    .tpl-desc{
+      .ellipsis();
+      font-size: 14px;
+      max-width: calc(~'3.58rem - 80px');
+    }
+    .tpl-company{
+      max-width: 3.58rem;
+    }
+    a{
+      text-decoration: none;
+      box-sizing: content-box;
+      padding: 2px;
+      height: .36rem;
+      line-height: .36rem;
+      border: 1px solid @default_color;
+      border-radius: 3px;
+      color: @default_color;
+    }
+  }
+}

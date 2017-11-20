@@ -1,0 +1,27 @@
+extends ../../common/layout/layout
+block append meta
+  title 竞价打卡
+block footer
+block content
+  header.header
+    div.summary
+      div
+        span 09:31
+        p 打卡时间
+      div
+        span 1%
+        p 击败人数
+      div
+        span 10天
+        p 累计天数
+    div.toggle-btn
+      a(href='javascript:;').current 打卡排行
+      a(href='javascript:;') 早起挑战
+    div.personal
+      p.nickname Scott Smith
+      img.avatar(src='./images/tupian.png')
+  div.clock
+    div
+      button.clock-in 马上打卡
+    p 距离打卡结束剩余时间
+      time.time 2:30:00
