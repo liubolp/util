@@ -20,8 +20,95 @@ block content
     div.personal
       p.nickname Scott Smith
       img.avatar(src='./images/tupian.png')
-  div.clock
+  // 打卡入口
+  div.clock.active.hide
     div
       button.clock-in 马上打卡
     p 距离打卡结束剩余时间
       time.time 2:30:00
+  // 今日已打卡
+  div.clock.complete.hide
+    div
+      button.clock-in 今日已打卡
+    p 每天
+      time.time 6:00~9:00
+      | 开始打卡，前100名平分挑战金
+  // 已过打卡时间
+  div.clock.expired.hide
+    div
+      button.clock-in 打卡时间已过，请明日再来
+    p 每天
+      time.time 6:00~9:00
+      | 准时打卡，将获得能量卡一张
+  // 打卡未开始
+  div.clock.waiting
+    div
+      button.clock-in 打卡还未开始
+    p 每天
+      time.time 6:00~9:00
+      | 开始打卡，前100名平分挑战金
+  // 排名切换
+  ul.tab
+    li.current 全国排名
+    li 好友排名
+  // 名次列表
+  ul.list
+    - for(var i=0; i<10; i++)
+      li
+        span.order=(i>2?i+1:'')
+        div.avatar-box
+          img.avatar(src='./images/tupian.png')
+          i.level.vip_icon_0
+        div.content
+          p
+            span.name 陈润阳
+            span.title 讲师，董事长
+          p.company 重庆链脉网络科技有限公司
+        div.time
+          time 09:24:38
+        div.operation
+          span.reward(class={hide:i>5})
+          div(class={hide:i>5})
+            p.count 0
+            div.star
+          span.remind(class={hide:i<=5}) 提醒打卡
+  footer.footer
+    div.list
+      span.order 999
+      div.avatar-box
+        img.avatar(src='./images/tupian.png')
+        i.level.vip_icon_0
+      div.content
+        p
+          span.name 陈润阳
+          span.title 讲师，董事长
+        p.company 重庆链脉网络科技有限公司
+      div.operation
+        span.picture 生成打卡图
+        span.invite 生成邀请卡
+  // 打赏选择框
+  div.modal-reward
+    div.container
+      div.background
+      div.personal-box
+        img.avatar(src='./images/tupian.png')
+        p.nickname Scott Smith
+      ul.money
+        - for(var i=0;i<6;i++)
+          li
+            span 8.8元
+      div.other-amount
+        span
+          span ￥
+          input.amount(type='text' placeholder='其他金额')
+          span 元
+        p 成为第一个打赏的人吧
+      div.btn-box
+        button.pay 赏红包
+  // 打卡成功对话框
+  div.modal-success
+    div.container
+      i.close
+      div.background
+      h4 恭喜打卡成功
+      p 前100名挑战者将平分挑战金
