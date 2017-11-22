@@ -1,0 +1,89 @@
+extends ../../common/layout/layout
+block append meta
+  title 早起挑战
+block footer
+block footerCss
+block footerJs
+  script(src='./js/challenge.js')
+block localCss
+  link(rel='stylesheet' href='./css/challenge.css')
+block content
+  div.container
+    div.full-container.flex
+      div.toggle-btn
+        a(href='/clock-in') 打卡排行
+        a(href='javascript:;').current 早起挑战
+      div.personal
+        a(href='javascript:;')
+          img.avatar(src='./images/tupian.png')
+          span.box
+            i.sun
+            span 11
+      div.bg
+        img(src='./images/title.png')
+      div.notice
+        p
+          span.total 1198
+          | 人参与明天挑战，累计挑战金
+          span.amount 8873
+          | 元
+      div.rule-title
+        span 挑战规则
+      div.rule-list
+        ul
+          li
+            span 1
+            | 支付一元加入挑战
+          li
+            span 2
+            | 早上6:00到9:00打卡
+          li
+            span 3
+            | 准时打卡的人平分挑战金
+      div.btn-box
+        button 我要参加
+      div.slide
+        p 下滑查看大家打卡记录
+        div.arrow
+          i
+          i
+    // 打卡记录页
+    div.full-container.record
+      header
+        a.calendar(href='javascript:;')
+          i
+          time 11月22日
+        div
+          span
+            mark 1198
+            | 成功
+          span
+            mark 5354
+            | 失败
+      ul.list
+        li.start
+          time 6:00
+          div 打卡开始
+        - for(var k=0;k<7;k++)
+          li.item
+            time 6:01
+            div.content
+              p
+                img.avatar(src='./images/tupian.png')
+                span
+                  mark 我爱罗
+                  | 连续早起
+                  mark 5
+                  | 天
+              // 如果用户连续打卡超过20天就给.sun 加上fold这个类
+              div.sun.fold
+                button 展开
+                - for(var i=0;i<40;i++)
+                  i
+              p
+                | 累计奖励金
+                mark 7798
+                | 元
+        li.end
+          time 9:00
+          div 打卡结束

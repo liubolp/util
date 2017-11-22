@@ -26,15 +26,21 @@ div,i{
     }
   }
   .area{
+    position: relative;
     span{
-      .ellipsis();
       display: inline-block;
-      max-width: 65px;
+      max-width: 1.6rem;
       vertical-align: bottom;
+      white-space: nowrap;
+      overflow: hidden;
+      margin-right: 12px;
     }
     i{
       margin: 0 5px;
       .setArrow(down, 12px, #fff, 2px);
+      position: absolute;
+      right: -9px;
+      top: 4px;
     }
   }
   .content{

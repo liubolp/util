@@ -1,0 +1,232 @@
+@import "../../../common/reset/rest";
+body{
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  color: #999a9a;
+}
+li{
+  list-style: none;
+}
+.container{
+  transition: all 0.3s;
+}
+.full-container{
+  width: 100vw;
+  height: 100vh;
+}
+.flex{
+  padding: .4rem 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.toggle-btn{
+  display: flex;
+  text-align: center;
+  border: 1px solid @default_color;
+  border-radius: 5px;
+  font-size: 16px;
+  a{
+    width: 1.7rem;
+    color: @default_color;
+    &.current{
+      color: #fff;
+      background: @default_color;
+    }
+  }
+}
+.personal{
+  align-self: flex-start;
+  a{
+    color: inherit;
+    display: flex;
+  }
+  .avatar{
+    width: .62rem;
+    height: .62rem;
+    border: 1px solid #fff;
+    vertical-align: bottom;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .box{
+    background: #d4d7d8;
+    border-radius: .3rem;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    color: @default_color;
+    .sun{
+      width: .44rem;
+      height: .44rem;
+      background: url("../images/sun.png") no-repeat;
+      background-size: contain;
+      margin-right: 10px;
+    }
+  }
+}
+.bg{
+  img{
+    width: 3.5rem;
+    vertical-align: bottom;
+  }
+}
+.rule-title{
+  color: @default_color;
+  span{
+    padding: 0 10px;
+    border-left: 1px solid @default_color;
+    border-right: 1px solid @default_color;
+  }
+}
+.rule-list{
+  color: @default_color;
+  line-height: 2.5;
+  ul{
+    width: 100%;
+    border-radius: 5px;
+    background: #fff;
+    padding: 20px 1.2rem;
+  }
+  span{
+    border-radius: 50%;
+    background: @default_color;
+    color: #fff;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    margin-right: 3px;
+  }
+}
+.btn-box{
+  button{
+    background: @default_color;
+    height: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 70vw;
+    color: #fff;
+    font-size: 16px;
+  }
+}
+.slide{
+  .arrow{
+    text-align: center;
+    position: relative;
+    width: 60px;
+    margin: 0 auto;
+    i{
+      .setArrow(down, 14px, #999a9a, 1px );
+      &:last-child{
+        position: absolute;
+        top: 10px;
+        left: 23px;
+      }
+    }
+  }
+}
+// 排名列表
+.record{
+  font-size: 14px;
+  header{
+    height: .8rem;
+    position: relative;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &::after{
+      .setBottomLine()
+    }
+  }
+  .calendar{
+    color: inherit;
+    i{
+      width: 25px;
+      height: 25px;
+      background: url("../images/rili.png") no-repeat;
+      background-size: contain;
+      display: inline-block;
+      vertical-align: bottom;
+      margin-right: 10px;
+    }
+  }
+  mark{
+    background: none;
+    color: inherit;
+    font-size: 14px;
+    margin-left: 20px;
+  }
+  .list{
+    padding: 0 15px;
+    height: calc(~'100vh - .8rem');
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  li{
+    display: flex;
+    margin-bottom: 10px;
+    time{
+      flex: 0 0 40px;
+      line-height: .7rem;
+    }
+    &.start,&.end{
+      line-height: .7rem;
+    }
+  }
+  .content{
+    mark{
+      margin: 0;
+    }
+    .avatar{
+      width: .7rem;
+      height: .7rem;
+      border-radius: 50%;
+      vertical-align: bottom;
+      margin-right: .1rem;
+      & + span{
+        line-height: .7rem;
+      }
+    }
+    .sun{
+      padding:0 .8rem;
+      line-height: normal;
+      overflow: hidden;
+      position: relative;
+      &.fold{
+        max-height: 1rem;
+      }
+      i{
+        display: inline-block;
+        width: .44rem;
+        height: .44rem;
+        background: url("../images/sun.png") no-repeat;
+        background-size: contain;
+      }
+      button{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border: none;
+        background: none;
+        outline: none;
+        padding: 0 10px;
+        line-height: .44rem;
+        color: inherit;
+      }
+    }
+    p:last-child{
+      font-size: 12px;
+      mark{
+        font-size: 12px;
+      }
+    }
+  }
+}

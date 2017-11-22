@@ -16,7 +16,7 @@ block content
         p 累计天数
     div.toggle-btn
       a(href='javascript:;').current 打卡排行
-      a(href='javascript:;') 早起挑战
+      a(href='challenge.html') 早起挑战
     div.personal
       p.nickname Scott Smith
       img.avatar(src='./images/tupian.png')
@@ -68,7 +68,7 @@ block content
           time 09:24:38
         div.operation
           span.reward(class={hide:i>5})
-          div(class={hide:i>5})
+          div.star-box(class={hide:i>5})
             p.count 0
             div.star
           span.remind(class={hide:i<=5}) 提醒打卡

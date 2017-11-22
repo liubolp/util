@@ -2,8 +2,8 @@ window.addEventListener('load', function () {
   $(function () {
     // 处理打卡状态
     var hour = new Date().getHours(),
-      start = 15,
-      end = 19,
+      start = 9,
+      end = 10,
       timer,
       status
     // 处理打卡入口的状态
@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
           $('.clock.active').removeClass('hide').siblings().filter('.clock').addClass('hide')
         }
         var current = new Date(),
-          endTime = new Date(current.toLocaleDateString().replace(/\//g, '-') + ' ' + end + ':00:00')
+          endTime = new Date(current.toLocaleDateString() + ' ' + end + ':00:00')
         timer = setInterval(function () {
           var distance = endTime - new Date()
           if (distance <= 0) {
@@ -76,19 +76,19 @@ window.addEventListener('load', function () {
     // 打赏和点赞操作
     $('ul.list').on('click', '.reward', function (e) { // 打赏操作
       $('.modal-reward').fadeIn('fast')
-    }).on('click', '.star', function (e) { // 点赞操作
-      var num = $(this).prev().text()
+    }).on('click', '.star-box', function (e) { // 点赞操作
+      var num = $(this).find('.count').text()
       // 只能点一次赞
       $(this).toggleClass('disabled')
       if($(this).hasClass('disabled')) {// 如果用户添加一个赞
         // todo 插入数据库
-        $(this).prev().text(+num + 1)
-        $(this).addClass('more')
+        $(this).find('.count').text(+num + 1)
+        $(this).find('.star').addClass('more')
       } else { // 用户取消点赞
         // todo 更新数据库
-        $(this).prev().text(num - 1)
+        $(this).find('.count').text(num - 1)
         if (num <= 1) {
-          $(this).removeClass('more')
+          $(this).find('.star').removeClass('more')
         }
       }
     }).on('click', '.remind', function (e) { // 提醒好友打卡
