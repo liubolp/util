@@ -1,0 +1,48 @@
+extends ../../common/layout/layout
+block append meta
+  title 我的打卡记录
+block footer
+block footerCss
+block footerJs
+  script(src='./js/record.js')
+block localCss
+  link(rel='stylesheet' href='./css/record.css')
+  <script src="https://cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
+block content
+  div.container
+    div.personal
+      img.avatar(src='./images/tupian.png')
+      div.box
+        h4.nickname Scott Smith
+        p 累计奖励（元）
+          span.amount 19.8
+          | 累计成功次数
+          span.count 10
+    div.calendar-box
+      div.calendar-header
+        i.prev
+        span 11月23日
+        i.next
+      ul.calendar-weeks
+        li 日
+        li 一
+        li 二
+        li 三
+        li 四
+        li 五
+        li 六
+      ul.calendar-days
+        // 如果当天有打卡记录给li标签加上success这个类名
+        - for(var i=0;i<42;i++)
+          li(class={selected:i===5,success:i===14})
+            span=i+1
+    div.details-box
+      div.has-record
+        p 早起挑战
+          span 挑战成功
+        p 我在
+          span.time 06:25
+          | 起床，连续早起第
+          span.count 10
+          | 天
+      div.nothing.hide 本日无挑战记录

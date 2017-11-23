@@ -8,13 +8,13 @@ block footerJs
 block localCss
   link(rel='stylesheet' href='./css/challenge.css')
 block content
-  div.container
+  div#container
     div.full-container.flex
       div.toggle-btn
         a(href='/clock-in') 打卡排行
         a(href='javascript:;').current 早起挑战
       div.personal
-        a(href='javascript:;')
+        a(href='/clock-in/record.html')
           img.avatar(src='./images/tupian.png')
           span.box
             i.sun
@@ -41,7 +41,8 @@ block content
             span 3
             | 准时打卡的人平分挑战金
       div.btn-box
-        button 我要参加
+        // 用户未付钱显示‘我要参加’，用户已付显示‘打卡’，打完之后变成’我要参加‘，如果用户已付钱给按钮加上paid这个类名
+        button.join.paid 我要参加
       div.slide
         p 下滑查看大家打卡记录
         div.arrow
@@ -50,7 +51,7 @@ block content
     // 打卡记录页
     div.full-container.record
       header
-        a.calendar(href='javascript:;')
+        a.calendar(href='/clock-in/record.html')
           i
           time 11月22日
         div
@@ -87,3 +88,21 @@ block content
         li.end
           time 9:00
           div 打卡结束
+  // 支付弹窗
+  div.modal-pay(style='display:none')
+    div.modal-container
+      div.header
+        i.close
+      div.body
+        p 支付1元参加挑战
+        button.pay 去支付
+  // 打卡时间提示弹窗
+  div.modal-tips(style='display:none')
+    p 打卡时间6:00~9:00
+  // 打卡成功对话框
+  div.modal-success
+    div.container
+      i.close
+      div.background
+      h4 恭喜打卡成功
+      p 前100名挑战者将平分挑战金

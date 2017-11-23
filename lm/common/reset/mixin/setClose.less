@@ -1,0 +1,24 @@
+.setClose(@c: #666, @size: 16px, @w: 2px) {
+  width: @size;
+  height: @size;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transform: rotate(45deg);
+  &::before{
+    content: '';
+    width: @size;
+    border-bottom: 2px solid @c;
+    position: absolute;
+    bottom: (@size - @w) / 2;
+    left: 0;
+  }
+  &::after{
+    content: '';
+    height: @size;
+    border-right: 2px solid @c;
+    position: absolute;
+    right: (@size - @w) / 2;
+    top: 0;
+  }
+}

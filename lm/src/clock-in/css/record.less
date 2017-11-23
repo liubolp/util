@@ -1,0 +1,127 @@
+@import "../../../common/reset/rest";
+.hide{
+  display: none !important;
+}
+li{
+  list-style: none;
+}
+div{
+  .setTapColor()
+}
+.container{
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  padding: 15px;
+}
+.personal{
+  display: flex;
+  align-items: center;
+  .avatar{
+    width: 1.24rem;
+    height: 1.24rem;
+    border-radius: 50%;
+    vertical-align: bottom;
+    margin-right: 5px;
+  }
+  .box{
+    font-size: 12px;
+  }
+  .nickname{
+    font-size: 14px;
+  }
+  span{
+    margin: 0 5px;
+    color: @default_color;
+  }
+}
+.calendar-box{
+  background: #eceff1;
+  padding: 10px 20px;
+  border-radius: 5px;
+  .calendar-header{
+    .prev{
+      .setArrow(left, 14px, #ccc, 1px)
+    }
+    .next{
+      .setArrow(right, 14px, #ccc, 1px)
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+  }
+  .calendar-weeks,.calendar-days{
+    display: flex;
+    text-align: center;
+    li{
+      flex: 0 0 14.28%;
+      margin-bottom: 5px;
+    }
+  }
+  .calendar-days{
+    flex-wrap: wrap;
+    font-size: 14px;
+    li{
+      color: #ccc;
+      &.cur-month{
+        color: inherit;
+      }
+      span{
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+      }
+      &.selected{
+        color: @default_color;
+        span{
+          border-bottom: 1px solid @default_color;
+        }
+      }
+      &.success{
+        span{
+          background: @default_color;
+          border-radius: 50%;
+          color: #fff;
+        }
+        &.selected{
+          span{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+.details-box{
+  height: 2rem;
+  background: #eceff1;
+  border-radius: 5px;
+  padding: .3rem;
+  .has-record{
+    border-left: 3px solid @default_color;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 0 10px;
+    height: 100%;
+  }
+  p:first-child{
+    span{
+      float: right;
+      color: @default_color;
+    }
+  }
+  P:last-child{
+    color: #b3b3b3;
+    font-size: 14px;
+  }
+  .nothing{
+    text-align: center;
+    line-height: 1.4rem;
+  }
+}
