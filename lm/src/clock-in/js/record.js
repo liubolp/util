@@ -148,7 +148,9 @@ window.addEventListener('load', function () {
       var list = getCalendar(), html = ''
       list.forEach(function (week) {
         week.forEach(function (day) {
-          html += `<li class="${day.isCurMonth ? 'cur-month' : ''}">
+          html += `<li class="${day.isCurMonth ? 'cur-month' : ''}"
+                       data-time="06:50"
+                       data-count="18">
                     <span>${day.monthDay}</span>
                   </li>`
         })
@@ -157,7 +159,6 @@ window.addEventListener('load', function () {
       $('.calendar-days').html(html)
       $('.calendar-header span').html(current)
     }
-    console.log(getCalendar())
     updateCalendar()
     // 改变月份逻辑处理
     $('.calendar-header').on('click', 'i', function (e) {
@@ -178,9 +179,17 @@ window.addEventListener('load', function () {
     $('.calendar-days').on('click', 'li', function (e) {
       // todo 读取标签里的数据
       $(this).addClass('selected').siblings().removeClass('selected')
-      //if ($)
-      var record = $(this).prop('data-time') || '06:50'
-      var count = $(this).prop('data-count') || 100
+      if ($(this).hasClass('success')) { // 如果当天有打卡记录
+        var record = $(this).attr('data-time') || '06:50'
+        var count = $(this).attr('data-count') || 100
+        $('.details-box').find('.has-record').removeClass('hide').end()
+          .find('.nothing').addClass('hide').end()
+          .find('.time').text(record).end()
+          .find('.count').text(count)
+      } else {
+        $('.details-box').find('.has-record').addClass('hide')
+          .siblings().removeClass('hide')
+      }
     })
   })
 })

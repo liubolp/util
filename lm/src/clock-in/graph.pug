@@ -1,0 +1,39 @@
+extends ../../common/layout/layout
+block append meta
+  title 打卡图
+block footer
+block footerCss
+block footerJs
+  script(src='./js/graph.js')
+block localCss
+  link(rel='stylesheet' href='./css/graph.css')
+block content
+  div#container
+    // 默认大图
+    div.full-container.picture
+      div.img-box
+        audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' autoplay preload loop hidden)
+      div.audio-box
+        img.avatar(src='./images/tupian.png')
+        div.personal
+          p
+            span.name Scott
+            span.title 董事长
+          p.company 重庆链脉网络科技有限公司
+        span.toggle.pause
+      div.text-box.exclude
+        p.exclude
+          span.exclude 【早安心语】
+          | 减肥开始减肥开始的附件四发到空间就开始发生，发生的开发is房价快速减肥，犯傻了科技经费说到底防辐射服的快速减肥ID是。快捷方式独家垃圾啊哈哈ID复活甲阿卡丽就，积分收到了覅积分多少。
+      div.arrow-box
+        i
+        i
+    // 推广页面
+    div.full-container.expand
+      div.personal
+        img.avatar(src='./images/tupian.png')
+        h4.name Scott
+        p.tel 13586534586
+      button.make 免费定制名片
+      a.change(href='javascript:;') 换成我的
+        span.arrow

@@ -1,5 +1,6 @@
 window.addEventListener('load', function () {
   $(function () {
+    //
     function scrollPage () {
       // 处理翻页
       var data = {
@@ -12,7 +13,7 @@ window.addEventListener('load', function () {
         isDown: false // 下滑锁定状态
       }
       $('.full-container').on('touchstart', function (e) {
-        data.isDown = $(this).hasClass('record')
+        data.isDown = $(this).hasClass('expand')
         data.disabled = false
         data.isEnd = false
         data.startY = e.originalEvent.changedTouches[0].screenY
@@ -60,47 +61,5 @@ window.addEventListener('load', function () {
       }
     }
     scrollPage()
-    // 参加挑战打卡
-    $('.join').click(function (e) {
-      if ($(this).hasClass('paid')) { // 用户已付款
-        // todo 调用打卡逻辑
-        var hours = new Date().getHours()
-        if (hours < 6 || hours >= 9) { // 不在打卡时间内
-          $('.modal-tips').slideDown()
-          setTimeout(function () { // 3S之后关闭提示框
-            $('.modal-tips').slideUp()
-          }, 3000)
-        } else {
-          // todo 打卡成功提示框
-          $('.modal-success').fadeIn()
-        }
-      } else {
-        // 调用支付
-        $('.modal-pay').slideDown()
-      }
-    })
-    // 显示更多和隐藏打卡详情
-    $('.list').on('click', 'button.toggle', function (e) {
-      $(this).parent().toggleClass('fold')
-      if ($(this).parent().hasClass('fold')) {
-        $(this).text('展开')
-      } else {
-        $(this).text('收起')
-      }
-    })
-    // 关闭支付弹窗
-    $('.modal-pay').click(function (e) {
-      var target = $(e.target)
-      if (target.hasClass('close') || target.hasClass('modal-pay')) {
-        $('.modal-pay').fadeOut()
-      }
-    })
-    // 关闭打卡成功提示框
-    $('.modal-success').click(function (e) {
-      var target = $(e.target)
-      if (target.hasClass('close') || target.hasClass('modal-success')) {
-        $('.modal-success').fadeOut()
-      }
-    })
   })
 })

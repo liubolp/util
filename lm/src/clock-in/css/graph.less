@@ -1,0 +1,131 @@
+@import "../../../common/reset/rest";
+body{
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  color: #999a9a;
+}
+html{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+button{
+  .setTapColor()
+}
+#container{
+  transition: all 0.3s;
+}
+.full-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.picture{
+  justify-content: space-between;
+  padding-bottom: 10px;
+  background: #fff;
+  .img-box{
+    background: #ccc;
+    flex: 1;
+  }
+  .audio-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+    .avatar{
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      vertical-align: bottom;
+      margin-right: 10px;
+    }
+    .personal{
+      flex: 1 1 calc(~'100% - 1.6rem - 15px');
+      white-space: nowrap;
+      overflow: hidden;
+      .name{
+        font-size: 14px;
+        margin-right: 10px;
+      }
+      .company{
+        .ellipsis()
+      }
+    }
+    .toggle{
+      width: .6rem;
+      height: .6rem;
+      background: url("../images/bofang.png") no-repeat;
+      background-size: contain;
+      &.pause{
+        background: url("../images/zanting1.png") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  .text-box{
+    margin: 0 20px;
+    padding: 0 15px;
+    height: 125px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .arrow-box{
+    text-align: center;
+    position: relative;
+    width: 60px;
+    margin: 0 auto;
+    i{
+      .setArrow(down, 14px, #999a9a, 1px );
+      &:last-child{
+        position: absolute;
+        top: 10px;
+        left: 23px;
+      }
+    }
+  }
+}
+// 推广页面
+.expand{
+  background: @default_color;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  padding: 2rem 0;
+  .personal{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    .avatar{
+      width: 1.8rem;
+      height: 1.8rem;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      vertical-align: bottom;
+    }
+  }
+  .make{
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #fff;
+    width: 4rem;
+    height: .8rem;
+    line-height: .8rem;
+    color: @default_color;
+    font-size: 18px;
+  }
+  .change{
+    color: #fff;
+    .arrow{
+      .setArrow(right, 12px ,#fff, 2px);
+      top: 0;
+    }
+  }
+}

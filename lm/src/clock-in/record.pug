@@ -33,10 +33,12 @@ block content
         li 六
       ul.calendar-days
         // 如果当天有打卡记录给li标签加上success这个类名
+        // li标签中data-time表示打卡时间（格式：xx:xx）data-count表示联系打卡次数
         - for(var i=0;i<42;i++)
           li(class={selected:i===5,success:i===14})
             span=i+1
     div.details-box
+      // 如果当天没有打卡记录将.has-record添加hide这个类
       div.has-record
         p 早起挑战
           span 挑战成功

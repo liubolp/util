@@ -187,6 +187,9 @@ div,button{
     }
     &.start,&.end{
       line-height: .7rem;
+      div{
+        color: @default_color;
+      }
     }
   }
   .content{
@@ -209,7 +212,7 @@ div,button{
       overflow: hidden;
       position: relative;
       &.fold{
-        max-height: 1rem;
+        .ellipsisLn(2)
       }
       i{
         display: inline-block;
@@ -307,11 +310,13 @@ div,button{
   top: 0;
   left: 0;
   right: 0;
-  height: .8rem;
+  height: 1.6rem;
   z-index: 5;
   background: rgba(0,0,0,.7);
-  line-height: .8rem;
+  line-height: 1.6rem;
   text-align: center;
+  color: #fff;
+  font-size: 30px;
 }
 // 打卡成功提示框
 .modal-success{
