@@ -1,4 +1,18 @@
 @import "../../../common/reset/rest";
+@keyframes moveDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0.1;
+  }
+}
 body{
   height: 100vh;
   overflow: hidden;
@@ -11,6 +25,9 @@ html{
   overflow: hidden;
 }
 button{
+  .setTapColor()
+}
+div{
   .setTapColor()
 }
 #container{
@@ -29,7 +46,25 @@ button{
   background: #fff;
   .img-box{
     background: #ccc;
-    flex: 1;
+    height: 100vw;
+    position: relative;
+    overflow: hidden;
+    img{
+      width: 100vw;
+      vertical-align: bottom;
+    }
+    button{
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #2a4965;
+      color: #fff;
+      font-size: 12px;
+      border: none;
+      outline: none;
+    }
   }
   .audio-box{
     display: flex;
@@ -75,12 +110,14 @@ button{
     height: 125px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    flex: 1;
   }
   .arrow-box{
     text-align: center;
     position: relative;
     width: 60px;
     margin: 0 auto;
+    animation: moveDown 1s ease-in infinite;
     i{
       .setArrow(down, 14px, #999a9a, 1px );
       &:last-child{
@@ -126,6 +163,35 @@ button{
     .arrow{
       .setArrow(right, 12px ,#fff, 2px);
       top: 0;
+    }
+  }
+}
+// 查看大图模态框
+.modal-img{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0,0,0,.6);
+  img{
+    width: 100vw;
+    vertical-align: bottom;
+  }
+  .close{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: 1px solid #fff;
+    i{
+      .setClose(#fff);
+      right: 3px;
+      top: 3px;
     }
   }
 }

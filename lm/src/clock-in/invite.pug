@@ -8,3 +8,32 @@ block footerJs
 block localCss
   link(rel='stylesheet' href='./css/invite.css')
 block content
+  div.container
+    div.img-box(style="background-image:url('./images/test.png')")
+      img.text(src='./images/tupian.png')
+      div
+        div.personal
+          img(src='./images/tupian.png')
+          h3.name Scott
+        div.qr
+          img(src='./images/tupian.png')
+          p.desc 今天是个好日子
+    div.img-list
+      ul.bg
+        - for (var i=0;i<16;i++)
+          li(class={selected:i===0})
+            div.box
+              img(src='./images/tupian.png')
+        // 图片上传按钮
+        li.upload
+          div.box
+            input(type='file' name='file' accept='image/*')
+      ul.text.hide
+        - for (var i=0;i<16;i++)
+          li(class={selected: i === 0})
+            div.box
+              img(src='./images/chenggong.png')
+    div.footer-tab
+      i.bg.selected
+      i.text
+      i.share

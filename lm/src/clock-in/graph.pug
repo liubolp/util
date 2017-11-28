@@ -7,12 +7,19 @@ block footerJs
   script(src='./js/graph.js')
 block localCss
   link(rel='stylesheet' href='./css/graph.css')
+  // 解决iOS自动播放
+  script.
+    //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      document.getElementById('audio').play();
+    }, false)
 block content
   div#container
     // 默认大图
     div.full-container.picture
       div.img-box
-        audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' autoplay preload loop hidden)
+        img(src='./images/test.png')
+        button 查看大图
       div.audio-box
         img.avatar(src='./images/tupian.png')
         div.personal
@@ -21,6 +28,7 @@ block content
             span.title 董事长
           p.company 重庆链脉网络科技有限公司
         span.toggle.pause
+          audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
       div.text-box.exclude
         p.exclude
           span.exclude 【早安心语】
@@ -37,3 +45,7 @@ block content
       button.make 免费定制名片
       a.change(href='javascript:;') 换成我的
         span.arrow
+    div.modal-img(style='display:none')
+      img(src='./images/test.png')
+      div.close
+        i

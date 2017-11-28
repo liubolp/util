@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
   $(function () {
-    //
+    // 单页滚动
     function scrollPage () {
       // 处理翻页
       var data = {
@@ -31,8 +31,10 @@ window.addEventListener('load', function () {
         if (data.distance > 0) { // 下滑
           if (data.isDown) { // 只在第二张页面调用下滑
             if (Math.abs(data.distance) >= data.limit) { // 超过阈值
+              if (data.isEnd) { return } // 如果是触摸结束直接退出
               data.disabled = true
               data.distance = 0
+              $('.toggle').trigger('click') // 下滑开启音乐
             } else { // 没有超过阈值
               if (data.isEnd) {
                 data.distance = window.innerHeight * -1
@@ -47,8 +49,13 @@ window.addEventListener('load', function () {
         } else { // 上滑
           if (data.isDown) { return } // 只在第一张页面调用上滑
           if (Math.abs(data.distance) >= data.limit) { // 超过阈值
+            if (data.isEnd) { return } // 如果是触摸结束直接退出
             data.disabled = true
             data.distance = window.innerHeight * -1
+            var toggle = $('.toggle')
+            if (toggle.hasClass('pause')) { // 是播放状态,上滑关闭音乐
+              toggle.trigger('click')
+            }
           } else {
             if (data.isEnd) { // 如果触摸取消都没有达到阈值
               data.distance = 0
@@ -61,5 +68,22 @@ window.addEventListener('load', function () {
       }
     }
     scrollPage()
+    // 查看大图效果
+    $('.img-box').on('click', 'button', function (e) {
+      $('.modal-img').slideDown()
+    })
+    $('.modal-img .close').click(function (e) {
+      $('.modal-img').fadeOut()
+    })
+    // 播放暂停切换
+    $('.audio-box').on('click', '.toggle', function (e) {
+      $(this).toggleClass('pause')
+      var audio = $('#audio')[0]
+      if ($(this).hasClass('pause')) {
+        audio.play()
+      } else {
+        audio.pause()
+      }
+    })
   })
 })

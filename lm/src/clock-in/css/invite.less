@@ -1,1 +1,155 @@
 @import "../../../common/reset/rest";
+.hide{
+  display: none !important;
+}
+.container{
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.img-box{
+  height: 100vw;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-size: cover;
+  text-align: right;
+  color: black;
+  img{
+    vertical-align: bottom;
+  }
+  .text{
+    height: 33.33%;
+  }
+  >div{
+    height: 66.67%;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    img{
+      width: 1.34rem;
+      height: 1.34rem;
+    }
+  }
+  .personal{
+    img{
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+  }
+  .qr{
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.img-list{
+  flex: 1;
+  overflow: hidden;
+  padding: 5px 25px;
+  background: #191919;
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  li{
+    flex: 0 0 25%;
+    list-style: none;
+    min-height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    &.selected{
+      .box{
+        position: relative;
+        &::after{
+          content: '';
+          width: 17px;
+          height: 17px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          background: url("../images/xuanzhong.png") no-repeat;
+          background-size: contain;
+        }
+      }
+      img{
+        border: 2px solid #0084ff;
+      }
+    }
+  }
+  .upload{
+    .box{
+      position: relative;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: #fff;
+      &::after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30%;
+        border-bottom: 2px solid #ccc;
+        transform: translate(-50%, -50%);
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 30%;
+        border-right: 2px solid #ccc;
+        transform: translate(-50%, -50%);
+      }
+    }
+    input{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  }
+  img{
+    vertical-align: bottom;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+.footer-tab{
+  height: 50px;
+  display: flex;
+  padding: 0 25px;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  flex-shrink: 0;
+  i{
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &.bg{
+      background-image: url("../images/xiangce.png");
+      &.selected{
+        background-image: url("../images/xiangce1.png");
+      }
+    }
+    &.text{
+      background-image: url("../images/wenzi.png");
+      &.selected{
+        background-image: url("../images/wenzi1.png");
+      }
+    }
+    &.share{
+      background-image: url("../images/share.png");
+    }
+  }
+}

@@ -1,4 +1,18 @@
 @import "../../../common/reset/rest";
+@keyframes moveDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0.1;
+  }
+}
 body{
   height: 100vh;
   overflow: hidden;
@@ -130,6 +144,7 @@ div,button{
     position: relative;
     width: 60px;
     margin: 0 auto;
+    animation: moveDown 1s ease-in infinite;
     i{
       .setArrow(down, 14px, #999a9a, 1px );
       &:last-child{
@@ -313,10 +328,16 @@ div,button{
   height: 1.6rem;
   z-index: 5;
   background: rgba(0,0,0,.7);
-  line-height: 1.6rem;
   text-align: center;
   color: #fff;
-  font-size: 30px;
+  font-size: 24px;
+  line-height: normal;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  time{
+    font-size: 14px;
+  }
 }
 // 打卡成功提示框
 .modal-success{

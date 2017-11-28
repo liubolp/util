@@ -30,6 +30,7 @@ window.addEventListener('load', function () {
         if (data.distance > 0) { // 下滑
           if (data.isDown) { // 只在第二张页面调用下滑
             if (Math.abs(data.distance) >= data.limit) { // 超过阈值
+              if (data.isEnd) { return } // 如果是触摸结束直接退出
               data.disabled = true
               data.distance = 0
             } else { // 没有超过阈值
@@ -46,6 +47,7 @@ window.addEventListener('load', function () {
         } else { // 上滑
           if (data.isDown) { return } // 只在第一张页面调用上滑
           if (Math.abs(data.distance) >= data.limit) { // 超过阈值
+            if (data.isEnd) { return } // 如果是触摸结束直接退出
             data.disabled = true
             data.distance = window.innerHeight * -1
           } else {

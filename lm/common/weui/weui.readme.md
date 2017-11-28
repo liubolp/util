@@ -10,3 +10,4 @@
     6. actionSheet
     7. picker
     8. datePicker
+    9. uploader
