@@ -101,9 +101,31 @@ block content
     time 打卡时间 2017/11/11
     p 6:00~9:00
   // 打卡成功对话框
-  div.modal-success
+  div.modal.modal-success
     div.container
       i.close
-      div.background
-      h4 恭喜打卡成功
-      p 前100名挑战者将平分挑战金
+      div
+        h3 恭喜挑战成功
+        p 奖励金将会在24小时内发送至你的钱包
+        button 参加下次挑战
+  // 支付成功弹窗
+  div.modal.modal-pay-success
+    div.container
+      i.close
+      div
+        h3 你的挑战已启动
+        p
+          span 2017年11月30日
+          br
+          span 6:00-9:00
+          | 记得来打卡哟
+        button 喊好友来参加
+  // 挑战失败弹窗
+  // 如果进入页面超过打卡时限且用户未打卡就显示失败弹窗(添加show)
+  div.modal.modal-fail
+    div.container
+      i.close
+      div
+        h3 挑战失败
+        p 你的挑战金被分走了...
+        button 不服继续挑战

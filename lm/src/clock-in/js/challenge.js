@@ -63,10 +63,10 @@ window.addEventListener('load', function () {
     }
     scrollPage()
     // 参加挑战打卡
+    var hours = new Date().getHours() // 进入页面的时间
     $('.join').click(function (e) {
       if ($(this).hasClass('paid')) { // 用户已付款
         // todo 调用打卡逻辑
-        var hours = new Date().getHours()
         if (hours < 6 || hours >= 9) { // 不在打卡时间内
           $('.modal-tips').slideDown()
           setTimeout(function () { // 3S之后关闭提示框
@@ -98,10 +98,25 @@ window.addEventListener('load', function () {
       }
     })
     // 关闭打卡成功提示框
-    $('.modal-success').click(function (e) {
+    $('.modal').click(function (e) {
       var target = $(e.target)
       if (target.hasClass('close') || target.hasClass('modal-success')) {
-        $('.modal-success').fadeOut()
+        $(this).fadeOut()
+      }
+      // 打卡成功后续操作
+      if ($(this).hasClass('modal-success') && target[0].nodeName === 'BUTTON') { // 参加下次挑战
+        $(this).fadeOut()
+        $('.modal-pay').slideDown()
+      }
+      // 支付成功弹窗
+      if ($(this).hasClass('modal-pay-success') && target[0].nodeName === 'BUTTON') { // 喊好友来参加
+        // todo 调分享接口
+        $(this).fadeOut()
+      }
+      // 挑战失败弹窗
+      if ($(this).hasClass('modal-fail') && target[0].nodeName === 'BUTTON') { // 不服继续挑战
+        $(this).fadeOut()
+        $('.modal-pay').slideDown()
       }
     })
   })

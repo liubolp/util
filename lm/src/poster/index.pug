@@ -1,0 +1,35 @@
+extends ../../common/layout/layout
+block append meta
+  title 海报秀
+block footer
+block footerCss
+block content
+  // 顶部tab切换
+  div#nav-bar
+    ul.nav-list
+      li
+        a(href='javascript:;') 文章
+      li
+        a(href='javascript:;') H5
+      li.current.poster
+        a(href='javascript:;') 海报秀
+      li
+        a(href='javascript:;') 视频
+      li
+        a(href='javascript:;') 我们
+  // 海报二级分类列表
+  ul#category-list(style='display:none')
+    li.current
+      span 最新
+    li
+      span 每日一语
+    li
+      span 早安
+    li
+      span 晚安
+    li
+      span 励志
+    li
+      span 节日
+    li
+      span 其他

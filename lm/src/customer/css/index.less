@@ -18,7 +18,6 @@ h3{
 }
 a{
   color: inherit;
-  line-height: normal;
   display: inline-block;
 }
 // 头部页面
@@ -202,10 +201,18 @@ a{
     font-size: 30px;
   }
   li{
-    padding: 10px 0;
     flex: 0 0 20%;
     border-right: 1px solid @border_color;
     border-bottom: 1px solid @border_color;
+  }
+  a{
+    line-height: normal;
+    padding: 10px 0;
+    display: flex;
+    flex-flow: column nowrap;
+    &:active{
+      background: #ececec;
+    }
   }
 }
 
@@ -322,6 +329,10 @@ a{
     display: flex;
     flex-flow: column;
     justify-content: center;
+    line-height: normal;
+    &:active{
+      background: #ececec;
+    }
   }
   .iconfont{
     font-size: 30px;

@@ -339,9 +339,8 @@ div,button{
     font-size: 14px;
   }
 }
-// 打卡成功提示框
-.modal-success{
-  display: none;
+// 模态框通用样式
+.modal{
   position: fixed;
   top: 0;
   left: 0;
@@ -350,10 +349,7 @@ div,button{
   z-index: 11;
   background: rgba(0,0,0,.3);
   text-align: center;
-  line-height: 2.6;
-  color: black;
   .container{
-    background: #fff;
     width: 50%;
     position: absolute;
     top: 50%;
@@ -361,18 +357,57 @@ div,button{
     transform: translate(-50%, -50%);
     padding: 10px;
     border-radius: 5px;
+    background: #fff;
   }
-  .background{
-    width: 1.4rem;
-    height: 1.4rem;
-    background: url("../images/chenggong.png") no-repeat;
-    background-size: contain;
-    margin: 0 auto;
+  .close{
+    .setClose()
+  }
+}
+// 打卡成功提示框
+.modal-success,.modal-pay-success,.modal-fail{
+  display: none;
+  color: black;
+  .container{
+    >div{
+      padding-top: 10px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+    }
+  }
+  h3{
+    color: #ffa200;
+    margin-bottom: 10px;
   }
   p{
     font-size: 12px;
   }
-  .close{
-    .setClose()
+  button{
+    background: #ffa200;
+    color: #fff;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    margin: 20px 20px 10px 20px;
+    line-height: .8rem;
+  }
+}
+.modal-pay-success{
+  button{
+    background: #fff;
+    color: #ffaf6a;
+    outline: none;
+    border: 1px solid #ffa200;
+    border-radius: 5px;
+    margin: 20px 20px 10px 20px;
+    line-height: .8rem;
+  }
+}
+.modal-fail{
+  &.show{
+    display: block;
+  }
+  h3{
+    color: #ff3232;
   }
 }
