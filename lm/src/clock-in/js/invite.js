@@ -4,16 +4,12 @@ window.addEventListener('load', function () {
     $('.img-list').on('click', 'li', function (e) {
       if ($(this).hasClass('upload')) { // 如果是上传图片
         //
+        var loading // 上传动画
         weui.uploader('li.upload', {
-          url: 'http://localhost:8081',
-          auto: true,
+          url: 'http://manage.lianmai.com/manage.php?c=ajax&m=uploadPic&updObjName=1',
+          auto: false,
           type: 'file',
           fileVal: 'fileVal',
-          compress: {
-            width: 750,
-            height: 750,
-            quality: 0.8
-          },
           onBeforeQueued: function (files) {
             // `this` 是轮询到的文件, `files` 是所有文件
 
@@ -33,8 +29,10 @@ window.addEventListener('load', function () {
             return true // 阻止默认行为，不插入预览图的框架
           },
           onQueued: function () {
+            var item = $(`<li class="temporary"><div class="box"><img src="${this.base64 || this.url}"></div></li>`)
             console.log(this)
-
+            $('.bg .upload').before(item)
+            loading = weui.loading('已上传0%', {className: 'loading-box'})
             // console.log(this.status); // 文件的状态：'ready', 'progress', 'success', 'fail'
             // console.log(this.base64); // 如果是base64上传，file.base64可以获得文件的base64
 
@@ -51,21 +49,26 @@ window.addEventListener('load', function () {
             // return false; // 阻止文件上传
           },
           onProgress: function (procent) {
-            console.log(this, procent)
+            // console.log(this, procent)
+            $(loading).find('.weui-toast__content').text('已上传' + procent)
             return true // 阻止默认行为，不使用默认的进度显示
           },
           onSuccess: function (ret) {
-            console.log(this, ret)
+            // console.log(this, ret)
+            loading.hide()
             return true // 阻止默认行为，不使用默认的成功态
           },
           onError: function (err) {
             console.log(this, err)
+            loading.hide()
+            $('.temporary').remove()
+            weui.alert('上传图片失败')
             return true // 阻止默认行为，不使用默认的失败态
           }
         })
       } else {
         $(this).addClass('selected')
-          .siblings().removeClass()
+          .siblings().removeClass('selected')
         var src = $(this).find('img').attr('src')
         if ($(this).parent().hasClass('bg')) { // 换背景
           $('.img-box').css({
@@ -76,7 +79,7 @@ window.addEventListener('load', function () {
         }
       }
     })
-    // 切换背景图
+    // 切换底部菜单
     $('.footer-tab').on('click', 'i', function (e) {
       if ($(this).hasClass('share')) {
         // todo 调用分享接口
