@@ -1,0 +1,31 @@
+extends ../../common/layout/layout
+block append meta
+  title 推荐记录
+block localCss
+  link(rel='stylesheet' href='./css/recommend.css')
+block footerJs
+  script(src='./js/recommend.js')
+block content
+  //- 单个列表
+  mixin item
+    div.list-item
+      div.address
+        span.name 文章地址
+        span.value https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=%E5%8E%BB%E6%8E%89textarea%20%E5%8F%B3%E4%B8%8B%E8%A7%92&rsv_pq=b69fd58a00010741&rsv_t=9666rj6%2B2qfXIbvEX6%2FJHzwhSeydZJH3lJSr4cJ5sBz6%2Fkp9M81Arw%2BoSqk&rqlang=cn&rsv_enter=1&rsv_sug3=11&rsv_sug1=13&rsv_sug7=100
+      div.status
+        span.name 状态
+        // pending(未处理),view(已查看),accept(已采纳)
+        span.value.pending 未处理
+        // 只有在当前文章已采纳时可用
+        a.href(href='javascript:;') 查看文章
+      div.time
+        span.name 2017-10-28 11:30:25
+
+  ul
+    - for(var n=0;n<5;n++)
+      li
+        h4.month 2012年12月
+        ul.list
+          - for(var i=0;i<5;i++)
+            li
+              + item

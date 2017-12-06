@@ -1,0 +1,142 @@
+@import "../../../common/reset/rest";
+li{
+  list-style: none;
+}
+#supply-demand{
+  padding: 40px 0 0;
+}
+/*顶部样式*/
+.tab{
+  height: 40px;
+  display: flex;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 11;
+  div{
+    flex: 0 0 50%;
+    line-height: 40px;
+    &:first-child{
+      position: relative;
+      &::after{
+        .setRightLine()
+      }
+    }
+    &.current{
+      border-bottom: 2px solid @default_color;
+      color: @default_color
+    }
+  }
+  &::after{
+    .setBottomLine()
+  }
+}
+/*资源列表模块样式*/
+.list-box{
+  background: #fff;
+  min-height: 200px;
+  .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px .2rem;
+    color: #999;
+    font-size: 12px;
+    .toggle{
+      border: none;
+      background: none;
+      color: @default_color;
+      outline: none;
+      font-size: 12px;
+      padding: 0 10px;
+    }
+  }
+}
+/*单个选项组件样式*/
+.list{
+  padding: 0 .4rem;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  font-size: 14px;
+  li{
+    flex: 0 0 25%;
+    width: 25%;
+    margin-bottom: 15px;
+    position: relative;
+    padding: 0 5px;
+    &.add .name{
+      border: 1px dashed #999;
+      background: none;
+      font-size: 12px;
+      line-height: 22px;
+      i{
+        font-size: 12px;
+      }
+    }
+    &.disabled{
+      .name{
+        border-color: #e8e8e8;
+        color: #e8e8e8;
+      }
+    }
+  }
+  .name{
+    background: #dcdcdc;
+    border-radius: 5px;
+    padding: 0 5px;
+    .ellipsis()
+  }
+  .close-box{
+    position: absolute;
+    top: -10px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #999;
+    z-index: 10;
+  }
+  .close{
+    .setClose(#fff, 14px, 2px);
+    top: 3px;
+    right: 3px;
+  }
+}
+/*详细描述*/
+.details-box{
+  margin-top: 10px;
+  background: #fff;
+  padding: 0 .4rem .4rem;
+  .title{
+    font-size: 14px;
+    margin: 0 -.2rem;
+    padding: 10px 0;
+  }
+}
+#details{
+  width: 100%;
+  height: 200px;
+  resize: none;
+  border: none;
+  outline: none;
+  background: #eceff1;
+  padding: 10px ;
+}
+/*保存*/
+.save{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background: @default_color;
+  color: #fff;
+  border: none;
+  outline: none;
+  z-index: 11;
+  &:active{
+    background: lighten(@default_color, 10%);
+  }
+}

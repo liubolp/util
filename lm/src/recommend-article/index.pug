@@ -1,0 +1,19 @@
+extends ../../common/layout/layout
+block append meta
+  title 推荐文章
+block content
+  div.container
+    p.title 亲，有好的文章可以推荐给我们
+    textarea#content(name='url' placeholder='粘贴文章地址')
+  a.container.record(href='recommend.html')
+    span 推荐记录
+    i.arrow.iconfont &#xa002
+  div.btn-box
+    button.submit(type='button') 提交
+  div.modal-nothing
+    div.modal-body
+      i.close
+      div.content
+        h3.title 暂时没有推荐
+        img.bg(src='./images/nothing.png')
+        button.close 去推荐

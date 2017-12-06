@@ -1,0 +1,28 @@
+extends ../../common/layout/layout
+block append meta
+  title 供需关系
+block footer
+block content
+  div#supply-demand
+    header.tab
+      div.supply 供应资源
+      div.demand.current 需求资源
+    div.list-box
+      p.title
+        span.type 我的需求
+        button.toggle 编辑
+      ul.list
+        - for(var i=0;i<10;i++)
+          li
+            div.name 金融保险
+            div.close-box
+              i.close
+        // 禁用添加
+        li.add.disabled
+          div.name
+            i.iconfont &#xe60e
+            |添加分类
+    div.details-box
+      p.title 详细描述
+      textarea#details(name='details')
+    button.save 保存

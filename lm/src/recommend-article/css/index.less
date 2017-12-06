@@ -1,0 +1,103 @@
+@import "../../../common/reset/rest";
+.container{
+  background: #fff;
+  padding: 0 20px 40px 20px;
+  .title{
+    line-height: 1rem;
+    height: 1rem;
+    color: #616161;
+  }
+  .arrow{
+    float: right;
+    color: #818181;
+  }
+  &.record{
+    line-height: .8rem;
+    color: #616161;
+    margin-top: 10px;
+    display: block;
+    padding-bottom: 0;
+    &:active{
+      background: #ececec;
+    }
+  }
+}
+#content{
+  width: 100%;
+  background: #eceff1;
+  border-radius: 3px;
+  border: none;
+  padding: 10px;
+  height: 2rem;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+}
+/*按钮*/
+.btn-box{
+  width: 4.3rem;
+  height: .9rem;
+  margin: 1.5rem auto;
+  .submit{
+    width: 100%;
+    height: 100%;
+    background: @default_color;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    font-size: 16px;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+}
+/*提示框*/
+.modal-nothing{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,.3);
+  z-index: 10000;
+  .modal-body{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .content{
+    text-align: center;
+    .title{
+      color: @default_color;
+      font-size: 16px;
+    }
+    .bg{
+      width: 1.6rem;
+      vertical-align: bottom;
+      margin: 15px 0;
+    }
+    .close{
+      background: @default_color;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 16px;
+      width: 1.6rem;
+      height: .6rem;
+      line-height: .6rem;
+      &:active{
+        background: lighten(@default_color, 10%);
+      }
+    }
+  }
+  i.close{
+    .setClose()
+  }
+}

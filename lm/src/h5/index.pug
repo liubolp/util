@@ -1,0 +1,18 @@
+extends ../../common/layout/layout
+block content
+  img(src='./images/bj.png')
+  hr
+  canvas#canvas
+  script.
+    var canvas = document.getElementById('canvas')
+    canvas.width = 150
+    canvas.height = 150
+    var ctx = canvas.getContext('2d')
+    var img = new Image()
+    img.onload =  function () {
+      ctx.drawImage(img,0,0,42,42)
+      var data = ctx.getImageData(0,0,42,42)
+      console.log(data)
+      ctx.putImageData(data,50,0)
+    }
+    img.src = './images/bj.png'

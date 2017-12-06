@@ -6,8 +6,8 @@ window.addEventListener('load', function () {
         //
         var loading // 上传动画
         weui.uploader('li.upload', {
-          url: 'http://manage.lianmai.com/manage.php?c=ajax&m=uploadPic&updObjName=1',
-          auto: false,
+          url: 'http://web.lianmai.com/index.php?c=punchcard&m=uploadPic&updObjName=fileVal',
+          auto: true,
           type: 'file',
           fileVal: 'fileVal',
           onBeforeQueued: function (files) {
@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
           },
           onQueued: function () {
             var item = $(`<li class="temporary"><div class="box"><img src="${this.base64 || this.url}"></div></li>`)
-            console.log(this)
+            // console.log(this)
             $('.bg .upload').before(item)
             loading = weui.loading('已上传0%', {className: 'loading-box'})
             // console.log(this.status); // 文件的状态：'ready', 'progress', 'success', 'fail'
@@ -42,14 +42,15 @@ window.addEventListener('load', function () {
             return true // 阻止默认行为，不显示预览图的图像
           },
           onBeforeSend: function (data, headers) {
-            console.log(this, data, headers)
+            // console.log(this, data, headers)
             // $.extend(data, { test: 1 }); // 可以扩展此对象来控制上传参数
             // $.extend(headers, { Origin: 'http://127.0.0.1' }); // 可以扩展此对象来控制上传头部
 
             // return false; // 阻止文件上传
           },
           onProgress: function (procent) {
-            // console.log(this, procent)
+            console.log(arguments,1)
+            console.log(this, procent)
             $(loading).find('.weui-toast__content').text('已上传' + procent)
             return true // 阻止默认行为，不使用默认的进度显示
           },

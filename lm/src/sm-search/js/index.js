@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
           .children().filter('.iconfont').addClass('down').html('&#xe609').end().end()
           .end().addClass('selected')
           .find('.filter-content').removeClass('hide')
-        arrow.removeClass('down').html('&#xe60b')
+        arrow.removeClass('down').html('&#xe60c')
         if ($(this).hasClass('area')) {
           // TODO 调用weui城市选择
           console.log('weui')

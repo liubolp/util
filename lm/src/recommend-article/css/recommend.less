@@ -1,0 +1,65 @@
+@import "../../../common/reset/rest";
+li{
+  list-style: none;
+}
+.list{
+  li:not(:last-child){
+    position: relative;
+    &::after{
+      .setBottomLine()
+    }
+  }
+}
+.month{
+  padding-left: 20px;
+  line-height: .7rem;
+}
+.list-item{
+  padding: 20px;
+  background: #fff;
+  font-size: 14px;
+  .name{
+    color: #929292;
+  }
+  .value{
+    word-break: break-all;
+    &.pending{
+      color: #ff4040;
+    }
+    &.view{
+      color: #ffa711;
+    }
+    &.accept{
+      color: #37d130;
+    }
+  }
+  .address{
+    display: flex;
+    .name{
+      flex: 0 0 75px;
+    }
+  }
+  .status{
+    display: flex;
+    line-height: 2;
+    .value{
+      margin-left: 20px;
+      flex: 1;
+    }
+    .href{
+      color: #fff;
+      border: none;
+      background: @default_color;
+      border-radius: 5px;
+      padding: 0 10px;
+      &:active{
+        background: lighten(@default_color, 10%);
+      }
+    }
+  }
+  .time{
+    .name{
+      font-size: 13px;
+    }
+  }
+}
