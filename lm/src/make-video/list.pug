@@ -1,0 +1,26 @@
+extends ../../common/layout/layout
+block append meta
+  title 我的视频
+block localCss
+  link(rel='stylesheet' href='./css/list.css')
+block footerJs
+  script(src='./js/list.js')
+block content
+  header.tab
+    a(href='./index.html') 视频制作
+    a.current(href='javascript:;') 我的视频
+  ul.video-list
+    - for(var i=0;i<5;i++)
+      li
+        img(src='http://member.lm720.com/skin/style/img/videoPage1.png')
+        div.text-box
+          h4 这里是标题信息
+          p.desc 这里是描述信息
+        div.operation
+          p
+            // todo 在编辑链接中添加该条视频对应的信息
+            a(href='./make.html?key=value') 编辑
+            a.delete(href='javascript:;') 删除
+          // todo 跳转到对应播放页面
+          a.play(href='javascript:;')
+            i.iconfont &#xe609

@@ -1,0 +1,30 @@
+extends ../../common/layout/layout
+block append meta
+  title 视频制作
+block localCss
+  link(rel='stylesheet' href='./css/make.css')
+block footer
+block footerJs
+  script(src='./js/make.js')
+block content
+  header.tab
+    a.current(href='javascript:;') 视频制作
+    a(href='./list.html') 我的视频
+  // 分享图标
+  div.video-poster
+    div
+      h4.title 视频图片
+      p.desc 点击右边图片，可以进行更换
+    div
+      img.avatar(src='http://member.lm720.com/skin/style/img/videoPage1.png')
+      input(type='file' name='poster')
+  // 标题
+  div.video-part
+    h4.title 标题
+    textarea.desc(name='title') 今天是个好日子
+  // 视频介绍
+  div.video-part
+    h4.title 视频介绍
+    textarea.desc(name='description') 明天是个好日子
+  iframe(frameborder='0' width='100%' allowfullscreen src='https://tv.sohu.com/upload/static/share/share_play.html#95517270_9005804__9001_')
+  button.save 保存

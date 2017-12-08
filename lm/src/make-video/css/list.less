@@ -1,0 +1,83 @@
+@import "../../../common/reset/rest";
+/*顶部切换按钮*/
+button,input{
+  .setTapColor()
+}
+.desc{
+  color: #b1b1b1;
+  font-size: 14px;
+}
+.tab{
+  height: 40px;
+  display: flex;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 11;
+  a{
+    flex: 0 0 50%;
+    line-height: 40px;
+    color: inherit;
+    &:first-child{
+      position: relative;
+      &::after{
+        .setRightLine()
+      }
+    }
+    &.current{
+      border-bottom: 2px solid @default_color;
+      color: @default_color
+    }
+  }
+  &::after{
+    .setBottomLine()
+  }
+}
+
+/*视频列表信息*/
+.video-list{
+  margin-top: 50px;
+  li{
+    list-style: none;
+    display: flex;
+    background: #fff;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  img{
+    width: 2rem;
+    height: 1.4rem;
+    vertical-align: bottom;
+  }
+  .text-box{
+    flex: 1;
+    padding: 0 10px;
+  }
+  .operation{
+    align-self: flex-start;
+    text-align: center;
+    a{
+      color: #ff2b2b;
+    }
+  }
+  .delete{
+    margin-left: 10px;
+  }
+  .desc,h4{
+    .ellipsisLn(1)
+  }
+  .play{
+    border: 1px solid #ff2b2b;
+    border-radius: 3px;
+    padding: 7px 5px 5px 8px;
+    .iconfont{
+      font-size: 25px;
+      display: inline-block;
+      transform: rotateZ(-90deg);
+    }
+  }
+}

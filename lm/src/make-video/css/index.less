@@ -1,0 +1,82 @@
+@import "../../../common/reset/rest";
+button{
+  .setTapColor()
+}
+/*顶部切换按钮*/
+.tab{
+  height: 40px;
+  display: flex;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 11;
+  a{
+    flex: 0 0 50%;
+    line-height: 40px;
+    color: inherit;
+    &:first-child{
+      position: relative;
+      &::after{
+        .setRightLine()
+      }
+    }
+    &.current{
+      border-bottom: 2px solid @default_color;
+      color: @default_color
+    }
+  }
+  &::after{
+    .setBottomLine()
+  }
+}
+/*视频源选择*/
+.source{
+  background: #fff;
+  margin-top: 50px;
+  text-align: center;
+  padding: 20px;
+  p{
+    font-size: 14px;
+  }
+  .list{
+    display: flex;
+    padding: 20px 0;
+  }
+  li{
+    list-style: none;
+    flex: 0 0 25%;
+    text-align: center;
+  }
+  img{
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: bottom;
+  }
+  textarea{
+    resize: none;
+    height: 100px;
+    width: 90%;
+    background: #eceff1;
+    border: none;
+    padding: 5px;
+    outline: none;
+  }
+}
+/*下一步*/
+.next{
+  margin: 50px auto;
+  width: 4.3rem;
+  height: .8rem;
+  .save{
+    width: 100%;
+    height: 100%;
+    background: @default_color;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+  }
+}

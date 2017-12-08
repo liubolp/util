@@ -12,13 +12,14 @@ block content
         span.type 我的需求
         button.toggle 编辑
       ul.list
+        // 默认选中第一项
         - for(var i=0;i<10;i++)
-          li
+          li(class={selected:i===0})
             div.name 金融保险
             div.close-box
               i.close
         // 禁用添加
-        li.add.disabled
+        li.add
           div.name
             i.iconfont &#xe60e
             |添加分类

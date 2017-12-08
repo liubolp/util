@@ -2,6 +2,9 @@
 li{
   list-style: none;
 }
+div{
+  .setTapColor()
+}
 #supply-demand{
   padding: 40px 0 0;
 }
@@ -67,6 +70,9 @@ li{
     margin-bottom: 15px;
     position: relative;
     padding: 0 5px;
+    &.selected .name{
+      background: #eee;
+    }
     &.add .name{
       border: 1px dashed #999;
       background: none;
@@ -98,6 +104,10 @@ li{
     border-radius: 50%;
     background: #999;
     z-index: 10;
+    display: none;
+    &.show{
+      display: block;
+    }
   }
   .close{
     .setClose(#fff, 14px, 2px);
@@ -133,6 +143,7 @@ li{
   height: 50px;
   background: @default_color;
   color: #fff;
+  font-size: 16px;
   border: none;
   outline: none;
   z-index: 11;

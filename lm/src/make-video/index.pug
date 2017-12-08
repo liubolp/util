@@ -1,0 +1,26 @@
+extends ../../common/layout/layout
+block append meta
+  title 视频制作
+block content
+  header.tab
+    a.current(href='javascript:;') 视频制作
+    a(href='./list.html') 我的视频
+  div.source
+    p 点击以下视频网站进行查找
+    ul.list
+      li
+        a(href='http://m.v.qq.com/')
+          img(src='http://member.lm720.com/skin/style/img/videoPage1.png')
+      li
+        a(href='https://m.tv.sohu.com/')
+          img(src='http://member.lm720.com/skin/style/img/videoPage2.png')
+      li
+        a(href='http://www.youku.com/')
+          img(src='http://member.lm720.com/skin/style/img/videoPage3.png')
+      li
+        a(href='http://m.iqiyi.com/')
+          img(src='http://member.lm720.com/skin/style/img/videoPage4.png')
+    div.src-box
+      textarea(name='src' placeholder='粘贴视频地址，然后点击下一步')
+  div.next
+    button.save 下一步

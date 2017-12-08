@@ -1,0 +1,31 @@
+extends ../../common/layout/layout
+block append meta
+  title 扩展资料
+block content
+  // 分享图标
+  div.share-icon
+    div
+      h4.title 分享图标
+      p.desc 默认为头像，点击可进行更换
+    div
+      img.avatar(src='./images/tupian.png')
+      input(type='file' name='favicon')
+  // 标题
+  div.share-part
+    h4.title 链名片标题
+    textarea.desc(name='title') 今天是个好日子
+  // 个性签名
+  div.share-part
+    h4.title 个性签名
+    textarea.desc(name='personality') 明天是个好日子
+  // 广告词
+  div.share-part
+    h4.title 广告词
+    textarea.desc(name='advertisement') 后天是个好日子
+  div.submit
+    button.save 保存
+  // 如果当前用户是免费会员才渲染下面的内容
+  div.modal-tips
+    p 免费会员不能显示广告词喔！
+      a(href='javascript:;') 点这里升级
+    i.close
