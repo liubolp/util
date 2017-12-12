@@ -1,0 +1,29 @@
+extends ../../common/layout/layout
+block append meta
+  title 交友历程
+block localCss
+  link(rel='stylesheet' href='./css/history.css')
+block footerJs
+  script(src='./js/history.js')
+block content
+  header.preview
+    div.bg
+      p 累计人脉
+        br
+        b.count 32
+      a(href='javascript:;')
+        img(src='./images/bg1.png')
+    div.tab
+      span.current 主动添加
+        i.count 99
+      span 被动添加
+        i.count 99
+  // 人脉列表
+  div.resource-list
+    ul
+      -for(var i=0;i<10;i++)
+        li
+          a(href='javascript:;')
+            img(src='./images/bg1.png')
+            p.nickname 昵称
+  div.no-more 没有更多了

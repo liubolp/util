@@ -1,0 +1,97 @@
+@import "../../../common/reset/rest";
+/*顶部样式*/
+.header{
+  height: 4rem;
+  background: linear-gradient(to bottom,#ffa200,#fe9417);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.member-box{
+  position: relative;
+  .avatar{
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: bottom;
+  }
+  [class*=item]{
+    position: absolute;
+    top: .1rem;
+    left: .1rem;
+    &::before{
+      content: '';
+      width: .3rem;
+      border-bottom: 1px solid #fff;
+      position: absolute;
+      top: 50%;
+      left: -.3rem;
+    }
+    img{
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      vertical-align: bottom;
+      display: inline-block;
+      text-align: center;
+      line-height: .9rem;
+      font-size: .6rem;
+      background: #e6e6e6;
+      color: #999;
+    }
+  }
+  .item-1{
+    transform: rotateZ(-60deg) translateX(1.4rem);
+    img{
+      transform: rotateZ(60deg);
+    }
+  }
+  .item-2{
+    transform: rotateZ(12deg) translateX(1.4rem);
+    img{
+      transform: rotateZ(-12deg);
+    }
+  }
+  .item-3{
+    transform: rotateZ(84deg) translateX(1.4rem);
+    img{
+      transform: rotateZ(-84deg);
+    }
+  }
+  .item-4{
+    transform: rotateZ(156deg) translateX(1.4rem);
+    img{
+      transform: rotateZ(-156deg);
+    }
+  }
+  .item-5{
+    transform: rotateZ(228deg) translateX(1.4rem);
+    img{
+      transform: rotateZ(-228deg);
+    }
+  }
+}
+/*推广描述*/
+.content{
+  margin: 10px 0;
+  background: #fff;
+  padding: 15px;
+  .count{
+    color: @default_color;
+  }
+}
+a.btn{
+  display: block;
+  outline: none;
+  color: #fff;
+  background: @default_color;
+  border: none;
+  border-radius: 5px;
+  width: 3.6rem;
+  height: .9rem;
+  line-height: .9rem;
+  margin: 3rem auto 0;
+  text-align: center;
+}

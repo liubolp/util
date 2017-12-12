@@ -1,0 +1,57 @@
+extends ../../common/layout/layout
+block append meta
+  title 商脉推广中心
+block footer
+block content
+  div.header-box
+    div.header
+      // href改为要去的路径
+      a.img-box(href='javascript:;')
+        img(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
+        i.vip.vip_icon_0
+      h3.nickname Scoot
+    div.content
+      // 主动
+      div
+        p.count
+          span 32
+          | /
+          span 50
+        p 主动共50次
+      // 被动
+      div
+        p.count
+          span 0
+          | /
+          span 50
+        p 被动共50次
+      // 今日
+      div
+        p.count
+          span 0
+          | /
+          span 10
+        p 今日共50次
+  // 人脉信息
+  ul.desc
+    li.invite
+      div 邀请
+        span.count 5
+        | 个好友开通链空间，即可获得一次赠送主动和被动人脉
+        span.count 100/100
+        | 个，此后每邀请一个好友，即可获得
+        span.count 10/10
+        | 个
+      a(href='invite.html') 立即邀请
+    li.history
+      span 2017年11月30日你添加了第32个好友
+      a(href='history.html') 交友历程
+    li.upgrade
+      span 你想添加更多人脉吗？升级会员可获得更多名额
+      a(href='javascript:;') 去升级
+  // 二维码
+  div.qr-box
+    img(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
+  // 上传二维码按钮
+  button.upload-btn 上传微信二维码
+    input(type='file' accept='image/*' name='file')

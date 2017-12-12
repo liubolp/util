@@ -1,101 +1,130 @@
-.suggest-box {
-  width: 100vw;
+@import "../../../common/reset/rest";
+html{
+  font-size: 100 * (100vw / 750)
+}
+.lm-container{
+  padding: 0 !important;
+}
+#h5-container{
+  width: 100%;
   height: 100vh;
-  padding: 25vh 15vw 0 15vw;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
+  overflow: hidden;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: column nowrap;
   flex-flow: column nowrap;
-}
-.suggest-box div {
-  margin-bottom: 15px;
-}
-.suggest-box input {
-  border: 1px solid #ffaf04;
-  height: 40px;
-  padding: 0 10px;
-  outline: none;
-  width: 100%;
-  border-radius: 0;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-.suggest-box textarea {
-  border: 1px solid #ffaf04;
-  padding: 5px 10px;
-  width: 100%;
-  border-radius: 0;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-.suggest-box .submit {
-  height: 40px;
-  background: #ffaf04;
-  border: none;
-  color: #fff;
-  outline: none;
-  width: 100%;
-  font-size: 16px;
-}
-.modal-success{
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,.6);
-}
-.modal-success .container{
-  position: absolute;
-  width: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  background: #fff;
-  padding-top: 20px;
-  text-align: center;
-}
-.modal-success .close{
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  transform: rotate(45deg);
-}
-.modal-success .close::before{
-  content: '';
-  width: 16px;
-  border-bottom: 2px solid #ccc;
-  position: absolute;
-  bottom: 7px;
-  left: 0;
-}
-.modal-success .close::after{
-  content: '';
-  height: 16px;
-  border-right: 2px solid #ccc;
-  position: absolute;
-  right: 7px;
-  top: 0;
-}
-.modal-success .text{
-  font-size: 18px;
-  color: #ffa200;
-}
-.modal-success .confirm{
-  background: #ffa200;
-  border-radius: 0;
-  outline: none;
-  color: #fff;
-  width: 100%;
-  font-size: 16px;
-  line-height: 2;
-}
-.modal-success img{
-  margin: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  background: url('../images/bg.png') no-repeat;
+  background-size: cover;
+  /*转换按钮*/
+  .convert{
+    align-self: flex-end;
+    margin: .5rem .5rem 0 0;
+    a{
+      display: inline-block;
+      width: 1.2rem;
+      height: .5rem;
+      background: url('../images/convert.png') no-repeat;
+      background-size: cover;
+    }
+  }
+  /*个人信息*/
+  .personal{
+    text-align: center;
+    img{
+      width: 2rem;
+      height: 2rem;
+      vertical-align: bottom;
+      border-radius: 50%;
+    }
+    .nickname{
+      font-size: .24rem;
+      line-height: 2;
+    }
+  }
+  /*logo信息*/
+  .logo{
+    display: flex;
+    align-items: center;
+    img{
+      height: 1.2rem;
+      vertical-align: middle;
+    }
+    span{
+      font-size: .5rem;
+      color: #f38200;
+      margin-left: .2rem;
+      white-space: nowrap;
+    }
+  }
+  /*二维码信息*/
+  .qr{
+    font-size: .24rem;
+    text-align: center;
+    img{
+      width: 3.4rem;
+      height: 3.4rem;
+      vertical-align: bottom;
+    }
+    .desc{
+      line-height: 3;
+    }
+  }
+  /*按钮组*/
+  .btn-group{
+    width: 3.4rem;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    display: flex;
+    .btn{
+      color: #fff;
+      display: inline-block;
+    }
+    .message{
+      background: #fb4f02;
+      border-radius: 5px 0 0 5px;
+      font-size: .28rem;
+      padding: 0 5px;
+    }
+    .view{
+      background: #f38200;
+      border-radius: 0 5px 5px 0;
+      font-size: .36rem;
+      flex: 1;
+    }
+  }
+  /*联系信息*/
+  .contact{
+    height: 1rem;
+    display: flex;
+    background: #5b768b;
+    width: 100%;
+    line-height: 1rem;
+    color: #fff;
+    font-size: .24rem;
+    .icon{
+      width: .48rem;
+      height: .48rem;
+      margin-right: .2rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    >span{
+      width: 50%;
+      .ellipsisLn(1);
+      padding-left: .2rem;
+    }
+    .tel{
+      .icon{
+        background-image: url('../images/phone.png');
+      }
+    }
+    .address{
+      .icon{
+        background-image: url('../images/location.png');
+      }
+    }
+  }
 }

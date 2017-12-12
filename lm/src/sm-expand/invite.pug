@@ -1,0 +1,29 @@
+extends ../../common/layout/layout
+block append meta
+  title 邀请好友
+block localCss
+  link(rel='stylesheet' href='./css/invite.css')
+block footerJs
+  script(src='./js/invite.js')
+block content
+  div.header
+    div.member-box
+      a(href='javascript:;')
+        img.avatar(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
+      a.item-1(href='javascript:;')
+        img(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
+      a.item-2(href='javascript:;')
+        img(src='' alt='？')
+      a.item-3(href='javascript:;')
+        img(src='' alt='？')
+      a.item-4(href='javascript:;')
+        img(src='' alt='？')
+      a.item-5(href='javascript:;')
+        img(src='' alt='？')
+  div.content
+    p 邀请
+      span.count 5
+      | 个好友开通链空间，即可获得一次赠送主动和被动人脉
+      span.count 100/100
+      | 个名额
+  a.btn(href='javascript:;') 马上去推广

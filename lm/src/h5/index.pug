@@ -1,18 +1,28 @@
 extends ../../common/layout/layout
+block append meta
+  title H5
+block script
+block footer
 block content
-  img(src='./images/bj.png')
-  hr
-  canvas#canvas
-  script.
-    var canvas = document.getElementById('canvas')
-    canvas.width = 150
-    canvas.height = 150
-    var ctx = canvas.getContext('2d')
-    var img = new Image()
-    img.onload =  function () {
-      ctx.drawImage(img,0,0,42,42)
-      var data = ctx.getImageData(0,0,42,42)
-      console.log(data)
-      ctx.putImageData(data,50,0)
-    }
-    img.src = './images/bj.png'
+  div#h5-container
+    div.convert
+      a(href='javascritp:;')
+    div.personal
+      img(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
+      p.nickname 这里是昵称
+    div.logo
+      img(src='http://web.lm720.com/skin/portal/careershow/images/logo.png')
+      span 链脉名片
+    div.qr
+      img(src='http://member.lm720.com/upload/e/2017/12/12/201712125a2f398729419815047256.png')
+      p.desc 识别二维码加我微信
+    div.btn-group
+      a.btn.message(href='javascript:;') 给我留言
+      a.btn.view(href='javascritp:;') 进入名片
+    div.contact
+      span.tel
+        i.icon
+        | 13580864856
+      span.address
+        i.icon
+        | 重庆市渝中区临江门

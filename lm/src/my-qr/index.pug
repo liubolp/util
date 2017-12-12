@@ -1,0 +1,17 @@
+extends ../../common/layout/layout
+block append meta
+  title 我的二维码
+block content
+  header.tab
+    // data-src属性保存当前项对应二维码的地址
+    div(data-src='http://member.lm720.com/upload/e/2017/11/29/201711295a1e2d56a6f06843284473.png').current 链脉名片
+    div(data-src='http://member.lm720.com/upload/e/2017/10/23/2017102359eda0f56a1f9424576759.png') 商店
+    div(data-src='http://member.lm720.com/upload/e/2017/11/29/201711295a1e2d56b12f8384989013.png') 通讯录
+    div(data-src='http://member.lm720.com/upload/e/2017/11/29/201711295a1e2d56abe59635594272.png') 推广
+  div.qr-box
+    img.qr(src='http://member.lm720.com/upload/e/2017/11/29/201711295a1e2d56b12f8384989013.png')
+  p.desc 这是你的名片二维码，请长按图片，即可选择
+    br
+    mark “保存到手机”
+    | 或
+    mark “发送给朋友”

@@ -1,0 +1,36 @@
+@import "../../../common/reset/rest";
+/*头部标签切换*/
+.tab{
+  height: 40px;
+  display: flex;
+  text-align: center;
+  background: #fff;
+  div{
+    flex: 0 0 25%;
+    border-bottom: 1px solid #b1b1b1;
+    line-height: 40px;
+    &.current{
+      color: @default_color;
+      border-bottom: 1px solid @default_color;
+    }
+  }
+}
+.qr-box{
+  width: 3.8rem;
+  margin: 2rem auto;
+  .qr{
+    width: 3.8rem;
+    height: 3.8rem;
+    vertical-align: bottom;
+  }
+}
+.desc{
+  width: 320px;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  mark{
+    background: none;
+    color: red;
+  }
+}
