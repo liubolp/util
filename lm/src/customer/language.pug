@@ -1,0 +1,20 @@
+extends ../../common/layout/layout
+block append meta
+  title 多语言
+block localCss
+  link(rel='stylesheet' href='./css/language.css')
+block footerJs
+  script(src='./js/language.js')
+block footer
+block content
+  header.fixed-header
+    a.back(href='javascript:history.go(-1)')
+    span 多语言
+    button.save 保存
+  ul.language-list
+    -for(var i=0;i<10;i++)
+      li
+        label.wrap 中文
+          input(type='radio' name='language' value=i checked=i===0)
+          span.checked
+            i

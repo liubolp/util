@@ -27,3 +27,7 @@ html
       include footer
     block footerJs
       script(src='./js/index.js')
+    // 修复ios系统:active，不要删除
+    block fixIOS
+      script.
+        document.body.addEventListener('touchstart', function () {})

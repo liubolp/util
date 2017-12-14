@@ -1,0 +1,92 @@
+@import "../../../common/reset/rest";
+/*顶部导航样式*/
+.fixed-header {
+  height: 45px;
+  background: @default_color;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  .back{
+    .setArrow(left, 18px, #fff, 2px);
+    top: 0;
+  }
+  .save {
+  
+  }
+}
+/*个人资料*/
+.content{
+  margin-top: 10px;
+  .layout{
+    background: #fff;
+    padding: 0 15px;
+    font-size: 18px;
+    color: #949494;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    &:not(:first-child,:last-child){
+      border-bottom: 1px solid #959595;
+    }
+  }
+  .title{
+    height: 40px;
+    font-size: 15px;
+    color: #323232;
+    margin-bottom: 10px;
+  }
+  input{
+    outline: none;
+    border: none;
+    background: #fff;
+    font-size: 18px;
+    width: 40%;
+    color: inherit;
+  }
+  .gender{
+    width: 40%;
+    text-align: left;
+    position: relative;
+    input{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70px;
+      height: 100%;
+      z-index: 2;
+      opacity: 0;
+      &:checked~span{
+        &::before{
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+    span{
+      position: relative;
+      width: 70px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 0 7px;
+      text-align:justify;
+      text-align-last:justify;
+      &::before{
+        content: '';
+        width: 60%;
+        height: 100%;
+        border-radius: 12px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #949494;
+        transition: all 0.5s;
+      }
+    }
+  }
+}

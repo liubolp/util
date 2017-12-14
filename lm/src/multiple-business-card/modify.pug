@@ -1,0 +1,35 @@
+extends ../../common/layout/layout
+block append meta
+  title 修改名片
+block localCss
+  link(rel='stylesheet' href='./css/modify.css')
+block footerJs
+  script(src='./js/modify.js')
+block content
+  div.fixed-header
+    span.back
+    span.save 保存
+  // 个人资料
+  div.content
+    div.title.layout 个人资料
+    div.layout
+      span.key 姓名
+      input(type='text' name='name' placeholder='请输入姓名')
+    div.layout
+      span.key 性别
+      div.gender
+        // 默认选中男，如果要变为女，就给下面的input添加checked属性
+        input(type='checkbox' name='gender')
+        span 男女
+    div.layout
+      span.key 座机
+      input(type='tel' name='tel' placeholder='请输入座机号')
+    div.layout
+      span.key 微信
+      input(type='text' name='wechat' placeholder='请输入微信号')
+    div.layout
+      span.key QQ
+      input(type='number' name='qq' placeholder='请输入QQ号')
+    div.layout
+      span.key 邮箱
+      input(type='email' name='email' placeholder='请输入邮箱')
