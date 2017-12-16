@@ -1,0 +1,64 @@
+@import "../../../common/reset/rest";
+
+/*顶部固定样式*/
+.fixed-header{
+  position: fixed;
+  height: 45px;
+  background: @default_color;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 0 15px;
+  line-height: 45px;
+  color: #fff;
+  .back{
+    .setArrow(left,16px,#fff,2px);
+    top: 2px;
+    .setTapColor()
+  }
+}
+/*商品详情部分*/
+.commodity{
+  margin-top: 45px;
+  .img-box{
+    padding: 10px;
+    img{
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+}
+.price-box{
+  background: #fff;
+  padding: 10px 20px;
+  .name{
+    font-weight: bold;
+  }
+  .origin{
+    font-size: 12px;
+    text-decoration-color: red;
+  }
+  .discount{
+    color: red;
+  }
+  .reduce{
+    border: 1px solid #939393;
+    background: #fff;
+    outline: none;
+    padding: 2px 5px;
+    border-radius: 3px;
+    float: right;
+  }
+}
+hr{
+  border: 0;
+  border-bottom: 1px solid #939393;
+}
+/*具体详情内容*/
+.details{
+  background: #fff;
+  h3{
+    padding: 10px 20px;
+  }
+}

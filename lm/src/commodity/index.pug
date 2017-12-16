@@ -1,0 +1,24 @@
+extends ../../common/layout/layout
+block append meta
+  title 商品详情
+block footer
+block footerCss
+block content
+  header.fixed-header
+    a.back(href='javascript:history.go(-1)')
+    span 商品信息
+  // 商品详情
+  div.commodity
+    div.img-box
+      img(src='http://web.lm720.com/upload/st/2017/04/29/2017042959041a419b555745951928.jpeg')
+    div.price-box
+      p.name 西冷牛排
+      p
+        del.origin 原价：￥12399
+        span.discount
+          b ￥12000
+        button.reduce 降价通知
+    hr
+  // 里面放具体详情内容
+  div.details
+    h3 产品详情
