@@ -55,6 +55,9 @@ div,ul{
   transform: translateX(-50%);
   color: #fff;
   text-align: center;
+  .nickname{
+    .ellipsisLn(1)
+  }
   .avatar{
     width: .98rem;
     height: .98rem;
@@ -154,6 +157,7 @@ div,ul{
     width: .6rem;
     height: .6rem;
     background-size: contain;
+    background-repeat: no-repeat;
     text-align: center;
     line-height: .6rem;
     font-size: 14px;
@@ -399,7 +403,6 @@ div,ul{
   line-height: 2.6;
   .container{
     background: #fff;
-    width: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -416,6 +419,7 @@ div,ul{
   }
   p{
     font-size: 12px;
+    white-space: nowrap;
   }
   .close{
     .setClose()

@@ -13,15 +13,16 @@ block content
   ul.card-list
     - for(var i=0;i<10;i++)
       li(class={selected:i===0})
-        div.box
+        // data-img属性值为该名片的背景图片
+        div.box(data-img='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
           // 链接加上预览地址
           a.preview(href='javascript:;')
           button.default 默认
           div.mask
           img.avatar(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
-          p.nickname 红尘旧梦
+          p.nickname 红尘旧梦红尘旧梦红尘旧梦
           p.view 浏览量
-            span.count 99
+            span.count 999
             // 当前使用中给button添加current这个类
             button(class={current:i===0})
     li.add

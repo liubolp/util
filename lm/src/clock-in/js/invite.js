@@ -84,6 +84,7 @@ window.addEventListener('load', function () {
     $('.footer-tab').on('click', 'i', function (e) {
       if ($(this).hasClass('share')) {
         // todo 调用分享接口
+        $('.share-box').fadeIn()
       } else {
         $(this).addClass('selected')
           .siblings().removeClass('selected')
@@ -91,6 +92,10 @@ window.addEventListener('load', function () {
         $('.img-list').find(selector).removeClass('hide')
           .siblings().addClass('hide')
       }
+    })
+    // 关闭分享弹窗
+    $('.share-box .close').click(function (e) {
+      $('.share-box').fadeOut()
     })
   })
 })

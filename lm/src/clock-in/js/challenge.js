@@ -29,6 +29,8 @@ window.addEventListener('load', function () {
       function handleScroll () {
         if (data.distance > 0) { // 下滑
           if (data.isDown) { // 只在第二张页面调用下滑
+            // 如果有局部滑动区域可滑动就退出
+            if ($('.record .list').scrollTop() > 0) { return }
             if (Math.abs(data.distance) >= data.limit) { // 超过阈值
               if (data.isEnd) { return } // 如果是触摸结束直接退出
               data.disabled = true

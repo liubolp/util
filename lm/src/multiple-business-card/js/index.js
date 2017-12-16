@@ -1,11 +1,17 @@
 window.addEventListener('load', function () {
   $(function () {
+    // 为每个名片更新背景图片
+    $('.box').each(function (e) {
+      var url = $(this).attr('data-img')
+      $(this).css({'background-image': 'url(' + url + ')'})
+    })
     // 名片选择和添加
     var selected
     $('.card-list').on('click', 'li', function (e) {
       if ($(this).hasClass('add')) {
         $('a.modify').attr('href', 'javascript:;')
           .removeClass('active')
+        selected = null
         // todo 跳转到添加页面
       } else {
         $(this).addClass('selected')
@@ -28,6 +34,13 @@ window.addEventListener('load', function () {
       e.preventDefault()
       $(this).parent().css({'background-image': 'none'})
       //  todo 发请求到后台更新数据
+    })
+    // 修改名片
+    $('a.modify').click(function (e) {
+      if (!selected) { // 如果没有选择任何名片
+        e.preventDefault()
+        weui.alert('请选择一个名片后再试')
+      }
     })
     // 删除名片
     $('a.delete').click(function (e) {

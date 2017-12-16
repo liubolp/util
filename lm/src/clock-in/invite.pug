@@ -1,6 +1,7 @@
 extends ../../common/layout/layout
 block append meta
   title 邀请卡
+block script
 block footer
 block footerCss
 block footerJs
@@ -33,7 +34,13 @@ block content
           li(class={selected: i === 0})
             div.box
               img(src='./images/chenggong.png')
+    // 底部切换tab
     div.footer-tab
       i.bg.selected
       i.text
       i.share
+  // 分享弹窗
+  div.share-box
+    img(src='./images/test.png')
+    div.close
+      i

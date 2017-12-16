@@ -12,6 +12,7 @@
   .back{
     .setArrow(left, 18px, #fff, 2px);
     top: 0;
+    .setTapColor()
   }
   .save {
   
@@ -47,6 +48,8 @@
     font-size: 18px;
     width: 40%;
     color: inherit;
+    line-height: 30px;
+    .setTapColor()
   }
   .gender{
     width: 40%;
@@ -61,23 +64,34 @@
       z-index: 2;
       opacity: 0;
       &:checked~span{
-        &::before{
-          left: 0;
+        .button{
           right: auto;
+          left: 0;
         }
       }
     }
     span{
       position: relative;
       width: 70px;
+      height: 28px;
       display: inline-block;
       border: 1px solid #ccc;
       border-radius: 12px;
-      padding: 0 7px;
-      text-align:justify;
-      text-align-last:justify;
+      vertical-align: middle;
+      line-height: 28px;
       &::before{
-        content: '';
+        content: '男';
+        position: absolute;
+        top: 0;
+        left: 4px;
+      }
+      &::after{
+        content: '女';
+        position: absolute;
+        top: 0;
+        right: 4px;
+      }
+      .button{
         width: 60%;
         height: 100%;
         border-radius: 12px;
@@ -85,7 +99,6 @@
         top: 0;
         right: 0;
         background: #949494;
-        transition: all 0.5s;
       }
     }
   }
