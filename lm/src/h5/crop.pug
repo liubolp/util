@@ -1,0 +1,23 @@
+extends ../../common/layout/layout
+block append meta
+  title 图片裁剪
+block footer
+block footerCss
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.3/cropper.css')
+  style.
+    #image{
+      width: 50%;
+    }
+block footerJs
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.3/cropper.js' defer)
+block content
+  div
+    img#image(src='./images/bg.png')
+  div.test
+  // script
+  script.
+    window.addEventListener('load', function (e) {
+      var imageData = $('#image').cropper('getImageData');
+      console.log(imageData)
+    }, false)
+
