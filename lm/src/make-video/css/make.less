@@ -27,30 +27,82 @@ button,input{
       }
     }
     &.current{
-      border-bottom: 2px solid @default_color;
-      color: @default_color
+      background: #ff6501;
+      color: #fff;
     }
   }
   &::after{
     .setBottomLine()
   }
 }
+/*编辑视频*/
+p.edit{
+  margin-top: 50px;
+  padding: 0 15px;
+  &::before{
+    content: '';
+    border-left: 2px solid @default_color;
+    height: 100%;
+    margin-right: 5px;
+  }
+}
+/*视频标题*/
+.video-title{
+  padding: 0 15px;
+  font-size: 12px;
+  margin-top: 10px;
+  span{
+    border-bottom: 1px solid transparent;
+  }
+  .input-box{
+    display: inline-block;
+    width: 80%;
+    border-bottom: 1px solid #cbcbcb;
+  }
+  input{
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0 5px;
+    width: 100%;
+    font-size: 12px;
+  }
+}
 /*视频图片*/
 .video-poster{
   background: #fff;
-  margin-bottom: 10px;
-  margin-top: 50px;
-  padding: 15px;
+  margin: 10px 0;
+  padding: 5px 15px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  font-size: 12px;
+  .title{
+    align-self: flex-start;
+    flex-shrink: 0;
+  }
   .avatar{
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.95rem;
+    height: 1.4rem;
     vertical-align: bottom;
+    margin: 15px 10px 15px .6rem;
   }
   div{
     position: relative;
+    &.modify{
+      &::before{
+        content: '修改';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        text-align: center;
+        color: #fff;
+        padding-left: .6rem;
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+    }
   }
   input{
     position: absolute;
@@ -63,26 +115,23 @@ button,input{
   }
 }
 /*视频介绍*/
-.video-part{
-  background: #fff;
-  padding: 0 15px 15px;
+.video-desc{
+  padding: 0 15px;
+  font-size: 12px;
   margin-bottom: 10px;
   .title{
-    position: relative;
-    line-height: 40px;
-    &::after{
-      .setBottomLine()
-    }
+    font-weight: normal;
   }
-  textarea{
-    resize: none;
-    border: none;
-    background: #fff;
-    outline: none;
+  .desc{
     width: 100%;
-    padding: 5px 0;
-    height: 60px;
-    line-height: 1.5;
+    height: 2rem;
+    outline: none;
+    background: #f6f6f8;
+    border: 1px solid #cbcbcb;
+    border-radius: 0;
+    resize: none;
+    padding: 5px;
+    -webkit-appearance: none;
     .setTapColor()
   }
 }
@@ -93,7 +142,7 @@ button,input{
   bottom: 0;
   width: 100%;
   height: 40px;
-  background: @default_color;
+  background: #ff6501;
   border: none;
   outline: none;
   font-size: 16px;

@@ -10,21 +10,23 @@ block content
   header.tab
     a.current(href='javascript:;') 视频制作
     a(href='./list.html') 我的视频
+  p.edit 编辑视频
+  // 标题
+  div.video-title
+    span 标题
+    span.input-box
+      input(name='title' placeholder='请输入视频标题')
   // 分享图标
   div.video-poster
-    div
-      h4.title 视频图片
-      p.desc 点击右边图片，可以进行更换
-    div
+    p.title 视频图片
+    // 显示修改时有modify这个类
+    div.modify
       img.avatar(src='http://member.lm720.com/skin/style/img/videoPage1.png')
       input(type='file' name='poster')
-  // 标题
-  div.video-part
-    h4.title 标题
-    textarea.desc(name='title') 今天是个好日子
+    p.desc 点击图片可以更换
   // 视频介绍
-  div.video-part
+  div.video-desc
     h4.title 视频介绍
-    textarea.desc(name='description') 明天是个好日子
+    textarea.desc(name='description' placeholder='请输入视频介绍') 明天是个好日子
   iframe(frameborder='0' width='100%' allowfullscreen src='https://tv.sohu.com/upload/static/share/share_play.html#95517270_9005804__9001_')
   button.save 保存

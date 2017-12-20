@@ -80,7 +80,7 @@ window.addEventListener('load', function () {
         }
       } else {
         // 调用支付
-        $('.modal-pay').slideDown()
+        $('.modal-pay').show()
       }
     })
     // 显示更多和隐藏打卡详情
@@ -108,7 +108,7 @@ window.addEventListener('load', function () {
       // 打卡成功后续操作
       if ($(this).hasClass('modal-success') && target[0].nodeName === 'BUTTON') { // 参加下次挑战
         $(this).fadeOut()
-        $('.modal-pay').slideDown()
+        $('.modal-pay').show()
       }
       // 支付成功弹窗
       if ($(this).hasClass('modal-pay-success') && target[0].nodeName === 'BUTTON') { // 喊好友来参加

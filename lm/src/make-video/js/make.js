@@ -53,6 +53,7 @@ window.addEventListener('load', function () {
         var src = ret.imgUrl || ''
         src = src ? 'http://manage.lianmai.com' + src : ''
         $('.video-poster .avatar').attr('src', src)
+          .parent().removeClass('modify')
         return true // 阻止默认行为，不使用默认的成功态
       },
       onError: function (err) {

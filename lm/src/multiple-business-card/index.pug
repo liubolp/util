@@ -30,4 +30,11 @@ block content
         img.avatar
         p.nickname '添加'
         p.view '99'
+          button
         i.iconfont &#xa003
+  // 添加名片弹窗
+  div.modal-add(style='display:none')
+    div.modal-add-content
+      p 添加名片
+      input(name='name' placeholder='名片名称')
+      button.add-save 取消

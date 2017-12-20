@@ -19,7 +19,7 @@ block content
     // 默认大图
     div.full-container.picture
       div.img-box
-        img(src='./images/test.png')
+        img.bg(src='' data-src='http://member.hc2117.com/upload/punchcard/punchcardimg/2017/12/19/c2fa6255ecdd3f7476bc376bb6b10247.jpeg')
         button 查看大图
       div.audio-box
         img.avatar(src='./images/tupian.png')
@@ -33,20 +33,31 @@ block content
       div.text-box.exclude
         p.exclude
           span.exclude 【早安心语】
-          | 减肥开始减肥开始的附件四发到空间就开始发生，发生的开发is房价快速减肥，犯傻了科技经费说到底防辐射服的快速减肥ID是。快捷方式独家垃圾啊哈哈ID复活甲阿卡丽就，积分收到了覅积分多少。
+          | 减肥开始减肥开始的附件四发到空间就开始发生，发生的开发is房价快速减肥，犯傻了科技经费说到底防辐射服的快速减肥ID是。快捷方式独家垃圾啊哈哈ID复活甲阿卡丽就，积分收到了覅积分多少。减肥开始减肥开始的附件四发到空间就开始发生，发生的开发is房价快速减肥，犯傻了科技经费说到底防辐射服的快速减肥ID是。快捷方式独家垃圾啊哈哈ID复活甲阿卡丽就，积分收到了覅积分多少。
       div.arrow-box
         i
         i
     // 推广页面
-    div.full-container.expand
+    div.full-container.expand(style='background-image:url("./images/bg-full.png")')
       div.personal
-        img.avatar(src='./images/tupian.png')
-        h4.name Scott
-        p.tel 13586534586
-      button.make 免费定制名片
-      a.change(href='javascript:;') 换成我的
-        span.arrow
+        div.img-box
+          img(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
+        p.nickname 这里是昵称
+        p.tel 15663897563
+      hr
+      div.qr
+        img(src='http://member.lm720.com/upload/e/2017/12/12/201712125a2f398729419815047256.png')
+        p.desc 识别二维码加我微信
+      div.btn-group
+        a.btn.message(href='javascript:;') 给我留言
+        a.btn.view(href='javascritp:;') 我的名片
+      hr
+      div.convert
+        a.btn(href='javascript:;') 我也要生成早安播报
+    // 查看大图
     div.modal-img(style='display:none')
-      img(src='./images/test.png')
+      img(src='')
       div.close
         i
+  // 加载动画
+  <div class="weui-loading_toast "> <div class="weui-mask_transparent"></div> <div class="weui-toast weui-animate-fade-in"> <i class="weui-loading weui-icon_toast"></i> <p class="weui-toast__content">loading...</p> </div> </div>

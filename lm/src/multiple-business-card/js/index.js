@@ -13,6 +13,7 @@ window.addEventListener('load', function () {
           .removeClass('active')
         selected = null
         // todo 跳转到添加页面
+        $('.modal-add').show()
       } else {
         $(this).addClass('selected')
           .siblings().removeClass('selected')
@@ -77,6 +78,19 @@ window.addEventListener('load', function () {
         // todo 进行搜索操作
         console.log(val)
       }
+    })
+    // 保存新增名片信息
+    $('.add-save').click(function (e) {
+      var name = $(this).val()
+      if (name) {
+        // todo 保存到后台
+      }
+      $('.modal-add').hide()
+    })
+    // 输入信息
+    $('.modal-add input').on('input', function (e) {
+      var val = $(this).val() ? '保存' : '取消'
+      $(this).next().html(val)
     })
   })
 })

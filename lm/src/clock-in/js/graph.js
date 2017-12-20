@@ -72,9 +72,12 @@ window.addEventListener('load', function () {
       }
     }
     scrollPage()
+    // 大图地址
+    var src = $('.picture img').attr('data-src')
     // 查看大图效果
     $('.img-box').on('click', 'button', function (e) {
-      $('.modal-img').slideDown()
+      $('.modal-img').find('img').attr('src', src)
+        .end().show()
     })
     $('.modal-img .close').click(function (e) {
       $('.modal-img').fadeOut()
@@ -89,5 +92,15 @@ window.addEventListener('load', function () {
         audio.pause()
       }
     })
+    // 动态加图片
+    function loadImg (src) {
+      var img = new Image()
+      img.onload = function (e) {
+        $('.weui-loading_toast').hide()
+        $('.picture img.bg').attr('src', src)
+      }
+      img.src = src
+    }
+    loadImg(src)
   })
 })

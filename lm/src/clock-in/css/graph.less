@@ -39,7 +39,7 @@ div{
   display: flex;
   flex-flow: column nowrap;
 }
-
+/*打卡图页面*/
 .picture{
   justify-content: space-between;
   padding-bottom: 10px;
@@ -57,9 +57,9 @@ div{
       position: absolute;
       right: 20px;
       bottom: 20px;
-      padding: 2px 5px;
-      border-radius: 5px;
-      background: #2a4965;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: rgba(0,0,0,.4);
       color: #fff;
       font-size: 12px;
       border: none;
@@ -85,6 +85,10 @@ div{
       flex: 1 1 calc(~'100% - 1.6rem - 15px');
       white-space: nowrap;
       overflow: hidden;
+      >p:first-child{
+        font-weight: 600;
+        color: #333;
+      }
       .name{
         font-size: 14px;
         margin-right: 10px;
@@ -96,21 +100,22 @@ div{
     .toggle{
       width: .6rem;
       height: .6rem;
-      background: url("../images/bofang.png") no-repeat;
+      background: url("../images/daka_on.png") no-repeat;
       background-size: contain;
       &.pause{
-        background: url("../images/zanting1.png") no-repeat;
+        background: url("../images/daka_play.gif") no-repeat;
         background-size: contain;
       }
     }
   }
   .text-box{
     margin: 0 20px;
-    padding: 0 15px;
+    padding: 12px 15px 0;
     height: 125px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     flex: 1;
+    font-size: 14px;
   }
   .arrow-box{
     text-align: center;
@@ -130,39 +135,99 @@ div{
 }
 // 推广页面
 .expand{
-  background: @default_color;
-  justify-content: space-around;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   align-items: center;
+  background-size: cover;
   color: #fff;
-  padding: 2rem 0;
+  padding: .6rem 0;
+  hr{
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #563b1d;
+  }
+  /*个人信息*/
   .personal{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    .avatar{
+    text-align: center;
+    font-size: .24rem;
+    .img-box{
+      border: 1px solid #ff6501;
+      border-radius: 50%;
+      padding: 5px;
+      display: inline-block;
+    }
+    img{
       width: 1.8rem;
       height: 1.8rem;
-      border: 2px solid #fff;
-      border-radius: 50%;
       vertical-align: bottom;
+      border-radius: 50%;
+    }
+    .nickname{
+      margin: 5px 0;
+      font-size: .36rem;
+      padding: 0 .8rem;
+      .ellipsisLn(1)
+    }
+    .tel{
+      color: #fff;
+      font-weight: bold;
+      background: #ff6501;
+      border-radius: 12px;
+      padding: 0 10px;
+      font-size: .28rem;
+      line-height: 2;
+      display: inline-block;
     }
   }
-  .make{
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background: #fff;
-    width: 4rem;
-    height: .8rem;
-    line-height: .8rem;
-    color: @default_color;
-    font-size: 18px;
+  /*二维码信息*/
+  .qr{
+    font-size: .24rem;
+    text-align: center;
+    img{
+      width: 2rem;
+      height: 2rem;
+      vertical-align: bottom;
+    }
+    .desc{
+      line-height: 3;
+    }
   }
-  .change{
-    color: #fff;
-    .arrow{
-      .setArrow(right, 12px ,#fff, 2px);
-      top: 0;
+  /*按钮组*/
+  .btn-group{
+    height: .65rem;
+    line-height: .65rem;
+    text-align: center;
+    display: flex;
+    .btn{
+      color: #fff;
+      display: inline-block;
+    }
+    .message{
+      background: #09ba07;
+      border-radius: 5px;
+      font-size: .3rem;
+      padding: 0 20px;
+      margin-right: 10px;
+    }
+    .view{
+      background: #bb0720;
+      border-radius: 5px;
+      font-size: .3rem;
+      padding: 0 20px;
+    }
+  }
+  /*转换按钮*/
+  .convert{
+    a{
+      background: #070707;
+      color: #f36406;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
     }
   }
 }
@@ -174,25 +239,31 @@ div{
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  background: rgba(0,0,0,.3);
+  background: rgba(0,0,0,.65);
   img{
-    width: 100vw;
+    display: block;
+    margin: 15px auto 0;
+    width: 86%;
     vertical-align: bottom;
     box-shadow: 0 3px 7px 3px rgba(0,0,0,.3);
   }
   .close{
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    bottom: 35px;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
-    border: 1px solid #fff;
+    background: rgba(0,0,0,.6);
     i{
-      .setClose(#fff);
-      right: 3px;
-      top: 3px;
+      .setClose(#fff, 22px, 2px);
+      right: 4px;
+      top: 4px;
     }
   }
+}
+/*loading层*/
+.weui-mask, .weui-mask_transparent{
+  background: rgba(0,0,0,.3);
 }

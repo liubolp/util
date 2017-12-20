@@ -1,4 +1,5 @@
 @import "../../../common/reset/rest";
+@default_color: #ff6501;
 /*顶部切换按钮*/
 button,input{
   .setTapColor()
@@ -27,8 +28,8 @@ button,input{
       }
     }
     &.current{
-      border-bottom: 2px solid @default_color;
-      color: @default_color
+      background: @default_color;
+      color: #fff;
     }
   }
   &::after{
@@ -39,6 +40,7 @@ button,input{
 /*视频列表信息*/
 .video-list{
   margin-top: 50px;
+  .setTapColor();
   li{
     list-style: none;
     display: flex;
@@ -49,8 +51,8 @@ button,input{
     margin-bottom: 10px;
   }
   img{
-    width: 2rem;
-    height: 1.4rem;
+    width: 2.08rem;
+    height: 1.26rem;
     vertical-align: bottom;
   }
   .text-box{
@@ -58,26 +60,53 @@ button,input{
     padding: 0 10px;
   }
   .operation{
-    align-self: flex-start;
-    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
     a{
-      color: #ff2b2b;
+      color: inherit;
+      width: 68px;
+      height: 18px;
+      border-radius: 9px;
+      border: 1px solid #cbcbcb;
+      font-size: 12px;
+      text-align: center;
+      line-height: normal;
+    }
+    .icon{
+      display: inline-block;
+      width: .22rem;
+      height: .22rem;
+      margin-right: 5px;
+      background: url('../images/edit.png') no-repeat;
+      background-size: contain;
+    }
+    .delete{
+      margin-top: 8px;
+      background: @default_color;
+      color: #fff;
+      border-color: @default_color;
+      .icon{
+        background-image: url('../images/delete.png');
+      }
     }
   }
-  .delete{
-    margin-left: 10px;
-  }
   .desc,h4{
+    font-weight: normal;
     .ellipsisLn(1)
   }
   .play{
-    border: 1px solid #ff2b2b;
-    border-radius: 3px;
-    padding: 7px 5px 5px 8px;
-    .iconfont{
-      font-size: 25px;
-      display: inline-block;
-      transform: rotateZ(-90deg);
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      width: .6rem;
+      height: .6rem;
+      top: 50%;
+      left: 50%;
+      background: url('../images/play.png') no-repeat;
+      background-size: contain;
+      transform: translate(-50%, -50%);
     }
   }
 }
