@@ -51,6 +51,9 @@ window.addEventListener('load', function () {
         } else { // 上滑
           if (data.isDown) { return } // 只在第一张页面调用上滑
           // 如果存在局部可滑动区域
+          console.log(data.target.scrollTop())
+          console.log(data.target.height())
+          console.log(data.target[0].scrollHeight)
           if (data.target.hasClass('exclude') && data.target.scrollTop() + data.target.height() < data.target[0].scrollHeight) { return }
           if (Math.abs(data.distance) >= data.limit) { // 超过阈值
             if (data.isEnd) { return } // 如果是触摸结束直接退出
