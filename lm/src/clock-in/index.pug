@@ -113,3 +113,19 @@ block content
       div.background
       h4 恭喜打卡成功
       p 前100名挑战者将平分挑战金
+  // 绑定账号弹窗
+  div.modal-register
+    div.container
+      form.form
+        p 亲！完善资料，免费领取专属您的链脉名片，让客户打卡时主动找到你！
+        div.tel-box
+          input.tel(name='tel' type='tel' placeholder='手机号码')
+          i.icon
+        div.verify-box
+          input(name='verify' placeholder='验证码')
+          i.icon
+          // 禁用时给button加上disabled属性
+          button.verify(type='button') 获取验证码
+        button(type='button').submit 提交
+      div.close
+        i

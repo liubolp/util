@@ -425,6 +425,133 @@ div,ul{
     .setClose()
   }
 }
+// 绑定账号弹窗
+.modal-register{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 11;
+  .container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .form{
+    position: relative;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 15px 15px 0;
+    font-size: .26rem;
+  }
+  p{
+    margin-bottom: 10px;
+    position: relative;
+    &::after{
+      .setBottomLine();
+      left: -15px;
+      right: -15px;
+    }
+  }
+  input{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    outline: none;
+    color: @default_color;
+    line-height: normal;
+    padding: 7px 0 7px 20px;
+    .setTapColor();
+    &:focus{
+      border-color: @default_color;
+      +.icon{
+        background-image: url('../images/verify-active.png');
+      }
+    }
+    &+.icon{
+      position: absolute;
+      left: 5px;
+      top: 9px;
+      width: 12px;
+      height: 12px;
+      background-image: url('../images/verify.png');
+      background-size: contain;
+    }
+    &.tel{
+      &+.icon{
+        background-image: url('../images/phone.png');
+      }
+      &:focus+.icon{
+        background-image: url('../images/phone-active.png');
+      }
+    }
+  }
+  .tel{
+    width: 3.9rem;
+  }
+  .verify-box,.tel-box{
+    position: relative;
+  }
+  .verify-box{
+    display: flex;
+    margin: 10px 0 1rem;
+    input{
+      flex: 1;
+      margin-right: 5px;
+      width: 2rem;
+    }
+  }
+  .verify{
+    flex-shrink: 0;
+    padding: 7px 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    .setTapColor();
+    background: @default_color;
+    &:disabled{
+      background: #a6a6a6;
+    }
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .submit{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: @default_color;
+    border: none;
+    outline: none;
+    font-size: .3rem;
+    color: #fff;
+    .setTapColor();
+    border-radius: 0 0 5px 5px;
+    padding: 7px 0;
+    &:active{
+      background: lighten(@default_color, 10%);
+    }
+  }
+  .close{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin: 10px auto;
+    i{
+      .setClose(#fff, 20px ,2px);
+      top: 3px;
+      right: 3px;
+    }
+  }
+}
 // vip 图标
 /*vip图标*/
 /*免费*/

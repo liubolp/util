@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
     // 处理打卡状态
     var hour = new Date().getHours(),
       start = 9,
-      end = 10,
+      end = 12,
       timer,
       status
     // 处理打卡入口的状态
