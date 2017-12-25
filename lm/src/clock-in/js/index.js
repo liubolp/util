@@ -127,5 +127,16 @@ window.addEventListener('load', function () {
       $(this).addClass('current').siblings().removeClass('current')
       // todo 更新排名列表
     })
+    //
+    $('.form .submit').click(function (e) {
+      var lang = $(".form>p").text()
+      var clipboard = new Clipboard('.form .submit', {
+        text: function () {
+          return lang;
+        }
+      })
+      clipboard.on('success', function (e) {})
+      clipboard.on('error', function (e) {})
+    })
   })
 })

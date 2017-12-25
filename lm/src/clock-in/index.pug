@@ -2,6 +2,7 @@ extends ../../common/layout/layout
 block append meta
   title 竞价打卡
 block script
+  script(src='https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js')
 block footer
 block content
   header.header
@@ -117,7 +118,7 @@ block content
   div.modal-register
     div.container
       form.form
-        p 亲！完善资料，免费领取专属您的链脉名片，让客户打卡时主动找到你！
+        p#idd 亲！完善资料，免费领取专属您的链脉名片，让客户打卡时主动找到你！
         div.tel-box
           input.tel(name='tel' type='tel' placeholder='手机号码')
           i.icon
@@ -127,5 +128,5 @@ block content
           // 禁用时给button加上disabled属性
           button.verify(type='button') 获取验证码
         button(type='button').submit 提交
-      div.close
+      div.close(onclick='javascript:$(this).parent().parent().hide()')
         i
