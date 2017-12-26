@@ -1,4 +1,5 @@
 @import "../../../common/reset/rest";
+@import "../component/navbar/navbar";
 @keyframes moveDown {
   0% {
     transform: translateY(-10px);
@@ -115,6 +116,14 @@ div{
     -webkit-overflow-scrolling: touch;
     font-size: .28rem;
     color: #333;
+    position: relative;
+    a{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: #2143eb;
+      text-decoration: underline;
+    }
   }
   .arrow-box{
     text-align: center;

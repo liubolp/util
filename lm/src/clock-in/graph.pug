@@ -16,6 +16,17 @@ block localCss
     }, false)
 block content
   div#container
+    nav.navbar
+      a.current.morning(href='javascript:;')
+        i.nav-icon &#xe741
+        p 早安播报
+      a.daily(href='./daily.html')
+        i.nav-icon &#xe60d
+        p 每日一听
+      a.news(href='./news.html')
+        i.nav-icon &#xe6e0
+        p 新闻播报
+    div.animate-box
     // 默认大图
     div.full-container.picture
       div.img-box
@@ -33,6 +44,7 @@ block content
       div.text-box.exclude
         p.exclude
           span.exclude 【早安心语】今天是12月20日，星期三，农历11月初三；人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。记住，这一秒不放弃，下一秒就会有希望。朋友们，早安！
+          a.exclude(href='./taping.html') 录制语音
       div.arrow-box
         i
         i

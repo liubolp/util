@@ -1,0 +1,115 @@
+@import "../../../common/reset/rest";
+@import "../component/navbar/navbar";
+#daily{
+  padding: 1rem 16px 0;
+  .audio-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+    .avatar{
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      vertical-align: bottom;
+      margin-right: 10px;
+    }
+    .personal{
+      flex: 1 1 calc(~'100% - 1.6rem - 15px');
+      white-space: nowrap;
+      overflow: hidden;
+      >p:first-child{
+        font-weight: 600;
+        color: #333;
+      }
+      .name{
+        font-size: 14px;
+        margin-right: 10px;
+      }
+      .company{
+        color: #a8a8a6;
+        .ellipsis()
+      }
+      .count{
+        color: @default_color;
+        padding: 0 2px;
+      }
+    }
+    .toggle{
+      width: .6rem;
+      height: .6rem;
+      background: url("../images/daka_on.png") no-repeat;
+      background-size: contain;
+      &.pause{
+        background: url("../images/daka_play.gif") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  .img-box{
+    margin: .4rem 0;
+    box-shadow: 0 0 16px 0 #ccc;
+    min-height: 200px;
+    background: #fff;
+  }
+  .divider{
+    position: relative;
+    &::before{
+      content: '精选留言';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border: 1px solid #c4c6c5;
+      padding: 0 10px;
+      transform: translate(-50%, -50%);
+      background: #eeeff3;
+    }
+    border-bottom: 1px dashed #c4c6c5;
+  }
+  .message{
+    color: @default_color;
+    text-align: right;
+    margin-top: 15px;
+    .nav-icon{
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .list{
+    li{
+      list-style: none;
+      display: flex;
+      margin-bottom: .4rem;
+      font-size: .3rem;
+      color: #888;
+    }
+    img{
+      vertical-align: bottom;
+      border-radius: 5px;
+      width: 1rem;
+      height: 1rem;
+      margin-right: 10px;
+    }
+    .content{
+      flex: 1;
+      p{
+        .ellipsisLn(1)
+      }
+    }
+    .desc{
+      color: #333;
+    }
+    .time{
+      font-size: .26rem;
+    }
+    .zan{
+      i{
+        color: @default_color;
+        font-size: inherit;
+        margin-right: 5px;
+      }
+    }
+  }
+}
