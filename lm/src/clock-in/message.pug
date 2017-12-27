@@ -1,0 +1,21 @@
+extends ../../common/layout/layout
+block append meta
+  title 留言
+block script
+block footer
+block footerCss
+block footerJs
+block localCss
+  link(rel='stylesheet' href='./css/message.css')
+  // 解决iOS自动播放
+  script.
+    //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      document.getElementById('audio').play();
+    }, false)
+block content
+  div.message-box
+    p.title 【每日一听】 七夕情人节
+    textarea.message(name='message' placeholder='请填写留言')
+    div
+      button.submit 提交

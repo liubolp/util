@@ -1,5 +1,9 @@
 @import "../../../common/reset/rest";
 @import "../component/navbar/navbar";
+@import "../component/modal-reward/index";
+div{
+  .setTapColor()
+}
 #daily{
   padding: 1rem 16px 0;
   .audio-box{
@@ -51,8 +55,54 @@
   .img-box{
     margin: .4rem 0;
     box-shadow: 0 0 16px 0 #ccc;
-    min-height: 200px;
     background: #fff;
+    padding: .3rem;
+    color: #888;
+    img{
+      width: 100%;
+      vertical-align: bottom;
+      margin: 5px 0;
+    }
+    .header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo{
+      color: @default_color;
+      font-size: .4rem;
+    }
+    .time{
+      font-size: .26rem;
+      align-self: flex-end;
+    }
+    .quote{
+      text-align: right;
+      font-size: .26rem;
+    }
+    .text-box{
+      text-align: center;
+      color: #333;
+      font-size: .3rem;
+    }
+    .qr-box{
+      text-align: center;
+      font-size: .26rem;
+      color: #333;
+      .qr{
+        width: .7rem;
+        height: .7rem;
+      }
+    }
+    .statistics{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .nav-icon{
+        color: @default_color;
+        margin-right: 5px;
+      }
+    }
   }
   .divider{
     position: relative;
@@ -75,6 +125,9 @@
     .nav-icon{
       display: inline-block;
       vertical-align: middle;
+    }
+    a{
+      color: inherit;
     }
   }
   .list{

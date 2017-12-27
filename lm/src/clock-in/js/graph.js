@@ -105,5 +105,25 @@ window.addEventListener('load', function () {
       img.src = src
     }
     loadImg(src)
+    // 打开打赏对话框
+    $('.animate-box').click(function (e) {
+      $('.modal-reward').show()
+    })
+    // 关闭和打赏操作
+    $('.modal-reward').on('click', '.close', function (e) { // 关闭
+      $('.modal-reward').hide()
+    }).on('click', 'li', function (e) { // 切换金额
+      $(this).addClass('selected').siblings().removeClass('selected')
+      $('.amount input').val('')
+    }).on('click', '.pay', function (e) { // 支付操作
+      var amount = $('.amount input').val()
+      amount = amount > 0 ? amount : parseFloat($('.modal-reward li.selected').text())
+      $('.modal-reward').hide()
+      pay(amount)
+    })
+    // 支付功能
+    function pay (amount) {
+      // todo 支付逻辑
+    }
   })
 })

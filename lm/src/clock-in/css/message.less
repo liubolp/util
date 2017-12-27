@@ -1,0 +1,34 @@
+@import "../../../common/reset/rest";
+.message-box{
+  padding: 20px 10px;
+  .message{
+    -webkit-appearance: none;
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 10px;
+    height: 3rem;
+    border: none;
+    border-radius: 0;
+    margin: 10px 0;
+    .setTapColor()
+  }
+  >div{
+    padding: 0 10px;
+  }
+  .submit{
+    border: none;
+    width: 100%;
+    color: #fff;
+    background: @default_color;
+    outline: none;
+    height: .8rem;
+    line-height: .8rem;
+    border-radius: 5px;
+    font-size: 18px;
+    .setTapColor();
+    &:active{
+      background: lighten(@default_color, 10%);
+    }
+  }
+}
