@@ -34,7 +34,13 @@ window.addEventListener('load', function () {
         })
         // 自定义语音播报
         $('.modal-record').on('click', '.play', function (e) { // 播放当前录制语音
-          obj.methods.playVoice()
+          if ($(this).hasClass('pause')) {
+            $(this).removeClass('pause').next().removeClass('animate')
+            obj.methods.stopPlay()
+          } else {
+            $(this).addClass('pause').next().addClass('animate')
+            obj.methods.playVoice()
+          }
         }).on('click', '.re', function (e) { // 重新录制
           $('.modal-record').hide()
           $('.taping .record').trigger('click')
@@ -79,6 +85,10 @@ window.addEventListener('load', function () {
         },
         // 播放声音
         playVoice () {
+          // todo
+        },
+        // 停止播放
+        stopPlay () {
           // todo
         }
       }
