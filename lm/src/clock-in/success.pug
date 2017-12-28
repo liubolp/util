@@ -1,0 +1,145 @@
+extends ../../common/layout/layout
+block append meta
+  title 打卡成功
+block footer
+block footerCss
+block script
+  script(src='https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js')
+block localCss
+  link(rel='stylesheet' href='./css/success.css')
+block footerJs
+  script(src='./js/success.js')
+block content
+  // 头部信息
+  div.header-box
+    div.img-box
+      a(href='javascript:;')
+        img.avatar(src='./images/tupian.png')
+    div.statistics
+      div.time
+        p.value 08:24:29
+        p.item 打卡时间
+      div.ranking
+        p.value 9999
+        p.item 全国排名
+      div.duration
+        p.value 2天
+        p.item 连续打卡
+    // 铃铛
+    div.notice
+    // 赏
+    div.animate-box
+  -
+    var data = [
+    {
+      icon:'&#xe601',
+      name: 'h5制作',
+      color: '#fe911a',
+      isNew: false,
+      isHot: false
+    },
+    {
+      icon:'&#xe652',
+      name: '海报秀',
+      color: '#1498d9',
+      isNew: false,
+      isHot: false
+    },
+    {
+      icon:'&#xe600',
+      name: '文字推广',
+      color: '#ec623e',
+      isNew: true,
+      isHot: false
+    },
+    {
+      icon:'&#xe60d',
+      name: '每日一听',
+      color: '#ff314b',
+      isNew: false,
+      isHot: false
+    },
+    {
+      icon:'&#xe6e0',
+      name: '新闻播报',
+      color: '#9d8cff',
+      isNew: false,
+      isHot: false
+    },
+    {
+      icon:'&#xe69a',
+      name: '语音播报',
+      color: '#f97c39',
+      isNew: false,
+      isHot: true
+    }
+    ]
+  // 其他入口
+  ul.entry
+    each item in data
+      li
+        a(href='javascript:;')
+          i.icon(style={color:item.color})!=item.icon
+          p.name #{item.name}
+        if item.isHot
+          i.hot
+        if item.isNew
+          i.new
+  // 早安语
+  div.text-box
+    img.title(src='./images/zaoan.png')
+    p.text 拼搏的汗水放射着事业的光芒，奋斗的年华里洋溢着人生的欢乐；2017年最后的每一天，也要认真过！早安，共勉！
+    div.btns
+      button.copy 点此复制早安语
+      button.generate 生成邀请海报
+    div.picture
+      p 长按图片保存到手机
+      img(src='https://topmdrt-static.oss-cn-shenzhen.aliyuncs.com/static/images/baotu/thumbnail/1324.jpg')
+  // 底部缩略图
+  div.thum-box
+    p 不出门就能打卡全世界...
+      a(href='javascript:;') 查看更多》
+    ul.thum-list
+      li
+        a(href='javascript:;')
+          img(src='https://topmdrt-static.oss-cn-shenzhen.aliyuncs.com/static/images/baotu/thumbnail/1324.jpg')
+          p.name 早安心语
+      li
+        a(href='javascript:;')
+          img(src='https://topmdrt-static.oss-cn-shenzhen.aliyuncs.com/static/images/baotu/thumbnail/1324.jpg')
+          p.name 早安心语
+      li
+        a(href='javascript:;')
+          img(src='https://topmdrt-static.oss-cn-shenzhen.aliyuncs.com/static/images/baotu/thumbnail/1324.jpg')
+          p.name 早安心语
+  // 打赏
+  include component/modal-reward/index
+  // 铃铛弹窗
+  div.modal-lingdang
+    div.content
+      div.header
+      div.section
+        a.listen(href='javascript:;') 马上收听
+      div.footer(onclick='$(this).parents(".modal-lingdang").hide()')
+  // 复制成功弹窗
+  div.modal-copy
+    div.content
+      div.header
+      div.section
+        pre.
+          早安语已复制成功，粘贴即可发送
+          马上保存早安图到手机，
+          向所有客户送上你的早安问候吧
+      div.footer
+        button(onclick='$(this).parents(".modal-copy").hide()') 知道了
+  // 生成邀请海报弹窗
+  div.modal-invite
+    div.content
+      div.header
+      div.section
+        pre 邀请海报已通过公众号发送
+        pre.mark.
+          马上邀请好友打卡
+          一起做优秀链脉人
+      div.footer
+        button(onclick='$(this).parents(".modal-invite").hide()') 知道了
