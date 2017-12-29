@@ -1,0 +1,98 @@
+/*升级会员*/
+.actionsheet{
+  color: #333;
+  &__mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.65);
+    z-index: 20;
+    display: none;
+  }
+  &__content{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 21;
+    background: #fff;
+    display: none;
+  }
+  .header{
+    height: 1rem;
+    line-height: 1rem;
+    padding-left: 15px;
+    background: #eeeeee;
+    position: relative;
+    font-size: .36rem;
+    .close{
+      position: absolute;
+      top: .28rem;
+      right: .2rem;
+      font-style: normal;
+      background: @default_color;
+      border-radius: 50%;
+      width: .48rem;
+      height: .48rem;
+      line-height: .48rem;
+      text-align: center;
+      color: #fff;
+      font-weight: normal;
+      &:active{
+        background: lighten(@default_color, 10%);
+      }
+    }
+  }
+  .section{
+    font-size: .32rem;
+    padding-left: 15px;
+    p{
+      height: 1rem;
+      line-height: 1rem;
+      &:not(:last-child){
+        border-bottom: 1px dashed #ccc;
+      }
+      &.selected{
+        span{
+          background: @default_color;
+        }
+      }
+    }
+    span{
+      background: #ccc;
+      color: #fff;
+      padding: 2px 5px;
+    }
+  }
+  .footer{
+    font-size: .3rem;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    height: 1rem;
+    line-height: 1rem;
+    background: #ddd;
+    p{
+      .ellipsis()
+    }
+    .submit{
+      border: none;
+      outline: none;
+      background: @default_color;
+      padding: 0 .4rem;
+      color: #fff;
+      font-size: .36rem;
+      flex-shrink: 0;
+      &:active{
+        background: lighten(@default_color, 10%);
+      }
+    }
+    .amount{
+      color: red;
+      font-size: .36rem;
+      font-weight: bold;
+    }
+  }
+}

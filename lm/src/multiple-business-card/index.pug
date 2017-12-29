@@ -2,36 +2,55 @@ extends ../../common/layout/layout
 block append meta
   title 多名片
 block content
-  // 顶部工具栏
-  div.fixed-header
-    a.delete(href='javascript:;') 删除
-    div.input-box
-      input(type='text' placeholder='请输入搜索内容' name='keyword')
-      i.search
-    a.modify(href='javascript:;') 修改
-  // 名片列表
-  ul.card-list
-    - for(var i=0;i<10;i++)
-      li(class={selected:i===0})
-        // data-img属性值为该名片的背景图片
-        div.box(data-img='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
-          // 链接加上预览地址
-          a.preview(href='javascript:;')
-          button.default 默认
-          div.mask
-          img.avatar(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
-          p.nickname 红尘旧梦红尘旧梦红尘旧梦
-          p.view 浏览量
-            span.count 999
-            // 当前使用中给button添加current这个类
-            button(class={current:i===0})
-    li.add
-      div.box
-        img.avatar
-        p.nickname '添加'
-        p.view '99'
-          button
-        i.iconfont &#xa003
+  div.business-card
+    div.search-bar
+      input(name='content' placeholder='请输入搜索内容')
+      button.search
+        i.iconfont &#xe608
+    ul.card-list
+      li
+        div.content(data-src='http://member.lm720.com/upload/2017/03/25/2017032558d646217ecc0728203925.jpg')
+          div.use.current 使用
+          p.preview
+            span.name Scoot
+            span.view 浏览量 10
+        div.operation
+          a.btn.delete(href='javascript:;')
+            i.iconfont &#xe636
+            | 删除
+          a.btn.edit(href='javascript:;')
+            i.iconfont &#xe669
+            | 修改
+      li
+        div.content(data-src='http://member.lm720.com/upload/2017/03/25/2017032558d646217ecc0728203925.jpg')
+          div.use 使用
+          p.preview
+            span.name Scoot
+            span.view 浏览量 10
+        div.operation
+          a.btn.delete(href='javascript:;')
+            i.iconfont &#xe636
+            | 删除
+          a.btn.edit(href='javascript:;')
+            i.iconfont &#xe669
+            | 修改
+      li
+        div.content(data-src='http://member.lm720.com/upload/2017/03/25/2017032558d646217ecc0728203925.jpg')
+          div.use 使用
+          p.preview
+            span.name Scoot
+            span.view 浏览量 10
+        div.operation
+          a.btn.delete(href='javascript:;')
+            i.iconfont &#xe636
+            | 删除
+          a.btn.edit(href='javascript:;')
+            i.iconfont &#xe669
+            | 修改
+      li.add
+        div.content
+          div.add
+            i.iconfont &#xe60e
   // 添加名片弹窗
   div.modal-add(style='display:none')
     div.modal-add-content

@@ -1,0 +1,77 @@
+// 升级会员
+div.actionsheet
+  div.actionsheet__mask
+  div.actionsheet__content
+    h3.header 升级会员
+      i.close X
+    div.section
+      // data-level 表示选择的等级 data-price 表示市场价 data-amount 表示实际金额
+      p(data-level='1' data-price='1000' data-amount='800')
+        span 创业会员（专属特权+1年使用期）
+      p.selected(data-level='2' data-price='2000' data-amount='1800')
+        span 创业会员（专属特权+1年使用期）
+      p(data-level='3' data-price='3000' data-amount='2800')
+        span 创业会员（专属特权+1年使用期）
+    div.footer
+      p 实付款：
+        span.amount ￥2000元
+        span (市场价：
+          del 1800元
+          |)
+      button.submit 提交
+// 升级会员脚本
+script.
+  window.addEventListener('load', function () {
+    var actionSheet = {
+      data: {
+        price: 800, // 市场价
+        amount: 588, // 实际金额
+        level: 1 // 会员等级
+      },
+      /**
+       * 初始化
+       * @param selector {String} 一个css选择器，用来打开选择框
+       */
+      init (selector) {
+        this.attachEvent()
+        // 开启选择框事件
+        $(selector).click(function () {
+          $('.actionsheet__mask').fadeIn()
+          $('.actionsheet__content').slideToggle()
+        })
+      },
+      attachEvent () {
+        // 切换会员等级
+        $('.actionsheet').on('click', '.section>p', function (e) {
+            $(this).addClass('selected').siblings().removeClass('selected')
+            actionSheet.methods.setInfo($(this), actionSheet.data)
+          }) // 关闭选择框
+          .on('click', '.header .close', function (e) {
+            $(this).parent().parent().slideToggle()
+              .prev().fadeOut()
+          }) // 提交信息
+          .on('click', '.footer .submit', function (e) {
+            $('.actionsheet .close').trigger('click')
+            actionSheet.methods.submit()
+          })
+      },
+      methods: {
+        // 设置选择项的信息
+        setInfo (target, data) {
+          data.price = target.attr('data-price')
+          data.amount = target.attr('data-amount')
+          data.level = target.attr('data-level')
+          var footer = target.parent().next()
+          footer.find('.amount').text('￥' + data.amount + '元')
+          footer.find('del').text(data.price + '元')
+        },
+        // 获取提交信息
+        submit () {
+          var data = actionSheet.data
+          // todo 升级逻辑
+          console.log(data)
+        }
+      }
+    }
+    actionSheet.init('.name')
+  })

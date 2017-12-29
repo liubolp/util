@@ -1,210 +1,146 @@
 @import "../../../common/reset/rest";
-/*顶部工具栏*/
-.fixed-header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 45px;
-  padding: 0 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: #fff;
-  background: @default_color;
-  a{
-    color: #fff;
-    font-size: 18px;
-    &.active{
-      color: #efed2b;
-    }
+div,input{
+  .setTapColor()
+}
+.business-card{
+  padding: .2rem;
+  font-size: .3rem;
+  .iconfont{
+    font-size: .3rem;
   }
-  .input-box{
-    position: relative;
-    width: 4.2rem;
-    height: 27px;
-    border-radius: 5px;
-    background: #fff;
-    display: flex;
-    flex-flow: row-reverse;
-    justify-content: center;
-    align-items: center;
-    padding-left: 2px;
-    .search{
-      width: 20px;
-      height: 20px;
-      background: url('../images/search.png') no-repeat;
-      background-size: contain;
-      margin-right: 5px;
-    }
-    &.fixed{
-      input{
-        flex: 1;
-      }
-    }
-  }
+}
+.search-bar{
+  position: relative;
   input{
-    width: 130px;
-    border: none;
+    border: 1px solid #ccc;
+    padding: 0 .7rem 0 5px;
+    height: .7rem;
+    line-height: normal;
+    border-radius: 5px;
+    width: 100%;
     outline: none;
-    font-size: 18px;
-    height: 26px;
-    line-height: 27px;
-    .setTapColor();
-    &:focus{
-      text-align: left;
-      flex: 1;
+    -webkit-appearance: none;
+  }
+  .search{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: @default_color;
+    width: .7rem;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+    height: 100%;
+    border: none;
+    &:active{
+      background: lighten( @default_color, 10%);
     }
   }
 }
-/*名片列表*/
 .card-list{
-  padding-top: 55px;
   display: flex;
+  justify-content: space-between;
   flex-flow: row wrap;
-  padding-left: 10px;
+  margin-top: .4rem;
+  text-align: center;
   li{
     list-style: none;
-    flex: 0 0 50%;
-    text-align: center;
-    &.selected{
-      .mask{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(132,121,121,.35);
-      }
-    }
-    &.selected{
-      .count{
-        color: @default_color;
-      }
-    }
-  }
-  .box{
-    margin: 0 10px 10px 0;
-    padding: 12px 6px;
-    background-color: #ffba6b;
     position: relative;
-    overflow: hidden;
-    background-repeat: no-repeat;
+    margin-bottom: .2rem;
+  }
+  .content{
+    width: 3.34rem;
+    height: 3.84rem;
+    background: #ccc;
+    position: relative;
     background-size: cover;
-  }
-  .preview{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
-    width: 45px;
-    height: 45px;
-    &::before{
-      content: '预览';
+    .use{
       position: absolute;
-      top: -8px;
-      left: -24px;
-      background: #ff8a00;
-      color: #fff;
-      transform: rotateZ(-45deg);
-      width: 150%;
-      padding-top: 17px;
-      font-size: 12px;
-      box-shadow: 0 0 10px 0 #fff;
-    }
-  }
-  .default{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 5;
-    width: 40px;
-    height: 20px;
-    border-radius: 10px;
-    border: 1px solid #fff;
-    background: none;
-    color: #fff;
-    font-size: 14px;
-    line-height: 14px;
-    outline: none ;
-  }
-  .avatar{
-    width: 1.65rem;
-    height: 1.65rem;
-    border-radius: 50%;
-    vertical-align: bottom;
-    margin: .6rem 0 .1rem;
-  }
-  .count{
-    flex: 1;
-    text-align: left;
-    padding-left: 2px;
-  }
-  .nickname{
-    .ellipsisLn(1)
-  }
-  .view{
-    display: flex;
-    align-items: center;
-    margin-top: .6rem;
-    button{
-      display: inline-block;
-      width: 51px;
-      height: 51px;
-      border: 2px solid #fff;
+      top: .2rem;
+      right: .2rem;
+      width: .76rem;
+      height: .76rem;
+      line-height: .76rem;
       border-radius: 50%;
-      text-align: center;
-      font-size: 12px;
-      background: none;
-      position: relative;
-      transform: scale(.8);
-      flex-shrink: 0;
-      z-index: 2;
-      outline: none;
-      &::before{
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 12px;
-        background: #fff;
-        content: '使用';
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        box-sizing: border-box;
-      }
-    }
-    .current{
-      &::before{
-        content: '使用中';
+      background: grey;
+      color: #fff;
+      &.current{
         background: @default_color;
       }
+    }
+    .preview{
+      position: absolute;
+      bottom: 1rem;
+      left: 0;
+      width: 100%;
       color: #fff;
-      border-color: @default_color;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 .2rem;
+      .name{
+        font-size: .36rem;
+        flex: 1;
+        text-align: left;
+        .ellipsis()
+      }
+      .view{
+        font-size: .26rem;
+      }
     }
   }
-  .add{
-    .avatar,.nickname,.view{
-      visibility: hidden;
+  .operation{
+    width: 3.5rem;
+    height: .8rem;
+    line-height: .8rem;
+    background: #fff;
+    position: absolute;
+    bottom: -.1rem;
+    left: -.06rem;
+    a{
+      display: inline-block;
+      width: 50%;
+      height: 100%;
+      border: 1px solid;
     }
-    .box{
-      position: relative;
-      background-image: none;
-    }
-    .iconfont{
-      font-size: 70px;
+    .delete{
+      background: @default_color;
       color: #fff;
+      border-color: @default_color;
+      &:active{
+        background: lighten(@default_color, 10%);
+      }
+    }
+    .edit{
+      color: inherit;
+      border-color: #d2d2d2;
+      &:active{
+        background: #ececec;
+      }
+    }
+  }
+  li.add{
+    .content{
+      background: #ffba6c;
+    }
+    .add{
+      width: .9rem;
+      height: .9rem;
+      line-height: .9rem;
+      background: #fff;
+      border-radius: 50%;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      color: #ffba6c;
+      .iconfont{
+        font-size: .6rem;
+      }
     }
   }
 }
-/*添加名片*/
+
 #lm-footer{
   z-index: 5 !important;
 }
