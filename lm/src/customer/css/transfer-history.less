@@ -1,0 +1,46 @@
+@import "../../../common/reset/rest";
+body{
+  font-size: .3rem;
+}
+/*顶部样式*/
+.nav-bar{
+  margin: .2rem auto .4rem;
+  width: 5.8rem;
+  height: .8rem;
+  line-height: .8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  a{
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: top;
+  }
+  .current{
+    background: @default_color;
+    color: #fff;
+  }
+}
+/*历史记录*/
+.transfer-list{
+  li{
+    padding: .3rem;
+    background: #fff;
+    margin-bottom: .2rem;
+    color: #909090;
+  }
+  .amount,.status{
+    float: right;
+  }
+  .lager{
+    font-size: .36rem;
+    margin-right: 5px;
+  }
+  .lager,.amount{
+    color: #474747;
+  }
+}

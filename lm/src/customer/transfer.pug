@@ -1,0 +1,39 @@
+extends ../../common/layout/layout
+block append meta
+  title 转账
+block localCss
+  link(rel='stylesheet' href='./css/transfer.css')
+block footerJs
+  //-script(src='./js/transfer.js')
+block content
+  div.nav-bar
+    a(href='javascript:;').transfer.current 转账
+    a(href='transfer-history.html').record 转账记录
+  // 账户
+  div.account.container
+    span 转账账户
+    input(type='number' name='account' placeholder='填写账户')
+  // 金额
+  div.amount.container
+    p 转账金额
+    div
+      span ￥
+      input(type='number' name='amount' )
+  // todo 禁用按钮给按钮添加disabled属性，启用时去掉该属性
+  div.verify.container
+    div
+      div.input-box
+        select(name='country')
+          option(value='1') 中国
+          option(value='2') 其他
+        input(name='tel' type='tel' disabled value='15632548796')
+      button.get-code 获取验证码
+    div.resend-box
+      input(name='verify' placeholder='填写验证码')
+      button.resend(disabled) 重发(59)
+  // 提交
+  div.submit-box
+    button.submit(disabled) 提交
+    p 账户余额本次可转
+      span.balance 999.99
+      | 元

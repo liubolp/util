@@ -1,0 +1,21 @@
+extends ../../common/layout/layout
+block append meta
+  title 转账记录
+block localCss
+  link(rel='stylesheet' href='./css/transfer-history.css')
+block footerJs
+block content
+  div.nav-bar
+    a(href='transfer.html').transfer 转账
+    a(href='javascript:;').record.current 转账记录
+  // 转账记录
+  ul.transfer-list
+    - for(var i=0;i<10;i++)
+      li
+        div
+          span.lager 转账账户
+          span.account 18635621463
+          span.amount 20
+        div
+          time 2017/12/25 12:33:45
+          span.status 交易成功

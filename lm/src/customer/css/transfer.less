@@ -1,0 +1,154 @@
+@import "../../../common/reset/rest";
+body{
+  font-size: .3rem;
+}
+input,button,select{
+  .setTapColor()
+}
+/*顶部样式*/
+.nav-bar{
+  margin: .2rem auto .4rem;
+  width: 5.8rem;
+  height: .8rem;
+  line-height: .8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  a{
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: top;
+  }
+  .current{
+    background: @default_color;
+    color: #fff;
+  }
+}
+/*主体内容*/
+.container{
+  background: #fff;
+  padding-left: .3rem;
+  margin-bottom: .1rem;
+  font-size: .36rem;
+}
+input{
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  background: #fff;
+  border-radius: 0;
+}
+.account{
+  display: flex;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  input{
+    font-size: 80%;
+  }
+}
+.amount{
+  padding-top: .2rem;
+  padding-bottom: .36rem;
+  div{
+    display: flex;
+  }
+  input{
+    font-size: 130%;
+  }
+}
+.amount,.account{
+  input{
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    padding: 0 5px;
+  }
+}
+.verify{
+  padding-top: .3rem;
+  padding-bottom: .6rem;
+  font-size: .3rem;
+  >div{
+    display: flex;
+    width: 6rem;
+    height: .6rem;
+    line-height: .6rem;
+  }
+  .input-box{
+    display: flex;
+    width: 4rem;
+    input{
+      width: 2.39rem;
+    }
+  }
+  button{
+    outline: none;
+    border: none;
+    width: 1.7rem;
+    height: 100%;
+    margin-left: .2rem;
+    font-size: inherit;
+    background: @default_color;
+    color: #fff;
+    border-radius: 5px;
+    &:disabled{
+      color: inherit;
+      background: #eeeff3;
+      border-radius: 0;
+    }
+    &:active{
+      background: lighten(@default_color, 10%);
+    }
+  }
+  input{
+    border: 1px solid #ccc;
+    padding: 0 5px;
+    font-size: inherit;
+  }
+  select{
+    width: 1.5rem;
+    height: 100%;
+    margin-right: .1rem;
+    font-size: inherit;
+    outline: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 0;
+  }
+  .resend-box{
+    margin-top: .2rem;
+    input{
+      width: 4rem;
+    }
+  }
+}
+.submit-box{
+  padding: 0 .3rem;
+  text-align: center;
+}
+.submit{
+  border: 0;
+  height: .8rem;
+  line-height: .8rem;
+  border-radius: 5px;
+  width: 100%;
+  background: @default_color;
+  font-size: inherit;
+  margin: .3rem 0 .1rem;
+  outline: none;
+  color: #fff;
+  &:active{
+    background: lighten(@default_color, 10%);
+    color: #fff;
+  }
+  &:disabled{
+    background: #dddddd;
+    color: inherit;
+  }
+}
+.balance{
+  color: @default_color;
+}
