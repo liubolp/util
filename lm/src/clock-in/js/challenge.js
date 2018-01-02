@@ -83,43 +83,18 @@ window.addEventListener('load', function () {
         $('.modal-pay').show()
       }
     })
-    // 显示更多和隐藏打卡详情
-    $('.list').on('click', 'button.toggle', function (e) {
-      $(this).parent().toggleClass('fold')
-      if ($(this).parent().hasClass('fold')) {
-        $(this).text('展开')
-      } else {
-        $(this).text('收起')
-      }
+    // 点击太阳显示弹窗
+    $('.personal .box').click(function (e) {
+      if ($('.getsun-tip').length) return
+      var html = `<div class='getsun-tip'>连续早起就能收集太阳</div>`
+      $('body').append(html)
+      setTimeout(function () {
+        $('.getsun-tip').remove()
+      }, 2000)
     })
-    // 关闭支付弹窗
-    $('.modal-pay').click(function (e) {
-      var target = $(e.target)
-      if (target.hasClass('close') || target.hasClass('modal-pay')) {
-        $('.modal-pay').fadeOut()
-      }
-    })
-    // 关闭打卡成功提示框
-    $('.modal').click(function (e) {
-      var target = $(e.target)
-      if (target.hasClass('close') || target.hasClass('modal-success')) {
-        $(this).fadeOut()
-      }
-      // 打卡成功后续操作
-      if ($(this).hasClass('modal-success') && target[0].nodeName === 'BUTTON') { // 参加下次挑战
-        $(this).fadeOut()
-        $('.modal-pay').show()
-      }
-      // 支付成功弹窗
-      if ($(this).hasClass('modal-pay-success') && target[0].nodeName === 'BUTTON') { // 喊好友来参加
-        // todo 调分享接口
-        $(this).fadeOut()
-      }
-      // 挑战失败弹窗
-      if ($(this).hasClass('modal-fail') && target[0].nodeName === 'BUTTON') { // 不服继续挑战
-        $(this).fadeOut()
-        $('.modal-pay').slideDown()
-      }
+    // 关闭各类弹窗
+    $('.check-modal').on('click', '.close', function (e) {
+      $(this).parents('.check-modal').hide()
     })
   })
 })

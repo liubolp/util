@@ -15,7 +15,7 @@ block content
         a(href='/clock-in') 打卡排行
         a(href='javascript:;').current 早起挑战
       div.personal
-        a(href='/clock-in/record.html')
+        a(href='javascript:;')
           img.avatar(src='./images/tupian.png')
           span.box
             i.sun
@@ -77,9 +77,8 @@ block content
                   | 连续早起
                   mark 5
                   | 天
-              // 如果用户连续打卡超过20天就给.sun 加上fold这个类
-              div.sun.fold
-                button.toggle 展开
+              //- 如果用户连续打卡超过20天就给.sun 加上fold这个类
+              div.sun
                 - for(var i=0;i<40;i++)
                   i
               p
@@ -89,44 +88,16 @@ block content
         li.end
           time 9:00
           div 打卡结束
-  // 支付弹窗
-  div.modal-pay(style='display:none')
-    div.modal-container
-      div.header
-        i.close
-      div.body
-        p 支付1元参加挑战
-        button.pay 去支付
   // 打卡时间提示弹窗
   div.modal-tips(style='display:none')
     time 打卡时间 2017/11/11
     p 6:00~9:00
-  // 打卡成功对话框
-  div.modal.modal-success
-    div.container
-      i.close
-      div
-        h3 恭喜挑战成功
-        p 奖励金将会在24小时内发送至你的钱包
-        button 参加下次挑战
-  // 支付成功弹窗
-  div.modal.modal-pay-success
-    div.container
-      i.close
-      div
-        h3 你的挑战已启动
-        p
-          span 2017年11月30日
-          br
-          span 6:00-9:00
-          | 记得来打卡哟
-        button 喊好友来参加
-  // 挑战失败弹窗
-  // 如果进入页面超过打卡时限且用户未打卡就显示失败弹窗(添加show)
-  div.modal.modal-fail
-    div.container
-      i.close
-      div
-        h3 挑战失败
-        p 你的挑战金被分走了...
-        button 不服继续挑战
+  // 弹窗状态
+  // todo 支付一元
+  <div data-v-ad432ce8="" class="check-modal modal-pay" style="display: none;" data-v-0e8e0d86="" data-v-60883166=""><div data-v-ad432ce8="" class="shade" style="/* display: none; */"></div> <div data-v-ad432ce8="" class="main"><div data-v-ad432ce8="" class="tips" style="display: none;"></div> <div data-v-ad432ce8="" class="tips" style="display: none;"><div data-v-ad432ce8="" class="tips-bg">点击右上角分享给朋友</div></div> <div data-v-ad432ce8="" class="content" style="/* display: none; */"><div data-v-0e8e0d86="" class="common-content"><div data-v-0e8e0d86="" class="close"><i data-v-0e8e0d86=""></i></div> <h1 data-v-0e8e0d86="">支付挑战金1元</h1> <div data-v-0e8e0d86="" class="cat"><img data-v-0e8e0d86="" src="./images/modal-pay.png" alt=""></div> <div data-v-0e8e0d86="" class="button"><a data-v-0e8e0d86="" href="javascript:">支付, 参加挑战</a></div></div></div></div></div>
+  // 挑战启动
+  <div data-v-ad432ce8="" class="check-modal modal-pay-success" data-v-f4ffba48="" data-v-60883166="" style=" display: none; "><div data-v-ad432ce8="" class="shade" style="/* display: none; */"></div> <div data-v-ad432ce8="" class="main"><div data-v-ad432ce8="" class="tips" style="display: none;"><div data-v-f4ffba48="" class="tips-bg">成功支付1元</div></div> <div data-v-ad432ce8="" class="tips" style="/* display: none; */"><div data-v-ad432ce8="" class="tips-bg">点击右上角分享给朋友</div></div> <div data-v-ad432ce8="" class="content" style="/* display: none; */"><div data-v-f4ffba48="" class="common-content"><div data-v-f4ffba48="" class="close"><i data-v-f4ffba48=""></i></div> <h1 data-v-f4ffba48="">你的挑战已启动</h1> <p data-v-f4ffba48="" class="tips">明天记得来打卡哦</p> <div data-v-f4ffba48="" class="cat mt100"><img data-v-f4ffba48="" src="./images/modal-paysuccess.png" alt=""></div> <div data-v-f4ffba48="" class="button border"><a data-v-f4ffba48="" href="javascript:">喊好友来参加</a></div></div></div></div></div>
+  // 挑战成功
+  <div data-v-ad432ce8="" class="check-modal modal-success" data-v-38c280fc="" data-v-60883166="" style=" display: none; "><div data-v-ad432ce8="" class="shade" style="/* display: none; */"></div> <div data-v-ad432ce8="" class="main"><div data-v-ad432ce8="" class="tips" style="display: none;"><div data-v-38c280fc="" class="tips-bg"><i data-v-38c280fc=""><img data-v-38c280fc="" src="./images/sun.png" alt=""></i>连续早起1天！</div></div> <div data-v-ad432ce8="" class="tips" style="display: none;"><div data-v-ad432ce8="" class="tips-bg">点击右上角分享给朋友</div></div> <div data-v-ad432ce8="" class="content" style="/* display: none; */"><div data-v-38c280fc="" class="common-content"><div data-v-38c280fc="" class="close"><i data-v-38c280fc=""></i></div> <h1 data-v-38c280fc="">挑战成功咯</h1> <p data-v-38c280fc="" class="tips">奖励会在24小时内发送至微信钱包</p> <div data-v-38c280fc="" class="cat mt100"><img data-v-38c280fc="" src="./images/modal-challenge-success.png" alt=""></div> <div data-v-38c280fc="" class="button"><a data-v-38c280fc="" href="javascript:">参加下次挑战</a></div> <div data-v-38c280fc="" class="button border"><a data-v-38c280fc="" href="javascript:">喊好友来参加</a></div></div></div></div></div>
+  // 挑战失败
+  <div data-v-ad432ce8="" class="check-modal modal-fail" data-v-614943db="" data-v-60883166="" style="display: none; "><div data-v-ad432ce8="" class="shade" style="/* display: none; */"></div> <div data-v-ad432ce8="" class="main"><div data-v-ad432ce8="" class="tips" style="display: none;"></div> <div data-v-ad432ce8="" class="tips" style="display: none;"><div data-v-ad432ce8="" class="tips-bg">点击右上角分享给朋友</div></div> <div data-v-ad432ce8="" class="content" style="/* display: none; */"><div data-v-614943db="" class="common-content"><div data-v-614943db="" class="close"><i data-v-614943db=""></i></div> <h1 data-v-614943db="" class="fail">挑战败了</h1> <p data-v-614943db="" class="tips">你的挑战金被分走了...</p> <div data-v-614943db="" class="cat mt100"><img data-v-614943db="" src="./images/modal-fail.png" alt=""></div> <div data-v-614943db="" class="button"><a data-v-614943db="" href="javascript:">不服！继续挑战</a></div> <div data-v-614943db="" class="button border"><a data-v-614943db="" href="javascript:">喊好友来参加</a></div></div></div></div></div>

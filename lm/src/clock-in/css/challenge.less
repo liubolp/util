@@ -1,4 +1,5 @@
 @import "../../../common/reset/rest";
+@import "./ohters/dialog";
 @keyframes moveDown {
   0% {
     transform: translateY(-10px);
@@ -61,10 +62,12 @@ div,button{
   }
 }
 .personal{
-  align-self: flex-start;
+  align-self: stretch;
   a{
     color: inherit;
     display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
   .avatar{
     width: .62rem;
@@ -136,6 +139,7 @@ div,button{
     width: 70vw;
     color: #fff;
     font-size: 16px;
+    outline: none;
   }
 }
 .slide{
@@ -208,6 +212,12 @@ div,button{
     }
   }
   .content{
+    flex: 1;
+    p:first-child{
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
     mark{
       margin: 0;
     }
@@ -222,30 +232,15 @@ div,button{
       }
     }
     .sun{
-      padding:0 .8rem;
       line-height: normal;
       overflow: hidden;
       position: relative;
-      &.fold{
-        .ellipsisLn(2)
-      }
       i{
         display: inline-block;
         width: .44rem;
         height: .44rem;
         background: url("../images/sun.png") no-repeat;
         background-size: contain;
-      }
-      button{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        border: none;
-        background: none;
-        outline: none;
-        padding: 0 10px;
-        line-height: .44rem;
-        color: inherit;
       }
     }
     p:last-child{
@@ -256,158 +251,38 @@ div,button{
     }
   }
 }
-// 支付弹窗
-.modal-pay{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  background: rgba(0,0,0,.6);
-  .modal-container{
-    height: 5rem;
-    background: #fff;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-  .header{
-    height: .8rem;
-  }
-  .body{
-    height: 4.2rem;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    color: @default_color;
-    text-align: center;
-    padding: 30px 0;
-  }
-  .pay{
-    height: .8rem;
-    background: @default_color;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    align-self: center;
-    width: 100px;
-    color: #fff;
-  }
-  .close{
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    transform: rotate(45deg);
-    &::before{
-      content: '';
-      width: 16px;
-      border-bottom: 2px solid #666;
-      position: absolute;
-      bottom: 7px;
-      left: 0;
-    }
-    &::after{
-      content: '';
-      height: 16px;
-      border-right: 2px solid #666;
-      position: absolute;
-      right: 7px;
-      top: 0;
-    }
-  }
-}
 // 打卡时间提示弹窗
 .modal-tips{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 1.6rem;
+  height: 2rem;
   z-index: 5;
   background: rgba(0,0,0,.7);
   text-align: center;
   color: #fff;
-  font-size: 24px;
+  font-size: 40px;
   line-height: normal;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   time{
-    font-size: 14px;
+font-size: 14px;
   }
 }
-// 模态框通用样式
-.modal{
+/*获取太阳提示*/
+.getsun-tip{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 11;
-  background: rgba(0,0,0,.3);
-  text-align: center;
-  .container{
-    width: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    border-radius: 5px;
-    background: #fff;
-  }
-  .close{
-    .setClose()
-  }
-}
-// 打卡成功提示框
-.modal-success,.modal-pay-success,.modal-fail{
-  display: none;
-  color: black;
-  .container{
-    >div{
-      padding-top: 10px;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-between;
-    }
-  }
-  h3{
-    color: #ffa200;
-    margin-bottom: 10px;
-  }
-  p{
-    font-size: 12px;
-  }
-  button{
-    background: #ffa200;
-    color: #fff;
-    outline: none;
-    border: 0;
-    border-radius: 5px;
-    margin: 20px 20px 10px 20px;
-    line-height: .8rem;
-  }
-}
-.modal-pay-success{
-  button{
-    background: #fff;
-    color: #ffaf6a;
-    outline: none;
-    border: 1px solid #ffa200;
-    border-radius: 5px;
-    margin: 20px 20px 10px 20px;
-    line-height: .8rem;
-  }
-}
-.modal-fail{
-  &.show{
-    display: block;
-  }
-  h3{
-    color: #ff3232;
-  }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  border-radius: .3rem;
+  padding: 0 15px;
+  height: .6rem;
+  line-height: .6rem;
+  font-size: .3rem;
+  white-space: nowrap;
 }
