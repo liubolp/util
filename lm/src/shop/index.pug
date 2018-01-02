@@ -1,0 +1,24 @@
+extends ../../common/layout/layout
+block append meta
+  title 创建店铺
+block content
+  div.shop
+    div.status
+      span 商城状态
+      div.custom-checked
+        div.checked
+          input(type='checkbox' name='status')
+          i.toggle-bar
+          div.bg
+    div.name
+      span 商店名称
+      input(name='name' placeholder='请输入商品名称')
+    div.theme-color
+      p.title 主题肤色
+      div.content xx
+    div.banner
+      p.title 广告图片
+      img(src='')
+    div.desc
+      p.title 商品介绍
+      textarea(name='desc')
