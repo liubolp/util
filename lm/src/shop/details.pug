@@ -1,0 +1,56 @@
+extends ../../common/layout/layout
+block append meta
+  title 某某商店
+block localCss
+  link(rel='stylesheet' href='./css/details.css')
+block footerJs
+  script(src='./js/details.js')
+block content
+  div.header-box
+    img.bg(src='./images/bg.png')
+    div
+      img.avatar(src='./images/tupian.png')
+      div
+        p.store-name 化妆品店铺
+        p.desc 化妆品
+  // 店主信息
+  div.store-details
+    div.avatar-box
+      img.avatar(src='./images/tupian.png')
+      input(type='file' name='file' accept='image/*')
+    div.content
+      div.verify
+        span.name 今天是个好日子
+        span.star
+        div.id
+          i.iconfont &#xe638
+          p 身份认证
+        div.official
+          i.iconfont &#xe8f6
+          p 官方认证
+      div.concat
+        p.tel
+          span.mark
+            i.iconfont &#xe625
+          span 15689654236
+  // 商品分类列表
+  div.shop-list
+    //- 商品列表样式
+    mixin storeList(type)
+      div.hot
+        p.list-title #{type}
+        ul.store-list
+          -for(var i=0;i<5;i++)
+            li
+              img(src='./images/tupian.png')
+              div.content
+                p.name 某某化妆品
+                p.type 化妆品
+              div.operation
+                span.price ￥189
+                span.cart
+    // 热销商品
+    + storeList('精品热销')
+    + storeList('品牌热卖')
+    + storeList('新鲜抢先')
+    button.show-more 查看更多

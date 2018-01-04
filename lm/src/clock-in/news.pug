@@ -1,13 +1,13 @@
 extends ../../common/layout/layout
 block append meta
-  title 打卡图
+  title 新闻播报
 block script
 block footer
 block footerCss
 block footerJs
-  script(src='./js/graph.js')
+  script(src='./js/news.js')
 block localCss
-  link(rel='stylesheet' href='./css/graph.css')
+  link(rel='stylesheet' href='./css/news.css')
   // 解决iOS自动播放
   script.
     //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
@@ -17,7 +17,7 @@ block localCss
 block content
   div#container
     include component/navbar/navbar
-    + nav('morning')
+    + nav('news')
     // 默认大图
     div.full-container.picture
       div.img-box

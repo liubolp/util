@@ -1,0 +1,278 @@
+@import "../../../common/reset/rest";
+@import "../component/navbar/navbar";
+@import "../component/modal-reward/index";
+@keyframes moveDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+body{
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  color: #999a9a;
+}
+html{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+button{
+  .setTapColor()
+}
+div{
+  .setTapColor()
+}
+#container{
+  transition: all 0.3s;
+}
+.full-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+/*打卡图页面*/
+.picture{
+  justify-content: space-between;
+  padding-bottom: 10px;
+  background: #fff;
+  .img-box{
+    background: #ccc;
+    height: 100vw;
+    position: relative;
+    overflow: hidden;
+    img{
+      width: 100vw;
+      vertical-align: bottom;
+    }
+    button{
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: rgba(0,0,0,.4);
+      color: #fff;
+      font-size: 12px;
+      border: none;
+      outline: none;
+    }
+  }
+  .audio-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+    .avatar{
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      vertical-align: bottom;
+      margin-right: 10px;
+    }
+    .personal{
+      flex: 1 1 calc(~'100% - 1.6rem - 15px');
+      white-space: nowrap;
+      overflow: hidden;
+      >p:first-child{
+        font-weight: 600;
+        color: #333;
+      }
+      .name{
+        font-size: 14px;
+        margin-right: 10px;
+      }
+      .company{
+        .ellipsis()
+      }
+    }
+    .toggle{
+      width: .6rem;
+      height: .6rem;
+      background: url("../images/daka_on.png") no-repeat;
+      background-size: contain;
+      &.pause{
+        background: url("../images/daka_play.gif") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  .text-box{
+    margin: 12px 16px 0;
+    height: 4rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: .28rem;
+    color: #333;
+    position: relative;
+    a{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: #2143eb;
+      text-decoration: underline;
+    }
+  }
+  .arrow-box{
+    text-align: center;
+    position: relative;
+    width: 60px;
+    margin: 0 auto;
+    animation: moveDown 1s ease-in infinite;
+    i{
+      .setArrow(down, 14px, #999a9a, 1px );
+      &:last-child{
+        position: absolute;
+        top: 10px;
+        left: 23px;
+      }
+    }
+  }
+}
+// 推广页面
+.expand{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-size: cover;
+  color: #fff;
+  padding: .6rem 0;
+  hr{
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #563b1d;
+  }
+  /*个人信息*/
+  .personal{
+    text-align: center;
+    font-size: .24rem;
+    .img-box{
+      border: 1px solid #ff6501;
+      border-radius: 50%;
+      padding: 5px;
+      display: inline-block;
+    }
+    img{
+      width: 1.8rem;
+      height: 1.8rem;
+      vertical-align: bottom;
+      border-radius: 50%;
+    }
+    .nickname{
+      margin: 5px 0;
+      font-size: .36rem;
+      padding: 0 .8rem;
+      .ellipsisLn(1)
+    }
+    .tel{
+      color: #fff;
+      font-weight: bold;
+      background: #ff6501;
+      border-radius: 12px;
+      padding: 0 10px;
+      font-size: .28rem;
+      line-height: 2;
+      display: inline-block;
+    }
+  }
+  /*二维码信息*/
+  .qr{
+    font-size: .24rem;
+    text-align: center;
+    img{
+      width: 2rem;
+      height: 2rem;
+      vertical-align: bottom;
+    }
+    .desc{
+      line-height: 3;
+    }
+  }
+  /*按钮组*/
+  .btn-group{
+    height: .65rem;
+    line-height: .65rem;
+    text-align: center;
+    display: flex;
+    .btn{
+      color: #fff;
+      display: inline-block;
+    }
+    .message{
+      background: #09ba07;
+      border-radius: 5px;
+      font-size: .3rem;
+      padding: 0 20px;
+      margin-right: 10px;
+    }
+    .view{
+      background: #bb0720;
+      border-radius: 5px;
+      font-size: .3rem;
+      padding: 0 20px;
+    }
+  }
+  /*转换按钮*/
+  .convert{
+    a{
+      background: #070707;
+      color: #f36406;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+  }
+}
+// 查看大图模态框
+.modal-img{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0,0,0,.65);
+  img{
+    display: block;
+    margin: 15px auto 0;
+    width: 86%;
+    vertical-align: bottom;
+    box-shadow: 0 3px 7px 3px rgba(0,0,0,.3);
+  }
+  .close{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(0,0,0,.6);
+    i{
+      .setClose(#fff, 22px, 2px);
+      right: 4px;
+      top: 4px;
+    }
+  }
+}
+/*loading层*/
+.weui-mask, .weui-mask_transparent{
+  background: rgba(0,0,0,.3);
+}

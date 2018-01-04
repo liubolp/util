@@ -1,5 +1,6 @@
 window.addEventListener('load', function () {
   $(function () {
+    // 单页滚动
     function scrollPage () {
       // 处理翻页
       var data = {
@@ -9,13 +10,15 @@ window.addEventListener('load', function () {
         distance: 0,
         disabled: false, // 超过阈值后禁用处理
         isEnd: false,
-        isDown: false // 下滑锁定状态
+        isDown: false, // 下滑锁定状态
+        target: null // 当前触摸的元素
       }
       $('.full-container').on('touchstart', function (e) {
-        data.isDown = $(this).hasClass('record')
+        data.isDown = $(this).hasClass('expand')
         data.disabled = false
         data.isEnd = false
         data.startY = e.originalEvent.changedTouches[0].screenY
+        data.target = $(e.originalEvent.target)
       }).on('touchmove', function (e) {
         if (data.disabled) { return }
         data.distance = e.originalEvent.changedTouches[0].screenY - data.startY
@@ -29,12 +32,11 @@ window.addEventListener('load', function () {
       function handleScroll () {
         if (data.distance > 0) { // 下滑
           if (data.isDown) { // 只在第二张页面调用下滑
-            // 如果有局部滑动区域可滑动就退出
-            if ($('.record .list').scrollTop() > 0) { return }
             if (Math.abs(data.distance) >= data.limit) { // 超过阈值
               if (data.isEnd) { return } // 如果是触摸结束直接退出
               data.disabled = true
               data.distance = 0
+              $('.toggle').trigger('click') // 下滑开启音乐
             } else { // 没有超过阈值
               if (data.isEnd) {
                 data.distance = window.innerHeight * -1
@@ -48,10 +50,19 @@ window.addEventListener('load', function () {
           }
         } else { // 上滑
           if (data.isDown) { return } // 只在第一张页面调用上滑
+          // 如果存在局部可滑动区域
+          console.log(data.target.scrollTop())
+          console.log(data.target.height())
+          console.log(data.target[0].scrollHeight)
+          if (data.target.hasClass('exclude') && data.target.scrollTop() + data.target.height() < data.target[0].scrollHeight) { return }
           if (Math.abs(data.distance) >= data.limit) { // 超过阈值
             if (data.isEnd) { return } // 如果是触摸结束直接退出
             data.disabled = true
             data.distance = window.innerHeight * -1
+            var toggle = $('.toggle')
+            if (toggle.hasClass('pause')) { // 是播放状态,上滑关闭音乐
+              toggle.trigger('click')
+            }
           } else {
             if (data.isEnd) { // 如果触摸取消都没有达到阈值
               data.distance = 0
@@ -64,41 +75,55 @@ window.addEventListener('load', function () {
       }
     }
     scrollPage()
-    // 参加挑战打卡
-    var hours = new Date().getHours() // 进入页面的时间
-    $('.join').click(function (e) {
-      if ($(this).hasClass('paid')) { // 用户已付款
-        // todo 调用打卡逻辑
-        if (hours < 6 || hours >= 9) { // 不在打卡时间内
-          $('.modal-tips').slideDown()
-          setTimeout(function () { // 3S之后关闭提示框
-            $('.modal-tips').slideUp()
-          }, 3000)
-        } else {
-          // todo 打卡成功提示框
-          $('.modal-success').fadeIn()
-        }
+    // 大图地址
+    var src = $('.picture img').attr('data-src')
+    // 查看大图效果
+    $('.img-box').on('click', 'button', function (e) {
+      $('.modal-img').find('img').attr('src', src)
+        .end().show()
+    })
+    $('.modal-img .close').click(function (e) {
+      $('.modal-img').fadeOut()
+    })
+    // 播放暂停切换
+    $('.audio-box').on('click', '.toggle', function (e) {
+      $(this).toggleClass('pause')
+      var audio = $('#audio')[0]
+      if ($(this).hasClass('pause')) {
+        audio.play()
       } else {
-        // 调用支付
-        $('.modal-pay').show()
+        audio.pause()
       }
     })
-    // 点击太阳显示弹窗
-    $('.personal .box').click(function (e) {
-      if ($('.getsun-tip').length) return
-      var html = `<div class='getsun-tip'>连续早起就能收集太阳</div>`
-      $('body').append(html)
-      setTimeout(function () {
-        $('.getsun-tip').remove()
-      }, 2000)
+    // 动态加图片
+    function loadImg (src) {
+      var img = new Image()
+      img.onload = function (e) {
+        $('.weui-loading_toast').hide()
+        $('.picture img.bg').attr('src', src)
+      }
+      img.src = src
+    }
+    loadImg(src)
+    // 打开打赏对话框
+    $('.animate-box').click(function (e) {
+      $('.modal-reward').show()
     })
-    // 关闭各类弹窗
-    $('.check-modal').on('click', '.close', function (e) {
-      $(this).parents('.check-modal').hide()
+    // 关闭和打赏操作
+    $('.modal-reward').on('click', '.close', function (e) { // 关闭
+      $('.modal-reward').hide()
+    }).on('click', 'li', function (e) { // 切换金额
+      $(this).addClass('selected').siblings().removeClass('selected')
+      $('.amount input').val('')
+    }).on('click', '.pay', function (e) { // 支付操作
+      var amount = $('.amount input').val()
+      amount = amount > 0 ? amount : parseFloat($('.modal-reward li.selected').text())
+      $('.modal-reward').hide()
+      pay(amount)
     })
-    // 加载更多
-    $('.loadmore').click(function (e) {
-      // todo 加载更多逻辑
-    })
+    // 支付功能
+    function pay (amount) {
+      // todo 支付逻辑
+    }
   })
 })

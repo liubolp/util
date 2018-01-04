@@ -1,0 +1,60 @@
+// 投诉建议
+.modal-complaint{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 11;
+  display: none;
+  .content{
+    width: 6.44rem;
+    background: #f8f8f8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+  }
+  .header{
+    padding: 0 20px;
+    font-size: 18px;
+    line-height: 2.2;
+  }
+  .close{
+    .setClose(#868686, 20px, 2px)
+  }
+  .name,.tel,.desc{
+    background: #fff;
+    margin-bottom: .2rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: .3rem;
+    line-height: normal;
+  }
+  .desc{
+    resize: none;
+    height: 2.5rem;
+  }
+  .footer{
+    text-align: center;
+    margin: 0 0 20px;
+  }
+  .submit{
+    background: @default_color;
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    height: .8rem;
+    line-height: .8rem;
+    color: #fff;
+    font-size: .36rem;
+    &:active{
+      background: lighten(@default_color, 10%);
+    }
+  }
+}

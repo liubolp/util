@@ -95,7 +95,7 @@ div,button{
 }
 .bg{
   img{
-    width: 3.5rem;
+    width: 6rem;
     vertical-align: bottom;
   }
 }
@@ -210,6 +210,15 @@ div,button{
         color: @default_color;
       }
     }
+    &.loadmore{
+      margin: 0 -15px;
+      line-height: .8rem;
+      justify-content: space-around;
+      border-top: 1px solid #ccc;
+      &:active{
+        background: #ececec;
+      }
+    }
   }
   .content{
     flex: 1;
@@ -277,7 +286,7 @@ font-size: 14px;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background: rgba(0,0,0,.65);
+  background: rgba(0,0,0,.4);
   color: #fff;
   border-radius: .3rem;
   padding: 0 15px;

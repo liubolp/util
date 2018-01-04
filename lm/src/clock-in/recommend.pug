@@ -1,0 +1,28 @@
+extends ../../common/layout/layout
+block append meta
+  title 推荐
+block script
+block footer
+block footerCss
+block footerJs
+  //-script(src='./js/music.js')
+block localCss
+  link(rel='stylesheet' href='./css/recommend.css')
+  //-
+    // 解决iOS自动播放
+    script.
+      //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+      document.addEventListener("WeixinJSBridgeReady", function () {
+        document.getElementById('audio').play();
+      }, false)
+block content
+  div.recommend
+    div.header
+      img.avatar(src='./images/tupian.png')
+      div 来自好友
+        span.name 给你一把刀
+        | 的推荐
+    img.qr(src='./images/tupian.png')
+    div.desc
+      p 方式一：让好友扫码二维码
+      p 方式二：点击右上方分享给好友

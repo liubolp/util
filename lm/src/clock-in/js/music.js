@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
   $(function () {
-    var daily = {
+    var music = {
       data: {},
       init () {
         this.attachEvent()
@@ -26,7 +26,7 @@ window.addEventListener('load', function () {
             $(this).addClass('agree')
             type = 'add'
           }
-          daily.methods.agreeMessage($(this).parents('li'), type)
+          music.methods.agreeMessage($(this).parents('li'), type)
         })
         // 点赞和投诉文章库
         $('.statistics').on('click', '.zan,.complaint', function (e) {
@@ -34,10 +34,10 @@ window.addEventListener('load', function () {
             $('.modal-complaint').show()
           } else if ($(this).hasClass('agree')) { // 取消点赞
             $(this).removeClass('agree')
-            daily.methods.agreeArticle($(this).parents('.statistics'), 'remove')
+            music.methods.agreeArticle($(this).parents('.statistics'), 'remove')
           } else { // 点赞
             $(this).addClass('agree')
-            daily.methods.agreeArticle($(this).parents('.statistics'), 'add')
+            music.methods.agreeArticle($(this).parents('.statistics'), 'add')
           }
         })
         // 打开打赏对话框
@@ -54,17 +54,17 @@ window.addEventListener('load', function () {
           var amount = $('.amount input').val()
           amount = amount > 0 ? amount : parseFloat($('.modal-reward li.selected').text())
           $('.modal-reward').hide()
-          daily.methods.pay(amount)
+          music.methods.pay(amount)
         })
         // 换成我的
         $('.img-box .convert').click(function (e) {
-          daily.methods.checkStatus()
+          music.methods.checkStatus()
         })
         // 关闭换成我的提示框
         $('.modal-follow').on('click', '.close,.cancel,.no,.yes', function (e) {
           $('.modal-follow').hide()
           if ($(this).hasClass('yes')) { // 去打卡
-            daily.methods.goClock()
+            music.methods.goClock()
           }
         })
         // 关闭和提交投诉信息
@@ -77,7 +77,7 @@ window.addEventListener('load', function () {
               content: modal.find('.desc').val()
             }
             if (data.name && data.tel && data.content) {
-              daily.methods.complaint(data)
+              music.methods.complaint(data)
             } else {
               weui.alert('请务正确填写信息，方便客服及时处理')
               return
@@ -157,6 +157,6 @@ window.addEventListener('load', function () {
         }
       }
     }
-    daily.init()
+    music.init()
   })
 })

@@ -15,10 +15,23 @@ block content
       input(name='name' placeholder='请输入商品名称')
     div.theme-color
       p.title 主题肤色
-      div.content xx
+      div.content
+        div.add
+        ul.theme-list
+          -for(var i=0;i<7;i++)
+            li(class={current:i==0})
+              img(src='./images/tupian.png')
+              p.title
+                span.theme-name 烈日红颜
+                span 主题
+              i.mark
     div.banner
       p.title 广告图片
-      img(src='')
+      img(src='./images/bg.png')
+      input.upload(name='upload' type='file' accept='image/*')
+      div.add
     div.desc
       p.title 商品介绍
       textarea(name='desc')
+    div.submit-box
+      button.submit(type='button') 确认提交

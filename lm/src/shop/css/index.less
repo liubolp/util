@@ -71,7 +71,7 @@ body{
 
 .shop{
   font-size: .3rem;
-  padding: 0 .4rem;
+  padding: 0 .3rem;
   .status,.name{
     position: relative;
     height: .6rem;
@@ -93,10 +93,119 @@ body{
     }
   }
 }
+.theme-color{
+  >.title{
+    margin-top: .16rem;
+  }
+  .add{
+    width: 1.04rem;
+    height: 1.04rem;
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+    margin-right: .1rem;
+    display: inline-block;
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 30%;
+      width: .4rem;
+      height: .4rem;
+      background: url('../images/add.png') no-repeat;
+      background-size: contain;
+    }
+    &::after{
+      content: '添加主题';
+      position: absolute;
+      bottom: .04rem;
+      left: 0;
+      width: 114%;
+      text-align: center;
+      font-size: .24rem;
+      transform: scale(.86) translateX(-7%);
+    }
+  }
+  .theme-list{
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-overflow-scrolling: touch;
+    float: right;
+    width: 5.7rem;
+    overflow: auto;
+    padding-bottom: .2rem;
+  }
+  li{
+    list-style: none;
+    width: 1.04rem;
+    height: 1.04rem;
+    position: relative;
+    margin-right: .1rem;
+    flex-shrink: 0;
+    .title{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: .24rem;
+      color: #fff;
+      background: #ccc;
+      border-radius: 0 0 5px 5px;
+    }
+    span{
+      display: block;
+      transform: translateX(-10%) scale(.8);
+      .ellipsis();
+      width: 120%;
+      line-height: 1;
+    }
+    &.current{
+      .mark{
+        position: absolute;
+        right: -0.1rem;
+        bottom: -0.1rem;
+        width: .4rem;
+        height: .4rem;
+        background: url('../images/yes.png') no-repeat;
+        background-size: contain;
+        z-index: 1;
+      }
+    }
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+    border-radius: 5px;
+  }
+}
 .banner{
+  position: relative;
   img{
     width: 100%;
     height: 1.9rem;
+    vertical-align: bottom;
+  }
+  .add{
+    position: absolute;
+    width: .6rem;
+    height: .6rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,.4) url('../images/add-banner.png') no-repeat center;
+    background-size: 80%;
+    z-index: 1;
+    bottom: .7rem;
+    left: 3.2rem;
+  }
+  .upload{
+    position: absolute;
+    width: 100%;
+    height: 1.9rem;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
   }
 }
 .desc{
@@ -108,5 +217,25 @@ body{
     outline: none;
     padding: 5px;
     resize: none;
+  }
+}
+.submit-box{
+  width: 4.8rem;
+  height: .8rem;
+  margin: .6rem auto 0;
+  .submit{
+    width: 100%;
+    height: 100%;
+    border-radius: .4rem;
+    background: @default_color;
+    color: #fff;
+    font-size: .36rem;
+    line-height: .8rem;
+    border: none;
+    outline: none;
+    .setTapColor();
+    &:active{
+      background: lighten(@default_color, 10%);
+    }
   }
 }

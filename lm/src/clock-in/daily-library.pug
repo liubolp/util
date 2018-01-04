@@ -1,0 +1,55 @@
+extends ../../common/layout/layout
+block append meta
+  title 音乐库
+block script
+block footerJs
+  //-script(src='./js/daily-library.js')
+block localCss
+  link(rel='stylesheet' href='./css/daily-library.css')
+  //-
+    // 解决iOS自动播放
+    script.
+      //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+      document.addEventListener("WeixinJSBridgeReady", function () {
+        document.getElementById('audio').play();
+      }, false)
+block content
+  div.header
+    img(src='./images/daily-library.jpg')
+  // 展示的第一个内容
+  div.music-top.item-container
+    div.name-box
+      div.name 如果我爱你
+      div.from 《春风十里，不如你》片头曲
+    div.desc
+      span.mark 新歌
+      span.nickname 萌萌的吃草君
+      span.time 3小时前
+      span.follow
+        i.iconfont &#xe627
+        | 6605
+    div.img-list
+      a(href='javascript:;')
+        img(src='./images/tupian.png')
+      a(href='javascript:;')
+        img(src='./images/tupian.png')
+      a(href='javascript:;')
+        img(src='./images/tupian.png')
+  // 视频iframe
+  div.iframe
+  // 列表内容
+  ul.source-list
+    -for(var i=0;i<5;i++)
+      li.item-container
+        a(href='javascript:;')
+          div
+            div.name 如果我爱你
+            div.from 《春风十里，不如你》片头曲
+            div.desc
+              span.mark 新歌
+              span.nickname 萌萌的吃草君
+              span.time 3小时前
+              span.follow
+                i.iconfont &#xe627
+                | 6605
+          img(src='./images/tupian.png')

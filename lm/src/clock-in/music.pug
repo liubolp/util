@@ -1,13 +1,13 @@
 extends ../../common/layout/layout
 block append meta
-  title 每日一听
+  title 你来听歌
 block script
 block footer
 block footerCss
 block footerJs
-  script(src='./js/daily.js')
+  script(src='./js/music.js')
 block localCss
-  link(rel='stylesheet' href='./css/daily.css')
+  link(rel='stylesheet' href='./css/music.css')
   // 解决iOS自动播放
   script.
     //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
@@ -16,8 +16,8 @@ block localCss
     }, false)
 block content
   include component/navbar/navbar
-  + nav('daily')
-  div#daily
+  + nav('music')
+  div#music
     div.audio-box
       img.avatar(src='./images/tupian.png')
       div.personal
@@ -30,26 +30,16 @@ block content
       span.toggle.pause
         audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
     div.img-box
-      //-
-        p.header
-          span.logo 链脉
-          span.time 2017/11/10
-        img(src='./images/bg.png')
-        p.quote ——七夕情人节
-        pre.text-box.
-          七夕的天空，无线的感动，
-          美丽的神话，传承不变的爱情。
-          亘古不变的爱情，许下坚贞的誓言：
-          亲爱的，我要爱你天长地久，银河为证。
+      // 这里放文章
       article 这里是抓取的文章内容
       div.qr-box
-        img.qr(src='./images/tupian.png')
-        p 查看更多，请关注链脉
+        div
+          img.qr(src='./images/tupian.png')
+          p 请扫码关注
       div.statistics
         div.read
           span 阅读
           span 10000
-        // 已点赞时加上agree这个类
         div.zan
           span.nav-icon &#xe658
           span 5000
@@ -74,8 +64,8 @@ block content
             span
               i.nav-icon &#xe658
               | 9999
-    // 日听库
-    a(href='daily-library.html').library 日听库
+    // 歌曲库
+    a(href='music-library.html').library 歌曲库
   // 打赏框
   include component/modal-reward/index
   // 换成我的弹框

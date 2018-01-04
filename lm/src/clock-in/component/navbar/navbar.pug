@@ -1,0 +1,16 @@
+//- 导航混入
+mixin nav(className)
+  nav.navbar
+    a.morning(href=className==='morning'?'javascript:;':'./graph.html' class={current:className==='morning'})
+      i.nav-icon &#xe741
+      p 早安播报
+    a.daily(href=className==='daily'?'javascript:;':'./daily.html' class={current:className==='daily'})
+      i.nav-icon &#xe60d
+      p 每日一听
+    a.music(href=className==='music'?'javascript:;':'./music.html' class={current:className==='music'})
+      i.nav-icon &#xe758
+      p 你来听歌
+    a.news(href=className==='news'?'javascript:;':'./news.html' class={current:className==='news'})
+      i.nav-icon &#xe6e0
+      p 新闻播报
+  div.animate-box

@@ -14,7 +14,19 @@ window.addEventListener('load', function () {
         // 使用官方播报
         $('.taping').on('click', '.official', function (e) {
           $('.modal-official').show()
-        }) // 录制自定义语音
+        }) // 打开和关闭背景音乐
+          .on('click', '.toggle-bg', function (e) {
+            var type = 'off'
+            if ($(this).hasClass('on')) { // 如果是开启状态就关闭
+              $(this).removeClass('on').text('打开背景音乐')
+              type = 'off'
+            } else {
+              $(this).addClass('on').text('关闭背景音乐')
+              type = 'on'
+            }
+            obj.methods.toggleBg(type)
+          })
+          // 录制自定义语音
           .on('click', '.record', function (e) {
             if ($(this).hasClass('recording')) { // 结束录制
               obj.methods.endRecord()
@@ -90,6 +102,15 @@ window.addEventListener('load', function () {
         // 停止播放
         stopPlay () {
           // todo
+        },
+        // 切换背景
+        toggleBg (type) {
+          console.log(type)
+          if (type === 'on') {
+            // TODO 打开背景音乐
+          } else {
+            // TODO 关闭背景音乐
+          }
         }
       }
     }
