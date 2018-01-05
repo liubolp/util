@@ -1,0 +1,24 @@
+extends ../../common/layout/layout
+block append meta
+  title 发红包
+block script
+block footer
+block footerCss
+block content
+  div.pack
+    div.price.item.luck
+      span 总金额
+      input(name='price' type='number' placeholder='0.0' value='1')
+      span.unit 元
+    div.price-desc 群里每个人收到固定金额，
+      span.toggle 改为普通红包
+    div.quantity.item
+      span 红包个数
+      input(name='quantity' type='number' placeholder='填写个数' value='1')
+      span.unit 个
+    div.quantity-desc 本群共6人
+    div.message.item
+      span 留言
+      input(name='message' placeholder='恭喜发财，大吉大利')
+    div.total ￥99.00
+    button.pay 塞进红包

@@ -1,0 +1,97 @@
+@import "../../../common/reset/rest";
+@keyframes rotate {
+  0%{
+    transform: rotateY(0);
+  }
+  100%{
+    transform: rotateY(360deg);
+  }
+}
+div{
+  .setTapColor()
+}
+.modal-open{
+  font-size: .3rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  display: none;
+  .mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.4);
+  }
+  .content{
+    color: #d8b982;
+    width: 5.6rem;
+    height: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: url('../images/open-bg.png') no-repeat center;
+    background-size: cover;
+    text-align: center;
+    padding-top: 1rem;
+    line-height: normal;
+  }
+  .avatar{
+    width: .8rem;
+    height: .8rem;
+    vertical-align: bottom;
+    border-radius: 50%;
+    margin-bottom: .1rem;
+  }
+  .nickname{
+    padding: 0 .2rem;
+    .ellipsis()
+  }
+  .message{
+    font-size: 130%;
+    margin-top: .7rem;
+    padding: 0 .2rem;
+    .ellipsisLn(2)
+  }
+  .switch{
+    position: absolute;
+    bottom: 1.6rem;
+    left: 0;
+    width: 100%;
+    img{
+      width: 1.67rem;
+      height: 1.67rem;
+      vertical-align: bottom;
+      &.animate{
+        animation: rotate 1.5s infinite;
+      }
+      &.rotate{
+        display: none;
+      }
+    }
+  }
+  .desc{
+    position: absolute;
+    bottom: .4rem;
+    color: inherit;
+    font-size: 80%;
+    left: 0;
+    width: 100%;
+  }
+}
+// 启动框
+.toggle-open{
+  position: fixed;
+  top: 50%;
+  left: .3rem;
+  z-index: 5;
+  img{
+    width: .6rem;
+    height: .6rem;
+  }
+}

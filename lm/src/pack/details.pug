@@ -1,0 +1,38 @@
+extends ../../common/layout/layout
+block append meta
+  title 红包详情
+block script
+block localCss
+  link(rel='stylesheet' href='./css/details.css')
+block footerJs
+  script(src='./js/details.js')
+block footer
+block footerCss
+block content
+  div.details
+    div.from
+      img.avatar(src='./images/button.png')
+      p.nickname.luck
+        span 替他制作
+        mark 拼
+      p.message 恭喜发财，大吉大利
+    div.total
+      p
+        span.amount 20.00
+        | 元
+      p 已存入零钱，可用于发红包
+    div.get
+      p 2个红包，25秒被抢光
+      ul
+        -for(var i=0;i<3;i++)
+          li
+            img.avatar(src='./images/button.png')
+            div
+              p.nickname 开心就好
+              p.time 17:58:24
+            div
+              p 0.01元
+              // 如果手气最佳加上下面的代码
+              if i===0
+                p.luck 手气最佳
+    div.tip 未领取红包，将于24小时后发起退款。

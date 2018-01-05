@@ -1,0 +1,111 @@
+@import "../../../common/reset/rest";
+body{
+  background: #fff;
+}
+.details{
+  text-align: center;
+  font-size: .3rem;
+  padding-top: 1.4rem;
+  background: url('../images/details-bg.png') no-repeat 0 -1.6rem;
+  background-size: contain;
+  .from{
+    .avatar{
+      width: 1.42rem;
+      height: 1.42rem;
+      border: 2px solid #ecbd2c;
+      border-radius: 5px;
+      vertical-align: bottom;
+    }
+    .nickname{
+      font-size: 120%;
+      span{
+        .ellipsis();
+        max-width: 4rem;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+      mark{
+        display: none;
+      }
+      &.luck{
+        mark{
+          color: #fff;
+          background: #ecbf0e;
+          display: inline-block;
+          font-size: 85%;
+          line-height: 1;
+          padding: .04rem;
+          margin-left: 5px;
+          vertical-align: 5%;
+        }
+      }
+    }
+  }
+  .message{
+    color: #a0a0a0;
+    padding: 0 .3rem;
+    .ellipsisLn(2)
+  }
+  .total{
+    .amount{
+      font-size: 200%;
+    }
+    p:last-child{
+      color: #84b4ff;
+    }
+  }
+  .get{
+    margin-top: .8rem;
+    img{
+      width: .74rem;
+      height: .74rem;
+      border-radius: 5px;
+      vertical-align: bottom;
+      &+div{
+        flex: 1;
+        padding: 0 .3rem;
+        text-align: left;
+      }
+    }
+    >p{
+      text-align: left;
+      padding-left: .3rem;
+      font-size: 90%;
+      color: #747474;
+      line-height: 2;
+    }
+    .luck{
+      font-size: 80%;
+      color: #ffc025;
+      &::before{
+        content: '';
+        width: 1em;
+        height: 1em;
+        background: url('../images/luck.png') no-repeat center;
+        background-size: contain;
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: -10%;
+      }
+    }
+  }
+  li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: .2rem .3rem;
+    border-bottom: 1px solid #dfdfdf;
+    &:first-child{
+      border-top: 1px solid #dfdfdf;
+    }
+  }
+  .time{
+    font-size: 80%;
+    color: #9d9d9d;
+  }
+  .tip{
+    line-height: 5;
+    font-size: 90%;
+    color: #747474;
+  }
+}

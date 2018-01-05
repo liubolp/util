@@ -1,0 +1,26 @@
+extends ../../common/layout/layout
+block append meta
+  title 发红包
+block script
+block localCss
+  link(rel='stylesheet' href='./css/open.css')
+block footerJs
+  script(src='./js/open.js')
+block footer
+block footerCss
+block content
+  // 开启红包弹框（根据情况可自由放置到其他页面）
+  div.toggle-open
+    img(src='./images/open.png')
+  div.modal-open
+    div.mask
+    div.content
+      div.from
+        img.avatar(src='./images/button.png')
+        p.nickname 天天飞车
+        p 给你发了一个红包
+      div.message 恭喜发财，大吉大利
+      div.switch
+        img(src='./images/button.png')
+        img.rotate(src='./images/rotate.png')
+      a.desc(href='details.html') 看看大家的手气&gt;
