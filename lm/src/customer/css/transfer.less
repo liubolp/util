@@ -5,6 +5,9 @@ body{
 input,button,select{
   .setTapColor()
 }
+::-webkit-input-placeholder{
+  color: #bababa;
+}
 /*顶部样式*/
 .nav-bar{
   margin: .2rem auto .4rem;
@@ -55,16 +58,23 @@ input{
   padding-bottom: .36rem;
   div{
     display: flex;
+    margin-top: .3rem;
+  }
+  span{
+    position: relative;
+    transform: translateY(-10%);
+    color: #585858;
   }
   input{
-    font-size: 130%;
+    font-size: 140%;
   }
 }
 .amount,.account{
   input{
     flex: 1;
     border-bottom: 1px solid #ccc;
-    padding: 0 5px;
+    padding: 0 10px;
+    color: #bababa;
   }
 }
 .verify{
@@ -82,6 +92,7 @@ input{
     width: 4rem;
     input{
       width: 2.39rem;
+      color: #bababa;
     }
   }
   button{
@@ -105,7 +116,7 @@ input{
   }
   input{
     border: 1px solid #ccc;
-    padding: 0 5px;
+    padding: 0 10px;
     font-size: inherit;
   }
   select{

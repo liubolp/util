@@ -53,23 +53,23 @@ block content
       isHot: false
     },
     {
-      icon:'&#xe60d',
+      icon:'&#xe6a2',
       name: '视频秀',
-      color: '#ff314b',
+      color: '#fbab7e',
       isNew: false,
       isHot: false
     },
     {
-      icon:'&#xe6e0',
+      icon:'',
       name: '音乐微卡',
-      color: '#9d8cff',
+      color: '#8ec5fc',
       isNew: false,
       isHot: true
     },
     {
-      icon:'&#xe69a',
+      icon:'&#xe758',
       name: '你来听歌',
-      color: '#f97c39',
+      color: '#d9afd9',
       isNew: false,
       isHot: false
     },
@@ -100,7 +100,7 @@ block content
     each item in data
       li
         a(href='javascript:;')
-          i.icon(style={color:item.color})!=item.icon
+          i.icon(style={color:item.color} class={test:item.name==='音乐微卡'})!=item.icon
           p.name #{item.name}
         if item.isHot
           i.hot
