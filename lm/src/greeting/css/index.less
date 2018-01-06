@@ -1,0 +1,65 @@
+@import "../../../common/reset/rest";
+/*顶部广告*/
+.banner{
+  img{
+    width: 100%;
+    height: 3rem;
+    vertical-align: bottom;
+  }
+}
+/*类型切换*/
+.tab{
+  display: flex;
+  justify-content: space-around;
+  height: .8rem;
+  line-height: .8rem;
+  background: #fff;
+  text-align: center;
+  font-size: .36rem;
+  li{
+    flex: 1;
+    list-style: none;
+    &.current{
+      border-bottom: 2px solid @default_color;
+    }
+  }
+}
+/*缩略图处理*/
+.thum-list{
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: .3rem;
+  li{
+    list-style: none;
+    flex:  0 0 33.33%;
+    text-align: center;
+    margin-bottom: .3rem;
+  }
+  a{
+    display: inline-block;
+    width: 2.17rem;
+    color: inherit;
+    border: 1px solid #dadada;
+    padding: .1rem;
+    background: #fff;
+    box-shadow: 0 0 5px 0 #ccc;
+    &:active{
+      background: #ececec;
+    }
+  }
+  img{
+    width: 1.95rem;
+    height: 2.43rem;
+    vertical-align: bottom;
+  }
+  .name{
+    height: .4rem;
+    line-height: .4rem;
+    text-align: left;
+    border: 1px solid #dadada;
+    margin-top: .1rem;
+    padding: 0 5px;
+    font-size: .28rem;
+    .ellipsisLn(1)
+  }
+}

@@ -1,0 +1,36 @@
+extends ../../common/layout/layout
+block append meta
+  title 某某贺卡
+block script
+block footer
+block footerCss
+block localCss
+  link(rel='stylesheet' href='./css/play.css')
+block footerJs
+  script(src='./js/play.js')
+  // 解决iOS自动播放
+  script.
+    //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      document.getElementById('audio').play();
+    }, false)
+block content
+  div.play-container(style='background-image:url("../clock-in/images/bg.png")')
+    ul.toolbar
+      li 选音乐
+      li 选祝福
+      li 选贺卡
+    div.toggle-tool
+      span.tool
+        i.icon &#xe6a1
+      span.music
+        i.icon &#xe60a
+        audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
+    // 底部按钮
+    div.btns
+      a(href='javascript:;') 我也要做贺卡
+      a(href='javascript:;') 进入我的名片
+    // 上传操作
+    div.upload
+      i.icon &#xe665
+      p 上传背景

@@ -1,0 +1,22 @@
+extends ../../common/layout/layout
+block append meta
+  title 贺卡
+block script
+block content
+  header.banner
+    img(src='../clock-in/images/bg.png')
+  // 类型切换
+  ul.tab
+    li.current 最新
+    li 每日
+    li 节日
+    li 祝福
+    li 心情
+  // 缩略图处理
+  ul.thum-list
+    -for(var i=0;i<6;i++)
+      li
+        a(href='javascript:;')
+          img(src='../clock-in/images/tupian.png')
+          p.name 吸血蔷薇
+
