@@ -96,6 +96,15 @@ window.addEventListener('load', function () {
     $('.check-modal').on('click', '.close', function (e) {
       $(this).parents('.check-modal').hide()
     })
+    // 显示更多和隐藏打卡详情
+    $('.list').on('click', 'button.toggle', function (e) {
+      $(this).parent().toggleClass('fold')
+      if ($(this).parent().hasClass('fold')) {
+        $(this).text('展开')
+      } else {
+        $(this).text('收起')
+      }
+    })
     // 加载更多
     $('.loadmore').click(function (e) {
       // todo 加载更多逻辑

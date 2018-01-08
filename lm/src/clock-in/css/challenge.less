@@ -241,15 +241,30 @@ div,button{
       }
     }
     .sun{
+      padding-right: .8rem;
       line-height: normal;
       overflow: hidden;
       position: relative;
+      &.fold{
+        .ellipsisLn(2)
+      }
       i{
         display: inline-block;
         width: .44rem;
         height: .44rem;
         background: url("../images/sun.png") no-repeat;
         background-size: contain;
+      }
+      button{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border: none;
+        background: none;
+        outline: none;
+        padding: 0 10px;
+        line-height: .44rem;
+        color: inherit;
       }
     }
     p:last-child{
