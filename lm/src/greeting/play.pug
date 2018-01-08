@@ -15,17 +15,28 @@ block footerJs
       document.getElementById('audio').play();
     }, false)
 block content
-  div.play-container(style='background-image:url("../clock-in/images/bg.png")')
-    ul.toolbar
-      li 选音乐
-      li 选祝福
-      li 选贺卡
+  div.play-container(style='background-image:url("./images/1010.jpg")')
+    // 功能选项
+    ul.toolbar(style='display:none')
+      li.music 选音乐
+      li.text 选祝福
+      li.greeting 选贺卡
+    // 功能开关
     div.toggle-tool
       span.tool
         i.icon &#xe6a1
-      span.music
+      span.music.rotate
         i.icon &#xe60a
         audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
+    // 动画文字
+    div.text-box
+      // 具体内容 center 居中对齐 right 右对齐
+      div.content.center.
+        今天是12月20日，星期三，农历11月初三；
+        人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；
+        人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。
+        记住，这一秒不放弃，下一秒就会有希望。
+        朋友们，早安！
     // 底部按钮
     div.btns
       a(href='javascript:;') 我也要做贺卡
@@ -34,3 +45,61 @@ block content
     div.upload
       i.icon &#xe665
       p 上传背景
+      input(type='file' name='fileVal' accept='image/*')
+    // 音乐选择框
+    div.modal-music
+      div.content
+        div.header
+          input.search(name='content' placeholder='输入歌手或歌手名')
+          i.icon.submit &#xe6a5
+        div.section
+          ul.music-list
+            -for(var i=0;i<10;i++)
+              li
+                div.name
+                  i.icon &#xe6a8
+                  |爱你一万年--张学友
+                span.select
+                  // value 可设置为当前音乐的id
+                  input(name='music' type='radio' checked=i===0 value=i)
+                  i.icon &#xe6a7
+        div.footer
+          button.cancel 取消
+          button.confirm 确定
+    // 祝福语编辑
+    div.modal-text
+      div.content
+        div.header
+          span.choose.current 选祝福
+          span.edit 个性编辑
+        div.section.list
+          ul.text-list
+            -for(var i=0;i<10;i++)
+              li
+                div.title
+                  div.name
+                    i.icon &#xe75f
+                    | 何事秋风悲画扇
+                  div.select
+                    // value 可设为文章id
+                    input(name='text' type='radio' checked=i === 0 value=i)
+                    i.icon &#xe6a7
+                div.details 【早安心语】今天是12月20日，星期三，农历11月初三；人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。记住，这一秒不放弃，下一秒就会有希望。朋友们，早安！
+        div.section.custom
+          textarea(name='custom' placeholder='请输入文字')
+        div.footer
+          button.cancel 取消
+          button.confirm 确定
+  // 引导层
+  // 如果是第一次进入页面，就渲染下面的引导层内容
+  div.guide
+    div.toggle-img
+      img(src='./images/editor.png')
+      img(src='./images/music.png')
+    div.toggle-desc
+      img(src='./images/yindao03.png')
+      img(src='./images/yindao02.png')
+    div.close
+      img(src='./images/yindao01.png')
+    div.button-desc
+      img(src='./images/guid02.png')
