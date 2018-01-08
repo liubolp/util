@@ -1,5 +1,5 @@
 @import "../../../common/reset/rest";
-@keyframes rotate {
+@keyframes rotateZ {
   0%{
     transform: rotateY(0);
   }
@@ -68,7 +68,7 @@ div{
       height: 1.67rem;
       vertical-align: bottom;
       &.animate{
-        animation: rotate 1.5s infinite;
+        animation: rotateZ 1.5s infinite;
       }
       &.rotate{
         display: none;
@@ -90,8 +90,26 @@ div{
   top: 50%;
   left: .3rem;
   z-index: 5;
+  animation: tada 1.5s infinite 1s;
   img{
     width: .6rem;
     height: .6rem;
+  }
+}
+@keyframes tada {
+  0% {
+    transform:scaleX(1)
+  }
+  10%, 20% {
+    transform:scale3d(.9, .9, .9) rotate(-3deg)
+  }
+  30%, 50%, 70%, 90% {
+    transform:scale3d(1.1, 1.1, 1.1) rotate(3deg)
+  }
+  40%, 60%, 80% {
+    transform:scale3d(1.1, 1.1, 1.1) rotate(-3deg)
+  }
+  to {
+    transform:scaleX(1)
   }
 }
