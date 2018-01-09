@@ -1,6 +1,199 @@
 @import "../../../common/reset/rest";
 @import "../component/navbar/navbar";
 @import "../component/modal-reward/index";
+@import "../component/follow/index";
+@import "../component/modal-complaint/index";
+div{
+  .setTapColor()
+}
+body{
+  font-size: .3rem;
+}
+#graph{
+  padding: 1rem 16px 1.5rem;
+  .audio-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+    background: #fff;
+    margin: .1rem -16px 0;
+    padding: 10px 16px;
+    .avatar{
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      vertical-align: bottom;
+      margin-right: 10px;
+    }
+    .personal{
+      flex: 1 1 calc(~'100% - 1.6rem - 15px');
+      white-space: nowrap;
+      overflow: hidden;
+      >p:first-child{
+        font-weight: 600;
+        color: #333;
+      }
+      .name{
+        font-size: 14px;
+        margin-right: 10px;
+      }
+      .company{
+        color: #a8a8a6;
+        .ellipsis()
+      }
+      .count{
+        color: @default_color;
+        padding: 0 2px;
+      }
+    }
+    .toggle{
+      width: .6rem;
+      height: .6rem;
+      background: url("../images/daka_on.png") no-repeat;
+      background-size: contain;
+      &.pause{
+        background: url("../images/daka_play.gif") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  .img-box{
+    margin: .1rem -16px .8rem;
+    background: #fff;
+    padding: .3rem;
+    color: #888;
+    position: relative;
+    .statistics{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .nav-icon{
+        margin-right: 5px;
+      }
+    }
+    .agree .nav-icon{
+      color: @default_color;
+    }
+    .convert{
+      position: fixed;
+      right: .4rem;
+      bottom: 50%;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      background: rgba(244,170,107,.6);
+      z-index: 1;
+      font-size: .32rem;
+      color: #fff;
+      padding: .15rem;
+      line-height: 1.2;
+      text-align: center;
+      &:active{
+        background: darken(#f5ab6c, 10%);
+      }
+    }
+    >article{
+      img{
+        max-width: 100%;
+      }
+    }
+    .zan{
+      flex: 1;
+      padding-left: .4rem;
+    }
+  }
+  .graph-custom{
+    text-align: right;
+  }
+  .divider{
+    position: relative;
+    &::before{
+      content: '精选留言';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border: 1px solid #c4c6c5;
+      padding: 0 10px;
+      transform: translate(-50%, -50%);
+      background: #eeeff3;
+    }
+    border-bottom: 1px dashed #c4c6c5;
+  }
+  .message{
+    color: @default_color;
+    text-align: right;
+    margin-top: 15px;
+    .nav-icon{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    a{
+      color: inherit;
+    }
+  }
+  .list{
+    li{
+      list-style: none;
+      display: flex;
+      margin-bottom: .4rem;
+      font-size: .3rem;
+      color: #888;
+    }
+    img{
+      vertical-align: bottom;
+      border-radius: 5px;
+      width: 1rem;
+      height: 1rem;
+      margin-right: 10px;
+    }
+    .content{
+      flex: 1;
+      p{
+        .ellipsisLn(1)
+      }
+    }
+    .desc{
+      color: #333;
+    }
+    .time{
+      font-size: .26rem;
+    }
+    .zan{
+      i{
+        font-size: inherit;
+        margin-right: 5px;
+      }
+      .agree i{
+        color: @default_color;
+      }
+    }
+  }
+  .library{
+    width: 90%;
+    height: .9rem;
+    line-height: .9rem;
+    background: linear-gradient(to right,#f0cb35,#f7b500);
+    display: inline-block;
+    text-align: center;
+    border-radius: .45rem;
+    margin-bottom: .5rem;
+    font-size: .36rem;
+    position: fixed;
+    bottom: 0;
+    left: 5%;
+    color: #fff;
+    &:active{
+      background: linear-gradient(to left,#f0cb35,#f7b500);
+    }
+  }
+}
+
+
+/*@import "../../../common/reset/rest";
+@import "../component/navbar/navbar";
+@import "../component/modal-reward/index";
 @keyframes moveDown {
   0% {
     transform: translateY(-10px);
@@ -41,7 +234,7 @@ div{
   display: flex;
   flex-flow: column nowrap;
 }
-/*打卡图页面*/
+!*打卡图页面*!
 .picture{
   justify-content: space-between;
   padding-bottom: 10px;
@@ -159,7 +352,7 @@ div{
     border: 0;
     border-bottom: 1px solid #563b1d;
   }
-  /*个人信息*/
+  !*个人信息*!
   .personal{
     text-align: center;
     font-size: .24rem;
@@ -192,7 +385,7 @@ div{
       display: inline-block;
     }
   }
-  /*二维码信息*/
+  !*二维码信息*!
   .qr{
     font-size: .24rem;
     text-align: center;
@@ -205,7 +398,7 @@ div{
       line-height: 3;
     }
   }
-  /*按钮组*/
+  !*按钮组*!
   .btn-group{
     height: .65rem;
     line-height: .65rem;
@@ -229,7 +422,7 @@ div{
       padding: 0 20px;
     }
   }
-  /*转换按钮*/
+  !*转换按钮*!
   .convert{
     a{
       background: #070707;
@@ -271,7 +464,7 @@ div{
       top: 4px;
     }
   }
-}
+}*/
 /*loading层*/
 .weui-mask, .weui-mask_transparent{
   background: rgba(0,0,0,.3);

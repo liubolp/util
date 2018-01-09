@@ -8,7 +8,6 @@
   font-family: 'nav' !important;
   font-style: normal;
   margin-right: 5px;
-  color: @default_color;
 }
 .hide{
   display: none !important;
@@ -30,28 +29,28 @@ body{
   line-height: .8rem;
   background: #fff;
   font-size: .32rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
   li{
     list-style: none;
     flex: 1;
     text-align: center;
     position: relative;
     &.current{
-      background: @default_color;
-      color: #fff;
-      .nav-icon{
-        color: #fff;
-      }
+      color: @default_color;
+      border-bottom: 2px solid @default_color;
     }
-    &:not(.current){
-      &:not(:last-child){
-        &::after{
-          content: '';
-          position: absolute;
-          border-right: 1px solid #ddd;
-          height: 50%;
-          top: 25%;
-          right: 0;
-        }
+    &:not(:last-child){
+      &::after{
+        content: '';
+        position: absolute;
+        border-right: 1px solid #ddd;
+        height: 50%;
+        top: 25%;
+        right: 0;
       }
     }
   }
@@ -61,6 +60,7 @@ body{
 }
 // 封面占领
 .cover-box{
+  margin-top: 1rem;
   width: 100%;
   position: relative;
   .cover{

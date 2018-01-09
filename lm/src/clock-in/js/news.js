@@ -1,129 +1,162 @@
 window.addEventListener('load', function () {
   $(function () {
-    // 单页滚动
-    function scrollPage () {
-      // 处理翻页
-      var data = {
-        startY: 0,
-        endY: 0,
-        limit: 50, // 滑动阈值
-        distance: 0,
-        disabled: false, // 超过阈值后禁用处理
-        isEnd: false,
-        isDown: false, // 下滑锁定状态
-        target: null // 当前触摸的元素
-      }
-      $('.full-container').on('touchstart', function (e) {
-        data.isDown = $(this).hasClass('expand')
-        data.disabled = false
-        data.isEnd = false
-        data.startY = e.originalEvent.changedTouches[0].screenY
-        data.target = $(e.originalEvent.target)
-      }).on('touchmove', function (e) {
-        if (data.disabled) { return }
-        data.distance = e.originalEvent.changedTouches[0].screenY - data.startY
-        requestAnimationFrame(handleScroll)
-      }).on('touchend', function (e) {
-        data.isEnd = true
-        data.distance = e.originalEvent.changedTouches[0].screenY - data.startY
-        requestAnimationFrame(handleScroll)
-      })
-      // 处理滑动
-      function handleScroll () {
-        if (data.distance > 0) { // 下滑
-          if (data.isDown) { // 只在第二张页面调用下滑
-            if (Math.abs(data.distance) >= data.limit) { // 超过阈值
-              if (data.isEnd) { return } // 如果是触摸结束直接退出
-              data.disabled = true
-              data.distance = 0
-              $('.toggle').trigger('click') // 下滑开启音乐
-            } else { // 没有超过阈值
-              if (data.isEnd) {
-                data.distance = window.innerHeight * -1
-              } else {
-                data.distance = Math.abs(data.distance - window.innerHeight) * -1
-              }
-            }
-            $('#container').css({
-              transform: 'translateY(' + data.distance + 'px)'
-            })
-          }
-        } else { // 上滑
-          if (data.isDown) { return } // 只在第一张页面调用上滑
-          // 如果存在局部可滑动区域
-          console.log(data.target.scrollTop())
-          console.log(data.target.height())
-          console.log(data.target[0].scrollHeight)
-          if (data.target.hasClass('exclude') && data.target.scrollTop() + data.target.height() < data.target[0].scrollHeight) { return }
-          if (Math.abs(data.distance) >= data.limit) { // 超过阈值
-            if (data.isEnd) { return } // 如果是触摸结束直接退出
-            data.disabled = true
-            data.distance = window.innerHeight * -1
-            var toggle = $('.toggle')
-            if (toggle.hasClass('pause')) { // 是播放状态,上滑关闭音乐
-              toggle.trigger('click')
-            }
+    var news = {
+      data: {},
+      init () {
+        this.attachEvent()
+      },
+      attachEvent () {
+        // 播放暂停切换
+        $('.audio-box').on('click', '.toggle', function (e) {
+          $(this).toggleClass('pause')
+          var audio = $('#audio')[0]
+          if ($(this).hasClass('pause')) {
+            audio.play()
           } else {
-            if (data.isEnd) { // 如果触摸取消都没有达到阈值
-              data.distance = 0
+            audio.pause()
+          }
+        })
+        // 给留言点赞
+        $('.list').on('click', '.zan>span', function (e) {
+          var type
+          if ($(this).hasClass('agree')) { // 取消点赞
+            $(this).removeClass('agree')
+            type = 'remove'
+          } else { // 添加点赞
+            $(this).addClass('agree')
+            type = 'add'
+          }
+          news.methods.agreeMessage($(this).parents('li'), type)
+        })
+        // 点赞和投诉文章库
+        $('.statistics').on('click', '.zan,.complaint', function (e) {
+          if ($(this).hasClass('complaint')) { // 投诉操作
+            $('.modal-complaint').show()
+          } else if ($(this).hasClass('agree')) { // 取消点赞
+            $(this).removeClass('agree')
+            news.methods.agreeArticle($(this).parents('.statistics'), 'remove')
+          } else { // 点赞
+            $(this).addClass('agree')
+            news.methods.agreeArticle($(this).parents('.statistics'), 'add')
+          }
+        })
+        // 打开打赏对话框
+        $('.animate-box').click(function (e) {
+          $('.modal-reward').show()
+        })
+        // 关闭和打赏操作
+        $('.modal-reward').on('click', '.close', function (e) { // 关闭
+          $('.modal-reward').hide()
+        }).on('click', 'li', function (e) { // 切换金额
+          $(this).addClass('selected').siblings().removeClass('selected')
+          $('.amount input').val('')
+        }).on('click', '.pay', function (e) { // 支付操作
+          var amount = $('.amount input').val()
+          amount = amount > 0 ? amount : parseFloat($('.modal-reward li.selected').text())
+          $('.modal-reward').hide()
+          news.methods.pay(amount)
+        })
+        // 换成我的
+        $('.img-box .convert').click(function (e) {
+          news.methods.checkStatus()
+        })
+        // 关闭换成我的提示框
+        $('.modal-follow').on('click', '.close,.cancel,.no,.yes', function (e) {
+          $('.modal-follow').hide()
+          if ($(this).hasClass('yes')) { // 去打卡
+            news.methods.goClock()
+          }
+        })
+        // 关闭和提交投诉信息
+        $('.modal-complaint').on('click', '.close,.submit', function (e) {
+          var modal = $('.modal-complaint')
+          if ($(this).hasClass('submit')) { // 提交
+            var data = {
+              name: modal.find('.name').val(),
+              tel: modal.find('.tel').val(),
+              content: modal.find('.desc').val()
+            }
+            if (data.name && data.tel && data.content) {
+              news.methods.complaint(data)
+            } else {
+              weui.alert('请务正确填写信息，方便客服及时处理')
+              return
             }
           }
-          $('#container').css({
-            transform: 'translateY(' + data.distance + 'px)'
-          })
+          modal.hide()
+        })
+      },
+      methods: {
+        /**
+         * 留言点赞操作
+         * @param target { Object } 当前点击留言信息的li标签Jquery对象
+         * @param type { String } [remove] 取消点赞；[add] 添加点赞
+         */
+        agreeMessage (target, type) {
+          // todo 可以从target中获取有用的信息
+          if (type === 'add') {
+            // todo
+          } else if (type === 'remove') {
+            // todo
+          }
+        },
+        /**
+         * 文章点赞操作
+         * @param target { Object } 当前点击的文章统计.statistics标签Jquery对象
+         * @param type { String } [remove] 取消点赞；[add] 添加点赞
+         */
+        agreeArticle (target, type) {
+          // todo 可以从target中获取有用的信息
+          if (type === 'add') {
+            // todo
+          } else if (type === 'remove') {
+            // todo
+          }
+        },
+        /**
+         * 支付操作
+         * @param amount { Number } 支付金额
+         */
+        pay (amount) {
+          // todo 支付逻辑
+          console.log(amount)
+        },
+        /**
+         * 检查用户关注和打卡状态
+         */
+        checkStatus () {
+          // todo 获取用户状态
+          var result = 1,
+            modal = $('.modal-follow')
+          switch (result) {
+            case 0:// 用户未关注
+              modal.removeClass('follow').show()
+              break
+            case 1:// 用户已经关注且未打卡
+              modal.addClass('follow').show()
+              break
+            case 2: // 用户已打卡
+              // todo 直接换成我的
+              break
+            default: return false
+          }
+        },
+        /**
+         * 去打卡逻辑
+         */
+        goClock () {
+          // todo
+        },
+        /**
+         * 投诉建议
+         * @param data { Object } {name:'',tel:'',content:''}
+         */
+        complaint (data) {
+          // todo
+          console.log(data)
         }
       }
     }
-    scrollPage()
-    // 大图地址
-    var src = $('.picture img').attr('data-src')
-    // 查看大图效果
-    $('.img-box').on('click', 'button', function (e) {
-      $('.modal-img').find('img').attr('src', src)
-        .end().show()
-    })
-    $('.modal-img .close').click(function (e) {
-      $('.modal-img').fadeOut()
-    })
-    // 播放暂停切换
-    $('.audio-box').on('click', '.toggle', function (e) {
-      $(this).toggleClass('pause')
-      var audio = $('#audio')[0]
-      if ($(this).hasClass('pause')) {
-        audio.play()
-      } else {
-        audio.pause()
-      }
-    })
-    // 动态加图片
-    function loadImg (src) {
-      var img = new Image()
-      img.onload = function (e) {
-        $('.weui-loading_toast').hide()
-        $('.picture img.bg').attr('src', src)
-      }
-      img.src = src
-    }
-    loadImg(src)
-    // 打开打赏对话框
-    $('.animate-box').click(function (e) {
-      $('.modal-reward').show()
-    })
-    // 关闭和打赏操作
-    $('.modal-reward').on('click', '.close', function (e) { // 关闭
-      $('.modal-reward').hide()
-    }).on('click', 'li', function (e) { // 切换金额
-      $(this).addClass('selected').siblings().removeClass('selected')
-      $('.amount input').val('')
-    }).on('click', '.pay', function (e) { // 支付操作
-      var amount = $('.amount input').val()
-      amount = amount > 0 ? amount : parseFloat($('.modal-reward li.selected').text())
-      $('.modal-reward').hide()
-      pay(amount)
-    })
-    // 支付功能
-    function pay (amount) {
-      // todo 支付逻辑
-    }
+    news.init()
   })
 })

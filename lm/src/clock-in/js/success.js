@@ -70,5 +70,82 @@ window.addEventListener('load', function () {
       }
     }
     success.init()
+    var carousel = {
+      data: {
+        current: 0, // 当前页
+        length: 3, // 最大页数
+        target: null, // 移动的目标
+        distance: 5, // 每次移动的距离（rem）
+        duration: 500, // 动画持续时间
+        hasMore: true, // 是否有更多
+        src: '' // 最新的图片地址
+      },
+      init (target) {
+        this.data.target = target
+        this.attachEvent()
+      },
+      attachEvent () {
+        $('.picture').on('click', '>span', function (e) {
+          if ($(this).hasClass('arrow-left')) {
+            carousel.methods.moveRight()
+            return
+          }
+          if ($(this).hasClass('arrow-right')) {
+            carousel.methods.moveLeft()
+          }
+        })
+      },
+      methods: {
+        moveRight () {
+          if (carousel.data.current === 0) {
+            return
+          }
+          carousel.methods.move(1)
+          carousel.data.current--
+          console.log(carousel.data)
+        },
+        moveLeft () {
+          if (carousel.data.current === 1) {
+            carousel.methods.hasMore()
+          }
+          if (carousel.data.current === carousel.data.length - 1) { // 目前是最后一页
+            if (carousel.data.hasMore) {
+              var html = `<li><a href="javascript:;"><img src="${carousel.data.src}"></a></li>`
+              carousel.data.length++
+              carousel.data.target.append($(html))
+              carousel.methods.hasMore()
+            } else {
+              return
+            }
+          }
+          carousel.methods.move(-1)
+          carousel.data.current++
+          console.log(carousel.data)
+        },
+        move (n) {
+          var currentX = -carousel.data.current * carousel.data.distance
+          carousel.data.target.css({
+            transform: `translateX(${currentX + carousel.data.distance * n}rem)`,
+            transition: `all ${carousel.data.duration}ms`
+          })
+        },
+        hasMore () {
+          // todo 到后台获取是否有更多的信息
+          // 如果还有信息就执行下面的代码
+          var result = {
+            hasMore: true,
+            src: 'xxxx'
+          }
+          if (result) {
+            carousel.data.hasMore = result.hasMore
+            carousel.data.src = result.src
+          } else {
+            carousel.data.hasMore = false
+            carousel.data.src = ''
+          }
+        }
+      }
+    }
+    carousel.init($('.list-box ul'))
   })
 })

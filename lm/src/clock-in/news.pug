@@ -15,52 +15,61 @@ block localCss
       document.getElementById('audio').play();
     }, false)
 block content
-  div#container
-    include component/navbar/navbar
-    + nav('news')
-    // 默认大图
-    div.full-container.picture
-      div.img-box
-        img.bg(src='' data-src='http://member.hc2117.com/upload/punchcard/punchcardimg/2017/12/19/c2fa6255ecdd3f7476bc376bb6b10247.jpeg')
-        button 查看大图
-      div.audio-box
-        img.avatar(src='./images/tupian.png')
-        div.personal
-          p
-            span.name Scott
-            span.title 董事长
-          p.company 重庆链脉网络科技有限公司
-        span.toggle.pause
-          audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
-      div.text-box.exclude
-        p.exclude
-          span.exclude 【早安心语】今天是12月20日，星期三，农历11月初三；人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。记住，这一秒不放弃，下一秒就会有希望。朋友们，早安！
-          a.exclude(href='./taping.html') 录制语音
-      div.arrow-box
-        i
-        i
-    // 推广页面
-    div.full-container.expand(style='background-image:url("./images/bg-full.png")')
+  include component/navbar/navbar
+  + nav('news')
+  div#news
+    div.audio-box
+      img.avatar(src='./images/tupian.png')
       div.personal
-        div.img-box
-          img(src='http://member.lm720.com/upload/p/2017/10/17/2017101759e5af236a9f7834356965.jpg')
-        p.nickname 这里是昵称
-        p.tel 15663897563
-      hr
-      div.qr
-        img(src='http://member.lm720.com/upload/e/2017/12/12/201712125a2f398729419815047256.png')
-        p.desc 识别二维码加我微信
-      div.btn-group
-        a.btn.message(href='javascript:;') 给我留言
-        a.btn.view(href='javascritp:;') 我的名片
-      hr
-      div.convert
-        a.btn(href='javascript:;') 我也要生成早安播报
-    // 查看大图
-    div.modal-img(style='display:none')
-      img(src='')
-      div.close
-        i
-  include component/modal-reward/index
-  // 加载动画
-  <div class="weui-loading_toast "> <div class="weui-mask_transparent"></div> <div class="weui-toast weui-animate-fade-in"> <i class="weui-loading weui-icon_toast"></i> <p class="weui-toast__content">loading...</p> </div> </div>
+        p
+          span.name Scott
+          span.title 董事长
+        p.company 传播正能量，我已连续早起
+          span.count 5
+          | 天
+      span.toggle.pause
+        audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
+    div.img-box
+      article
+        div.graph-box
+          img(src='http://member.hc2117.com/upload/punchcard/punchcardimg/2017/12/19/c2fa6255ecdd3f7476bc376bb6b10247.jpeg')
+        p.graph-text 【早安心语】今天是12月20日，星期三，农历11月初三；人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。记住，这一秒不放弃，下一秒就会有希望。朋友们，早安！
+        p.graph-custom
+          a(href='javascript:;') 录制语音
+      div.statistics
+        div.read
+          span 阅读
+          span 10000
+        // 已点赞时加上agree这个类
+        div.zan
+          span.nav-icon &#xe658
+          span 5000
+        div.complaint
+          span 投诉
+          span
+      div.convert 换成我的
+    div.divider
+    p.message
+      a(href='./message.html') 写留言
+        i.nav-icon &#xe69e
+    ul.list
+      -for(var i=0;i<5;i++)
+        li
+          a(href='javascript:;')
+            img(src='./images/reward.png')
+          div.content
+            p.name Scott
+            p.desc 今天是个好日子
+            p.time 昨天
+          div.zan
+            span
+              i.nav-icon &#xe658
+              | 9999
+    // 日听库
+    a(href='javascript:;').library 播放选择
+    // 打赏框
+    include component/modal-reward/index
+    // 换成我的弹框
+    include component/follow/index
+    // 投诉建议
+    include component/modal-complaint/index

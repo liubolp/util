@@ -87,7 +87,15 @@ block content
       button.generate 生成邀请海报
     div.picture
       p 长按图片保存到手机
-      img(src='https://topmdrt-static.oss-cn-shenzhen.aliyuncs.com/static/images/baotu/thumbnail/1324.jpg')
+      span.arrow-left
+      span.arrow-right
+      p.desc 点击右侧箭头，可切换早安图
+      div.list-box
+        ul
+          -for(var i=0;i<3;i++)
+            li
+              a(href='javascript:;')
+                img(src='https://topmdrt-static.oss-cn-shenzhen.aliyuncs.com/static/images/baotu/thumbnail/1324.jpg')
   // 底部缩略图
   div.thum-box
     p 不出门就能打卡全世界...
