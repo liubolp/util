@@ -50,7 +50,7 @@ window.addEventListener('load', function () {
       if (second < 10) {
         second = '0' + second
       }
-      $('.clock .time').text(hour + ':' + minute + ':' + second)
+      $('.clock.active .time').text(hour + ':' + minute + ':' + second)
     }
     // 检查用户打卡状态
     function checkStatus () {

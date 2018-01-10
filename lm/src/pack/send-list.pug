@@ -1,0 +1,20 @@
+extends ../../common/layout/layout
+block append meta
+  title 红包发送详情
+block script
+block localCss
+  link(rel='stylesheet' href='./css/send-list.css')
+block footerJs
+  script(src='./js/send-list.js')
+block content
+  div.header-toggle
+    a(href='index.html') 发红包
+    a.current(href='pack-details.html') 红包详情
+  ul.send-list
+    - for(var i=0;i<10;i++)
+      li
+        div.personal
+          p.name 天天飞车
+          p.time 2014-12-24
+        div.total 20 元
+        a.details(href='pack-details.html') 详情

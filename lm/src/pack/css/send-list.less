@@ -1,0 +1,60 @@
+@import "../../../common/reset/rest";
+body{
+  font-size: .3rem;
+}
+.header-toggle{
+  width: 5.84rem;
+  height: .76rem;
+  line-height: .76rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 5px;
+  margin: .2rem auto;
+  a{
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    font-size: inherit;
+    color: inherit;
+    &.current{
+      background: @default_color;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}
+.send-list{
+  li{
+    list-style: none;
+    background: #fff;
+    margin-bottom: .1rem;
+    padding: .2rem;
+    display: flex;
+    align-items: center;
+    color: #464646;
+  }
+  .personal{
+    flex: 1;
+  }
+  .details{
+    color: #fff;
+    background: @default_color;
+    padding: .06rem .3rem;
+    border-radius: 5px;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .total,.details{
+    flex-shrink: 0;
+    margin-left: .4rem;
+  }
+  .name{
+    font-size: .34rem;
+    .ellipsisLn(1)
+  }
+  .time{
+    color: #909090;
+    font-size: .26rem;
+  }
+}

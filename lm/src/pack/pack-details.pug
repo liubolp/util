@@ -1,0 +1,18 @@
+extends ../../common/layout/layout
+block append meta
+  title 红包领取详情
+block script
+block localCss
+  link(rel='stylesheet' href='./css/pack-details.css')
+block footerJs
+  script(src='./js/pack-details.js')
+block content
+  ul.pack-list
+    - for(var i=0;i<10;i++)
+      li
+        div.personal
+          p
+            span.name 天天飞车
+            span.ping 拼
+          p.time 2014-12-24
+        div.total 20 元

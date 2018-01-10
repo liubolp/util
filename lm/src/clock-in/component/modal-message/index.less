@@ -1,0 +1,54 @@
+// 留言输入框
+.modal-message{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 11;
+  display: none;
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.6);
+    display: none;
+  }
+  .content{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    display: none;
+  }
+  .section{
+    padding: 10px;
+  }
+  textarea{
+    border: none;
+    background: none;
+    border-radius: 0;
+    outline: none;
+    width: 100%;
+    height: 3rem;
+    resize: none;
+    font-size: inherit;
+  }
+  .submit {
+    border: none;
+    width: 100%;
+    color: #fff;
+    background: @default_color;
+    outline: none;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .36rem;
+    .setTapColor();
+    &:active {
+      background: lighten(@default_color, 10%);
+    }
+  }
+}

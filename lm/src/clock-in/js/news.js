@@ -1,11 +1,45 @@
 window.addEventListener('load', function () {
   $(function () {
     var news = {
-      data: {},
+      data: {
+        status: 1 // 0 用户未关注；1用户未打卡；2用户已打卡
+      },
       init () {
         this.attachEvent()
       },
       attachEvent () {
+        // 顶部标签切换
+        $('.navbar').on('click', '>a', function (e) {
+          e.preventDefault()
+          var hour = new Date().getHours()
+          if ($(this).hasClass('morning')) {
+            window.location.pathname = '/clock-in/news.html'
+            return
+          }
+          if ($(this).hasClass('news')) {
+            if (hour < 9) {
+              weui.alert('新闻播报每天9:00开放')
+            } else {
+              window.location.pathname = '/clock-in/news.html'
+            }
+            return
+          }
+          if ($(this).hasClass('music')) {
+            if (hour < 12) {
+              weui.alert('你来听歌每天12:00开放')
+            } else {
+              window.location.pathname = '/clock-in/music.html'
+            }
+            return
+          }
+          if ($(this).hasClass('daily')) {
+            if (hour < 21) {
+              weui.alert('爱上夜读每天21:00开放')
+            } else {
+              window.location.pathname = '/clock-in/daily.html'
+            }
+          }
+        })
         // 播放暂停切换
         $('.audio-box').on('click', '.toggle', function (e) {
           $(this).toggleClass('pause')
@@ -39,6 +73,22 @@ window.addEventListener('load', function () {
             $(this).addClass('agree')
             news.methods.agreeArticle($(this).parents('.statistics'), 'add')
           }
+        })
+        // 留言操作
+        $('.message>a').click(function (e) {
+          news.methods.callMessage()
+        })
+        // 关闭和提交留言
+        $('.modal-message').on('click', '.mask,.submit', function (e) {
+          if ($(this).hasClass('submit')) { // 提交留言
+            var message = $(e.delegateTarget).find('textarea').val()
+            if (message) {
+              news.methods.sendMessage(message)
+            }
+          }
+          $('.modal-message').hide()
+            .find('.mask').fadeOut()
+            .end().find('.content').slideToggle()
         })
         // 打开打赏对话框
         $('.animate-box').click(function (e) {
@@ -85,6 +135,50 @@ window.addEventListener('load', function () {
           }
           modal.hide()
         })
+        // 打卡语音选择框
+        $('.library').click(function (e) {
+          $('.modal-music').show()
+            .find('.mask').fadeIn()
+            .end().find('.content').slideToggle()
+        })
+        // 语音列表选择框
+        $('.modal-music').on('click', '.footer,.mask', function (e) { // 关闭选择框
+          $(e.delegateTarget).hide()
+            .find('.mask').fadeOut()
+            .end().find('.content').slideToggle()
+        })
+          .on('click', 'li', function (e) { // 播放选中的音乐
+            $(this).addClass('current').siblings().removeClass('current')
+            var src = $(this).attr('data-src'),
+              audio = $('#audio')[0]
+            if (src) {
+              var toggle = $('.audio-box .toggle')
+              toggle.click()
+              audio.src = src
+              toggle.click()
+              $(e.delegateTarget).find('.footer').click()
+            }
+            news.methods.changeMusic(src)
+          })
+          .on('click', '.sort', function (e) { // 排序操作
+            var list = []
+            if ($(this).hasClass('descend')) { // 倒序操作
+              $(this).text('升序').removeClass('descend')
+            } else { // 升序操作
+              $(this).text('倒序').addClass('descend')
+            }
+            // todo 如果有需要可以发请求到后台排序
+            $('.modal-music li').each(function (index, item) {
+              list.push(item)
+            })
+            list.reverse()
+            var fragment = $(document.createDocumentFragment())
+            list.forEach(function (item) {
+              fragment.append(item)
+            })
+            list = null
+            $(e.delegateTarget).find('ul').html(fragment)
+          })
       },
       methods: {
         /**
@@ -126,9 +220,8 @@ window.addEventListener('load', function () {
          */
         checkStatus () {
           // todo 获取用户状态
-          var result = 1,
-            modal = $('.modal-follow')
-          switch (result) {
+          var modal = $('.modal-follow')
+          switch (news.data.status) {
             case 0:// 用户未关注
               modal.removeClass('follow').show()
               break
@@ -154,6 +247,36 @@ window.addEventListener('load', function () {
         complaint (data) {
           // todo
           console.log(data)
+        },
+        /**
+         * 更改播放的音乐
+         * @param src { String } 更改后的资源地址
+         */
+        changeMusic (src) {
+          // todo
+        },
+        /**
+         * 提交留言信息
+         * @param msg { String } 提交的留言内容
+         */
+        sendMessage (msg) {
+          // todo
+        },
+        /**
+         * 调用留言框
+         */
+        callMessage () {
+          if (news.data.status !== 0) { // 用户已关注
+            $('.modal-message').show()
+              .find('.mask').fadeIn()
+              .end().find('.content').slideToggle()
+          } else { // 用户未关注
+            weui.confirm('你还没有注册链脉名片，现在去注册？', function (e) {
+              // todo 将页面跳转到注册页
+            }, function (e) {
+              // todo 用户不注册
+            })
+          }
         }
       }
     }

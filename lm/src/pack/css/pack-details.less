@@ -1,0 +1,51 @@
+@import "../../../common/reset/rest";
+body{
+  font-size: .3rem;
+}
+.pack-list{
+  margin-top: .1rem;
+  li{
+    list-style: none;
+    background: #fff;
+    margin-bottom: .1rem;
+    padding: .2rem;
+    display: flex;
+    align-items: center;
+    color: #464646;
+  }
+  .personal{
+    flex: 1;
+  }
+  .details{
+    color: #fff;
+    background: @default_color;
+    padding: .06rem .3rem;
+    border-radius: 5px;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .total{
+    flex-shrink: 0;
+    margin-left: .4rem;
+  }
+  .name{
+    font-size: .34rem;
+    .ellipsis();
+    max-width: 80%;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  .ping{
+    background: #e9c10a;
+    color: #fff;
+    margin-left: .1rem;
+    padding: 0 .06rem;
+    vertical-align: text-top;
+    zoom: .8;
+  }
+  .time{
+    color: #909090;
+    font-size: .26rem;
+  }
+}

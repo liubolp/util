@@ -1,0 +1,12 @@
+div.modal-music
+  div.mask
+  div.content
+    div.header
+      span.sort.descend 倒序
+    div.section
+      ul
+        // li标签的data-src属性保存当前项的音频地址
+        -for(var i=0;i<20;i++)
+          li(data-src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' class={current:i===0})
+            span.name 错的人(07-29)#{i}
+    div.footer 关闭

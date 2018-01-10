@@ -6,6 +6,38 @@ window.addEventListener('load', function () {
         this.attachEvent()
       },
       attachEvent () {
+        // 顶部标签切换
+        $('.navbar').on('click', '>a', function (e) {
+          e.preventDefault()
+          var hour = new Date().getHours()
+          if ($(this).hasClass('morning')) {
+            window.location.pathname = '/clock-in/graph.html'
+            return
+          }
+          if ($(this).hasClass('news')) {
+            if (hour < 9) {
+              weui.alert('新闻播报每天9:00开放')
+            } else {
+              window.location.pathname = '/clock-in/news.html'
+            }
+            return
+          }
+          if ($(this).hasClass('music')) {
+            if (hour < 12) {
+              weui.alert('你来听歌每天12:00开放')
+            } else {
+              window.location.pathname = '/clock-in/music.html'
+            }
+            return
+          }
+          if ($(this).hasClass('daily')) {
+            if (hour < 21) {
+              weui.alert('爱上夜读每天21:00开放')
+            } else {
+              window.location.pathname = '/clock-in/daily.html'
+            }
+          }
+        })
         // 播放暂停切换
         $('.audio-box').on('click', '.toggle', function (e) {
           $(this).toggleClass('pause')
