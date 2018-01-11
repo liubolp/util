@@ -38,9 +38,11 @@ block content
         记住，这一秒不放弃，下一秒就会有希望。
         朋友们，早安！
     // 底部按钮
-    div.btns
-      a(href='javascript:;') 我也要做贺卡
-      a(href='javascript:;') 进入我的名片
+    div.personal
+      a.avatar(href='javascript:;')
+        img(src='./images/banner.jpg')
+      p.nickname 天下第一刀
+      a.btn(href='javascript:;') 换成我的名片
     // 上传操作
     div.upload
       i.icon &#xe665
@@ -101,5 +103,5 @@ block content
       img(src='./images/yindao02.png')
     div.close
       img(src='./images/yindao01.png')
-    div.button-desc
-      img(src='./images/guid02.png')
+    div.upload-desc
+      img(src='./images/upload.png')
