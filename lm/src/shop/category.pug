@@ -1,0 +1,29 @@
+extends ../../common/layout/layout
+block append meta
+  title 商品分类
+block localCss
+  link(rel='stylesheet' href='./css/category.css')
+block footerJs
+  script(src='./js/category.js')
+block footer
+block footerCss
+block content
+  div.category
+    ul
+      - for(var i=0;i<5;i++)
+        li
+          i.mark.nav-icon &#xe63f
+          div.content
+            span.name 医疗
+            span.operation
+              i.nav-icon.up &#xe638
+              i.nav-icon.down &#xe638
+              i.nav-icon.edit &#xe69e
+              i.nav-icon.delete &#xe6c3
+    // 按钮操作
+    button.add 添加新分类
+    a(href='javascript:;').publish 发布或管理商品
+  // 商品导航
+  include components/shop-nav/index
+  // 浮层导航
+  include components/modal-nav/index

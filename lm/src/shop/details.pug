@@ -5,6 +5,8 @@ block localCss
   link(rel='stylesheet' href='./css/details.css')
 block footerJs
   script(src='./js/details.js')
+block footer
+block footerCss
 block content
   div.header-box
     img.bg(src='./images/bg.png')
@@ -23,15 +25,15 @@ block content
         span.name 今天是个好日子
         span.star
         div.id
-          i.iconfont &#xe638
+          i.nav-icon &#xe638
           p 身份认证
         div.official
-          i.iconfont &#xe8f6
+          i.nav-icon &#xe8f6
           p 官方认证
       div.concat
         p.tel
           span.mark
-            i.iconfont &#xe625
+            i.nav-icon &#xe625
           span 15689654236
   // 商品分类列表
   div.shop-list
@@ -54,3 +56,43 @@ block content
     + storeList('品牌热卖')
     + storeList('新鲜抢先')
     button.show-more 查看更多
+  // 商品导航
+  include components/shop-nav/index
+  // 浮层导航
+  include components/modal-nav/index
+  // 会员等级开店说明
+  div.modal-level
+    div.mask
+    div.content
+      div.header
+        p 会员等级权益
+        p 可开店铺数量
+        i.close
+      div.section
+        ul
+          li
+            span.vip_icon_0
+            span.level 免费会员
+            span.num 可开0个店铺
+          li
+            span.vip_icon_1
+            span.level 金星会员
+            span.num 可开1个店铺
+          li
+            span.vip_icon_2
+            span.level 钻石会员
+            span.num 可开3个店铺
+          li
+            span.vip_icon_3
+            span.level 皇冠会员
+            span.num 可开3个店铺
+          li
+            span.vip_icon_4
+            span.level 创客会员
+            span.num 可开5个店铺
+          li
+            span.vip_icon_9
+            span.level +99元创建一个店铺
+      div.footer
+        a.upgrade(href='javascript:;') 确定升级
+        a(href='javascript:;') 加购商品

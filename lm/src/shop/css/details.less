@@ -1,5 +1,6 @@
 @import "../../../common/reset/rest";
-
+@import "../components/modal-nav/index";
+@import "../components/shop-nav/index";
 img{
   vertical-align: bottom;
 }
@@ -197,5 +198,139 @@ body{
   .setTapColor();
   &:active{
     background: lighten(@list-color, 10%);
+  }
+}
+// 会员等级说明
+.modal-level{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+    color: #565656;
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: .3rem;
+    width: 6.45rem;
+  }
+  .header{
+    line-height: normal;
+    .close{
+      .setClose(#565656,.4rem,.04rem);
+      top: .3rem;
+      right: .3rem;
+    }
+    p:first-child{
+      font-size: .4rem;
+    }
+    P:last-child{
+      color: #898586;
+      font-size: .26rem;
+    }
+  }
+  .section{
+    margin: .2rem 0;
+  }
+  li{
+    list-style: none;
+    line-height: 2;
+    span{
+      margin-right: .3rem;
+      vertical-align: middle;
+    }
+  }
+  .num{
+    color: #898586;
+    font-size: .26rem;
+  }
+  .footer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .4rem;
+    a{
+      width: 2.7rem;
+      height: .8rem;
+      line-height: .8rem;
+      border: 1px solid #ddd;
+      border-radius: .4rem;
+      color: inherit;
+      text-align: center;
+      font-size: .36rem;
+      &:active{
+        background: #ececec;
+      }
+    }
+    .upgrade{
+      border: none;
+      color: #fff;
+      background: @default_color;
+      &:active{
+        background: lighten(@default_color,10%);
+      }
+    }
+  }
+}
+// 会员等级图标
+[class*=vip_icon_] {
+  display: inline-block;
+  background-image: url("http://member.lm720.com/skin/home/module/member/images/vip_icon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: .44rem;
+  height: .46rem;
+}
+.vip_icon{
+  /*免费*/
+  &_0{
+    background-position: 0 -1.66rem;
+  }
+  /*金星*/
+  &_1{
+    background-position: 0 0;
+  }
+  /*钻石*/
+  &_2{
+    background-position: 0 -1.1rem;
+  }
+  /*皇冠*/
+  &_3{
+    background-position: 0 -.54rem;
+  }
+  /*创客*/
+  &_4{
+    background-position: 0 -2.24rem;
+  }
+  /*代理*/
+  &_5{
+    background-position: 0 -2.88rem;
+  }
+  /*省代理*/
+  &_6{
+    background-position: 0 -3.48rem;
+  }
+  /*市代理*/
+  &_7{
+    background-position: 0 -4.08rem;
+  }
+  /*认证V*/
+  &_8{
+    background-position: 0 -4.68rem;
+  }
+  /*运营商*/
+  &_9{
+    background-position: 0 -5.22rem;
   }
 }

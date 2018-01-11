@@ -1,0 +1,43 @@
+// 商品导航
+.shop-nav{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.1rem;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  text-align: center;
+  line-height: normal;
+  li{
+    list-style: none;
+  }
+  a{
+    display: flex;
+    flex-flow: column nowrap;
+    color: inherit;
+    height: 100%;
+    justify-content: center;
+    &.current{
+      color: @default_color;
+    }
+    position: relative;
+  }
+  .nav-icon{
+    font-size: .5rem;
+  }
+  .count{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    border-radius: .24rem;
+    font-size: .24rem;
+    padding: 0 .09rem;
+    color: #fff;
+  }
+}
+.lm-container{
+  padding-bottom: 1.2rem;
+}
