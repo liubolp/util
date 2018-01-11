@@ -1,7 +1,9 @@
 window.addEventListener('load', function () {
   $(function () {
     var daily = {
-      data: {},
+      data: {
+        status: 1 // 0 用户未关注；1用户未打卡；2用户已打卡
+      },
       init () {
         this.attachEvent()
       },
@@ -23,7 +25,7 @@ window.addEventListener('load', function () {
             return
           }
           if ($(this).hasClass('music')) {
-            if (hour < 12) {
+            if (hour < 9) {
               weui.alert('你来听歌每天12:00开放')
             } else {
               window.location.pathname = '/clock-in/music.html'
@@ -31,7 +33,7 @@ window.addEventListener('load', function () {
             return
           }
           if ($(this).hasClass('daily')) {
-            if (hour < 21) {
+            if (hour < 9) {
               weui.alert('爱上夜读每天21:00开放')
             } else {
               window.location.pathname = '/clock-in/daily.html'
@@ -71,6 +73,22 @@ window.addEventListener('load', function () {
             $(this).addClass('agree')
             daily.methods.agreeArticle($(this).parents('.statistics'), 'add')
           }
+        })
+        // 留言操作
+        $('.message>a').click(function (e) {
+          daily.methods.callMessage()
+        })
+        // 关闭和提交留言
+        $('.modal-message').on('click', '.mask,.submit', function (e) {
+          if ($(this).hasClass('submit')) { // 提交留言
+            var message = $(e.delegateTarget).find('textarea').val()
+            if (message) {
+              daily.methods.sendMessage(message)
+            }
+          }
+          $('.modal-message').hide()
+            .find('.mask').fadeOut()
+            .end().find('.content').slideToggle()
         })
         // 打开打赏对话框
         $('.animate-box').click(function (e) {
@@ -158,9 +176,8 @@ window.addEventListener('load', function () {
          */
         checkStatus () {
           // todo 获取用户状态
-          var result = 1,
-            modal = $('.modal-follow')
-          switch (result) {
+          var modal = $('.modal-follow')
+          switch (daily.data.status) {
             case 0:// 用户未关注
               modal.removeClass('follow').show()
               break
@@ -186,6 +203,29 @@ window.addEventListener('load', function () {
         complaint (data) {
           // todo
           console.log(data)
+        },
+        /**
+         * 提交留言信息
+         * @param msg { String } 提交的留言内容
+         */
+        sendMessage (msg) {
+          // todo
+        },
+        /**
+         * 调用留言框
+         */
+        callMessage () {
+          if (daily.data.status !== 0) { // 用户已关注
+            $('.modal-message').show()
+              .find('.mask').fadeIn()
+              .end().find('.content').slideToggle()
+          } else { // 用户未关注
+            weui.confirm('你还没有注册链脉名片，现在去注册？', function (e) {
+              // todo 将页面跳转到注册页
+            }, function (e) {
+              // todo 用户不注册
+            })
+          }
         }
       }
     }

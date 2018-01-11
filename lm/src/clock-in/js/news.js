@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
           e.preventDefault()
           var hour = new Date().getHours()
           if ($(this).hasClass('morning')) {
-            window.location.pathname = '/clock-in/news.html'
+            window.location.pathname = '/clock-in/graph.html'
             return
           }
           if ($(this).hasClass('news')) {

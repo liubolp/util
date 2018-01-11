@@ -3,6 +3,7 @@
 @import "../component/modal-reward/index";
 @import "../component/follow/index";
 @import "../component/modal-complaint/index";
+@import "../component/modal-message/index";
 div{
   .setTapColor()
 }
@@ -104,6 +105,19 @@ body{
       padding-left: .4rem;
     }
   }
+  .qr-box{
+    background: url('../images/qr.png') no-repeat center;
+    background-size: contain;
+    height: 7rem;
+    position: relative;
+    .qr{
+      width: 2.4rem;
+      height: 2.4rem;
+      position: absolute;
+      left: 2.3rem;
+      bottom: 2.5rem;
+    }
+  }
   .divider{
     position: relative;
     &::before{
@@ -184,5 +198,8 @@ body{
     &:active{
       background: linear-gradient(to left,#f0cb35,#f7b500);
     }
+  }
+  >.copy{
+    text-align: center;
   }
 }

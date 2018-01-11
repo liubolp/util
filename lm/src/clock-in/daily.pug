@@ -31,6 +31,8 @@ block content
         audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
     div.img-box
       article 这里是抓取的文章内容
+        div.qr-box
+          img.qr(src='./images/tupian.png')
       div.statistics
         div.read
           span 阅读
@@ -45,7 +47,7 @@ block content
       div.convert 换成我的
     div.divider
     p.message
-      a(href='./message.html') 写留言
+      a(href='javascript:;') 写留言
         i.nav-icon &#xe69e
     ul.list
       -for(var i=0;i<5;i++)
@@ -60,6 +62,11 @@ block content
             span
               i.nav-icon &#xe658
               | 9999
+    // 底部版权说明
+    div.copy
+      p 以上留言由链脉筛选后显示
+      p
+        a(href='javascript:;') 了解留言功能详情
     // 日听库
     a(href='daily-library.html').library 日听库
   // 打赏框
@@ -68,3 +75,5 @@ block content
   include component/follow/index
   // 投诉建议
   include component/modal-complaint/index
+  // 留言输入框
+  include component/modal-message/index

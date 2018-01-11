@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
             return
           }
           if ($(this).hasClass('music')) {
-            if (hour < 12) {
+            if (hour < 9) {
               weui.alert('你来听歌每天12:00开放')
             } else {
               window.location.pathname = '/clock-in/music.html'
@@ -33,7 +33,7 @@ window.addEventListener('load', function () {
             return
           }
           if ($(this).hasClass('daily')) {
-            if (hour < 21) {
+            if (hour < 9) {
               weui.alert('爱上夜读每天21:00开放')
             } else {
               window.location.pathname = '/clock-in/daily.html'
