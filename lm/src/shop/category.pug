@@ -16,13 +16,24 @@ block content
           div.content
             span.name 医疗
             span.operation
-              i.nav-icon.up &#xe638
-              i.nav-icon.down &#xe638
+              i.nav-icon.up
+              i.nav-icon.down
               i.nav-icon.edit &#xe69e
               i.nav-icon.delete &#xe6c3
     // 按钮操作
     button.add 添加新分类
     a(href='javascript:;').publish 发布或管理商品
+  // 添加分类弹框
+  div.modal-category
+    div.mask
+    div.content
+      div.header
+        span.title 编辑分类
+        span.btn 关闭
+      div.section
+        textarea(name='name' placeholder='请输入分类')
+      div.footer
+        button.submit 提交
   // 商品导航
   include components/shop-nav/index
   // 浮层导航

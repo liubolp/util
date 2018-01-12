@@ -1,0 +1,57 @@
+extends ../../common/layout/layout
+block append meta
+  title 商品管理
+block localCss
+  link(rel='stylesheet' href='./css/manage.css')
+block footerJs
+  script(src='./js/manage.js')
+block footer
+block footerCss
+block content
+  // 顶部固定区域
+  header.fixed-header
+    div.filter-category
+      a.choose(href='javascript:;') 选择分类
+        i.arrow
+      a.publish(href='javascript:;') 发布新产品
+    div.filter-list
+      span.sale.current 售卖中(110)
+      span.cancel 已下架
+      span.recommend 推荐商品
+    div.search-box
+      input(name='content' placeholder='请输入你要检索的商品名称')
+      button.search 搜索
+  // 商品列表
+  ul.shop-list
+    -for(var i=0;i<5;i++)
+      li
+        div
+          div.checkbox
+            input(type='checkbox')
+            i.mark
+        dl.desc
+          dt
+            a(href='javascript:;')
+              img(src='./images/tupian.png')
+          dd.name 这是一个用了就忘不了的东西
+          dd.price ￥10000.00
+          dd.unit 100ml/瓶
+        div.sort
+          span.up
+          span.down
+  // 操作工具栏
+  div.operation
+    div
+      div.checkbox
+        input(type='checkbox')
+        i.mark
+    div.desc
+      span 全选(1)
+    div.btns
+      button 下架
+      button 推荐
+      button 删除
+  // 商品导航
+  include components/shop-nav/index
+  // 浮层导航
+  include components/modal-nav/index

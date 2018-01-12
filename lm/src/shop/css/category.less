@@ -19,13 +19,14 @@ body{
       background: #ffebd3;
       border-left: 3px solid @default_color;
       padding: .15rem .1rem .15rem 0;
+      color: #cbcbcb;
     }
     .nav-icon{
       margin: 0 .1rem;
       font-size: .4rem;
-    }
-    .edit{
-      color: @default_color;
+      &:active{
+        color: @default_color;
+      }
     }
   }
   li{
@@ -93,6 +94,99 @@ body{
     background: #ff6501;
     &:active{
       background: darken(#ff6501,5%);
+    }
+  }
+  .up,.down{
+    width: .4rem;
+    height: .4rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    vertical-align: sub;
+    background-image: url("../images/up.png");
+    &:active{
+      background-image: url("../images/up-active.png");
+    }
+  }
+  .up{
+    &:active{
+      transform: rotateX(180deg);
+    }
+  }
+  .down{
+    transform: rotateX(180deg);
+    &:active{
+      transform: rotateX(0);
+    }
+  }
+}
+/*商品分类弹窗*/
+.modal-category{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 11;
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.6);
+  }
+  .content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #eeeff3;
+  }
+  .header{
+    height: .8rem;
+    line-height: .8rem;
+    padding: 0 .2rem;
+    color: #bfbfbf;
+    font-size: .36rem;
+  }
+  .btn{
+    color: @default_color;
+    float: right;
+    margin-right: .2rem;
+  }
+  textarea{
+    background: #fff;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 3rem;
+    padding: .2rem;
+    resize: none;
+    font-size: inherit;
+    .setTapColor()
+  }
+  ::-webkit-input-placeholder{
+    color: #bfbfbf;
+  }
+  .footer{
+    text-align: center;
+    padding-bottom: .3rem;
+  }
+  .submit{
+    height: .8rem;
+    line-height: .8rem;
+    width: 40%;
+    background: @default_color;
+    border-radius: .4rem;
+    color: #fff;
+    font-size: .36rem;
+    border: none;
+    outline: none;
+    &:active{
+      background: lighten(@default_color,10%);
     }
   }
 }

@@ -1,0 +1,39 @@
+extends ../../common/layout/layout
+block append meta
+  title 上传认证信息
+block localCss
+  link(rel='stylesheet' href='./css/verify.css')
+block footerJs
+  //-script(src='./js/details.js')
+block footer
+block footerCss
+block content
+  div.verify
+    a(href='javascript:;')
+      div.content
+        p.name 名片或工牌材料
+        p.desc 姓名、职位、公司清晰可辨析
+      div.img-box
+        img(src='images/add.png')
+        // 没有图片时显示
+        div.add
+      i.arrow
+    a(href='javascript:;')
+      div.content
+        p.name 身份证正面照片
+        p.desc 须为本人手持二代身份证，原图无修改，信息清晰可辨别
+      div.img-box
+        img(src='images/add.png')
+        // 没有图片时显示
+        div.add
+      i.arrow
+    a(href='javascript:;')
+      div.content
+        p.name 营业执照正面照片
+        p.desc 原图无修改，信息清晰可辨别
+      div.img-box
+        img(src='images/add.png')
+        // 没有图片时显示
+        div.add
+      i.arrow
+    button.submit 提交

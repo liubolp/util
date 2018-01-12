@@ -119,4 +119,5 @@ gulp.task('clean', function () {
 })
 
 gulp.task('build', ['css:min', 'js:min'])
-gulp.task('default', ['css', 'html', 'pug', 'js', 'assets', 'server'])
+gulp.task('default', ['css', 'html', 'pug', 'js', 'assets'])
+gulp.task('server', ['server'])

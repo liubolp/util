@@ -1,0 +1,194 @@
+@import "../../../common/reset/rest";
+@import "../components/shop-nav/index";
+@import "../components/modal-nav/index";
+body{
+  font-size: .3rem;
+}
+.fixed-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: inherit;
+  .filter-category,.filter-list{
+    height: .9rem;
+    line-height: .9rem;
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+  }
+  .filter-category{
+    border-bottom: 1px solid #ddd;
+  }
+  a{
+    color: inherit;
+    flex: 1;
+    text-align: center;
+    &.choose{
+      border-right: 1px solid #ddd;
+    }
+    .arrow{
+      .setArrow(down,.3rem,#ddd,1px);
+      left: .2rem;
+    }
+  }
+  .current{
+    color: @default_color;
+    border-bottom: 1px solid @default_color;
+  }
+  .search-box{
+    padding: .2rem .3rem;
+    display: flex;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  input{
+    flex: 1;
+    border: 1px solid #ddd;
+    outline: none;
+    background: #fff;
+    border-radius: 0;
+    padding: .2rem .3rem;
+    border-right-color: transparent;
+  }
+  .search{
+    border: none;
+    background: @default_color;
+    outline: none;
+    color: #fff;
+    padding: 0 .3rem;
+  }
+}
+// common
+.shop-list,.operation{
+  .checkbox{
+    width: .5rem;
+    height: .5rem;
+    position: relative;
+    margin-right: .3rem;
+  }
+  input{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    &:checked + .mark{
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAClklEQVR4Xu2ZwVkbMRCF38gH5xY6IB1ACUkFsTuACogvAd/MCScXkwqACqADTAemg5TgIzlYk28XzGfWklba1Xolr3y1rNX7582TViZ0/EMd148EIDmg4wRSC3TcACkEUwukFug4gdQCHTdA2gVSC6QW6DiB1AIdN0DaBfaqBfg3jiHFI5hGNF7d2rh7bwDwVe8EhJt30YxTGwh7AYCnYgbQj48V52e6kMdlLogaAM9wgH+9rOqDonj05VcaYbm3APgKX0DiHqBClfnZVnwGJ0oHvIcd6KBq5de/iw7AVtitlTCe8Gk1sLH9JrSoAKjDDgDzHY3lSVm/q76PAoA+7OqJjyID9GFXX3zwAPRh50d80AC0YZetukbPF3MgyAzQhp1n8cE5wBh2DYh3BvC6QDGDkH/oJxZVth3db4xh15B4dwBTcQ3QGcBLkDylczz4gGAMuwbFOwHgXxiAe/eFo+c1XchRHQjGsGtYvBuAaS+r9vdtsbxAX35zPYLm2pSvsRtP8Jj2uiJZ7wJv/T8H6EgBYQmWQxpjbuOG0rDbQeUrvQzlC38RCxAdKoUST+hcXpoglIbdDsU7tcBa1FtgZU74rBE6R381VLVEadjtWHwlAPkaXy8fDRD4L4Qcbm6VpWHXgvjKAOwgZNctPAHJOaQYbN/ZFfzDfEljObHJEJ9jrENQ9dByJ1gu1fIG13I2p2G1AFg7wZiKdtfXTqocBtcGUAtCi5WvtA0aC1kajMWeb7fy3gHkTlAelxXYAqh8IwByCMW/qIr6AxJfaxs0toMOQmDiGwOgdEKA4hsF8AFCoOIbB+CwHbc21Ms5oLXVe3hwAuABYtRTJAdEXT4Pi08O8AAx6imSA6Iun4fFJwd4gBj1FP8BnYgiUBJEuFAAAAAASUVORK5CYII=");
+    }
+  }
+  .mark{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border: 1px solid #ddd;
+    background-color: #eeeff3;
+    background-size: contain;
+  }
+}
+/*商品列表*/
+.shop-list{
+  padding-top: 2.9rem;
+  border-top: 1px solid #ddd;
+  li{
+    display: flex;
+    align-items: center;
+    padding: .3rem;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  .desc{
+    flex: 1;
+  }
+  dt{
+    float: left;
+    a{
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  dd{
+    .ellipsis()
+  }
+  .price{
+    color: #fe0201;
+    font-size: .28rem;
+  }
+  .unit{
+    color: #5d5d5d;
+    font-size: .26rem;
+  }
+  img{
+    width: 1.6rem;
+    height: 1.6rem;
+    vertical-align: bottom;
+    margin-right: .3rem;
+  }
+  .sort{
+    align-self: stretch;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    .up,.down{
+      width: .5rem;
+      height: .5rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: inline-block;
+      vertical-align: sub;
+      background-image: url("../images/up.png");
+      &:active{
+        background-image: url("../images/up-active.png");
+      }
+    }
+    .up{
+      &:active{
+        transform: rotateX(180deg);
+      }
+    }
+    .down{
+      transform: rotateX(180deg);
+      &:active{
+        transform: rotateX(0);
+      }
+    }
+  }
+}
+.operation{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  height: 1.1rem;
+  background: #fff;
+  padding: 0 .3rem;
+  button{
+    background: @default_color;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: inherit;
+    border-radius: 5px;
+    padding: .1rem .3rem;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .desc{
+    font-size: .34rem;
+    margin-right: .3rem;
+  }
+  .btns{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+}

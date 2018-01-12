@@ -1,0 +1,46 @@
+extends ../../common/layout/layout
+block append meta
+  title 商店管理
+block localCss
+  link(rel='stylesheet' href='./css/admin.css')
+block footerJs
+  script(src='./js/admin.js')
+block footer
+block footerCss
+block content
+  header.header-box
+    img(src='images/bg.jpg')
+    div.personal
+      img(src='images/tupian.png')
+      i.level.vip_icon_0
+    p.name 流年芳华
+    p.clock 签到
+  // 导航跳转部分
+  div.nav-entry
+    a(href='javascript:;').verify 身份认证
+    a.shop(href='javascript:;') 已开
+      span.num 2
+      | 个/未开
+      span.num 3
+      | 个
+  // 店铺列表
+  div.shop-list
+    span 所有店铺
+    ul
+      -for(var i=0;i<3;i++)
+        li
+          div.img-box
+            img(src='images/tupian.png')
+            div.content
+              p.name 这是一个商店名
+              p.desc 主营：书籍、报纸、书籍、报纸、书籍、报纸
+          div.btns
+            button.copy 复制商品
+            button.default 设为默认
+          div.operation
+            a.manage
+              i xx
+              | 管理
+            a.delete
+              i xx
+              | 删除
