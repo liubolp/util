@@ -27,7 +27,8 @@ block content
       li
         div
           div.checkbox
-            input(type='checkbox')
+            // data-id存放当前商品的id
+            input(type='checkbox' data-id=i)
             i.mark
         dl.desc
           dt
@@ -40,18 +41,20 @@ block content
           span.up
           span.down
   // 操作工具栏
-  div.operation
-    div
-      div.checkbox
-        input(type='checkbox')
-        i.mark
-    div.desc
-      span 全选(1)
-    div.btns
-      button 下架
-      button 推荐
-      button 删除
+  div.operation-box
+    div.operation
+      div
+        div.checkbox
+          input(type='checkbox')
+          i.mark
+      div.desc
+        span 全选(1)
+      div.btns
+        button.cancel 下架
+        button.recommend 推荐
+        button.delete 删除
   // 商品导航
   include components/shop-nav/index
+  + footerModule(1)
   // 浮层导航
   include components/modal-nav/index

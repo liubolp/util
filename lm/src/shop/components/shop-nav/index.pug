@@ -1,20 +1,21 @@
 //- 商品页面底部导航
-ul.shop-nav
-  li
-    a(href='#')
-      i.nav-icon &#xe608
-      p 商店首页
-  li
-    a(href='#')
-      i.nav-icon &#xe642
-      p 商品管理
-  li
-    a(href='#')
-      i.nav-icon &#xe615
-      p 商品分类
-  li
-    // 给a添加current类用于区别当前页
-    a.current(href='javascript:;')
-      i.nav-icon &#xe600
-      p 购物车
-      div.count 9
+mixin footerModule (n)
+  ul.shop-nav
+    li
+      a(href='javascript:;' class={current:n===0})
+        i.nav-icon &#xe608
+        p 商店首页
+    li
+      a(href='manage.html' class={current:n===1})
+        i.nav-icon &#xe642
+        p 商品管理
+    li
+      a(href='category.html' class={current: n === 2})
+        i.nav-icon &#xe615
+        p 商品分类
+    li
+      // 给a添加current类用于区别当前页
+      a(href='javascript:;' class={current: n === 3})
+        i.nav-icon &#xe600
+        p 购物车
+        div.count 9

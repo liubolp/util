@@ -10,11 +10,11 @@ block footerCss
 block content
   header.header-box
     img(src='images/bg.jpg')
-    div.personal
+    a.personal(href='javascript:;')
       img(src='images/tupian.png')
       i.level.vip_icon_0
     p.name 流年芳华
-    p.clock 签到
+    a.clock(href='javascript:;') 签到
   // 导航跳转部分
   div.nav-entry
     a(href='javascript:;').verify 身份认证
@@ -38,9 +38,8 @@ block content
             button.copy 复制商品
             button.default 设为默认
           div.operation
-            a.manage
-              i xx
-              | 管理
-            a.delete
-              i xx
-              | 删除
+            a.manage 管理
+            a.delete 删除
+  // 创建店铺
+  div.create
+    a(href='javascript:;') 创建店铺

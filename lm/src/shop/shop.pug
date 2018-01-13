@@ -1,22 +1,20 @@
 extends ../../common/layout/layout
 block append meta
-  title 商店详情
+  title 某某商店
 block localCss
-  link(rel='stylesheet' href='./css/details.css')
+  link(rel='stylesheet' href='./css/shop.css')
 block footerJs
-  script(src='./js/details.js')
+  script(src='./js/shop.js')
 block footer
 block footerCss
 block content
   div.header-box
-    // 产品图片
-    img(src='./images/tupian.png')
-    div.content
-      p.name 这里是产品名称
-      p.price 价格
-        del ￥98.00
-      p 会员价格
-        span.discount ￥88
+    img.bg(src='./images/bg.png')
+    div
+      img.avatar(src='./images/tupian.png')
+      div
+        p.store-name 化妆品店铺
+        p.desc 化妆品
   // 店主信息
   div.store-details
     div.avatar-box
@@ -40,10 +38,6 @@ block content
           span.mark
             i.nav-icon &#xe625
           a(href='tel:15689654236') 15689654236
-  // 商品详情信息
-  div.commodity-details
-    div.title 产品详情
-    div.content 具体描述信息
   // 商品分类列表
   div.shop-list
     //- 商品列表样式
@@ -51,7 +45,7 @@ block content
       div.hot
         p.list-title #{type}
         ul.store-list
-          -for(var i=0;i<2;i++)
+          -for(var i=0;i<5;i++)
             li
               a(href='javascript:;')
                 img(src='./images/tupian.png')
@@ -64,16 +58,48 @@ block content
                 // 将商品的id写入到data-id属性中
                 span.cart.nav-icon(data-id='1100') &#xe600
     // 热销商品
-    + storeList('猜你喜欢')
-  // 底部导航操作
-  div.fixed-footer
-    a(href='javascript:;')
-      i.nav-icon &#xe608
-      p 店铺首页
-    a(href='javascript:;')
-      i.nav-icon &#xe620
-      p 我要开店
-    div.add 加入购物车
-    div.order 立即下单
+    + storeList('精品热销')
+    + storeList('品牌热卖')
+    + storeList('新鲜抢先')
+    button.show-more 查看更多
+  // 商品导航
+  include components/shop-nav/index
+  + footerModule(0)
   // 浮层导航
   include components/modal-nav/index
+  // 会员等级开店说明
+  div.modal-level
+    div.mask
+    div.content
+      div.header
+        p 会员等级权益
+        p 可开店铺数量
+        i.close
+      div.section
+        ul
+          li
+            span.vip_icon_0
+            span.level 免费会员
+            span.num 可开0个店铺
+          li
+            span.vip_icon_1
+            span.level 金星会员
+            span.num 可开1个店铺
+          li
+            span.vip_icon_2
+            span.level 钻石会员
+            span.num 可开3个店铺
+          li
+            span.vip_icon_3
+            span.level 皇冠会员
+            span.num 可开3个店铺
+          li
+            span.vip_icon_4
+            span.level 创客会员
+            span.num 可开5个店铺
+          li
+            span.vip_icon_9
+            span.level +99元创建一个店铺
+      div.footer
+        a.upgrade(href='javascript:;') 确定升级
+        a(href='javascript:;') 加购商品

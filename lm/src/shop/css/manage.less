@@ -9,7 +9,7 @@ body{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 2;
   background: inherit;
   .filter-category,.filter-list{
     height: .9rem;
@@ -31,6 +31,9 @@ body{
     .arrow{
       .setArrow(down,.3rem,#ddd,1px);
       left: .2rem;
+    }
+    &:active{
+      background: #ececec;
     }
   }
   .current{
@@ -58,6 +61,9 @@ body{
     outline: none;
     color: #fff;
     padding: 0 .3rem;
+    &:active{
+      background: lighten(@default_color, 10%);
+    }
   }
 }
 // common
@@ -159,15 +165,19 @@ body{
     }
   }
 }
-.operation{
+.operation-box{
+  height: 1.1rem;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 15;
+  display: none;
+}
+.operation{
   display: flex;
   align-items: center;
-  height: 1.1rem;
+  height: 100%;
   background: #fff;
   padding: 0 .3rem;
   button{
