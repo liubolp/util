@@ -11,7 +11,8 @@ block content
   div.category
     ul
       - for(var i=0;i<5;i++)
-        li
+        // data-id 存放当前分类的id
+        li(data-id=i)
           i.mark.nav-icon &#xe63f
           div.content
             span.name 医疗
@@ -29,11 +30,13 @@ block content
     div.content
       div.header
         span.title 编辑分类
-        span.btn 关闭
+        span.btn.close 关闭
       div.section
         textarea(name='name' placeholder='请输入分类')
       div.footer
         button.submit 提交
   // 商品导航
   include components/shop-nav/index
+  // 浮层导航
+  include components/modal-nav/index
   + footerModule(2)

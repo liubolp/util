@@ -173,11 +173,11 @@ window.addEventListener('load', function () {
         var target
         if (type === 'up') { // 上移操作
           target = item.prev()
-          target.before(item.remove())
+          target.length && (target.before(item.remove()))
           // TODO 如果后台要排序，可将id拿到后台排序
         } else { // 下移操作
           target = item.next()
-          target.after(item.remove())
+          target.length && (target.before(item.remove()))
         }
       },
       /**
