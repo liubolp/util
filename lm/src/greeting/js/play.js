@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+window.addEventListener('DOMContentLoaded', function () {
   $(function () {
     var play = {
       data: {},
@@ -50,7 +50,8 @@ window.addEventListener('load', function () {
         })
         // 上传背景
         $('.upload').click(function (e) {
-          play.methods.uploadImg()
+          // play.methods.uploadImg()
+          play.methods.actionSheet()
         })
         // 音乐选择框操作
         $('.modal-music').click(function (e) {
@@ -126,6 +127,41 @@ window.addEventListener('load', function () {
           console.log(text)
           // todo
         },
+        /**
+         * 打开选择框
+         */
+        actionSheet () {
+          weui.actionSheet(
+            [
+              {
+                label: '从手机选择',
+                onClick: function () {
+                  play.methods.uploadImg()
+                  $('.upload input').show()
+                    .click()
+                    .hide()
+                }
+              },
+              {
+                label: '从图库选择',
+                onClick: function () {
+                  console.log('从相册选择')
+                }
+              }
+            ],
+            [
+              {
+                label: '取消',
+                onClick: function () {
+                  console.log('取消')
+                }
+              }
+            ]
+          )
+        },
+        /**
+         * 上传图片
+         */
         uploadImg () {
           console.log(1)
           var loading
@@ -153,9 +189,9 @@ window.addEventListener('load', function () {
               return true // 阻止默认行为，不插入预览图的框架
             },
             onQueued: function () {
-              //var item = $(`<li class="temporary"><div class="box"><img src="${this.base64 || this.url}"></div></li>`)
+              // var item = $(`<li class="temporary"><div class="box"><img src="${this.base64 || this.url}"></div></li>`)
               // console.log(this)
-              //$('.bg .upload').before(item)
+              // $('.bg .upload').before(item)
               loading = weui.loading('已上传0%', {className: 'loading-box'})
               // console.log(this.status); // 文件的状态：'ready', 'progress', 'success', 'fail'
               // console.log(this.base64); // 如果是base64上传，file.base64可以获得文件的base64

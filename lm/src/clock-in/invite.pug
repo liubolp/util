@@ -9,6 +9,20 @@ block footerJs
 block localCss
   link(rel='stylesheet' href='./css/invite.css')
 block content
+  // 顶部切换
+  ul.navbar
+    li
+      a(href='index.html')
+        i.nav-icon &#xe6a0
+        | 打卡排行
+    li
+      a(href='challenge.html')
+        i.nav-icon &#xe6a9
+        | 早起挑战
+    li.current
+      a(href='invite.html')
+        i.nav-icon &#xe6aa
+        | 早安图
   div.container
     div.img-box(style="background-image:url('./images/test.png')")
       img.text(src='./images/tupian.png')

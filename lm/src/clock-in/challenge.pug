@@ -9,11 +9,21 @@ block footerJs
 block localCss
   link(rel='stylesheet' href='./css/challenge.css')
 block content
+  ul.navbar
+    li
+      a(href='index.html')
+        i.nav-icon &#xe6a0
+        | 打卡排行
+    li.current
+      a(href='challenge.html')
+        i.nav-icon &#xe6a9
+        | 早起挑战
+    li
+      a(href='invite.html')
+        i.nav-icon &#xe6aa
+        | 早安图
   div#container
     div.full-container.flex
-      div.toggle-btn
-        a(href='/clock-in') 打卡排行
-        a(href='javascript:;').current 早起挑战
       div.personal
         a(href='javascript:;')
           img.avatar(src='./images/tupian.png')

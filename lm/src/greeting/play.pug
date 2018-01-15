@@ -92,6 +92,29 @@ block content
         div.footer
           button.cancel 取消
           button.confirm 确定
+    // 在线图库选择
+    div.modal-choose
+      div.content
+        div.header 请选择图片
+        div.section
+          div.nav
+            span.current
+              i.icon x
+              | 我的
+            span
+              i.icon x
+              | 平台
+          div.container
+            ul.category
+              - for(var i=0;i<10;i++)
+                li 某某分类
+            ul.list
+              - for(var i=0;i<10;i++)
+                li
+                  img(src='./images/music.png')
+        div.footer
+          button.cancel 取消
+            button.confirm 确定
   // 引导层
   // 如果是第一次进入页面，就渲染下面的引导层内容
   div.guide
