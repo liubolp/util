@@ -57,6 +57,11 @@
     &.current{
       color: @default_color;
     }
+    .name{
+      .ellipsis();
+      max-width: 90%;
+      display: inline-block;
+    }
   }
   .sort{
     background: url("../images/sort.png") no-repeat 0 center;

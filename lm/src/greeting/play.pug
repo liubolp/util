@@ -41,7 +41,9 @@ block content
     div.personal
       a.avatar(href='javascript:;')
         img(src='./images/banner.jpg')
-      p.nickname 天下第一刀
+      div
+        p.nickname 天下第一刀
+        p.desc 点击头像查看名片
       a.btn(href='javascript:;') 换成我的名片
     // 上传操作
     div.upload
@@ -98,20 +100,22 @@ block content
         div.header 请选择图片
         div.section
           div.nav
-            span.current
-              i.icon x
+            span.current.custom
+              i.icon &#xe6c5
               | 我的
-            span
-              i.icon x
+            span.system
+              i.icon &#xe6c7
               | 平台
           div.container
             ul.category
-              - for(var i=0;i<10;i++)
-                li 某某分类
+              // data-id 存放分类id
+              - for(var i=0;i<20;i++)
+                li(class={current: i===0} data-id=i) 某某分类
             ul.list
-              - for(var i=0;i<10;i++)
-                li
+              - for(var i=0;i<20;i++)
+                li(class={current: i===0})
                   img(src='./images/music.png')
+                  i.icon &#xe6c0
         div.footer
           button.cancel 取消
             button.confirm 确定

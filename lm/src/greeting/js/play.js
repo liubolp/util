@@ -1,7 +1,9 @@
 window.addEventListener('DOMContentLoaded', function () {
   $(function () {
     var play = {
-      data: {},
+      data: {
+        src: '' // 图库选择时选中的图片
+      },
       init () {
         this.attachEvent()
       },
@@ -50,7 +52,6 @@ window.addEventListener('DOMContentLoaded', function () {
         })
         // 上传背景
         $('.upload').click(function (e) {
-          // play.methods.uploadImg()
           play.methods.actionSheet()
         })
         // 音乐选择框操作
@@ -101,6 +102,33 @@ window.addEventListener('DOMContentLoaded', function () {
             }
           }
         })
+        // 图片选择框
+        $('.modal-choose').on('click', '.nav span', function (e) { // 切换类型
+          var type = $(this).hasClass('system') ? 'system' : 'custom'
+          $(this).addClass('current').siblings().removeClass('current')
+          play.methods.changeType(type)
+        })
+          .on('click', '.category li', function (e) { // 切换分类
+            var id = $(this).attr('data-id')
+            $(this).addClass('current').siblings().removeClass('current')
+            play.methods.changeCategory(id)
+          })
+          .on('click', '.list li', function (e) { // 选择图片
+            play.data.src = $(this).find('img').attr('src')
+            $(this).addClass('current').siblings().removeClass('current')
+          })
+          .on('click', '.footer button', function (e) { // 更换图片
+            if ($(this).hasClass('confirm')) {
+              play.methods.changeImg()
+            }
+            $(e.delegateTarget).hide()
+          })
+        // 点击空白关闭弹窗
+        $('[class^=modal-]').on('click', function (e) {
+          if (e.target == e.delegateTarget) {
+            $(e.delegateTarget).hide()
+          }
+        })
       },
       methods: {
         /**
@@ -128,6 +156,31 @@ window.addEventListener('DOMContentLoaded', function () {
           // todo
         },
         /**
+         * 更换图库类型
+         * @param type { String } 'custom'个人；'system'平台
+         */
+        changeType (type) {
+          console.log(type)
+          // todo
+        },
+        /**
+         * 更换类型
+         * @param id { String } 当前选中分类的id
+         */
+        changeCategory (id) {
+          console.log(id)
+          // todo
+        },
+        /**
+         * 更换图片
+         */
+        changeImg (addr) {
+          var src = addr || play.data.src
+          if (src) {
+            $('.play-container').css({'background-img': src})
+          }
+        },
+        /**
          * 打开选择框
          */
         actionSheet () {
@@ -145,7 +198,7 @@ window.addEventListener('DOMContentLoaded', function () {
               {
                 label: '从图库选择',
                 onClick: function () {
-                  console.log('从相册选择')
+                  $('.modal-choose').fadeIn()
                 }
               }
             ],
