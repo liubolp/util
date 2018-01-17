@@ -1,0 +1,161 @@
+extends ../../common/layout/layout
+block append meta
+  title 我的文章
+block script
+block content
+  // 顶部固定内容
+  header.fixed-header
+    ul.tabs
+      li
+        a.myself.current(href='javascript:;')
+          i.article-icon &#xe6dc
+          span 我的文章
+      li
+        a.create(href='javascript:;')
+          i.article-icon &#xe6de
+          span 新建文章
+      li
+        a.get(href='javascript:;')
+          i.article-icon &#xe6dd
+          span 抓取文章
+    div.input-box
+      input(name='search' placeholder='搜索' type='search')
+      i.article-icon &#xe6fe
+    ul.filters
+      li 文章统计
+      li.sort 排序
+        i.article-icon &#xe6aa
+        div
+          ul
+            // data-sort 排序方式
+            li(data-sort='1').selected 发布时间
+              i.article-icon &#xe6c0
+            li(data-sort='2') 文章浏览量
+              i.article-icon &#xe6c0
+            li(data-sort='3') 点赞数
+              i.article-icon &#xe6c0
+      li.category 分类
+        i.article-icon &#xe6aa
+        div
+          ul
+            // data-type 分类类型
+            li(data-type='1').selected 全部类别
+              i.article-icon &#xe6c0
+            li(data-type='2') 类别1
+              i.article-icon &#xe6c0
+            li(data-type='3') 类别2
+              i.article-icon &#xe6c0
+          div.btns
+            button.manage 管理分类
+            button.create 添加分类
+  // 列表信息
+  div.section-box
+    ul.article-list
+      -for(var i=0;i<3;i++)
+        li
+          // 已公开的添加public这个类
+          a(href='javascript:;').public
+            img(src='../clock-in/images/tupian.png')
+          div.content
+            p.title 这里是一个很长的文章标题的文章标题的文章标题这里是一个很长的文章标题的文章标题的文章标题
+            div.statistics
+              div.view
+                i.article-icon &#xe6d9
+                span 9999
+              div.click
+                i.article-icon &#xe6d8
+                span 9999
+              div.zan
+                i.article-icon &#xe6e0
+                span 999
+              div.time
+                span 2017-11-12
+          div.operation
+            span.delete
+              i.article-icon &#xe6e3
+            // data-id 当前文章的id
+            button(data-id=i) 操作文章
+  // 类别设置弹框
+  div.modal-type
+    div.mask
+    div.content
+      div.header 文章类别设置
+      div.section
+        ul
+          -for(var i=0;i<5;i++)
+            li(class={selected:i===0}) 类别1
+              div.right
+                span
+                  i.article-icon &#xe6c0
+        div.btn
+          button 添加分类
+      div.footer 关闭
+  // 文章设置弹框
+  div.modal-setting
+    div.mask
+    div.content
+      div.header 文章类别设置
+      div.section
+        ul
+          li 开启打赏
+            div.right
+              div.custom-checked
+                div.checked
+                  input(type='checkbox' name='status')
+                  i.toggle-bar
+                  div.bg
+          li 是否公开
+            div.right
+              div.custom-checked
+                div.checked
+                  input(type='checkbox' name='status')
+                  i.toggle-bar
+                  div.bg
+          li 允许评论
+            div.right
+              div.custom-checked
+                div.checked
+                  input(type='checkbox' name='status')
+                  i.toggle-bar
+                  div.bg
+          li 是否置顶
+            div.right
+              div.custom-checked
+                div.checked
+                  input(type='checkbox' name='status')
+                  i.toggle-bar
+                  div.bg
+          li 开启音频
+            div.right
+              div.custom-checked
+                div.checked
+                  input(type='checkbox' name='status')
+                  i.toggle-bar
+                  div.bg
+
+      div.footer 关闭
+  // 管理分类弹框
+  div.modal-manage
+    div.mask
+    div.content
+      div.header 请选择你要操作的类别
+      div.section
+        ul
+          // data-id 当前分类id
+          -for(var i=0;i<5;i++)
+            li(class={selected: i === 0} data-id=i) 类别1
+              div.right
+                i.article-icon.edit &#xe6e2
+                i.article-icon.delete &#xe6e3
+      div.footer 关闭
+  // 分类编辑弹窗
+  div.modal-edit
+    div.mask
+    div.content
+      div.header 添加分类
+      div.section
+        p.desc 请输入你要添加的分类
+        input(name='name')
+      div.footer
+        button.cancel 取消
+        button.confirm 确定
