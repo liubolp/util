@@ -13,18 +13,13 @@ body{
 li{
   list-style: none;
 }
-input,button,div,ul{
+a{
+  color: inherit;
+}
+a,button,textarea{
   .setTapColor()
 }
-//顶部样式
-.fixed-header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  background: inherit;
-}
+// 顶部样式
 .tabs{
   height: .9rem;
   display: flex;
@@ -48,437 +43,87 @@ input,button,div,ul{
     font-size: .4rem;
   }
 }
-.input-box{
-  margin: .14rem 0;
-  padding: 0 .24rem;
-  position: relative;
-  input{
-    width: 100%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: .3rem;
-    padding: .1rem .5rem;
-    text-align: center;
+// 中间内容
+section.content{
+  padding: .3rem .24rem;
+  textarea{
     -webkit-appearance: none;
-    &:focus{
-      text-align: left;
-      &+i{
-        left: auto;
-        right: .2rem;
-      }
-    }
-    &.search{
-      text-align: left;
-      &+i{
-        left: auto;
-        right: .2rem;
-      }
-    }
-  }
-  i{
-    position: absolute;
-    top: .04rem;
-    left: 39%;
-    font-size: .4rem;
-    z-index: 10;
-    padding: 0 .1rem;
-    color: #8a8a8a;
-    &:active{
-      color: @default_color;
-    }
-  }
-}
-.filters{
-  display: flex;
-  background: #fff;
-  justify-content: space-around;
-  height: .8rem;
-  line-height: .8rem;
-  text-align: center;
-  >li{
-    flex: 1;
-    position: relative;
-    &:not(:last-child)::before{
-      content: '';
-      position: absolute;
-      height: 50%;
-      top: 25%;
-      right: 0;
-      border-right: 1px solid #ddd;
-    }
-    &.current{
-      color: @default_color;
-      >i{
-        display: inline-block;
-        transform: rotateX(180deg);
-      }
-      >div{
-        display: block;
-      }
-    }
-  }
-  .sort,.category{
-    >div{
-      display: none;
-      position: fixed;
-      top: 2.58rem;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,.4);
-      z-index: 10000;
-      border-top: 1px solid #ddd;
-      color: #333;
-    }
-    ul{
-      background: #fff;
-      padding: 0 .3rem;
-      text-align: left;
-    }
-    li{
-      &:not(:last-child){
-        border-bottom: 1px solid #ddd;
-      }
-      i{
-        font-size: .5rem;
-        float: right;
-        color: @default_color;
-        display: none;
-      }
-      &.selected{
-        i{
-          display: inline;
-        }
-      }
-    }
-    .btns{
-      background: #fff;
-      border-top: 1px solid #ddd;
-      padding: .2rem 0;
-    }
-    button{
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      background: #f1f1f1;
-      outline: none;
-      width: 1.8rem;
-      height: .6rem;
-      margin-right: .5rem;
-      font-size: inherit;
-      &:active{
-        background: @default_color;
-        color: #fff;
-      }
-    }
-  }
-}
-// 文章列表样式
-.section-box{
-  padding-top: 2.58rem;
-  padding-bottom: 60px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.article-list{
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  li{
-    display: flex;
-    padding: .2rem;
-    border-bottom: 1px solid #ddd;
-    background: #fafafa;
-  }
-  img{
-    width: 1.3rem;
-    height: 1.3rem;
-    vertical-align: bottom;
-  }
-  .content{
-    flex: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    padding: 0 .1rem;
-  }
-  .title{
-    .ellipsisLn(2)
-  }
-  .statistics{
-    display: flex;
-    font-size: 12px;
-    color: #a8a8a8;
-    >div{
-      flex: 1;
-      .ellipsis()
-    }
-    .time{
-      flex: 1.5;
-    }
-  }
-  .operation{
-    display: flex;
-    flex-flow: column nowrap;
-    flex-shrink: 0;
-    text-align: right;
-    line-height: normal;
-  }
-  button{
-    border: 1px solid @default_color;
-    background: none;
-    outline: none;
-    border-radius: 5px;
-    font-size: inherit;
-    padding: .08rem;
-    &:active{
-      background: #ddd;
-    }
-  }
-  .delete{
-    font-size: .4rem;
-    &:active{
-      color: @default_color;
-    }
-  }
-  a.public{
-    position: relative;
-    &::before{
-      content: '已公开';
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: #fff;
-      background: rgba(62,91,27,.2);
-      font-size: .24rem;
-      padding: 0 .1rem;
-      transform: scale(.8) translate(-10%,-10%);
-    }
-  }
-}
-#lm-footer{
-  z-index: 5 !important;
-}
-// 自定义选择框
-.custom-checked{
-  .checked{
-    width: 1rem;
-    background: #fff;
-    position: relative;
-    height: .48rem;
-    border-radius: .24rem;
-    color: #fff;
-    overflow: hidden;
-    .toggle-bar{
-      width: .4rem;
-      height: .4rem;
-      background: #fff;
-      border-radius: 50%;
-      position: absolute;
-      z-index: 9;
-      top: .04rem;
-      left: .04rem;
-      transform: translateX(0);
-      transition: transform 0.2s;
-    }
-    .bg{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #ddd;
-      z-index: 1;
-      &::before{
-        content: '';
-        position: relative;
-        left: .2rem;
-        z-index: 5;
-      }
-      &::after{
-        content: '关';
-        position: absolute;
-        right: .2rem;
-        z-index: 5;
-      }
-    }
-    input{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      z-index: 10;
-    }
-    input:checked + .toggle-bar{
-      transform: translateX(.52rem);
-    }
-    input:checked ~ .bg{
-      background: @default_color;
-      &::before{
-        content: '开';
-      }
-      &::after{
-        content: '';
-      }
-    }
-  }
-}
-// 弹框样式
-[class^=modal-]{
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 11;
-  .mask{
-    position: absolute;
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.5);
-  }
-  .content{
-    position: absolute;
-    width: 6.45rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    height: 2.5rem;
+    padding: .2rem .1rem;
+    font-size: .3rem;
+    background: #f4f4f4;
+    resize: none;
     border-radius: 5px;
-    background: #fafafc;
+    outline: none;
+    border: 1px solid #b8b8b8;
+  }
+  .tip{
+    margin-top: .1rem;
+    text-align: right;
+    color: @default_color;
+    a{
+      text-decoration: underline;
+    }
+  }
+  .btns{
     text-align: center;
-  }
-  .header{
-    height: 1.3rem;
-    line-height: 1.3rem;
-    border-bottom: 1px solid #ddd;
-    font-size: .36rem;
-  }
-  .footer{
-    height: .85rem;
-    line-height: .85rem;
-    border-top: 1px solid #ddd;
-    font-size: .36rem;
-  }
-  .section{
-    color: #818181;
-  }
-}
-.modal-setting,.modal-type,.modal-manage{
-  display: none;
-  ul{
-    max-height: 5rem;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    text-align: left;
-  }
-  li{
-    background: #fff;
-    line-height: 1.1rem;
-    padding: 0 .3rem;
-    border-bottom: 1px solid #ddd;
-    &:last-child{
-      border-bottom-color: transparent;
-    }
-    &.selected .right i{
-      display: inline;
-    }
-  }
-  .footer:active{
-    background: #ececec;
-    border-radius: 0 0 5px 5px;
-  }
-}
-// 类别设置弹框
-.modal-type{
-  .right{
-    float: right;
-    span{
-      display: inline-block;
-      width: .7rem;
-      height: .7rem;
-      border: 1px solid #ddd;
-      border-radius: 50%;
-      vertical-align: middle;
-      line-height: 1;
-      text-align: center;
-    }
-    i{
-      display: none;
-      font-size: .6rem;
-      color: @default_color;
-    }
-  }
-  .btn{
-    padding: .2rem;
-    border-top: 1px solid #ddd;
+    margin: .4rem 0;
   }
   button{
-    outline: none;
+    width: 2.1rem;
+    height: .7rem;
     border: 1px solid #ddd;
-    background: @default_color;
-    color: #fff;
-    width: 1.8rem;
-    height: .6rem;
     border-radius: 5px;
+    background: @default_color;
+    margin-right: .5rem;
+    line-height: .7rem;
+    color: #fff;
+    font-size: .36rem;
+    outline: none;
     &:active{
       background: lighten(@default_color,10%);
     }
   }
-}
-// 文章设置弹框
-.modal-setting{
-  .right{
-    float: right;
-    line-height: 1.6;
-    transform: translateY(60%);
+  .clear{
+    background: #e29290;
+    &:active{
+      background: lighten(#e29290, 10%);
+    }
+  }
+  .desc a{
+    color: @default_color;
   }
 }
-// 分类管理弹窗
-.modal-manage{
-  .right{
-    float: right;
-    display: flex;
-    align-items: center;
-    font-size: .4rem;
-  }
+.source{
+  padding: .3rem .24rem 0;
   i{
-    padding-left: .2rem;
-    &:active{
-      color: @default_color;
-    }
+    color: #3e54ff;
   }
+  border-top: 1px solid #b8b8b8;
 }
-// 添加和修改弹窗
-.modal-edit{
-  display: none;
-  .section{
-    padding: .3rem .5rem;
+.source-list{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: .3rem;
+  a{
+    width: 1.2rem;
+    padding-top: 1.2rem;
+    background-size: 1.2rem;
+    background-repeat: no-repeat;
+    font-size: .26rem;
   }
-  input{
-    border: 1px solid #ddd;
-    border-radius: 0;
-    outline: none;
-    padding: .16rem .1rem;
-    width: 100%;
-    font-size: inherit;
+  .system{
+    background-image: url("../images/lm.png");
   }
-  .footer{
-    display: flex;
+  .toutiao{
+    background-image: url("../images/toutiao.png");
   }
-  button{
-    flex: 1;
-    border: none;
-    background: none;
-    outline: none;
-    font-size: .36rem;
-    &:active{
-      color: @default_color;
-    }
+  .tencent{
+    background-image: url("../images/tencent.png");
   }
-  .cancel{
-    border-right: 1px solid #ddd;
+  .fenghuang{
+    background-image: url("../images/fenghuang.png");
   }
 }

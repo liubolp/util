@@ -1,0 +1,47 @@
+extends ../../common/layout/layout
+block append meta
+  title 文章抓取
+block script
+block localCss
+  link(rel='stylesheet' href='./css/get.css')
+block footerJs
+  script(src='./js/get.js')
+block content
+  header
+    ul.tabs
+      li
+        a.myself(href='index.html')
+          i.article-icon &#xe6dc
+          span 我的文章
+      li
+        a.create(href='javascript:;')
+          i.article-icon &#xe6de
+          span 新建文章
+      li
+        a.get.current(href='javascript:;')
+          i.article-icon &#xe6dd
+          span 抓取文章
+  section.content
+    textarea(name='src' placeholder='先点击，等键盘处理，再长按，粘贴文章链接！提示：凡是谣言、暴力、诈骗、诱导等违规文章，一律不予通过。')
+    p.tip
+      i.article-icon &#xe6d8
+      a(href='javascript:;') 不会操作请点击
+    div.btns
+      button.submit 提交
+      button.clear 清空
+    div.desc 说明：
+      br
+      |1、抓取其他网页可能会不能正常显示或编辑；
+      br
+      |2、用户需遵循
+      a(href='javascript:;') 《微信外部链接内容管理规范》
+      |。
+  div.source
+    p
+      i.article-icon &#xe705
+      | 点击以下来源拷贝文章链接
+    div.source-list
+      a(href='javascript:;').system 平台文章
+      a(href='javascript:;').toutiao 今日头条
+      a(href='javascript:;').tencent 腾讯新闻
+      a(href='javascript:;').fenghuang 凤凰网

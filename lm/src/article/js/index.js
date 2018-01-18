@@ -29,6 +29,7 @@ window.addEventListener('DOMContentLoaded', function () {
         $(this).toggleClass('current')
           .siblings().removeClass('current')
       })
+      // 筛选条件处理
       $('.sort>div,.category>div').on('click', 'li', function (e) {
         e.stopPropagation()
         $(this).addClass('selected').siblings().removeClass('selected')
@@ -78,7 +79,7 @@ window.addEventListener('DOMContentLoaded', function () {
         var id
         if ($(this).hasClass('edit')) { // 编辑
           app.data.categoryId = $(this).parents('li').attr('data-id')
-          var name = $(this).parents('li').text()
+          var name = $(this).parents('li').attr('data-name')
           $(e.delegateTarget).hide()
           $('.modal-edit').fadeIn()
             .find('.header').text('编辑分类')
@@ -91,6 +92,32 @@ window.addEventListener('DOMContentLoaded', function () {
           weui.confirm('你确定要删除这个分类吗？', function () {
             app.methods.deleteCategory(id)
           })
+        }
+        $(e.delegateTarget).hide()
+      })
+      // 类别设置弹框
+      $('.modal-type').on('click', '.mask,.footer,button,li', function (e) {
+        if (this.nodeName === 'LI') {
+          $(this).addClass('selected').siblings().removeClass('selected')
+          app.methods.changeCategory($(this).attr('data-id'))
+          return
+        }
+        if (this.nodeName === 'BUTTON') {
+          $('.modal-edit').fadeIn()
+            .find('.header').text('添加分类')
+            .end().find('.desc').text('请输入你要添加的分类')
+          app.data.isAdd = true
+        }
+        $(e.delegateTarget).hide()
+      })
+      // 设置弹框处理
+      $('.modal-setting').on('click', '.mask,.footer,.right', function (e) {
+        if ($(this).hasClass('right')) {
+          var target = $(this).find('input'),
+            status = target.prop('checked'),
+            type = target.attr('name')
+          app.methods.articleSetting(type, status)
+          return
         }
         $(e.delegateTarget).hide()
       })
@@ -194,6 +221,22 @@ window.addEventListener('DOMContentLoaded', function () {
       deleteCategory (id) {
         console.log(id)
         // todo
+      },
+      /**
+       * 更改文章分类
+       * @param id { String } 要更换的分类id
+       */
+      changeCategory (id) {
+        console.log(id)
+        // todo
+      },
+      /**
+       * 文章设置
+       * @param type { String } 要设置的类别(reward|public|comment|top|voice)
+       * @param status { Boolean } 当前类别的状态
+       */
+      articleSetting (type, status) {
+        console.log(type, status)
       }
     }
   }

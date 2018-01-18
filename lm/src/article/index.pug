@@ -15,7 +15,7 @@ block content
           i.article-icon &#xe6de
           span 新建文章
       li
-        a.get(href='javascript:;')
+        a.get(href='get.html')
           i.article-icon &#xe6dd
           span 抓取文章
     div.input-box
@@ -82,8 +82,9 @@ block content
       div.header 文章类别设置
       div.section
         ul
+          // data-id 分类id
           -for(var i=0;i<5;i++)
-            li(class={selected:i===0}) 类别1
+            li(class={selected:i===0} data-id=i) 类别1
               div.right
                 span
                   i.article-icon &#xe6c0
@@ -97,39 +98,40 @@ block content
       div.header 文章类别设置
       div.section
         ul
+          // 要选中给input添加checked属性
           li 开启打赏
             div.right
               div.custom-checked
                 div.checked
-                  input(type='checkbox' name='status')
+                  input(type='checkbox' name='reward' checked)
                   i.toggle-bar
                   div.bg
           li 是否公开
             div.right
               div.custom-checked
                 div.checked
-                  input(type='checkbox' name='status')
+                  input(type='checkbox' name='public')
                   i.toggle-bar
                   div.bg
           li 允许评论
             div.right
               div.custom-checked
                 div.checked
-                  input(type='checkbox' name='status')
+                  input(type='checkbox' name='comment')
                   i.toggle-bar
                   div.bg
           li 是否置顶
             div.right
               div.custom-checked
                 div.checked
-                  input(type='checkbox' name='status')
+                  input(type='checkbox' name='top')
                   i.toggle-bar
                   div.bg
           li 开启音频
             div.right
               div.custom-checked
                 div.checked
-                  input(type='checkbox' name='status')
+                  input(type='checkbox' name='voice')
                   i.toggle-bar
                   div.bg
 
@@ -141,9 +143,9 @@ block content
       div.header 请选择你要操作的类别
       div.section
         ul
-          // data-id 当前分类id
+          // data-id 当前分类id; data-name 当前的分类名
           -for(var i=0;i<5;i++)
-            li(class={selected: i === 0} data-id=i) 类别1
+            li(class={selected: i === 0} data-id=i data-name='类别名') 类别1
               div.right
                 i.article-icon.edit &#xe6e2
                 i.article-icon.delete &#xe6e3
