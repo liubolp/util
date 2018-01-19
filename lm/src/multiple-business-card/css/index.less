@@ -2,6 +2,10 @@
 div,input{
   .setTapColor()
 }
+body{
+  font-size: .3rem;
+  background: #fff;
+}
 .business-card{
   padding: .2rem;
   font-size: .3rem;
@@ -56,14 +60,15 @@ div,input{
     background-size: cover;
     .use{
       position: absolute;
-      top: .2rem;
-      right: .2rem;
-      width: .76rem;
-      height: .76rem;
-      line-height: .76rem;
+      top: 1rem;
+      right: 1.1rem;
+      width: 1rem;
+      height: 1rem;
+      line-height: 1rem;
       border-radius: 50%;
       background: grey;
       color: #fff;
+      font-size: .28rem;
       &.current{
         background: @default_color;
       }
@@ -90,38 +95,32 @@ div,input{
     }
   }
   .operation{
-    width: 3.5rem;
+    width: 100%;
     height: .8rem;
-    line-height: .8rem;
     background: #fff;
     position: absolute;
-    bottom: -.1rem;
-    left: -.06rem;
+    bottom: 0;
+    left: 0;
     display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
     a{
       flex: 1;
-      height: 100%;
-      border: 1px solid #ddd;
-    }
-    .delete{
-      background: @default_color;
-      color: #fff;
-      border-color: @default_color;
-      &:active{
-        background: lighten(@default_color, 10%);
-      }
-    }
-    .edit{
       color: inherit;
-      border-color: #d2d2d2;
-      &:active{
-        background: #ececec;
+      &:first-child{
+        border-right: 1px solid #ddd;
       }
+      &:active{
+        color: @default_color;
+      }
+    }
+    i{
+      margin-right: .1rem;
     }
   }
   li.add{
     .content{
-      background: #ffba6c;
+      background-color: #ebebeb;
     }
     .add{
       width: .9rem;
@@ -133,7 +132,7 @@ div,input{
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #ffba6c;
+      color: #ebebeb;
       .iconfont{
         font-size: .6rem;
       }
