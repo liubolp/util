@@ -164,11 +164,18 @@ body{
 .tab{
   height: .8rem;
   display: flex;
-  justify-content: space-around;
   line-height: .8rem;
   position: relative;
   font-size: .32rem;
   margin-top: .4rem;
+  text-align: center;
+  li{
+    flex: 1;
+    border-right: 1px solid #ddd;
+    &:last-child{
+      border-right-color: transparent;
+    }
+  }
   .current{
     color: @default_color;
     position: relative;

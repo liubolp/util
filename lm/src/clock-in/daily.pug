@@ -71,7 +71,12 @@ block content
       p
         a(href='javascript:;') 了解留言功能详情
     // 日听库
-    a(href='daily-library.html').library 日听库
+    div.library-box
+      a(href='daily-library.html').choose
+        i.icon-common &#xe543
+        | 日听库
+      a(href='javascript:;').reward
+        | 打赏
   // 打赏框
   include component/modal-reward/index
   // 换成我的弹框
@@ -80,3 +85,6 @@ block content
   include component/modal-complaint/index
   // 留言输入框
   include component/modal-message/index
+  // 返回顶部
+  div.to-top
+    i.icon-common &#xe64a

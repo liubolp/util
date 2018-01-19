@@ -34,11 +34,11 @@ block content
         div.graph-box
           img(src='http://member.hc2117.com/upload/punchcard/punchcardimg/2017/12/19/c2fa6255ecdd3f7476bc376bb6b10247.jpeg')
         p.graph-text 【早安心语】今天是12月20日，星期三，农历11月初三；人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。记住，这一秒不放弃，下一秒就会有希望。朋友们，早安！
-        div.qr-box
-          img.qr(src='./images/tupian.png')
         p.graph-custom
           a(href='taping.html').voice 我要录制语音
           a(href='invite.html').invite 生成邀请卡
+        div.qr-box
+          img.qr(src='./images/tupian.png')
       div.statistics
         div.read
           span 阅读
@@ -76,8 +76,12 @@ block content
       p 以上留言由链脉筛选后显示
       p
         a(href='javascript:;') 了解留言功能详情
-    // 播放选择
-    a(href='javascript:;').library 播放选择
+    div.library-box
+      a(href='javascript:;').choose
+        i.icon-common &#xe543
+        | 播放选择
+      a(href='javascript:;').reward
+        | 打赏
   // 打赏框
   include component/modal-reward/index
   // 换成我的弹框
@@ -88,3 +92,6 @@ block content
   include component/modal-music/index
   // 留言输入框
   include component/modal-message/index
+  // 返回顶部
+  div.to-top
+    i.icon-common &#xe64a

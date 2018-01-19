@@ -70,8 +70,12 @@ block content
       p 以上留言由链脉筛选后显示
       p
         a(href='javascript:;') 了解留言功能详情
-    // 歌曲库
-    a(href='music-library.html').library 歌曲库
+    div.library-box
+      a(href='music-library.html').choose
+        i.icon-common &#xe543
+        | 歌曲库
+      a(href='javascript:;').reward
+        | 打赏
   // 打赏框
   include component/modal-reward/index
   // 换成我的弹框
@@ -80,3 +84,6 @@ block content
   include component/modal-complaint/index
   // 留言输入框
   include component/modal-message/index
+  // 返回顶部
+  div.to-top
+    i.icon-common &#xe64a

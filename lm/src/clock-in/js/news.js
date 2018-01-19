@@ -91,7 +91,7 @@ window.addEventListener('load', function () {
             .end().find('.content').slideToggle()
         })
         // 打开打赏对话框
-        $('.animate-box').click(function (e) {
+        $('.library-box .reward').click(function (e) {
           $('.modal-reward').show()
         })
         // 关闭和打赏操作
@@ -136,7 +136,7 @@ window.addEventListener('load', function () {
           modal.hide()
         })
         // 打卡语音选择框
-        $('.library').click(function (e) {
+        $('.library-box .choose').click(function (e) {
           $('.modal-music').show()
             .find('.mask').fadeIn()
             .end().find('.content').slideToggle()
@@ -281,5 +281,52 @@ window.addEventListener('load', function () {
       }
     }
     news.init()
+    var scroll = {
+      data: {
+        startY: 0,
+        distance: 0,
+        fontSize: parseFloat($('html').css('fontSize'))
+      },
+      init () {
+        this.attachEvent()
+      },
+      attachEvent () {
+        $(window).on('touchstart', function (e) {
+          scroll.data.startY = e.originalEvent.changedTouches[0].screenY
+        })
+        $(window).on('touchmove', function (e) {
+          scroll.data.distance = e.originalEvent.changedTouches[0].screenY - scroll.data.startY
+        })
+        $(window).on('scroll', function (e) {
+          requestAnimationFrame(scroll.methods.handleScroll)
+        })
+        $('.to-top').click(function (e) {
+          $(window).scrollTop(0)
+        })
+      },
+      methods: {
+        handleScroll () {
+          var top = $(window).scrollTop()
+          if (scroll.data.distance > 0) { // 下滑
+            $('.to-top').show()
+          } else { // 上滑
+            if (top <= scroll.data.fontSize * 1) {
+              $('.navbar').css({top: '-' + top + 'px'})
+            }
+            $('.to-top').hide()
+          }
+          if (top <= 0) { // 滑到顶部
+            $('.audio-box').removeClass('fixed')
+            $('.navbar').css({top: 0})
+            $('.to-top').hide()
+          }
+          if (top > scroll.data.fontSize * 1.1) {
+            $('.audio-box').addClass('fixed')
+            $('.navbar').css({top: '-' + scroll.data.fontSize + 'px'})
+          }
+        }
+      }
+    }
+    scroll.init()
   })
 })
