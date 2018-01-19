@@ -1,0 +1,98 @@
+extends ../../common/layout/layout
+block append meta
+  title 文章编辑
+block script
+block localCss
+  link(rel='stylesheet' href='./css/edit.css')
+block footerJs
+  script(src='./js/edit.js')
+block footer
+block content
+  div#article
+    div.header
+      p.title 这里是抓取的文章的标题信息
+      div.personal
+        a(href='javascript:;')
+          img(src='images/lm.png')
+        span.nickname 魂归梦里
+        time.time 2018-12-12
+        button 添加背景音乐
+    // 具体文章内容
+    article.content 里面是文章内容
+    // 自定义操作
+    div.operations
+      button.add-form
+        i.iconfont &#xe60e
+        |添加表单
+      div.forms
+        div.title
+          p.form-name 报名
+          span.remove 删除
+        div.form-box
+          form.form.type0
+            div.name
+              span 姓名：
+              input(name='name' placeholder='请输入姓名' disabled)
+            div.tel
+              span 电话：
+              input(name='tel' placeholder='请输入电话' type='tel' disabled)
+            div.address
+              span 地址：
+              input(name='address' placeholder='请输入地址' disabled)
+            div.message
+              span 留言：
+              textarea(name='message' placeholder='请输入留言' disabled)
+            button.submit(type='button') 提交
+
+    // 分割线
+    div.divider
+      p 广告
+    // 广告开关选项
+    ul.swatch-list
+      li 底部广告
+        div.right
+          div.custom-checked
+            div.checked
+              input(type='checkbox' name='advertising' checked)
+              i.toggle-bar
+              div.bg
+      li 文章打赏
+        div.right
+          div.custom-checked
+            div.checked
+              input(type='checkbox' name='reward' checked)
+              i.toggle-bar
+              div.bg
+      li 微缩名片
+        div.right
+          div.custom-checked
+            div.checked
+              input(type='checkbox' name='business-card')
+              i.toggle-bar
+              div.bg
+    // 微缩名片
+    div.business-card
+      div
+        div.item.inline
+          span 姓名：
+          input(name='name' disabled value='欧文开啦')
+        div.item.inline
+          span 电话：
+          input(name='tel' disabled type='tel' value='13533134565')
+        div.item.inline
+          span 公司：
+          input(name='company' disabled value='重庆链脉网络科技有限公司')
+        div.item
+          span 我的跟人简介
+          textarea(name='desc' placeholder='请输入个人简介')
+        div.item
+          span 我拥有的资源和优势
+          textarea(name='source' placeholder='请简要介绍你拥有的资源和优势')
+        div.item
+          span 我希望对接的功能
+          textarea(name='expect' placeholder='请输入你希望要对接的功能')
+  // 发布文章
+  button.publish 写好了，去发布
+  div.tips
+    p 温馨提示：点击文章任意部分进行编辑操作
+    span.close
