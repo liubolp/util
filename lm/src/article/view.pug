@@ -1,0 +1,89 @@
+extends ../../common/layout/layout
+block append meta
+  title 文章预览
+block script
+block localCss
+  link(rel='stylesheet' href='./css/view.css')
+block footerJs
+  script(src='./js/view.js')
+block footer
+block footerCss
+block content
+  div#article
+    div.header
+      p.title 这里是抓取的文章的标题信息
+      div.personal
+        a(href='javascript:;')
+          img(src='images/lm.png')
+        span.nickname 魂归梦里
+        time.time 2018-12-12
+        a.card(href='javascript:;') 我的名片
+    // 具体文章内容
+    article.content 里面是文章内容
+    // 文章底部信息
+    div.operations
+      p.from 来自：凤凰网
+      p.notice 版权声明：感谢作者的辛苦创作，如转载设计版权问题，请与我们联系处理！
+      div.statistics
+        div.read
+          span 阅读
+          span 10000
+        // 已点赞时加上agree这个类
+        div.zan
+          span.article-icon &#xe6e0
+          span 5000
+        div.complaint
+          span 投诉纠错
+          span
+    // 打赏
+    div.reward 打赏
+  // 分割线
+  div.divider
+    p 微名片
+  // 微缩名片
+  div.business-card
+    div
+      div.item
+        span 我的个人简介
+        p 里面放介绍信息
+      div.item
+        span 我拥有的资源和优势
+        p 里面是优势和资源介绍
+      div.item
+        span 我希望对接的功能
+        p 里面是我希望对接的功能
+    div.details
+      div.base-info
+        div.img-box
+          img(src='images/lm.png')
+          i.vip.vip_icon_0
+        div.credit
+          span 诚信等级
+          span xxx
+        ul.info
+          li
+            span
+              i.article-icon &#xe6e6
+            span.shirk.spec
+              span.name 一路到底
+              span.post 职位信息
+          li
+            span
+              i.article-icon &#xe6ce
+            span.shirk 未实名认证
+          li
+            span
+              i.article-icon &#xe6e5
+            span.shirk
+              a(href='tel:13330303033') 130****4575
+          li
+            span
+              i.article-icon &#xe646
+            span.shirk 15221252132
+        button.message 给我留言
+      div.qr-box
+        div.mark 我要制作
+        div.qr
+          img(src='images/lm.png')
+        div.desc 长按二维码微信交流
+  audio#audio(src='' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')

@@ -29,7 +29,7 @@ block content
           p.form-name 报名
           span.remove 删除
         div.form-box
-          form.form.type0
+          form.form
             div.name
               span 姓名：
               input(name='name' placeholder='请输入姓名' disabled)
@@ -43,14 +43,13 @@ block content
               span 留言：
               textarea(name='message' placeholder='请输入留言' disabled)
             button.submit(type='button') 提交
-
     // 分割线
     div.divider
       p 广告
     // 广告开关选项
     ul.swatch-list
       li 底部广告
-        div.right
+        div.right.advertising
           div.custom-checked
             div.checked
               input(type='checkbox' name='advertising' checked)
@@ -64,7 +63,7 @@ block content
               i.toggle-bar
               div.bg
       li 微缩名片
-        div.right
+        div.right.card
           div.custom-checked
             div.checked
               input(type='checkbox' name='business-card')
@@ -83,7 +82,7 @@ block content
           span 公司：
           input(name='company' disabled value='重庆链脉网络科技有限公司')
         div.item
-          span 我的跟人简介
+          span 我的个人简介
           textarea(name='desc' placeholder='请输入个人简介')
         div.item
           span 我拥有的资源和优势
@@ -93,6 +92,66 @@ block content
           textarea(name='expect' placeholder='请输入你希望要对接的功能')
   // 发布文章
   button.publish 写好了，去发布
+  // 顶部温馨提示
   div.tips
     p 温馨提示：点击文章任意部分进行编辑操作
     span.close
+  // 表单选择弹框
+  div.modal-form
+    div.mask
+    div.content
+      div.header 请单击选择需要插入的表单
+      div.section
+        div.title
+          span.current 表单模板
+        div.list
+          ul
+            li(data-type='1')
+              div
+                p 姓名
+                p 电话
+                p 地址
+                p.message 留言
+                p.submit 提交
+            li(data-type='2')
+              div
+                p 姓名
+                p 电话
+                p.message 留言
+                p.submit 提交
+            li(data-type='3')
+              div
+                p 姓名
+                p 电话
+                p 地址
+                p.submit 提交
+            li(data-type='4')
+              div
+                p 姓名
+                p 电话
+                p.submit 提交
+      div.footer 关闭
+  // 音乐选择弹框
+  div.modal-music
+    div.mask
+    div.content
+      div.header 选择背景音乐
+      div.section
+        div.title
+          // 音乐类型
+          span(data-type='0').current 流行音乐
+          span(data-type='1') 背景音乐
+        ul.list
+          li.nothing.current
+            span
+            div
+              p.name 无需背景音乐
+          // data-src 存放背景音乐地址
+          -for(var i=0;i<5;i++)
+            li(data-src=i)
+              span
+              div
+                p.name 今天是个好日子
+                p.singer 阿宝
+      div.footer 关闭
+  audio#audio(src='' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')

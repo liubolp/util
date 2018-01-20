@@ -136,14 +136,18 @@ body{
     padding: 0 .1rem;
   }
   button{
-    background: @default_color;
-    color: #fff;
-    border: none;
     border-radius: .24rem;
     outline: none;
     padding: .1rem .2rem;
+    border: 1px solid #ddd;
+    background: #fff;
     &:active{
       background: lighten(@default_color,10%);
+    }
+    &.current{
+      background: @default_color;
+      color: #fff;
+      border: none;
     }
   }
   .operation{

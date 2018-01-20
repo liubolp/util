@@ -27,6 +27,7 @@ block content
   div.shop-list
     span 所有店铺
     ul
+      // 当前为默认时，个default加上current这个类
       -for(var i=0;i<3;i++)
         li
           div.img-box
@@ -36,7 +37,7 @@ block content
               p.desc 主营：书籍、报纸、书籍、报纸、书籍、报纸
           div.btns
             button.copy 复制商品
-            button.default 设为默认
+            button.default(class={current:i===0}) 设为默认
           div.operation
             a.manage 管理
             a.delete 删除

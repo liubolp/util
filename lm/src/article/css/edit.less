@@ -2,6 +2,9 @@
 body{
   font-size: .3rem;
 }
+div,input,textarea,button{
+  .setTapColor()
+}
 #article{
   padding: .8rem .24rem 0;
 }
@@ -88,6 +91,7 @@ article.content{
   }
 }
 .forms{
+  display: none;
   .title{
     background: #fff;
     height: .8rem;
@@ -106,6 +110,16 @@ article.content{
       &:active{
         color: @default_color;
       }
+    }
+  }
+  &.type2,&.type4{
+    .form .address{
+      display: none;
+    }
+  }
+  &.type3,&.type4{
+    .form .message{
+      display: none;
     }
   }
 }
@@ -189,6 +203,7 @@ article.content{
 }
 // 微缩名片
 .business-card{
+  display: none;
   background: #fafafa;
   margin: 0 -.24rem;
   padding: .24rem .24rem;
@@ -256,7 +271,7 @@ article.content{
       border-radius: 50%;
       position: absolute;
       z-index: 9;
-      top: .04rem;
+      top: .03rem;
       left: .04rem;
       transform: translateX(0);
       transition: transform 0.2s;
@@ -301,6 +316,190 @@ article.content{
       }
       &::after{
         content: '';
+      }
+    }
+  }
+}
+// 弹框样式
+[class^=modal-]{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 11;
+  .mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+  }
+  .content{
+    position: absolute;
+    width: 6.45rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    background: #fafafc;
+    text-align: center;
+  }
+  .header{
+    height: 1.3rem;
+    line-height: 1.3rem;
+    border-bottom: 1px solid #ddd;
+    font-size: .36rem;
+  }
+  .footer{
+    height: .85rem;
+    line-height: .85rem;
+    border-top: 1px solid #ddd;
+    font-size: .36rem;
+    &:active{
+      background: #ececec;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+  .section{
+    color: #818181;
+  }
+}
+// 表单选择弹框
+.modal-form{
+  display: none;
+  .title{
+    display: flex;
+    position: relative;
+    height: 1rem;
+    line-height: 1rem;
+    &::after{
+      .setBottomLine()
+    }
+    .current{
+      color: @default_color;
+      border-bottom: 1px solid @default_color;
+    }
+    span{
+      padding: 0 .1rem;
+    }
+  }
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: .3rem 0 .1rem;
+  }
+  li{
+    width: 2.8rem;
+    height: 3.4rem;
+    background: #eee;
+    margin-bottom: .2rem;
+    list-style: none;
+    padding: .1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    >div{
+      border: 1px dashed @default_color;
+      padding: .1rem;
+      text-align: left;
+      font-size: .24rem;
+    }
+    p{
+      background: #fff;
+      height: .4rem;
+      line-height: .4rem;
+      padding: 0 .2rem;
+      margin-bottom: .1rem;
+      border-radius: 3px;
+    }
+    .message{
+      height: .8rem;
+    }
+    .submit{
+      background: @default_color;
+      color: #fff;
+      font-size: .28rem;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+// 音乐选择框
+.modal-music{
+  display: none;
+  .title{
+    display: flex;
+    position: relative;
+    height: 1rem;
+    line-height: 1rem;
+    &::after{
+      .setBottomLine()
+    }
+    .current{
+      color: @default_color;
+      border-bottom: 1px solid @default_color;
+    }
+    span{
+      padding: 0 .3rem;
+    }
+  }
+  ul{
+    max-height: 5rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0 .3rem;
+    height: 1.1rem;
+    line-height: normal;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    &:active{
+      background: #ececec;
+    }
+    &.current{
+      color: @default_color;
+      .name{
+        color: inherit;
+      }
+    }
+    span{
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACgUlEQVR4Xu2bwXXaQBCGv3EM1zgduASXkFJwB9LB8HITpzwnh0AHUEGcCmIqMKnAoQNyD948Sehhv5eQtTSSZiX2jJadT/PP/rOShJ4P6Xn8nACcMqDnBE4S6HkC+BdB94krHF8RLnH8BBKZsAwdoLcE3C2PWfAvxz3CVG64DxWEFwD3kUve8HgkyAU7pvIhy4yghh+Az7zH8f0/kW0RZpwzl5htKBQ0AeQx5/Uhlgl3IUDQB3CIOq0LsYxZWwZRJ4Ai7gUDYquyaAJACiKrD3LD1Fo2NAXgUB/OuLa0bTYL4Hl92HFtYdtsC0CRETOGTNusD+0CyDFscURt2WoLAAphrBHipuuDJQCFLO54Im6qPtgDUOSDkDRhq+0CONjqWttu2wCeb5s1td2hADjYauW2OzQA6rY6RACqbXe4AJTa7i4AqNR2dwlAXh/S0+oxc9+2u2sAirjnMibygdBVAMjY75lHZwEw4J1Pm91NAI6lTBj1VQLe+k8BdSkDVkD02mP4LgDY7E+USj2ICReA4xcwkwmJj9b/9ZswATiWPJFonBqFBmCFkGieG4YCYLO3uIsq6f63a+0DcEwZMvMxNWXgWAbwjR2Rhs6PgbEHwPGDMyJNnYcBIN3WJDMy6joPAcCcAUldOrcMYMWOUd06twhggzBqSud2ACjZ1zLbXftWOLWvQ6I2dN52BpRqUzXvclsAKrWp4QLY67xO+6oJR9cJKrapmkFWl0D6qjw8HJlIvU01BSBdjLvNXnZ8+2JhLdlXTTheEsgA5B9MpN8H5BBqblM1g6wsgWIC94ULfnPFOWtr+3lZYN4ZUPYPrF93AmD9DtW9vlMG1E3Y+vy9z4A/qxJHUE7Da9AAAAAASUVORK5CYII=") no-repeat center;
+      background-size: 50%;
+      margin-right: .2rem;
+      width: .5rem;
+      height: .5rem;
+      border: 2px solid #ddd;
+      border-radius: 50%;
+    }
+    div{
+      flex: 1;
+      p{
+        .ellipsisLn(1)
+      }
+    }
+    .name{
+      color: #202020;
+      font-size: .34rem;
+    }
+  }
+  .nothing{
+    span{
+      position: relative;
+      background: none;
+      transform: rotateZ(60deg);
+      &::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        border-top: 2px solid #ddd;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
       }
     }
   }

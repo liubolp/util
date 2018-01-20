@@ -11,11 +11,16 @@ window.addEventListener('load', function () {
       // 浮沉导航操作
       $('.nav-box').on('click', '.toggle,.mask', function (e) {
         var modal = $('.modal-nav')
-        if ($(this).hasClass('mask')) { // 关闭弹框
-          modal.fadeOut()
+        if ($(this).hasClass('mask') || modal.hasClass('show')) { // 关闭弹框
+          modal.removeClass('show')
+          setTimeout(function () {
+            modal.hide()
+          }, 200)
           return
         }
-        modal.fadeIn()
+        modal.show(16, function () {
+          modal.addClass('show')
+        })
       })
       // 添加分类
       $('.category .add').click(function (e) {
