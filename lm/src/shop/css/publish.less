@@ -1,0 +1,161 @@
+@import "../../../common/reset/rest";
+body{
+  padding-bottom: 1rem;
+}
+div{
+  .setTapColor()
+}
+.img-box{
+  background: #fff;
+  padding: .16rem .24rem;
+  position: relative;
+  margin-bottom: .1rem;
+  img{
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid #ddd;
+    margin-right: .2rem;
+    vertical-align: middle;
+  }
+  input{
+    position: absolute;
+    top: .16rem;
+    left: .24rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    z-index: 1;
+    opacity: 0;
+  }
+}
+.items{
+  padding: 0 .24rem;
+  background: #fff;
+  margin-bottom: .1rem;
+  li{
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: flex-start;
+    padding: .2rem 0;
+    &:last-child{
+      border-bottom-color: transparent;
+    }
+  }
+  input{
+    flex: 1;
+    font-size: inherit;
+    &:disabled{
+      background: #fff;
+      color: #333;
+    }
+  }
+  .name{
+    margin-right: .3rem;
+  }
+  .arrow{
+    .setArrow(down,.3rem,#ddd,.02rem);
+    top: 0;
+    right: .1rem;
+  }
+}
+.edit{
+  padding: 0 .24rem;
+  background: #fff;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: bold;
+  font-size: .34rem;
+  &:active{
+    background: #ececec;
+  }
+  .arrow{
+    float: right;
+    .setArrow(right,.3rem,#ddd,.02rem);
+    top: .36rem;
+    right: .04rem;
+  }
+}
+.shop-details{
+  display: none;
+  padding: 0 .24rem;
+  margin: .4rem 0;
+  >.title{
+    border-bottom: 1px solid #ddd;
+    font-size: .34rem;
+    margin-bottom: .2rem;
+  }
+}
+#submit{
+  position: fixed;
+  left: .24rem;
+  width: 7.02rem;
+  bottom: .2rem;
+  height: .8rem;
+  line-height: .8rem;
+  border-radius: 5px;
+  background: @default_color;
+  font-size: .36rem;
+  color: #fff;
+  &:active{
+    background: lighten(@default_color,10%);
+  }
+}
+// 编辑弹窗
+.modal-edit{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 11;
+  >.mask{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.4);
+  }
+  >.content{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    padding: .3rem .24rem .8rem;
+    >.section{
+      padding: .3rem 0;
+      max-height: 60vh;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  .header{
+    font-size: .34rem;
+    border-bottom: 1px solid #ddd;
+  }
+  .footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid #ddd;
+    height: .8rem;
+    line-height: .8rem;
+    button{
+      background: #fff;
+      font-size: inherit;
+      flex: 1;
+      border-right: 1px solid #ddd;
+      &:active{
+        color: @default_color;
+      }
+      &.confirm{
+        border-right-color: transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+extends ../../common/layout/layout
+block append meta
+  title 个人中心
+block content
+  header.header-box
+    a(href='javascript:;').notice
+      i.iconfont &#xe649
+      p 消息
+      span.count 1
+    a(href='javascript:;').setting
+      i.iconfont &#xe649
+      p 设置
+    a(href='javascript:;').invite
+      i.iconfont.arrow &#xa001
+      span 邀请好友
+    a(href='javascript:;').info
+      span 资料
+        br
+        | 95%
+      i.arrow.iconfont &#xa002
+    div.personal
+      a.avatar(href='javascript:;')
+        img(src='images/star-full.png')
+        i.vip.vip_icon_0
+      p
+        span.nickname 这里是用户昵称
+        i.iconfont &#xe638
+      a(href='javascript:;').credit
+        span 诚信等级
+        span
+          i.full
+          i.full
+          i.half
+          i.nothing
+          i.nothing
+        span.iconfont &#xa002
+  //- 快速入口
+  // 会员信息概要
+  ul.customer-summary
+    li
+      a(href='javascript:;').upgrade
+        span 创客
+        p.details 至2038-01-09
+    li
+      a(href='javascript:;')
+        span 商脉
+        p.details 每天10/10个
+    li
+      a(href='javascript:;')
+        span 数据统计
+        p.details 盟友/收益
+  // 推广中心
+  div.expend
+    a(href='javascript:;') 推广中心
+      i.iconfont &#xa002
+  // 功能列表切换
+  section.tab-container
+    div.tabs
+      span(data-target='base').current
+        i.iconfont &#xa001
+        | 常用功能
+      span(data-target='advance')
+        i.iconfont &#xa001
+        | 高级功能
+    div#base
+      div.item-container
+        p.title 名片管理
+        ul.list
+          -for(var i=0;i<8;i++)
+            li(class={new:i===0})
+              a(href='javascript:;')
+                i.iconfont &#xa054
+                span 编辑名片
+      div.item-container
+        p.title 名片管理
+        ul.list
+          -for(var i=0;i<8;i++)
+            li
+              a(href='javascript:;')
+                i.iconfont &#xa054
+                span 编辑名片

@@ -1,0 +1,46 @@
+extends ../../common/layout/layout
+block append meta
+  title 发布商品
+block localCss
+  link(rel='stylesheet' href='./css/publish.css')
+block footerJs
+  script(src='./js/publish.js')
+block footer
+block footerCss
+block content
+  section.container
+    div.img-box
+      img(src='images/kaidian.png')
+      input(type='file' name='file' accept='image/*')
+      span 封面图
+    ul.items
+      li
+        span.name 标题
+        input(name='title' placeholder='请输入标题名称')
+      li.category
+        span.name 所属分类
+        input(name='category' placeholder='请选择分类' disabled)
+        i.arrow
+      li
+        span.name 价格
+        input(name='price' placeholder='请输入价格' type='number')
+      li
+        span.name 会员价格
+        input(name='discount' placeholder='请输入会员价格' type='number')
+    div.edit
+      | 点击编辑商品详情
+      i.arrow
+    // 商品详情
+    div.shop-details
+      p.title 商品介绍
+      div.content 里面
+  button#submit 发布
+  // 编辑弹窗
+  div.modal-edit
+    div.mask
+    div.content
+      div.header 商品介绍
+      div.section 里面是商品介绍内容
+      div.footer
+        button.cancel 取消
+        button.confirm 确定

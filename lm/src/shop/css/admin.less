@@ -118,13 +118,28 @@ body{
     vertical-align: bottom;
     border-radius: 5px;
     margin-right: .1rem;
+    flex-shrink: 0;
+  }
+  .content{
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+  .statistics{
+    display: flex;
+    justify-content: space-around;
+    font-size: .24rem;
+    color: #888;
+    .count{
+      margin-right: 3px;
+    }
+    >div{
+      flex: 0 0 50%;
+      .ellipsisLn(1)
+    }
   }
   .name{
-    .ellipsisLn(1)
-  }
-  .desc{
-    font-size: .26rem;
-    color: #b0b0b0;
     .ellipsisLn(2)
   }
   .btns{

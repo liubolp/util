@@ -34,7 +34,13 @@ block content
             img(src='images/tupian.png')
             div.content
               p.name 这是一个商店名
-              p.desc 主营：书籍、报纸、书籍、报纸、书籍、报纸
+              div.statistics
+                div.read
+                  span.count 100
+                  | 阅读
+                div.share
+                  span.count 20
+                  | 分享
           div.btns
             button.copy 复制商品
             button.default(class={current:i===0}) 设为默认
