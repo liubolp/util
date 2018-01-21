@@ -1,0 +1,82 @@
+/*打赏框*/
+.modal-reward{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0);
+  z-index: 11;
+  .content{
+    position: absolute;
+    width: 6.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px 0 #ccc;
+  }
+  .amount-list{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    justify-content: space-between;
+    text-align: center;
+    font-size: .3rem;
+    li{
+      list-style: none;
+      flex: 0 0 40%;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+    }
+    .selected{
+      background: @default_color;
+      color: #fff;
+    }
+  }
+  .amount{
+    padding-left: 10px;
+    p{
+      margin: 0 0 10px -10px;
+    }
+    input{
+      border: 1px solid #ccc;
+      outline: none;
+      width: 100%;
+      font-size: .3rem;
+      line-height: inherit;
+      padding: 0 5px;
+      -webkit-appearance: none;
+      border-radius: 0;
+      .setTapColor()
+    }
+  }
+  .header{
+    .close{
+      .setClose();
+      right: 15px;
+      top: 20px;
+    }
+  }
+  .footer{
+    text-align: center;
+    margin-top: 20px;
+    .pay{
+      border: none;
+      background: @default_color;
+      outline: none;
+      .setTapColor();
+      border-radius: 5px;
+      width: 3rem;
+      height: .8rem;
+      color: #fff;
+      line-height: .8rem;
+      font-size: .32rem;
+      &:active{
+        background: lighten(@default_color, 10%);
+      }
+    }
+  }
+}

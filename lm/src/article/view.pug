@@ -6,6 +6,12 @@ block localCss
   link(rel='stylesheet' href='./css/view.css')
 block footerJs
   script(src='./js/view.js')
+  // 解决iOS自动播放
+  script.
+    //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      document.getElementById('audio').play();
+    }, false)
 block footer
 block footerCss
 block content
@@ -17,12 +23,32 @@ block content
           img(src='images/lm.png')
         span.nickname 魂归梦里
         time.time 2018-12-12
-        a.card(href='javascript:;') 我的名片
+        a.card(href='javascript:;') 换成我的
     // 具体文章内容
     article.content 里面是文章内容
     // 文章底部信息
     div.operations
       p.from 来自：凤凰网
+      // 表单信息
+      div.forms
+        div.title
+          p.form-name 报名
+          span.remove 删除
+        div.form-box
+          form.form
+            div.name
+              span 姓名：
+              input(name='name' placeholder='请输入姓名' )
+            div.tel
+              span 电话：
+              input(name='tel' placeholder='请输入电话' type='tel' )
+            div.address
+              span 地址：
+              input(name='address' placeholder='请输入地址' )
+            div.message
+              span 留言：
+              textarea(name='message' placeholder='请输入留言' )
+            button.submit(type='button') 提交
       p.notice 版权声明：感谢作者的辛苦创作，如转载设计版权问题，请与我们联系处理！
       div.statistics
         div.read
@@ -59,7 +85,13 @@ block content
           i.vip.vip_icon_0
         div.credit
           span 诚信等级
-          span xxx
+          // full 一颗星；half 半颗星；nothing 空星
+          span.star
+            i.full
+            i.full
+            i.half
+            i.nothing
+            i.nothing
         ul.info
           li
             span
@@ -82,8 +114,20 @@ block content
             span.shirk 15221252132
         button.message 给我留言
       div.qr-box
-        div.mark 我要制作
+        a.make(href='javascript:;') 我要制作
         div.qr
-          img(src='images/lm.png')
-        div.desc 长按二维码微信交流
-  audio#audio(src='' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
+          img(src='images/noimage.png')
+        //div.desc 长按二维码微信交流
+        // 没有上传二维码时显示下面的内容
+        div.desc 微信二维码尚未设置
+          br
+          a(href='javascript:;') 立即去设置
+  //- 打赏
+  include ../../common/component/modal-reward/index
+  //- 留言
+  include ../../common/component/modal-message/index
+  // 音乐框
+  div.music-box.play
+    div.music
+      audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
+      i.article-icon &#xe60a
