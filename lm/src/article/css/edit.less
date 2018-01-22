@@ -1,4 +1,5 @@
 @import "../../../common/reset/rest";
+@import "../../../common/reset/level";
 body{
   font-size: .3rem;
 }
@@ -238,6 +239,57 @@ article.content{
     background: #fafafa;
     padding: .1rem;
     margin: .1rem 0;
+  }
+}
+// 底部广告
+.banner-bottom{
+  background: #fff;
+  margin: .2rem -.24rem;
+  padding: .2rem;
+  font-size: .28rem;
+  .container{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: .3rem .2rem;
+  }
+  img{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+  }
+  .img-box{
+    position: relative;
+    flex-shrink: 0;
+    margin-right: .2rem;
+  }
+  .vip{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .content{
+    flex: 1;
+    padding-right: .2rem;
+    p{
+      .ellipsisLn(1)
+    }
+  }
+  .name{
+    font-weight: bold;
+  }
+  .follow{
+    border: 1px solid #008000;
+    color: #008000;
+    border-radius: 5px;
+    line-height: .5rem;
+    text-align: center;
+    padding: 0 .1rem;
+    &:active{
+      color: @default_color;
+      border-color: @default_color;
+    }
   }
 }
 .publish{

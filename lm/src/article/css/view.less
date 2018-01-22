@@ -36,9 +36,21 @@ div,input,textarea,button{
 .personal{
   display: flex;
   align-items: center;
-  margin: .4rem -.24rem;
-  padding: 0 .24rem .3rem;
+  margin: 0 -.24rem .4rem;
+  padding: .4rem .24rem .3rem;
   border-bottom: 1px solid #ddd;
+  &.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background: #fff;
+    margin: 0;
+    & + article{
+      margin-top: 1.3rem;
+    }
+  }
   img{
     width: .5rem;
     height: .5rem;

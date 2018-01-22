@@ -1,0 +1,45 @@
+extends ../../common/layout/layout
+block append meta
+  title 创建文章
+block script
+block localCss
+  link(rel='stylesheet' href='./css/create.css')
+block footerJs
+  script(src='./js/create.js')
+block content
+  header.fixed-header
+    ul.tabs
+      li
+        a.myself(href='index.html')
+          i.article-icon &#xe6dc
+          span 我的文章
+      li
+        a.create.current(href='create.html')
+          i.article-icon &#xe6de
+          span 新要原创
+      li
+        a.get(href='get.html')
+          i.article-icon &#xe6dd
+          span 抓取文章
+    div.input-box
+      input(name='search' placeholder='搜索' type='search')
+      i.article-icon &#xe6fe
+    ul.tab
+      li.current 最新
+      li 每日
+      li 节日
+      li 祝福
+      li 心情
+      li 祝福
+      li 心情
+      li 祝福
+      li 心情
+      li 祝福
+      li 心情
+  // 缩略图处理
+  ul.thum-list
+    -for(var i=0;i<16;i++)
+      li
+        a(href='javascript:;')
+          img(src='../clock-in/images/tupian.png')
+          p.name 吸血蔷薇

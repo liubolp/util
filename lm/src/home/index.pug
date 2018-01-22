@@ -2,29 +2,195 @@ extends ../../common/layout/layout
 block append meta
   title 个人中心
 block content
+  -
+    var data = {
+    key1: [
+    {
+    icon: '&#xe6e2',
+    color: '#ff3d09',
+    name: '编辑名片',
+    isNew: false,
+    isSpec: false
+    }, {
+    icon: '&#xe68e',
+    color: '#a4abff',
+    name: '复制名片',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe6b2',
+    color: '#55ac37',
+    name: '多名片',
+    isNew: false,
+    isSpec: true
+    },{
+    icon: '&#xe73d',
+    color: '#298b58',
+    name: '名片模板',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe60c',
+    color: '#c53e84',
+    name: '个性录音',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe69d',
+    color: '#ff8f09',
+    name: '名片红包',
+    isNew: false,
+    isSpec: true
+    },{
+    icon: '&#xe6b4',
+    color: '#da1d07',
+    name: '名片音乐',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe61a',
+    color: '#968cc1',
+    name: '名片夹',
+    isNew: false,
+    isSpec: false
+    }
+    ],
+    key2: [
+    {
+    icon: '&#xe65e',
+    color: '#fe6076',
+    name: '会员特权',
+    isNew: true,
+    isSpec: false
+    }, {
+    icon: '&#xe6fc',
+    color: '#59b361',
+    name: '我要代理',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe618',
+    color: '#ffdd75',
+    name: '我的订单',
+    isNew: false,
+    isSpec: false,
+    isPending: true
+    },{
+    icon: '&#xe6cd',
+    color: '#ae66ff',
+    name: '使用教程',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe642',
+    color: '#ea5106',
+    name: '联系客服',
+    isNew: false,
+    isSpec: false
+    } ],
+    advance1:[
+    {
+    icon: '&#xe652',
+    color: '#38a6e1',
+    name: '海报秀',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe64e',
+    color: '#9b92c3',
+    name: 'H5秀',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe610',
+    color: '#f6ac99',
+    name: '文章秀',
+    isNew: false,
+    isSpec: true
+    },{
+    icon: '&#xe664',
+    color: '#46ace1',
+    name: '视频秀',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe6f4',
+    color: '#01f8a2',
+    name: '祝福贺卡',
+    isNew: true,
+    isSpec: false
+    },{
+    icon: '&#xe6df',
+    color: '#298b58',
+    name: '我的相册',
+    isNew: false,
+    isSpec: false
+    }
+    ],
+    advance2:[
+    {
+    icon: '&#xe644',
+    color: '#5faf80',
+    name: '装修商店',
+    isNew: false,
+    isSpec: false
+    },
+    {
+    icon: '&#xe631',
+    color: '#c6982b',
+    name: '商品复制',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe7da',
+    color: '#9364ff',
+    name: '多商店',
+    isNew: false,
+    isSpec: true
+    },{
+    icon: '&#xe6f2',
+    color: '#cf9e2a',
+    name: '商品订单',
+    isNew: false,
+    isSpec: false,
+    isPending: true
+    }
+    ]
+    }
+  mixin item (title,list)
+    div.item-container
+      p.title=title
+      ul.list
+        each item in list
+          li(class={new:item.isNew,spec:item.isSpec})
+            a(href='javascript:;')
+              i.icon-home(style ='color:'+item.color)!=item.icon
+              span=item.name
+            if item.isPending
+              span.num 9
   header.header-box
     a(href='javascript:;').notice
-      i.iconfont &#xe649
+      i.icon-home &#xe6ae
       p 消息
       span.count 1
     a(href='javascript:;').setting
-      i.iconfont &#xe649
+      i.icon-home &#xe6f3
       p 设置
     a(href='javascript:;').invite
-      i.iconfont.arrow &#xa001
+      i.icon-home.arrow &#xe6d1
       span 邀请好友
     a(href='javascript:;').info
       span 资料
         br
         | 95%
-      i.arrow.iconfont &#xa002
+      i.arrow.icon-home &#xe6ab
     div.personal
       a.avatar(href='javascript:;')
         img(src='images/star-full.png')
         i.vip.vip_icon_0
       p
-        span.nickname 这里是用户昵称
-        i.iconfont &#xe638
+        // 已认证添加verify
+        span.nickname.verify 这里是用户昵称
       a(href='javascript:;').credit
         span 诚信等级
         span
@@ -33,7 +199,7 @@ block content
           i.half
           i.nothing
           i.nothing
-        span.iconfont &#xa002
+        span.icon-home &#xe6f1
   //- 快速入口
   // 会员信息概要
   ul.customer-summary
@@ -51,31 +217,20 @@ block content
         p.details 盟友/收益
   // 推广中心
   div.expend
-    a(href='javascript:;') 推广中心
-      i.iconfont &#xa002
+    a(href='javascript:;') 领取我的早安图
+      i.icon-home &#xe6ab
   // 功能列表切换
   section.tab-container
     div.tabs
       span(data-target='base').current
-        i.iconfont &#xa001
+        i.icon-home &#xe6b1
         | 常用功能
       span(data-target='advance')
-        i.iconfont &#xa001
+        i.icon-home &#xe6b0
         | 高级功能
     div#base
-      div.item-container
-        p.title 名片管理
-        ul.list
-          -for(var i=0;i<8;i++)
-            li(class={new:i===0})
-              a(href='javascript:;')
-                i.iconfont &#xa054
-                span 编辑名片
-      div.item-container
-        p.title 名片管理
-        ul.list
-          -for(var i=0;i<8;i++)
-            li
-              a(href='javascript:;')
-                i.iconfont &#xa054
-                span 编辑名片
+      + item('名片管理',data.key1)
+      + item('会员服务',data.key2)
+    div#advance
+      + item('推广名片',data.advance1)
+      + item('商店管理',data.advance2)
