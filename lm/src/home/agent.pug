@@ -1,0 +1,104 @@
+extends ../../common/layout/layout
+block append meta
+  title 我要代理
+block script
+block footer
+block footerCss
+block footerJs
+  script(src='js/agent.js')
+block localCss
+  link(rel='stylesheet' href='./css/agent.css')
+block content
+  div.privilege
+    div.notice
+      span 恭喜某某成为超级会员
+  ul.items
+    li
+      p.title 特权一
+      p.name 收益特权
+      p.desc 月入上万不过小菜一碟
+      div.iframe
+        iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+      p.small 轻松用名片挣取丰沃收益
+    li
+      p.title 特权二
+      p.name 功能特权
+      p.desc 专享链脉名片几大核心功能
+      div.iframe
+        iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+      p.small 颠覆传统体验，让营销更简单
+    li
+      p.title 特权三
+      p.name 学习特权
+      p.desc 享受平台赠送的多种课程福利
+      div.iframe
+        iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+      p.small 源源不断的学习机会，提升个人综合能力
+    li
+      p.title 特权四
+      p.name 制作特权
+      p.desc 您的名片，专人替您制作
+      div.iframe
+        iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+      p.small 从专业角度制作适合您的名片，省心、省事
+    li
+      p.title 特权五
+      p.name 摇一摇特权
+      p.desc 赠送摇一摇神器，收获好友有奇效
+      div.iframe
+        iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+      p.small 使千百人瞬间摇出您的个人名片，快速锁粉
+  // 礼包列表
+  div.gift-list
+    div
+      div
+        p.name 终身
+        del 原价 3800元
+      div.content
+        p.num 1980
+         small 元
+        p.pre
+         span.num 0.05元
+         |/天
+      a.pay(href='javascript:;') 立即开通
+    ul
+      li
+        span.no 1.
+        div
+          p.name 30张价值1.35万名片VIP
+          p.desc (100张39元/月，20张299元/年，10张365/3年)
+        a(href='javascript:;') 查看详情
+      li
+        span.no 2.
+        div
+          p.name 获代理资格，销售提成45%
+          p.desc (可获创客会员的销售提成)
+        a(href='javascript:;') 查看详情
+      li
+        span.no 3.
+        div
+          p.name 获价值1.28万《名片落地赢》
+          p.desc (可获创客会员的销售提成)
+        a(href='javascript:;') 查看详情
+      li
+        span.no 4.
+        div
+          p.name 获价值1.98万《润阳演说力》
+          p.desc (可获创客会员的销售提成)
+        a(href='javascript:;') 查看详情
+      li
+        span.no 5.
+        div
+          p.name 获价值1980元“智能摇一摇名片”一个
+          p.desc (可获创客会员的销售提成)
+        a(href='javascript:;') 查看详情
+      li
+        span.no 6.
+        div
+          p.name 获价值599元制作权一个
+          p.desc (可获创客会员的销售提成)
+        a(href='javascript:;') 查看详情
+  // 立即开通
+  a(href='javascript:;')#submit 立即开通 （每天仅需
+    span.num 0.5元
+    |）

@@ -24,16 +24,10 @@ block content
     a.cover-info(href='javascript:;')
       img.avatar(src='./images/tupian.png')
       span 某某占领了封面
-  // 参与人数
-  div.join 已有5000人参与
+    // 参与人数
+    div.join 已有5000人参与
   // 个人信息
   div.personal-box
-    div.avatar-box
-      img.avatar(src='./images/tupian.png')
-      i.level.vip_icon_0
-    div.nickname-box
-      span.nickname 天天好心
-      span.ranking 124
     // 打卡入口
     div.clock.active.hide
       div
@@ -61,11 +55,30 @@ block content
       p 每天
         time.time 6:00~9:00
         | 开始打卡，前100名平分挑战金
+    // 打卡说明
+    div.details
+      p 1.点击排名头像可进入名片
+      p 2.占领封面，霸屏广告
+        span.num 18小时
+      p 3.获取专属早安图和早安播报
   // 排名切换
   ul.tab
     li.current 全国排名
     li 夜听排名
     li 好友排名
+  // 自己的排名
+  div.myself
+    span.order 989
+    div.avatar-box
+      img.avatar(src='./images/tupian.png')
+      i.level.vip_icon_0
+    div.content
+      p
+        // 如果当前用户已经实名认证就加上verify
+        span.name.verify 陈润阳
+          i
+        span.title 讲师，董事长
+      p.company 重庆链脉网络科技有限公司
   // 名次列表
   // 如果没有排名给list添加nothing
   ul.list

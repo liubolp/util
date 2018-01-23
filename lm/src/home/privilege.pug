@@ -1,0 +1,116 @@
+extends ../../common/layout/layout
+block append meta
+  title 会员特权
+block script
+block footer
+block footerCss
+block footerJs
+  script(src='js/privilege.js')
+block localCss
+  link(rel='stylesheet' href='./css/privilege.css')
+block content
+  div.privilege
+    div.notice
+      p
+        span 恭喜
+          span.name 某某
+          |成为超级会员
+    div.vip-list
+      ul
+        li
+          p.divider
+        li.item
+          div.header.show
+            div.content
+              p.title 展示价值
+              p.desc 720°全方位展示，图文视听
+            button.toggle 详情
+              i.arrow.down
+          div.source
+            div.iframe
+              iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+            p 一个页面的展示方式，让客户一眼记住你
+        li.item
+          div.header.expend
+            div.content
+              p.title 推广价值
+              p.desc 多渠道曝光，提升10倍获客效率
+            button.toggle 详情
+              i.arrow.down
+          div.source
+            div.iframe
+              iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+            p 每次分享都嵌入您的个人名片，裂变引流
+        li.item
+          div.header.friend
+            div.content
+              p.title 人脉价值
+              p.desc 获取精准人脉，助力事业
+            button.toggle 详情
+              i.arrow.down
+          div.source
+            div.iframe
+              iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+            p 各行各业精英人物，信息真实，全面，快速结交
+        li.item
+          div.header.shop
+            div.content
+              p.title 商店价值
+              p.desc 专属个人商店，让成交变得简单
+            button.toggle 详情
+              i.arrow.down
+          div.source
+            div.iframe
+              iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+            p 线上订单，线下成交，轻松销售产品
+        li.item
+          div.header.vip
+            div.content
+              p.title 尊贵会员标识价值
+              p.desc 特别显示，提升个人影响力
+            button.toggle 详情
+              i.arrow.down
+          div.source
+            div.iframe
+              iframe(src='https://v.qq.com/iframe/player.html?vid=m052445ajcy&tiny=0&auto=0' frameborder='0' width='100%' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-forms allow-top-navigation")
+            p 与众不同的会员标识，彰显身份
+    // 价目表
+    div.price-list
+      p.header 已有
+        span.count 9897006
+        | 位营销精英开通
+      p.divider
+      ul
+        li(data-type='1')
+          p.title 一个月
+          div.details
+            p.old-price 原价59元
+            p.discount 限时
+              span.num 5.7折
+            p.now-price 39元
+          p.pre 1.07元/天
+        li.current.recommend(data-type='2')
+          p.title 一年
+          div.details
+            p.old-price 原价699元
+            p.discount 限时
+              span.num 4.2折
+            p.now-price 299元
+          p.pre 0.82元/天
+        li.spec(data-type='3')
+          p.title 三年
+          div.details
+            p.old-price 原价1980元
+            p.discount 限时
+              span.num 1.8折
+            p.now-price 365元
+          p.pre 1.07元/天
+      a(href='javascript:;').pay 马上开通
+      p.desc 支付即表示同意并接受此
+        a(href='javascript:;').protocol 服务协议
+    // 开通
+    a.submit(href='javascript:;') 低至
+      span.num 0.33
+      | 元/天  马上开通
+    // 我要代理
+    a(href='agent.html')#agent.animate 我要代理
