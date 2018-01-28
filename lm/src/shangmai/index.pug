@@ -3,6 +3,111 @@ block append meta
   title 商脉
 block script
 block content
+  div.fixed-header
+    div
+      i.sm-icon &#xe6ff
+    div.flex
+      div.btns
+        a(href='javascript:;').current 找商脉
+        a(href='javascript:;') 找商群
+    div
+      i.sm-icon &#xe709
+  // 统计信息
+  div.statistics
+    div.search-box
+      input.keyword(name='keyword' placeholder='请输入姓名、手机、公司名称')
+      button.search 搜索
+    div.item
+      div.icon-box
+        i.sm-icon &#xe706
+      div.name 名片夹
+      div.content
+        img.avatar(src='../article/images/lm.png')
+        img.avatar(src='../article/images/lm.png')
+        img.avatar(src='../article/images/lm.png')
+        img.avatar(src='../article/images/lm.png')
+      div.arrow-box
+        i.arrow
+    div.item
+      div.icon-box(style='background-color:#4ec34e')
+        i.sm-icon &#xe70a
+      div.name 交友历程
+      div.content
+        img.avatar(src='../article/images/lm.png')
+        img.avatar(src='../article/images/lm.png')
+        img.avatar(src='../article/images/lm.png')
+        img.avatar(src='../article/images/lm.png')
+      div.arrow-box
+        i.arrow
+    div.divider
+    div.item
+      div.icon-box(style='background-color:#5a9fe2')
+        i.sm-icon &#xe70b
+      div.name 人脉统计
+      div.content
+        span.num 1000+
+      div.arrow-box
+        i.arrow
+    div.item
+      div.icon-box(style='background-color:#8c8ddf')
+        i.sm-icon &#xe708
+      div.name 代理统计
+      div.content
+        span.num 1000+
+      div.arrow-box
+        i.arrow
+  // 统计过滤
+  div.filters
+    div
+      span.type 切换行业
+      div.container
+        span.name 教育培训
+        i.arrow
+    div
+      span.type 切换城市
+      div.container
+        span.name 重庆市
+        i.arrow
+    div
+      span.type 实名认证
+      div.container
+        span.name 已认证
+        i.arrow
+  // 列表信息
+  ul.sm-list
+    -for(var i=0;i<3;i++)
+      li
+        div.personal
+          a.avatar(href='javascript:;')
+            img(src='../article/images/lm.png')
+            i.vip.vip_icon_0
+        div.content
+          div.name-box
+            span.nickname 添加粉丝
+            a(href='javascript:;').credit
+              span.mark 诚信度
+              span
+                i.full
+                i.full
+                i.half
+                i.nothing
+                i.nothing
+          p.category 重庆、教育培训
+          p.company 重庆链脉网络科技有限公司
+          p.post 行政助理
+          div.info
+            div
+              span.name.demand 需求
+              div.desc 需求描述信息
+            div
+              span.name.supply 供应
+              div.desc 供应信息描述
+            div
+              span.name.recruitment 招聘
+              div.desc 这里是招聘信息
+        div.operation
+          button.wechat +微信
+          button.friend +好友
   div.container
   div.nav-box
     div.toggle

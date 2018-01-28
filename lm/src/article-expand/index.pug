@@ -2,8 +2,133 @@ extends ../../common/layout/layout
 block append meta
   title 文章推广
 block script
+block append weui
+  link(href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet")
+  script(src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js")
 block content
-  div.container
+  // 顶部banner
+  div.swiper-container
+    ul.banner.swiper-wrapper
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片1')
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片2')
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片3')
+      li.item.swiper-slide
+        a(href='javascript:;')
+          img(src='' alt='图片4')
+    div.swiper-pagination
+  // 搜索框
+  div.input-box
+    input(name='search' placeholder='搜索' type='search')
+    i.article-icon &#xe6fe
+  // tabs
+  ul.tabs
+    li
+      a.myself.current(href='javascript:;')
+        i.article-icon &#xe6dc
+        span 平台文章
+    li
+      a.create(href='create.html')
+        i.article-icon &#xe6de
+        span 企业头条
+    li
+      a.get(href='get.html')
+        i.article-icon &#xe6dd
+        span 推广工具
+  div.articles
+    // 推荐文章
+    div.recommend
+      header
+        span.name 今日推荐文章
+        span.change
+          i.article-icon &#xe701
+          | 换一批
+      section
+        ul
+          -for(var i=0;i<3;i++)
+            li.list
+              a.avatar(href='javascript:;')
+                img(src='../article/images/lm.png')
+              div.desc
+                p.title 国家发改委今日公布信息！国家发改委今日公布信息！国家发改委今日公布信息！
+                div
+                  div.statistics
+                    span.time 3小时前
+                    span.view 阅读：68883
+                    span.share 分享：3456
+                  div.operation
+                    span.top 置顶
+                    span.reward
+        // 分类选择
+        div.category
+          ul.category-list
+            li 分类一
+            li 分类一
+            li 分类一
+            li 分类一
+            li 分类一
+      footer
+        a.more(href='javascript:;')
+          i.article-icon &#xe702
+          | 更多分类
+    div.recommend
+      header
+        span.name 今日推荐文章
+        span.change
+          i.article-icon &#xe701
+          | 换一批
+      section
+        ul
+          -for(var i=0;i<3;i++)
+            li.list
+              a.avatar(href='javascript:;')
+                img(src='../article/images/lm.png')
+              div.desc
+                p.title 国家发改委今日公布信息！国家发改委今日公布信息！国家发改委今日公布信息！
+                div
+                  div.statistics
+                    span.time 3小时前
+                    span.view 阅读：68883
+                    span.share 分享：3456
+                  div.operation
+                    span.top 置顶
+                    span.reward
+        // 分类选择
+        div.category
+          ul.category-list
+            li 分类一
+            li 分类一
+            li 分类一
+            li 分类一
+            li 分类一
+      footer
+        a.more(href='javascript:;')
+          i.article-icon &#xe702
+          | 更多分类
+    div.recommend
+      header
+        span.name 今日推荐文章
+        span.change
+          i.article-icon &#xe701
+          | 换一批
+      section
+        ul.list-thum
+          -for(var i=0;i<6;i++)
+            li
+              a(href='javascript:;')
+                img(src='../article/images/lm.png')
+                span.thum-name 某个工具
+      footer
+        a.more(href='javascript:;')
+          i.article-icon &#xe702
+          | 更多分类
+  include ../../common/component/modal-reward/index
+  // 浮层导航
   div.nav-box
     div.toggle
       i.nav-icon &#xe604
