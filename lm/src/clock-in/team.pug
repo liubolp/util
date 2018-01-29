@@ -1,0 +1,118 @@
+extends ../../common/layout/layout
+block append meta
+  title 团队打卡
+block script
+block footer
+block footerCss
+block footerJs
+  script(src='./js/team.js')
+block localCss
+  link(rel='stylesheet' href='./css/team.css')
+block content
+  div.team
+    div.header
+      div.name-box
+        p.name 某某某早起团队
+        div.toggle
+          span 更多
+            i.team-icon &#xe63d
+      div.statistics
+        a.personal(href='javascript:;')
+          img(src='images/tupian.png')
+          i.vip.vip_icon_0
+        div.flex
+          div.time
+            p.value --/--/--
+            p.title 打卡时间
+          div.num
+            p.value 4
+            p.title 团队排名
+          div.count
+            p.value 0天
+            p.title 累计打卡
+    div.section
+      p 1月29日团队打卡排名
+      div.title
+        span.num 排名
+        span.personal 队友
+        span.count 累计打卡
+        span.time 打卡时间
+      ul.list
+        -for(var i=0;i<4;i++)
+          li
+            div.num=i>=3?i+1:''
+            div.personal
+              a(href='javascript:;')
+                img(src='images/tupian.png')
+                i.vip.vip_icon_0
+              span.name 刷卡机覅发的
+            div.count 9天
+            div.time
+              if i===0
+                span 08:19:10
+              else if i===3
+                // data-id当前用户的身份信息
+                button.notice(data-id=i) 提醒打卡
+              else
+                // 错过打卡用这个
+                button.miss 错过打卡
+    // 喊好友加入
+    button.join 喊好友加入
+    // 更多功能
+    div.menu-box
+      ul.menu
+        li.more 更多
+        li.create
+          i.team-icon &#xe69b
+          |创建团队
+        li.exit
+          i.team-icon &#xe642
+          |退出团队
+    // 加入团队
+    div.modal-join
+      div.mask
+      div.content
+        div.desc 你确定要加入某某早起团队打卡团队吗？
+        div.btns
+          button.confirm 确定加入
+          button.cancel 再看看
+    // 加入其它团队
+    div.modal-join-other
+      div.mask
+      div.content
+        div.desc 你确定要加入某某早起团队打卡团队吗？
+          small 更换团队将从原团队（原团队名的打卡团队）退出
+        div.btns
+          button.confirm 确定加入
+          button.cancel 再看看
+    // 退出团队
+    div.modal-exit
+      div.mask
+      div.content
+        div.desc 是否要退出某某早起团队打卡团队？
+        div.btns
+          button.confirm 是的，退出
+          button.cancel 取消
+    // 创建团队
+    div.modal-create
+      div.mask
+      div.content
+        div.desc 满足任意条件即可创建房间
+          p 1、累计打卡21天
+          p 2、成功邀请2个好友参与打卡
+        div.btns
+          button.confirm 马上去邀请
+          button.cancel 取消
+    // 邀请好友
+    div.modal-invite
+      div.mask
+      div.content
+        div.bg
+        div.desc 邀请海报已通过公众号发送
+          p.invite 马上去邀请好友
+        button.confirm 知道了
+    // 分享指导
+    div.modal-share
+      div.mask
+      div.top
+      div.close
