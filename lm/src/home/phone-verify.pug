@@ -1,0 +1,21 @@
+extends ../../common/layout/layout
+block append meta
+  title 手机认证
+block localCss
+  link(rel='stylesheet' href='./css/phone-verify.css')
+block script
+block footerJs
+  //-script(src='./js/details.js')
+block footer
+block footerCss
+block content
+  div.verify
+    div.item
+      span.name 手机号
+      input(name='tel' type='tel' placeholder='请输入')
+    div.item
+      span.name 验证码
+      input(name='verify' placeholder='请输入')
+      // 禁用的时候添加disabled这个类
+      button.get-code(type='button') 免费获取验证码
+    button.submit 提交

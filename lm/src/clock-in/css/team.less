@@ -118,6 +118,9 @@
         background-size: 80%;
       }
     }
+    .personal{
+      text-align: left;
+    }
   }
   .name{
     .ellipsis();
@@ -172,10 +175,8 @@
   }
 }
 // 喊好友加入
-.join{
+.join,.clock{
   position: fixed;
-  width: 6.5rem;
-  left: .5rem;
   bottom: .1rem;
   height: .8rem;
   line-height: .8rem;
@@ -183,8 +184,24 @@
   background: @default_color;
   border-radius: 5px;
   color: #fff;
+  text-align: center;
   &:active{
     background: lighten(@default_color,10%);
+  }
+}
+.join{
+  width: 6.5rem;
+  left: .5rem;
+  &.begin{
+    width: 3rem;
+  }
+}
+.clock{
+  display: none;
+  &.begin{
+    display: block;
+    width: 3rem;
+    left: 4rem;
   }
 }
 // 更多功能列表

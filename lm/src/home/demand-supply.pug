@@ -1,0 +1,136 @@
+extends ../../common/layout/layout
+block append meta
+  title 供需信息
+block localCss
+  link(rel='stylesheet' href='./css/demand-supply.css')
+block script
+block footerJs
+  script(src='./js/demand-supply.js')
+block footer
+block footerCss
+block content
+  header.header-fixed
+    a(href='identity.html').base
+      p
+        i.star
+        span 基本资料
+      p
+        small 14/14
+    a(href='demand-supply.html').business.current
+      p
+        i.star
+        span 供需信息
+      p
+        small 3/3
+    a(href='details.html').details
+      p
+        i.star
+        span 详细资料
+      p
+        small 4/4
+  p.tips 完善必填信息 （
+    span.mark *
+    | ），即可获得半颗诚信之星
+  // 供应信息
+  div.supply.item
+    div.header
+      span.mark 供应
+      span.name.required 我拥有的资源和优势
+      span.add +
+    ul.list
+      li
+        span 选择分类
+        div.choose
+          div.category-1
+            span.name -选择-
+            i.arrow
+          div.category-2
+            span.name -选择-
+            i.arrow
+      li
+        span 选择分类
+        div.choose
+          div.category-1
+            span.name -选择-
+            i.arrow
+          div.category-2
+            span.name -选择-
+            i.arrow
+        div.remove
+      li
+        span 选择分类
+        div.choose
+          div.category-1
+            span.name -选择-
+            i.arrow
+          div.category-2
+            span.name -选择-
+            i.arrow
+        div.remove
+    // 描述信息
+    div.desc
+      p.title 描述信息
+      textarea(name='supply-desc' placeholder='请输入您的详细需求信息')
+  // 需求信息
+  div.demand.item
+    div.header
+      span.mark 需求
+      span.name.required 我需要对接的资源
+      span.add +
+    ul.list
+      li
+        span 选择分类
+        div.choose
+          div.category-1
+            span.name -选择-
+            i.arrow
+          div.category-2
+            span.name -选择-
+            i.arrow
+      li
+        span 选择分类
+        div.choose
+          div.category-1
+            span.name -选择-
+            i.arrow
+          div.category-2
+            span.name -选择-
+            i.arrow
+        div.remove
+      li
+        span 选择分类
+        div.choose
+          div.category-1
+            span.name -选择-
+            i.arrow
+          div.category-2
+            span.name -选择-
+            i.arrow
+        div.remove
+    // 描述信息
+    div.desc
+      p.title 描述信息
+      textarea(name='demand-desc' placeholder='请输入您需要对接的资源')
+  // 招聘信息
+  div.supply.item
+    div.header
+      span.mark 供应
+      span.name.required 我拥有的资源和优势
+      span.add +
+    ul.list
+      li
+        span 招聘
+        div.select
+          input(name='type' type='radio' checked)
+          span.mask
+      li
+        span 求职
+        div.select
+          input(name='type' type='radio')
+          span.mask
+    // 描述信息
+    div.desc
+      p.title 招聘信息
+      textarea(name='desc' placeholder='请输入您的招聘或求职信息，最多80个字')
+  // 保存信息
+  button.submit 保存

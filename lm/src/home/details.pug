@@ -1,0 +1,72 @@
+extends ../../common/layout/layout
+block append meta
+  title 详细信息
+block localCss
+  link(rel='stylesheet' href='./css/details.css')
+block script
+block footerJs
+  script(src='./js/details.js')
+block footer
+block footerCss
+block content
+  header.header-fixed
+    a(href='identity.html').base
+      p
+        i.star
+        span 基本资料
+      p
+        small 14/14
+    a(href='demand-supply.html').business
+      p
+        i.star
+        span 供需信息
+      p
+        small 3/3
+    a(href='details.html').details.current
+      p
+        i.star
+        span 详细资料
+      p
+        small 4/4
+  // 提示信息
+  p.tips 完善必填信息 （
+    span.mark *
+    | ），即可获得半颗诚信之星
+  // 工作经历
+  div.item
+    div.title
+      i.info-icon &#xe79c
+      span.required 工作经历
+      span.add 添加
+    ul.add-list
+      li.nothing
+        p 添加工作经历信息
+        p 吸引更多访客，提示5倍人气
+  // 教育经历
+  div.item
+    div.title
+      i.info-icon &#xe624
+      span.required 教育经历
+      span.add 添加
+    ul.add-list
+      li.nothing
+        p 添加教育经历信息
+        p 让同窗校友轻松找到你
+  // 个性特征
+  div.item
+    div.title
+      i.info-icon &#xe650
+      span 个性特征
+    ul.pick-list
+      -for(var i=0;i<10;i++)
+        li(class={selected: i >8}) 你来看我
+  // 兴趣爱好
+  div.item
+    div.title
+      i.info-icon &#xe7be
+      span 兴趣爱好
+    ul.pick-list
+      -for(var i=0;i<10;i++)
+        li(class={selected:i<3}) 你来看我
+  // 保存
+  button.submit 保存

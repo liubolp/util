@@ -1,0 +1,54 @@
+@import "../../../common/reset/rest";
+.verify{
+  margin: .3rem 0;
+  border-top: 1px solid #ddd;
+  .item{
+    background: #fff;
+    padding: .2rem .3rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    height: 1rem;
+  }
+  input{
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 0 .3rem;
+    font-size: inherit;
+    width: 2rem;
+  }
+  .name{
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .get-code{
+    background: @default_color;
+    border-radius: 5px;
+    color: #fff;
+    padding: .1rem;
+    flex-shrink: 0;
+    font-size: .28rem;
+    &:disabled{
+      background: rgb(221,221,221);
+    }
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .submit{
+    background: @default_color;
+    border-radius: 5px;
+    display: inline-block;
+    width: 6.9rem;
+    margin-left: .3rem;
+    color: #fff;
+    height: .8rem;
+    line-height: .8rem;
+    margin-top: .3rem;
+    font-size: .36rem;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+}

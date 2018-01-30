@@ -57,7 +57,9 @@ block content
                 // 错过打卡用这个
                 button.miss 错过打卡
     // 喊好友加入
-    button.join 喊好友加入
+    // 如果还未打卡就加上begin这个类，否则去掉所有button中begin这个类
+    button.join.begin 喊好友加入
+    button.clock.begin 打卡
     // 更多功能
     div.menu-box
       ul.menu

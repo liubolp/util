@@ -1,0 +1,31 @@
+extends ../../common/layout/layout
+block append meta
+  title 微信认证
+block localCss
+  link(rel='stylesheet' href='./css/wechat-verify.css')
+block script
+block footerJs
+  //-script(src='./js/details.js')
+block footer
+block footerCss
+block content
+  div.verify
+    a(href='upload.html')
+      div.content
+        p.name 上传头像
+        p.desc 图片清晰可辨识
+      div.img-box
+        img(src='images/vip.png')
+        // 没有图片时显示
+        div.add
+      i.arrow
+    a(href='upload.html')
+      div.content
+        p.name 上传二维码
+        p.desc 原图无修改信息清晰可辨别
+      div.img-box
+        img(src='images/vip.png')
+        // 没有图片时显示
+        div.add
+      i.arrow
+    button.submit 提交

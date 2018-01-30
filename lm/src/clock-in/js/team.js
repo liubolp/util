@@ -43,6 +43,10 @@ window.addEventListener('DOMContentLoaded', function () {
           app.methods.inviteFriends(0)
         }
       })
+      // 打卡操作
+      $('button.clock.begin').click(function () {
+        app.methods.clock()
+      })
       // 创建团队弹窗操作
       $('.modal-create').on('click', '.confirm,.cancel,.mask', function (e) {
         if ($(this).hasClass('confirm')) { // 邀请好友打卡
@@ -117,6 +121,14 @@ window.addEventListener('DOMContentLoaded', function () {
        */
       exitTeam () {
         console.log('退出')
+      },
+      /**
+       * 打卡操作
+       */
+      clock () {
+        console.log('打卡操作')
+        // todo 成功后去掉begin
+        $('button.begin').removeClass('begin')
       }
     }
   }

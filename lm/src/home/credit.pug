@@ -9,3 +9,62 @@ block footerJs
 block localCss
   link(rel='stylesheet' href='./css/credit.css')
 block content
+  header.credit
+    span 诚信等级
+    span.star
+      i.full
+      i.full
+      i.half
+      i.nothing
+      i.nothing
+  // 诚信列表项
+  ul.credit-list
+    li
+      div.icon-box
+        i.credit-icon &#xe6cf
+      div.content
+        p.name 实名认证
+        p.desc 可获：
+          i.mark.full
+      a.btn(href='identity.html') 去认证
+    li
+      div.icon-box
+        i.credit-icon &#xe6d3
+      div.content
+        p.name 手机认证
+        p.desc 可获：
+          i.mark.full
+      a.btn(href='phone-verify.html') 去认证
+    li
+      div.icon-box
+        i.credit-icon &#xe6d7
+      div.content
+        p.name 微信认证
+        p.desc 可获：
+          i.mark.half
+      a.btn(href='wechat-verify.html') 去认证
+    li
+      div.icon-box
+        i.credit-icon &#xe6d6
+      div.content
+        p.name 企业认证
+        p.desc 可获：
+          i.mark.half
+      a.btn(href='javascript:;') 去认证
+    li
+      div.icon-box
+        i.credit-icon &#xe6d5
+      div.content
+        p.name 资料达到35%
+        p 目前
+          strong 35%
+        p.desc 可获：
+          i.mark.full
+          i.mark.full
+      a.btn(href='identity.html') 继续完善
+  // 底部提示语
+  div.tips
+    p 作为正规的人脉软件，诚信级别越高，用户对你的信任感越高。同时：
+    p 1、通过认证的会员会获得更高的曝光率和关注度！
+    p 2、信任感提升，更有机会与用户达成合作，做好你的推广事业！
+    p 马上去完善个人资料，获高星级！
