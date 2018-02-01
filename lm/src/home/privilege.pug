@@ -4,6 +4,9 @@ block append meta
 block script
 block footer
 block footerCss
+block append weui
+  link(href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet")
+  script(src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js")
 block footerJs
   script(src='js/privilege.js')
 block localCss
@@ -11,10 +14,30 @@ block localCss
 block content
   div.privilege
     div.notice
-      p
-        span 恭喜
-          span.name 某某
-          |成为超级会员
+      div.flex
+        span.mark
+        div.list.swiper-container
+          ul.swiper-wrapper
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              |成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              |成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              |成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              |成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              |成为
+              span 超级会员
     div.vip-list
       ul
         li
@@ -114,3 +137,10 @@ block content
       | 元/天  马上开通
     // 我要代理
     a(href='agent.html')#agent.animate 我要代理
+    // 协议弹框
+    div.modal-protocol
+      div.mask
+      div.content
+        div.section 里面是协议内容
+        div.footer
+          i.close

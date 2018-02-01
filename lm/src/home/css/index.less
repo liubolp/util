@@ -11,6 +11,10 @@
 div,a{
   .setTapColor()
 }
+html,body{
+  width: 100%;
+  overflow-x: hidden;
+}
 .header-box{
   height: 3rem;
   background: url("../images/bg.jpg") no-repeat center;
@@ -246,6 +250,37 @@ div,a{
     }
   }
 }
+.tabs-box{
+  &.fixed{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background: #fff;
+    &+.lists{
+      margin-top: .9rem;
+    }
+  }
+  .animate{
+    animation: transformColor 1s linear infinite;
+  }
+}
+.lists{
+  >div{
+    display: flex;
+    transition: all 0.3s;
+    transform: translateX(0);
+    >div{
+      flex: 0 0 100vw;
+    }
+  }
+  &.next{
+    >div{
+      transform: translateX(-100vw);
+    }
+  }
+}
 // 项目容器
 .item-container{
   .title{
@@ -322,9 +357,6 @@ div,a{
     }
   }
 }
-#advance{
-  display: none;
-}
 @keyframes moveRight {
   0% {
     transform: translateX(-10px);
@@ -337,5 +369,20 @@ div,a{
   100% {
     transform: translateX(10px);
     opacity: 0;
+  }
+}
+@keyframes transformColor {
+  0%{
+    color: inherit;
+  }
+  40%{
+    color: @default_color;
+    text-shadow: 0 0 1px;
+  }
+  60%{
+    color: @default_color;
+  }
+  100%{
+    color: inherit;
   }
 }

@@ -1,6 +1,7 @@
 extends ../../common/layout/layout
 block append meta
   title 个人中心
+block script
 block content
   -
     var data = {
@@ -221,16 +222,19 @@ block content
       i.icon-home &#xe6ab
   // 功能列表切换
   section.tab-container
-    div.tabs
-      span(data-target='base').current
-        i.icon-home &#xe6b1
-        | 常用功能
-      span(data-target='advance')
-        i.icon-home &#xe6b0
-        | 高级功能
-    div#base
-      + item('名片管理',data.key1)
-      + item('会员服务',data.key2)
-    div#advance
-      + item('推广名片',data.advance1)
-      + item('商店管理',data.advance2)
+    div.tabs-box
+      div.tabs
+        span(data-target='base').current
+          i.icon-home &#xe6b1
+          | 常用功能
+        span(data-target='advance')
+          i.icon-home.animate &#xe6b0
+          | 高级功能
+    div.lists
+      div
+        div#base
+          + item('名片管理',data.key1)
+          + item('会员服务',data.key2)
+        div#advance
+          + item('推广名片',data.advance1)
+          + item('商店管理',data.advance2)

@@ -1,0 +1,103 @@
+extends ../../common/layout/layout
+block append meta
+  title 我的收益
+block script
+block localCss
+  link(rel='stylesheet' href='css/earning.css')
+block footerJs
+  script(src='js/earning.js')
+block content
+  div.header-fixed
+    header
+      ul.tabs
+        li
+          a(href='index.html')
+            i.icon
+            | 推广效果
+        li
+          a(href='ally.html')
+            i.icon
+            | 我的盟友
+        li.current
+          a(href='earning.html:;')
+            i.icon
+            | 我的收益
+  // 个人背景区域
+  div.bg-box
+    div.personal
+      a.avatar(href='javascript:;')
+        img(src='images/header-1.jpg')
+        i.vip.vip_icon_0
+      p.nickname 一起出去耍
+      p 总收入（元）
+        span.earning ￥0.00
+    a(href='javascript:;').question
+  // 余额信息
+  div.balance
+    span 余额：
+      strong ￥0.00
+    span.get 提现
+  // 红包收入
+  div.item-container
+    p.title 红包收入
+    ul.list
+      li
+        a(href='javascript:;')
+          span 推荐红包
+          span.amount
+            strong ￥
+            |0.00
+      li
+        a(href='javascript:;')
+          span 续费红包
+          span.amount
+            strong ￥
+            |0.00
+      li
+        a(href='javascript:;')
+          span 链商城红包
+          span.amount
+            strong ￥
+            |0.00
+      li
+        a(href='javascript:;')
+          span 打赏红包
+          span.amount
+            strong ￥
+            |0.00
+      li
+      li
+  // 红包记录
+  a.history(href='javascript:;') 红包流水记录
+    span.right
+      i.arrow
+  // 赠送账号
+  div.gift
+    div.headers
+      span.name 赠送账号
+      span.quantity 数量（个）
+      span 剩余
+      span.price 价值（元）
+    ul.gift-list
+      li
+        span.name 39元 金星VIP/月
+        span.quantity 1000
+        span 800
+        span.price 99999
+      li
+        span.name 365元 钻石VIP/年
+        span.quantity 1000
+        span 800
+        span.price 99999
+      li
+        span.name 399元 皇冠VIP/3年
+        span.quantity 1000
+        span 800
+        span.price 99999
+      li
+        span.name 合计
+        span.quantity 1000
+        span 800
+        span.price 99999
+  // 给对方开通vip
+  button.open 给对方开通7天免费VIP体验

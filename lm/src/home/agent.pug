@@ -8,10 +8,36 @@ block footerJs
   script(src='js/agent.js')
 block localCss
   link(rel='stylesheet' href='./css/agent.css')
+block append weui
+  link(href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet")
+  script(src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js")
 block content
   div.privilege
     div.notice
-      span 恭喜某某成为超级会员
+      div.flex
+        span.mark
+        div.list.swiper-container
+          ul.swiper-wrapper
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              | 成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              | 成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              | 成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              | 成为
+              span 超级会员
+            li.swiper-slide 恭喜
+              span.name 某某某某
+              | 成为
+              span 超级会员
   ul.items
     li
       p.title 特权一

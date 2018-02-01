@@ -1,0 +1,186 @@
+@import "../../../common/reset/rest";
+@import "../../../common/reset/level";
+.header-fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #eeeff3;
+  z-index: 10;
+}
+.tabs{
+  display: flex;
+  padding: .24rem;
+  justify-content: space-between;
+  width: 100%;
+  li{
+    width: 2.24rem;
+    height: .84rem;
+    line-height: .84rem;
+    text-align: center;
+    font-size: .32rem;
+    background: #fff;
+    border-radius: 5px;
+    &.current{
+      box-shadow: 0 0 5px #ccc;
+      color: @default_color;
+    }
+    &:first-child{
+      .icon{
+        background: url("../images/header-1.jpg") no-repeat;
+        background-size: contain;
+      }
+    }
+    &:last-child{
+      .icon{
+        background: url("../images/header-3.jpg") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  .icon{
+    width: .44rem;
+    height: .44rem;
+    display: inline-block;
+    background: url("../images/header-2.jpg") no-repeat;
+    background-size: contain;
+    vertical-align: text-bottom;
+    margin-right: .1rem;
+  }
+  a{
+    color: inherit;
+  }
+}
+// 背景处理
+.bg-box{
+  position: relative;
+  margin-top: 1.32rem;
+  height: 3rem;
+  background: linear-gradient(to right, #ffeeee, #ddefbd);
+  padding-top: .3rem;
+  .personal{
+    text-align: center;
+  }
+  .avatar{
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+  .nickname{
+    font-size: .36rem;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  .vip{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .question{
+    width: .5rem;
+    height: .5rem;
+    position: absolute;
+    top: .3rem;
+    right: .3rem;
+    background: url("../images/question.png") no-repeat center;
+    background-size: contain;
+  }
+  .earning{
+    color: @default_color;
+  }
+}
+// 余额和提现
+.balance{
+  height: .8rem;
+  background: #fff;
+  display: flex;
+  text-align: center;
+  span{
+    flex: 1;
+    line-height: .8rem;
+    white-space: nowrap;
+    &:first-child{
+      border-right: 1px solid #ddd;
+    }
+  }
+  strong{
+    color: @default_color;
+    font-size: .34rem;
+  }
+  .get:active{
+    color: @default_color;
+    background: #ddd;
+  }
+}
+// 红包收入
+// 项目容器
+.item-container{
+  .title{
+    padding: .26rem .3rem .1rem;
+  }
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    background: #fff;
+  }
+  li{
+    flex: 0 0 33.33%;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    position: relative;
+    &:nth-child(3n){
+      border-right-color: transparent;
+    }
+  }
+  a{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    color: inherit;
+    text-align: center;
+    padding: .4rem 0;
+  }
+  .amount{
+    color: red;
+  }
+  strong{
+    font-size: .34rem;
+  }
+}
+// 红包记录
+a.history{
+  background: #fff;
+  color: inherit;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  display: block;
+  padding: .2rem .3rem;
+  margin: .2rem 0;
+  &:active{
+    background: #ececec;
+  }
+  .right{
+    float: right;
+  }
+  .arrow{
+    .setArrow(right,.2rem,#ddd,2px)
+  }
+}
+// 给对方开通
+button.open{
+  width: 6.9rem;
+  margin: .3rem;
+  height: .8rem;
+  line-height: .8rem;
+  border-radius: 5px;
+  background: @default_color;
+  color: #fff;
+  font-size: .36rem;
+  &:active{
+    background: lighten(@default_color,10%);
+  }
+}

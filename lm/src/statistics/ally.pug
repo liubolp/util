@@ -1,0 +1,62 @@
+extends ../../common/layout/layout
+block append meta
+  title 我的盟友
+block script
+block localCss
+  link(rel='stylesheet' href='css/ally.css')
+block footerJs
+  script(src='js/ally.js')
+block content
+  div.header-fixed
+    div.recommend 我的推荐人：
+      span.name 你来听歌
+      |（12345678901）
+      span
+      a(href='javascript:;') 进入名片
+        i.icons &#xe629
+    header
+      ul.tabs
+        li
+          a(href='index.html')
+            i.icon
+            | 推广效果
+        li.current
+          a(href='ally.html')
+            i.icon
+            | 我的盟友
+        li
+          a(href='earning.html:;')
+            i.icon
+            | 我的收益
+    div.search-box
+      input(name='keyword' placeholder='请输入会员昵称或账号')
+      button.search
+        i.icons &#xe6cc
+    // 筛选栏
+    div.filters
+      ul
+        li.current
+          span.name 直接会员
+          span.mark 99
+        li
+          span.name 间接会员
+          span.mark 3
+        li
+          span.name 合伙人
+          span.mark 3
+        li
+          span.name 筛选
+  // 列表信息
+  div.items
+    ul.item-list
+      -for(var i=0;i<10;i++)
+        li
+          a.avatar(href='javascript:;')
+            img(src='images/header-1.jpg')
+            i.vip.vip_icon_0
+          div.content
+            p.nickname 叫你来听歌
+            p.time 2022年11月11日
+          div.operation
+            a.make(href='javascript:;') 替他制作
+            a.open(href='javascript:;') 替他开店

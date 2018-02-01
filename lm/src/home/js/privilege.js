@@ -5,6 +5,11 @@ window.addEventListener('DOMContentLoaded', function () {
     },
     init () {
       this.attachEvent()
+      new Swiper('.swiper-container', {
+        direction: 'vertical',
+        autoplay: 3000,
+        loop: true
+      })
     },
     attachEvent () {
       // 显示视频
@@ -32,6 +37,14 @@ window.addEventListener('DOMContentLoaded', function () {
       // 滚动处理
       $(window).on('scroll', function () {
         requestAnimationFrame(app.methods.handleScroll)
+      })
+      // 打卡协议框
+      $('.protocol').click(function () {
+        $('.modal-protocol').show()
+      })
+      // 关闭协议框
+      $('.modal-protocol .close').click(function () {
+        $('.modal-protocol').hide()
       })
     },
     methods: {

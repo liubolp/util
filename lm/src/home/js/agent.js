@@ -5,6 +5,11 @@ window.addEventListener('DOMContentLoaded', function () {
     },
     init () {
       this.attachEvent()
+      new Swiper('.swiper-container', {
+        direction: 'vertical',
+        autoplay: 3000,
+        loop: true
+      })
     },
     attachEvent () {
       // 滚动处理
