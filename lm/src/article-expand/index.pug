@@ -37,7 +37,7 @@ block content
         i.article-icon &#xe6de
         span 企业头条
     li
-      a.get(href='get.html')
+      a.tools(href='tools.html')
         i.article-icon &#xe6dd
         span 推广工具
   div.articles
@@ -67,18 +67,34 @@ block content
         // 分类选择
         div.category
           ul.category-list
-            li 分类一
-            li 分类一
-            li 分类一
-            li 分类一
-            li 分类一
+            -for(var i=0;i<8;i++)
+              li
+                a(href='javascript:;') 分类一
       footer
         a.more(href='javascript:;')
           i.article-icon &#xe702
           | 更多分类
     div.recommend
       header
-        span.name 今日推荐文章
+        span.name 今日推荐工具
+        span.change
+          i.article-icon &#xe701
+          | 换一批
+      section
+        ul.list-thum
+          -for(var i=0;i<6;i++)
+            li
+              a(href='javascript:;')
+                img(src='../article/images/lm.png')
+                span.thum-name 某个工具
+      footer
+        a.more(href='javascript:;')
+          i.article-icon &#xe702
+          | 更多分类
+    //
+    div.recommend
+      header
+        span.name 健康养生
         span.change
           i.article-icon &#xe701
           | 换一批
@@ -98,31 +114,32 @@ block content
                   div.operation
                     span.top 置顶
                     span.reward
-        // 分类选择
-        div.category
-          ul.category-list
-            li 分类一
-            li 分类一
-            li 分类一
-            li 分类一
-            li 分类一
       footer
         a.more(href='javascript:;')
           i.article-icon &#xe702
           | 更多分类
     div.recommend
       header
-        span.name 今日推荐文章
+        span.name 亲子教育
         span.change
           i.article-icon &#xe701
           | 换一批
       section
-        ul.list-thum
-          -for(var i=0;i<6;i++)
-            li
-              a(href='javascript:;')
+        ul
+          -for(var i=0;i<3;i++)
+            li.list
+              a.avatar(href='javascript:;')
                 img(src='../article/images/lm.png')
-                span.thum-name 某个工具
+              div.desc
+                p.title 国家发改委今日公布信息！国家发改委今日公布信息！国家发改委今日公布信息！
+                div
+                  div.statistics
+                    span.time 3小时前
+                    span.view 阅读：68883
+                    span.share 分享：3456
+                  div.operation
+                    span.top 置顶
+                    span.reward
       footer
         a.more(href='javascript:;')
           i.article-icon &#xe702

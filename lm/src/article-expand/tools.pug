@@ -1,0 +1,137 @@
+extends ../../common/layout/layout
+block append meta
+  title 推广工具
+block script
+block footerJs
+  script(src='./js/tools.js')
+block localCss
+  link(rel='stylesheet' href='./css/tools.css')
+block content
+  -
+    var advance1 = [
+    {
+    icon: '&#xe652',
+    color: '#38a6e1',
+    name: '海报秀',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe64e',
+    color: '#9b92c3',
+    name: 'H5秀',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe610',
+    color: '#f6ac99',
+    name: '文章秀',
+    isNew: false,
+    isSpec: true
+    },{
+    icon: '&#xe664',
+    color: '#46ace1',
+    name: '视频秀',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe6f4',
+    color: '#01f8a2',
+    name: '祝福贺卡',
+    isNew: true,
+    isSpec: false
+    },{
+    icon: '&#xe6df',
+    color: '#298b58',
+    name: '我的相册',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe704',
+    color: '#e134e8',
+    name: '天气海报',
+    isNew: false,
+    isSpec: false
+    },{
+    icon: '&#xe71e',
+    color: '#9c4c0d',
+    name: '自己做海报',
+    isNew: false,
+    isSpec: false
+    }]
+  mixin item (list)
+    div.item-container
+      ul.list
+        each item in list
+          li(class={new: item.isNew, spec: item.isSpec})
+            a(href='javascript:;')
+              i.article-icon(style ='color:' + item.color)!=item.icon
+              span=item.name
+            if item.isPending
+              span.num 9
+  // tabs
+  header
+    ul.tabs
+      li
+        a.myself(href='index.html')
+          i.article-icon &#xe6dc
+          span 平台文章
+      li
+        a.create(href='create.html')
+          i.article-icon &#xe6de
+          span 企业头条
+      li
+        a.tools.current(href='tools.html')
+          i.article-icon &#xe6dd
+          span 推广工具
+  // 推广工具列表
+  div.tools
+    + item(advance1)
+  // 推荐工具
+  div.recommend
+    header
+      span.name 推荐海报
+    section
+      ul.list-thum
+        -for(var i=0;i<6;i++)
+          li
+            a(href='javascript:;')
+              img(src='../article/images/lm.png')
+              span.thum-name 某个工具
+    footer
+      a.more(href='javascript:;')
+        i.article-icon &#xe702
+        | 查看更多
+  div.recommend
+    header
+      span.name 推荐H5
+    section
+      ul.list-thum
+        -for(var i=0;i<6;i++)
+          li
+            a(href='javascript:;')
+              img(src='../article/images/lm.png')
+              span.thum-name 某个工具
+    footer
+      a.more(href='javascript:;')
+        i.article-icon &#xe702
+        | 查看更多
+  // 浮层导航
+  div.nav-box
+    div.toggle
+      i.nav-icon &#xe604
+    div.modal-nav
+      div.mask
+      div.content
+        ul.nav-list
+          li
+            a(href='javascript:;')
+              i.nav-icon &#xe700
+              span 编文章
+          li
+            a(href='javascript:;')
+              i.nav-icon &#xe703
+              span 打卡榜
+          li
+            a(href='javascript:;')
+              i.nav-icon &#xe6e4
+              span 早安图

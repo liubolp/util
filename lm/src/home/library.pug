@@ -1,0 +1,31 @@
+extends ../../common/layout/layout
+block append meta
+  title 图库管理
+block script
+block footer
+block footerCss
+block footerJs
+  script(src='./js/library.js')
+block localCss
+  link(rel='stylesheet' href='./css/library.css')
+block content
+  div.library
+    ul
+      li.upload
+        div.content
+          i.library-icon &#xe7a4
+          p 上传照片
+          input(type='file' name='file' accept='image/*' multiple)
+      -for(var i=0;i<5;i++)
+        li.item
+          div.content(style='background-image:url("images/agent.jpg")')
+            div.select
+              input(type='checkbox')
+              i.library-icon &#xe6c0
+  div.footer-fixed
+    a.back(href='javascript:history.go(-1)')
+      i.library-icon &#xe720
+      |返回
+    a(href='javascript:;').delete
+      i.library-icon &#xe6c3
+      |删除

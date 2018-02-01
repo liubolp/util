@@ -69,7 +69,6 @@ window.addEventListener('load', function () {
         }
         if ($(this).hasClass('more')) {
           console.log('更多分类')
-          $(this).parents('.recommend').find('.category').toggle()
         }
       })
     },

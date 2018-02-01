@@ -65,6 +65,13 @@ block content
     color: '#f97c39',
     isNew: false,
     isHot: true
+    },
+    {
+    icon:'&#xe655',
+    name: '团队打卡',
+    color: '#ff8a00',
+    isNew: true,
+    isHot: false
     }
     ]
   // 其他入口
@@ -144,3 +151,21 @@ block content
           一起做优秀链脉人
       div.footer
         button(onclick='$(this).parents(".modal-invite").hide()') 知道了
+  // 创建房间弹窗
+  div.modal-create
+    div.mask
+    div.content
+      div.desc 满足任意条件即可创建房间
+        p 1、累计打卡21天
+        p 2、成功邀请2个好友参与打卡
+      div.btns
+        button.confirm 马上去邀请
+        button.cancel 取消
+  // 邀请好友
+  div.modal-invite-friend
+    div.mask
+    div.content
+      div.bg
+      div.desc 邀请海报已通过公众号发送
+        p.invite 马上去邀请好友
+      button.confirm 知道了
