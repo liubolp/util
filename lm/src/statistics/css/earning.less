@@ -104,7 +104,10 @@
     line-height: .8rem;
     white-space: nowrap;
     &:first-child{
-      border-right: 1px solid #ddd;
+      position: relative;
+      &::after{
+        .setRightLine()
+      }
     }
   }
   strong{
@@ -129,11 +132,15 @@
   }
   li{
     flex: 0 0 33.33%;
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
     position: relative;
     &:nth-child(3n){
       border-right-color: transparent;
+    }
+    &::before{
+      .setRightLine()
+    }
+    &::after{
+      .setBottomLine()
     }
   }
   a{
@@ -153,13 +160,12 @@
 }
 // 红包记录
 a.history{
+  position: relative;
   background: #fff;
   color: inherit;
-  border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
   display: block;
   padding: .2rem .3rem;
-  margin: .2rem 0;
+  margin: .2rem 0 0;
   &:active{
     background: #ececec;
   }
@@ -168,6 +174,45 @@ a.history{
   }
   .arrow{
     .setArrow(right,.2rem,#ddd,2px)
+  }
+  &::before{
+    .setTopLine()
+  }
+  &::after{
+    .setBottomLine()
+  }
+}
+// 赠送账号详细
+.gift{
+  .headers,li{
+    display: flex;
+    height: .92rem;
+    line-height: .92rem;
+    padding: 0 .3rem;
+  }
+  span{
+    flex: 1;
+    &.name{
+      flex: 3;
+    }
+    &.quantity{
+      flex: 1.8;
+    }
+    &.price{
+      flex: 1;
+      text-align: right;
+    }
+  }
+  li{
+    background: #fff;
+    font-size: .28rem;
+    position: relative;
+    .price{
+      color: red;
+    }
+    &::after{
+      .setBottomLine()
+    }
   }
 }
 // 给对方开通

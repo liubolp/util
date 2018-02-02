@@ -10,6 +10,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+div{
+  .setTapColor()
+}
 .header-fixed{
   position: fixed;
   top: 0;
@@ -199,4 +202,132 @@
 }
 #lm-footer{
   z-index: 10 !important;
+}
+.filter-box{
+  position: fixed;
+  top: 3.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 11;
+  display: none;
+  &::before{
+    .setTopLine()
+  }
+  .content{
+    background: #fff;
+  }
+  h3{
+    font-size: .24rem;
+    font-weight: normal;
+    color: inherit;
+    flex-basis: 18%;
+  }
+  .register-date{
+    padding-left: .3rem;
+    display: flex;
+    align-items: center;
+    height: 1rem;
+    position: relative;
+    &::after{
+      .setBottomLine(#c7c7c7)
+    }
+  }
+  .date-box{
+    display: flex;
+    line-height: .5rem;
+    position: relative;
+    input{
+      width: 2.3rem;
+      height: .5rem;
+      line-height: .5rem;
+      outline: none;
+      border-radius: 5px 0 0 5px;
+      background: #fff;
+      border: 1px solid #c7c7c7;
+      margin-right: .1rem;
+      padding: 0 .06rem;
+      font-size: .24rem;
+      vertical-align: bottom;
+    }
+    .date-end input{
+      margin-left: 0;
+    }
+    .arrow{
+      .setArrow(down, .24rem , #ccc, 2px);
+      z-index: 10;
+      left: -.1rem;
+    }
+  }
+  .date-start,.date-end{
+    position: relative;
+    &::after{
+      content: '';
+      box-sizing: border-box;
+      width: .44rem;
+      height: 100%;
+      border: 1px solid #c7c7c7;
+      border-left: none;
+      border-radius: 0 5px 5px 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: #eceff1;
+    }
+  }
+  .customer-level{
+    padding: 0 .3rem;
+    h3{
+      margin: .2rem 0;
+    }
+  }
+  .level-list{
+    display: flex;
+    flex-flow: row wrap;
+    li{
+      flex-basis: 25%;
+      margin-bottom: .3rem;
+      span{
+        display: inline-block;
+        width: 1.2rem;
+        height: .4rem;
+        line-height: .4rem;
+        border-radius: 5px;
+        background: #eceff1;
+        text-align: center;
+        font-size: .24rem;
+      }
+      &.selected{
+        span{
+          background: @default_color;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .result{
+    display: flex;
+    position: relative;
+    height: .8rem;
+    line-height: .8rem;
+    justify-content: space-around;
+    text-align: center;
+    &::before{
+      .setTopLine(#c7c7c7)
+    }
+    a{
+      color: inherit;
+      flex-basis: 50%;
+      &:first-child{
+        position: relative;
+        &::after{
+          .setRightLine(#c7c7c7)
+        }
+      }
+      &:last-child{
+        color: @default_color;
+      }
+    }
+  }
 }

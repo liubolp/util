@@ -25,7 +25,7 @@ block content
             i.icon
             | 我的盟友
         li
-          a(href='earning.html:;')
+          a(href='earning.html')
             i.icon
             | 我的收益
     div.search-box
@@ -44,7 +44,7 @@ block content
         li
           span.name 合伙人
           span.mark 3
-        li
+        li.filter
           span.name 筛选
   // 列表信息
   div.items
@@ -60,3 +60,32 @@ block content
           div.operation
             a.make(href='javascript:;') 替他制作
             a.open(href='javascript:;') 替他开店
+  // 筛选框
+  div.filter-box
+    div.content
+      div.register-date
+        h3 注册日期
+        div.date-box
+          div.date-start
+            input(type='text' placeholder='请选择开始时间' name='date-start' disabled)
+            i.arrow
+          | 至
+          div.date-end
+            input(type='text' placeholder='请选择结束时间' name='date-end' disabled)
+            i.arrow
+      div.customer-level
+        h3 会员等级
+        ul.level-list
+          li
+            span 免费
+          li.selected
+            span 金星
+          li
+            span 钻石
+          li
+            span 皇冠
+          li
+            span 合伙人
+      div.result
+        a(href='#').cancel 取消
+        a(href='#').confirm 完成

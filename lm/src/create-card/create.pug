@@ -1,0 +1,104 @@
+extends ../../common/layout/layout
+block append meta
+  title 创建名片
+block script
+block footer
+block footerCss
+block localCss
+  link(rel='stylesheet' href='css/create.css')
+block footerJs
+  script(src='js/create.js')
+block content
+  div.base-info
+    div.avatar
+      img(src='../home/images/vip.png')
+    div.inputs
+      div
+        input(name='nickname' placeholder='请输入姓名')
+      div
+        input(name='tel' type='tel' placeholder='请输入手机号')
+  div.verify
+    div
+      span 验证码
+      // 等待时间给input加上disabled这个属性
+      input(name='verify' placeholder='输入验证码')
+      button.get-code 获取验证码
+  div.category
+    span 行业
+    span.value
+    i.arrow
+  div.select
+    div 是否公开此名片供大众查看？
+    div.select-box
+      div.item
+        span.custom-radio
+          input(name='public' type='radio' checked)
+          i.radio-mark
+        span.label 公开
+      div.item
+        span.custom-radio
+          input(name='public' type='radio')
+          i.radio-mark
+        span.label 不公开
+  div.select
+    div 是否公开电话号码供顾客咨询？
+    div.select-box
+      div.item
+        span.custom-radio
+          input(name='public-tel' type='radio' checked)
+          i.radio-mark
+        span.label 公开
+      div.item
+        span.custom-radio
+          input(name='public-tel' type='radio')
+          i.radio-mark
+        span.label 不公开
+  // 保存
+  button.submit 保  存
+  // 模板选择对话框
+  - var list =['A','B','C','D','E','F','G','H','I','J']
+  div.choose-category
+    div.mask
+    div.move-container
+      div.tpl__header
+        div.tpl__header__search
+          input(name='keywords' placeholder='搜索')
+          i.icon.iconfont
+        div.tpl__header__button
+          button.button 搜索
+      div.modal-template
+        ul.type-list
+          -for(var i=0;i<16;i++)
+            li(class={active:i===2}) 类别行业
+        div.container
+          ul.outer-list
+            each item,index in list
+              li(id='lm-'+item)
+                h3.type-title=item
+                ul.subtype-list
+                  -for(var i=0;i<6;i++)
+                    li
+                      a(href='javascript:;').link
+                        img(src='../template/images/tupian.png')
+                        p.child-type 子分类
+        ul.nav-bar
+          each item,index in list
+            li
+              a(href='#lm-'+ item class={current:index==0})=item
+      // 找不到公司
+      div.add-category
+        i.icon
+        span 找不到分类，请点击这里>>
+      button.cancel 关闭
+  // 添加分类弹窗
+  div.modal-add
+    div.mask
+    div.content
+      div.section
+        p.title 手动输入
+        p
+          input(name='category' placeholder='请手动输入行业')
+        p
+          button.confirm 确定
+      div.footer
+        i.close

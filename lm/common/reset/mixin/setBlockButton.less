@@ -1,0 +1,15 @@
+.setBlockButton(@c: #ff8a00, @fontSize: .36rem, @height: .8rem, @left:.3rem) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: @height;
+  line-height: @height;
+  color: #fff;
+  font-size: @fontSize;
+  border-radius: 5px;
+  background: @c;
+  width: 7.5rem - 2*@left;
+  &:active{
+    background: lighten(@default_color,10%);
+  }
+}
