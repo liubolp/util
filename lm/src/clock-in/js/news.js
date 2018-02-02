@@ -54,10 +54,10 @@ window.addEventListener('load', function () {
         $('.list').on('click', '.zan>span', function (e) {
           var type
           if ($(this).hasClass('agree')) { // 取消点赞
-            $(this).removeClass('agree')
+            $(this).removeClass('agree').find('.nav-icon').html('&#xe658')
             type = 'remove'
           } else { // 添加点赞
-            $(this).addClass('agree')
+            $(this).addClass('agree').find('.nav-icon').html('&#xe657')
             type = 'add'
           }
           news.methods.agreeMessage($(this).parents('li'), type)
@@ -67,10 +67,10 @@ window.addEventListener('load', function () {
           if ($(this).hasClass('complaint')) { // 投诉操作
             $('.modal-complaint').show()
           } else if ($(this).hasClass('agree')) { // 取消点赞
-            $(this).removeClass('agree')
+            $(this).removeClass('agree').find('.nav-icon').html('&#xe658')
             news.methods.agreeArticle($(this).parents('.statistics'), 'remove')
           } else { // 点赞
-            $(this).addClass('agree')
+            $(this).addClass('agree').find('.nav-icon').html('&#xe657')
             news.methods.agreeArticle($(this).parents('.statistics'), 'add')
           }
         })
