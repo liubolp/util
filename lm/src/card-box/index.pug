@@ -1,0 +1,66 @@
+extends ../../common/layout/layout
+block append meta
+  title 名片夹
+block content
+  header.fixed-header
+    div.search-box
+      input(name='keywords' placeholder='请输入姓名或手机搜索')
+      button.search
+        i.card-icon &#xe6f0
+    div.card-tabs
+      div.tab.current
+        div.bg
+          i.pinyin 拼
+        p 拼音
+      div.tab
+        div.bg
+          i.card-icon &#xe70d
+        p 行业
+      div.tab
+        div.bg
+          i.card-icon &#xe710
+        p 分组
+      div.tab
+        div.bg
+          i.card-icon &#xe7a8
+        p 消息
+  // 名片列表
+  div.all-cards
+    ul
+      -for(var k=0;k<5;k++)
+        li
+          p.category-type A
+          ul.sm-list
+            -for(var i=0;i<3;i++)
+              li
+                div.personal
+                  a.avatar(href='javascript:;')
+                    img(src='../article/images/lm.png')
+                    i.vip.vip_icon_0
+                div.content
+                  div.name-box
+                    // 如果该用户已经认证就加上verify这个类
+                    span.nickname(class={verify: i < 2}) 添加粉丝
+                  a(href='javascript:;').credit
+                    span.mark 诚信度
+                    span
+                      i.full
+                      i.full
+                      i.half
+                      i.nothing
+                      i.nothing
+                  p.category 重庆·教育培训
+                  p.company 重庆链脉网络科技有限公司
+                  p.post 行政助理
+                  div.info
+                    div
+                      span.name.demand 需求
+                      div.desc 需求描述信息
+                    div
+                      span.name.supply 供应
+                      div.desc 供应信息描述
+                    div
+                      span.name.recruitment 招聘
+                      div.desc 这里是招聘信息
+                div.operation
+                  button.delete.supply 删除

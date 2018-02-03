@@ -42,6 +42,17 @@ div{
       padding-left: .2rem;
     }
   }
+  .avatar{
+    position: relative;
+    input{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+  }
 }
 // 验证码
 .verify{
@@ -159,8 +170,8 @@ body{
     }
   }
   .add-category{
-    height: .6rem;
-    line-height: .6rem;
+    height: .8rem;
+    line-height: .8rem;
     text-align: center;
     background: #e3e4e5;
     position: relative;
@@ -250,6 +261,7 @@ body{
       height: .9rem;
       line-height: .9rem;
       border-bottom: 1px solid #c7c7c7;
+      .ellipsis();
       &.active{
         color: @default_color;
       }
@@ -282,8 +294,9 @@ body{
       width: 100%;
       color: #808080;
       font-size: .24rem;
+      padding-bottom: .2rem;
       li{
-        padding: 10px 0;
+        padding: .2rem 0 0;
         flex: 0 1 33.33%;
         text-align: center;
       }
@@ -299,8 +312,7 @@ body{
     }
     .child-type{
       width: 100%;
-      height: .5rem;
-      line-height: .5rem;
+      margin-top: .1rem;
       text-align: center;
       display: block;
     }
@@ -313,6 +325,7 @@ body{
     background: #e3e4e5;
     text-align: center;
     line-height: 1.5;
+    flex-shrink: 0;
     a{
       display: inline-block;
       width: 100%;

@@ -4,7 +4,8 @@ window.addEventListener('DOMContentLoaded', function () {
       canCreateTeam: false, // 是否可以创建团队
       hasTeam: true, // 是否已经有团队
       joinOther: false, // 加入其它团队
-      target: null // 排名用户点击时的身份信息
+      target: null, // 排名用户点击时的身份信息
+      teamName: '你猜我是谁' // 团队名称
     },
     init () {
       this.attachEvent()
@@ -23,6 +24,8 @@ window.addEventListener('DOMContentLoaded', function () {
           app.methods.createTeam()
         } else if ($(this).hasClass('exit')) { // 退出
           $('.modal-exit').show()
+        } else if ($(this).hasClass('modify')) { // 修改团队名称
+          $('.modal-modify').show().find('input').val(app.data.teamName)
         }
         $(e.delegateTarget).hide()
       }).click(function (e) {
@@ -77,6 +80,14 @@ window.addEventListener('DOMContentLoaded', function () {
       $('.modal-share .close').click(function (e) {
         $('.modal-share').hide()
       })
+      // 修改团队
+      $('.modal-modify').on('click', '.confirm,.cancel,.mask', function (e) {
+        if ($(this).hasClass('confirm')) { // 确定修改
+          app.data.teamName = $(e.delegateTarget).find('input').val()
+          app.methods.modifyName(app.data.teamName)
+        }
+        $(e.delegateTarget).hide()
+      })
     },
     methods: {
       /**
@@ -129,6 +140,13 @@ window.addEventListener('DOMContentLoaded', function () {
         console.log('打卡操作')
         // todo 成功后去掉begin
         $('button.begin').removeClass('begin')
+      },
+      /**
+       * 修改团队名称
+       * @param name
+       */
+      modifyName (name) {
+        console.log(name)
       }
     }
   }

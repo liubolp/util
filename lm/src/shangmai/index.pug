@@ -83,16 +83,17 @@ block content
             i.vip.vip_icon_0
         div.content
           div.name-box
-            span.nickname 添加粉丝
-            a(href='javascript:;').credit
-              span.mark 诚信度
-              span
-                i.full
-                i.full
-                i.half
-                i.nothing
-                i.nothing
-          p.category 重庆、教育培训
+            // 如果该用户已经认证就加上verify这个类
+            span.nickname(class={verify:i<2}) 添加粉丝
+          a(href='javascript:;').credit
+            span.mark 诚信度
+            span
+              i.full
+              i.full
+              i.half
+              i.nothing
+              i.nothing
+          p.category 重庆.教育培训
           p.company 重庆链脉网络科技有限公司
           p.post 行政助理
           div.info

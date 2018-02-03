@@ -64,6 +64,7 @@ block content
     div.menu-box
       ul.menu
         li.more 更多
+        li.modify 修改团队名称
         li.create
           i.team-icon &#xe69b
           |创建团队
@@ -104,6 +105,15 @@ block content
           p 2、成功邀请2个好友参与打卡
         div.btns
           button.confirm 马上去邀请
+          button.cancel 取消
+    // 修改团队
+    div.modal-modify
+      div.mask
+      div.content
+        div.desc
+          input(name='team-name' value='某某团队')
+        div.btns
+          button.confirm 确定
           button.cancel 取消
     // 邀请好友
     div.modal-invite
