@@ -1,0 +1,320 @@
+@import "../../../common/reset/rest";
+.group-operation{
+  position: fixed;
+  top: 2.84rem;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  background: #fff;
+  display: flex;
+  text-align: center;
+  z-index: 3;
+  &::after{
+    content: '';
+    position: absolute;
+    top: 15%;
+    right: 50%;
+    height: 70%;
+    border-right: 1px solid #c7c7c7;
+  }
+  span{
+    flex: 1;
+    &:active{
+      background: #ececec;
+    }
+  }
+  .down{
+    margin-left: .1rem;
+  }
+}
+.group-list{
+  margin-top: 3.84rem;
+  .item-title {
+    display: flex;
+    align-items: center;
+    padding: 0.2rem .3rem;
+    position: relative;
+    &:active{
+      background: #ececec;
+    }
+    &::after{
+      .setBottomLine()
+    }
+    &.collapse{
+      .arrow{
+        .setArrow(right,.2rem,#c7c7c7,2px);
+        top: 0;
+      }
+    }
+    .num{
+      color: #fff;
+      background: @default_color;
+      border-radius: .19rem;
+      line-height: normal;
+      padding: .02rem .11rem;
+      font-size: .26rem;
+      margin-right: .2rem;
+    }
+    .title{
+      flex: 1;
+    }
+    .arrow{
+      .setArrow(down,.2rem,#c7c7c7,2px);
+      top: 0;
+    }
+  }
+  .group{
+    background: #6d8ef9;
+    &:active{
+      background: lighten(#6d8ef9,10%);
+    }
+  }
+}
+.list-container.collapse{
+  display: none;
+}
+// 弹框样式
+[class^=modal-]{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 11;
+  >.mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+  }
+  >.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6.5rem;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .header{
+    height: 1.3rem;
+    line-height: 1.3rem;
+    font-size: .34rem;
+    text-align: center;
+    background: #fafafc;
+  }
+  .footer{
+    height: .86rem;
+    line-height: .86rem;
+    text-align: center;
+    background: #f4f4f4;
+    font-size: .34rem;
+  }
+}
+.modal-operation,.modal-choose{
+  display: none;
+  li{
+    display: flex;
+    position: relative;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    padding: 0 .3rem;
+    &::after{
+      .setBottomLine()
+    }
+    .name{
+      flex: 1;
+    }
+    i{
+      padding-left: .3rem;
+      font-size: .4rem;
+      &:active{
+        color: @default_color;
+      }
+    }
+  }
+  .section{
+    min-height: 2rem;
+    max-height: 7rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+  }
+  .cancel{
+    &:active{
+      background: darken(#f4f4f4,10%);
+    }
+  }
+  .custom-radio{
+    vertical-align: middle;
+  }
+}
+// 添加分组弹框
+.modal-add{
+  display: none;
+  .section{
+    padding: .3rem;
+    background: #fff;
+    text-align: center;
+    color: #919191;
+  }
+  input{
+    border: 1px solid #c7c7c7;
+    background: #fff;
+    padding: .15rem .2rem;
+    font-size: inherit;
+    width: 100%;
+    margin-top: .1rem;
+  }
+  .footer{
+    display: flex;
+    position: relative;
+    border-top: 1px solid #c7c7c7;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      height: 100%;
+      border-right: 1px solid #c7c7c7;
+    }
+  }
+  button{
+    background: none;
+    font-size: .34rem;
+    flex: 1;
+    &:active{
+      background: darken(#f4f4f4,10%);
+    }
+  }
+  .confirm{
+    color: @default_color;
+  }
+}
+// 分组管理操作
+.group-manage{
+  display: none;
+  position: fixed;
+  top: 2.64rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 11;
+}
+.card-container{
+  height: 100%;
+  padding-bottom: 1rem;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  li{
+    flex: 0 0 50%;
+    text-align: center;
+    position: relative;
+    padding: .5rem .3rem;
+    &::before{
+      .setBottomLine()
+    }
+    &:nth-child(2n-1){
+      &::after{
+        .setRightLine()
+      }
+    }
+  }
+  .avatar{
+    position: relative;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+  }
+  .vip{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    vertical-align: bottom;
+  }
+  .company{
+    color: #808388;
+    font-size: .26rem;
+  }
+  .checkbox{
+    position: absolute;
+    top: .3rem;
+    right: .3rem;
+  }
+}
+.fixed-footer{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0 .3rem;
+  background: #fff;
+  &::before{
+    .setTopLine()
+  }
+  .all{
+    flex: 1;
+    font-size: .32rem;
+  }
+  button{
+    background: @default_color;
+    border-radius: 3px;
+    color: #fff;
+    padding: .1rem .3rem;
+    font-size: .28rem;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .custom-checkbox{
+    margin-right: .1rem;
+  }
+  .delete{
+    margin-left: 1rem;
+  }
+}
+.custom-checkbox{
+  position: relative;
+  display: inline-block;
+  width: .4rem;
+  height: .4rem;
+  border-radius: 2px;
+  border: 1px solid #c7c7c7;
+  text-align: center;
+  vertical-align: text-bottom;
+  input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 15;
+    &:checked + .checkbox-bg{
+      opacity: 1;
+    }
+  }
+  .checkbox-bg{
+    opacity: 0;
+    color: @default_color;
+    position: relative;
+    top: -.06rem;
+  }
+}
+.setRadio();
+#lm-footer{
+  z-index: 10 !important;
+}

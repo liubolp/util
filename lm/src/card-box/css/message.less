@@ -1,0 +1,64 @@
+@import "../../../common/reset/rest";
+.message-list{
+  margin-top: 2.84rem;
+  .item-title {
+    display: flex;
+    align-items: center;
+    padding: 0.2rem .3rem;
+    position: relative;
+    &:active{
+      background: #ececec;
+    }
+    &::after{
+      .setBottomLine()
+    }
+    &.collapse{
+      .arrow{
+        .setArrow(right,.2rem,#c7c7c7,2px);
+        top: 0;
+      }
+    }
+    .num{
+      color: #fff;
+      background: @default_color;
+      border-radius: .19rem;
+      line-height: normal;
+      padding: .02rem .11rem;
+      font-size: .26rem;
+      margin-right: .2rem;
+    }
+    .title{
+      flex: 1;
+    }
+    .arrow{
+      .setArrow(down,.2rem,#c7c7c7,2px);
+      top: 0;
+    }
+  }
+  .revert{
+    background: #e9721e;
+    &:active{
+      background: lighten(#e9721e,10%);
+    }
+  }
+  .accept{
+    background: #67b312;
+    &:active{
+      background: lighten(#67b312,10%);
+    }
+  }
+  .reject{
+    background: #e9721e;
+    &:active{
+      background: lighten(#e9721e,10%);
+    }
+  }
+  .delete{
+    &:active{
+      background: lighten(#e9721e,10%);
+    }
+  }
+}
+.list-container.collapse{
+  display: none;
+}

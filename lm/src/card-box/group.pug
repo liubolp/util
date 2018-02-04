@@ -1,0 +1,112 @@
+extends ../../common/layout/layout
+block append meta
+  title 名片夹
+block localCss
+  link(rel='stylesheet' href='css/common.css')
+  link(rel='stylesheet' href='css/group.css')
+block footerJs
+  script(src='js/group.js')
+block content
+  header.fixed-header
+    div.search-box
+      input(name='keywords' placeholder='请输入姓名或手机搜索')
+      button.search
+        i.card-icon &#xe6f0
+    div.card-tabs
+      a.tab(href='index.html')
+        div.bg
+          i.pinyin 拼
+        p 拼音
+      a.tab(href='industry.html')
+        div.bg
+          i.card-icon &#xe70d
+        p 行业
+      a.tab.current(href='group.html')
+        div.bg
+          i.card-icon &#xe710
+        p 分组
+      a.tab(href='message.html')
+        div.bg
+          i.card-icon &#xe7a8
+        p 消息
+  // 分组操作按钮
+  div.group-operation
+    span.manage 管理分组
+      i.card-icon &#xe6aa
+    span.add 添加分组
+      i.card-icon &#xe6aa
+  // 分组列表
+  ul.group-list
+    // 如果默认隐藏列表就给item-title,list-container加上collapse
+    -for(var i=0;i<5;i++)
+      li
+        div.item-title
+          span.title 分组名
+          span.num 99
+          i.arrow
+        div.list-container
+          include components/card-list
+          + cardList(['group'])
+  // 分组弹窗
+  div.modal-operation
+    div.mask
+    div.content
+      div.header 请选择你需要操作的分组
+      div.section
+        ul
+          -for(var i=0;i<10;i++)
+            li
+              span.name 分组名
+              span.operation
+                i.card-icon.edit &#xe6e2
+                i.card-icon.delete &#xe643
+      div.footer.cancel 关闭
+  // 分组选择弹窗
+  div.modal-choose
+    div.mask
+    div.content
+      div.header 请选择切换分组
+      div.section
+        ul
+          -for(var i=0;i<10;i++)
+            li
+              span.name 分组名
+              div.radio
+                span.custom-radio
+                  input(name='group' type='radio' checked=i===0)
+                  i.radio-mark
+      div.footer.cancel 关闭
+  // 添加分组弹框
+  div.modal-add
+    div.mask
+    div.content
+      div.header 添加分组
+      div.section
+        p 请输入你要添加的分组
+        input(name='name' placeholder='请输入分组名')
+      div.footer
+        button.cancel 取消
+        button.confirm 确定
+  // 分组管理操作
+  div.group-manage
+    div.card-container
+      ul
+        -for(var i=0;i<10;i++)
+          li
+            a(href='javascript:;').avatar
+              img(src='../home/images/vip.png')
+              i.vip.vip_icon_0
+            p.nickname 这里是名称
+            p.company 这里是公司名称信息
+            div.checkbox
+              div.custom-checkbox
+                input(name='card'+i type='checkbox')
+                i.checkbox-bg.card-icon &#xe633
+    div.fixed-footer
+      div.all
+        div.custom-checkbox
+          input(name='all' type='checkbox')
+          i.checkbox-bg.card-icon &#xe633
+        span.toggle-all 全选 (1)
+      button.cancel 取消
+      button.delete 删除

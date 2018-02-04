@@ -1,8 +1,11 @@
 extends ../../common/layout/layout
 block append meta
   title 名片夹
-block prepend localCss
+block localCss
   link(rel='stylesheet' href='css/common.css')
+  link(rel='stylesheet' href='css/industry.css')
+block footerJs
+  script(src='js/industry.js')
 block content
   header.fixed-header
     div.search-box
@@ -10,11 +13,11 @@ block content
       button.search
         i.card-icon &#xe6f0
     div.card-tabs
-      a.tab.current(href='index.html')
+      a.tab(href='index.html')
         div.bg
           i.pinyin 拼
         p 拼音
-      a.tab(href='industry.html')
+      a.tab.current(href='industry.html')
         div.bg
           i.card-icon &#xe70d
         p 行业
@@ -26,16 +29,16 @@ block content
         div.bg
           i.card-icon &#xe7a8
         p 消息
-  // 名片列表
-  - var list =['A','B','C','D','E','F','G','H','I','J']
-  div.all-cards
-    ul
-      each item,index in list
-        li
-          p.category-type(id='lm-'+item)=item
+  // 行业分类列表
+  ul.industry-list
+    -for(var i=0;i<10;i++)
+      li
+        div.item-title
+          a.avatar(class='list-'+(i+1) href='javascript:;')
+          div.content
+            p.item-name 商务·市场
+            p.member 成员：88
+          i.arrow
+        div.list-container
           include components/card-list
           + cardList(['delete'])
-    ul.nav-bar
-      each item,index in list
-        li
-          a(href='#lm-' + item class={current: index == 0})=item

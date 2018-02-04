@@ -1,0 +1,73 @@
+@import "../../../common/reset/rest";
+.industry-list{
+  margin-top: 2.84rem;
+  .item-title{
+    display: flex;
+    align-items: center;
+    padding: 0.2rem .3rem;
+    background: #fff;
+    position: relative;
+    &:active{
+      background: #ececec;
+    }
+    &::after{
+      .setBottomLine()
+    }
+    .avatar{
+      width: 1rem;
+      height: 1rem;
+      border-radius: 5px;
+      vertical-align: bottom;
+      background-image: url("../images/industry.jpg");
+      background-size: 100%;
+    }
+    .content{
+      flex: 1;
+      padding: 0 .3rem;
+    }
+    .item-name,.member{
+      .ellipsisLn(1)
+    }
+    .arrow{
+      .setArrow(right,.2rem,#c7c7c7,2px);
+      top: 0;
+      &.down{
+        .setArrow(down,.2rem,#c7c7c7,2px)
+      }
+    }
+    .member{
+      color: #a2a8b6;
+      font-size: .26rem;
+    }
+  }
+}
+.avatar{
+  background-position: 0 -.11rem;
+  &.list-1{
+    background-position: 0 -.11rem;
+  }
+  &.list-2{
+    background-position: 0 -1.3rem;
+  }
+  &.list-3{
+    background-position: 0 -2.5rem;
+  }
+  &.list-4{
+    background-position: 0 -3.68rem;
+  }
+  &.list-5{
+    background-position: 0 -4.87rem;
+  }
+  &.list-6{
+    background-position: 0 -6.06rem;
+  }
+  &.list-7{
+    background-position: 0 -7.26rem;
+  }
+  &.list-8{
+    background-position: 0 -8.44rem;
+  }
+}
+.list-container{
+  display: none;
+}

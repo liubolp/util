@@ -1,0 +1,58 @@
+extends ../../common/layout/layout
+block append meta
+  title 名片夹
+block localCss
+  link(rel='stylesheet' href='css/common.css')
+  link(rel='stylesheet' href='css/message.css')
+block footerJs
+  script(src='js/message.js')
+block content
+  header.fixed-header
+    div.search-box
+      input(name='keywords' placeholder='请输入姓名或手机搜索')
+      button.search
+        i.card-icon &#xe6f0
+    div.card-tabs
+      a.tab(href='index.html')
+        div.bg
+          i.pinyin 拼
+        p 拼音
+      a.tab(href='industry.html')
+        div.bg
+          i.card-icon &#xe70d
+        p 行业
+      a.tab(href='group.html')
+        div.bg
+          i.card-icon &#xe710
+        p 分组
+      a.tab.current(href='message.html')
+        div.bg
+          i.card-icon &#xe7a8
+        p 消息
+  // 消息名片列表
+  ul.message-list
+    // 如果默认隐藏列表就给item-title,list-container加上collapse
+    li
+      div.item-title.collapse
+        span.title 我的申请
+        span.num 99
+        i.arrow
+      div.list-container.collapse
+        include components/card-list
+        + cardList(['revert'])
+    li
+      div.item-title
+        span.title 收到的申请
+        span.num 9
+        i.arrow
+      div.list-container
+        include components/card-list
+        + cardList(['accept','reject'])
+    li
+      div.item-title
+        span.title 交换成功
+        span.num 299
+        i.arrow
+      div.list-container
+        include components/card-list
+        + cardList(['delete'])
