@@ -46,6 +46,19 @@ div,input,textarea,button{
     font-weight: bold;
     font-size: .38rem;
   }
+  &.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background: #fff;
+    margin: 0;
+    padding: 0 .24rem;
+    & + article{
+      margin-top: 1.6rem;
+    }
+  }
 }
 .personal{
   display: flex;

@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function () {
     attachEvent () {
       // 快速定位
       $('.nav-bar').on('click', 'a', function (e) {
-        $('a.current').removeClass('current')
+        $(e.delegateTarget).find('.current').removeClass('current')
         $(this).addClass('current')
       })
     },
@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', function () {
             buffer = current.parent().next()
             target = buffer.length && buffer
             offset = target ? $('#lm-' + target.text()).offset().top : 0
-            if (offset < 100) {
+            if (offset < 100 && offset) {
               target.siblings().find('.current').removeClass('current')
               target.find('a').addClass('current')
             }
