@@ -6,6 +6,8 @@ window.addEventListener('DOMContentLoaded', function () {
       },
       init () {
         this.attachEvent()
+        // 如果要调用打字机动画就调用的
+        this.methods.typewriter(200, 100)
       },
       attachEvent () {
         // 打开工具栏目和处理背景音乐
@@ -14,6 +16,9 @@ window.addEventListener('DOMContentLoaded', function () {
           if ($(this).hasClass('tool')) {
             $('.toggle-tool').addClass('hide')
             $('.toolbar').slideDown()
+            setTimeout(function () {
+              $('.toggle-tool').hide()
+            }, 500)
           } else if ($(this).hasClass('pause')) { // 是暂停状态
             $(this).removeClass('pause')
             $('#audio')[0].play()
@@ -43,7 +48,7 @@ window.addEventListener('DOMContentLoaded', function () {
           var toolbar = $('.toolbar')
           if (toolbar.css('display') !== 'none') {
             toolbar.slideUp()
-            $('.toggle-tool').removeClass('hide')
+            $('.toggle-tool').show().removeClass('hide')
           }
         })
         // 关闭引导层
@@ -277,6 +282,48 @@ window.addEventListener('DOMContentLoaded', function () {
               weui.alert('上传图片失败')
               return true // 阻止默认行为，不使用默认的失败态
             }
+          })
+        },
+        /**
+         * 打字机动画
+         * @param delay {Number} 页面加载后动画的延迟执行时间，毫秒
+         * @param frequency {Number} 动画执行的速度，两个字的间隔时间，毫秒
+         */
+        typewriter (delay = 200, frequency = 100) {
+          var contariner = $('.text-box > .content'),
+            to = contariner.attr('data-to').split(''),
+            from = contariner.attr('data-from').split(''),
+            content = contariner.attr('data-content').split('')
+          contariner.append('<div class="letter-to"></div><div class="letter-content"></div><div class="letter-from"></div>')
+          var toContainer = contariner.find('.letter-to'),
+            textContainer = contariner.find('.letter-content'),
+            fromContainer = contariner.find('.letter-from')
+          to.forEach(function (item, index, list) {
+            (function (i, item) {
+              setTimeout(function () {
+                toContainer.append('<span>' + item + '</span>')
+              }, i * frequency + delay)
+            })(index, item)
+            if (list.length === index + 1) {
+              delay += index * frequency
+            }
+          })
+          content.forEach(function (item, index, list) {
+            (function (i, item) {
+              setTimeout(function () {
+                textContainer.append('<span>' + item + '</span>')
+              }, i * frequency + delay)
+            })(index, item)
+            if (list.length === index + 1) {
+              delay += index * frequency
+            }
+          })
+          from.forEach(function (item, index) {
+            (function (i, item) {
+              setTimeout(function () {
+                fromContainer.append('<span>' + item + '</span>')
+              }, i * frequency + delay)
+            })(index, item)
           })
         }
       }

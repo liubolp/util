@@ -117,14 +117,23 @@ div,input{
     height: 100%;
     user-select: none;
     word-break: normal;
-    transform: translateY(100%);
-    animation: moveText 20s linear infinite;
+    //transform: translateY(100%);
+    //animation: moveText 20s linear infinite;
     &.center{
       text-align: center;
     }
     &.right{
       text-align: right;
     }
+  }
+  .letter-to{
+    text-align: left;
+  }
+  .letter-from{
+    text-align: right;
+  }
+  .letter-content{
+    text-indent: 2em;
   }
 }
 // 底部信息
@@ -155,6 +164,7 @@ div,input{
   .desc{
     color: #ccc;
     font-size: .26rem;
+    .ellipsisLn(1)
   }
   img{
     width: 100%;
@@ -170,6 +180,7 @@ div,input{
     color: #fff;
     padding: .04rem .2rem;
     font-size: .3rem;
+    flex-shrink: 0;
     &:active{
       background: lighten(@default_color,10%);
     }

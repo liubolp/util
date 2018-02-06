@@ -31,12 +31,8 @@ block content
     // 动画文字
     div.text-box
       // 具体内容 center 居中对齐 right 右对齐
-      div.content.center.
-        今天是12月20日，星期三，农历11月初三；
-        人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；
-        人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。
-        记住，这一秒不放弃，下一秒就会有希望。
-        朋友们，早安！
+      // 如果启用打字机动画给content加上data-to,data-from,data-content这些属性
+      div.content(data-to='亲爱的某某某' data-from='某某某' data-content='今天是12月20日，星期三，农历11月初三；人生是一场旅行，不在乎目的地，在乎的是沿途的风景以及看风景的心情；人生是一条坎坷曲折的路，即使不断的跌倒，也一定要爬起来，坚持自己的梦想。记住，这一秒不放弃，下一秒就会有希望。朋友们，早安！')
     // 底部按钮
     div.personal
       a.avatar(href='javascript:;')
