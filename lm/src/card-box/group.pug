@@ -54,10 +54,12 @@ block content
       div.header 请选择你需要操作的分组
       div.section
         ul
+          // data-id 组id
           -for(var i=0;i<10;i++)
-            li
+            li(data-id=i)
               span.name 分组名
               span.operation
+                i.card-icon.manage &#xe626
                 i.card-icon.edit &#xe6e2
                 i.card-icon.delete &#xe643
       div.footer.cancel 关闭

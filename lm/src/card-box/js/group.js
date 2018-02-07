@@ -1,6 +1,9 @@
 window.addEventListener('DOMContentLoaded', function () {
   var app = {
-    data: {},
+    data: {
+      isModify: false, // 是否为修改分组
+      groupId: '' // 修改组的id
+    },
     init () {
       this.attachEvent()
     },
@@ -17,25 +20,36 @@ window.addEventListener('DOMContentLoaded', function () {
         if ($(this).hasClass('manage')) { // 打开管理
           $('.modal-operation').fadeIn()
         } else { // 添加组
-          $('.modal-add').fadeIn()
+          app.data.isModify = false
+          $('.modal-add').fadeIn().find('.header').text('添加分组')
+            .end().find('p').text('请输入你要添加的分组')
+            .next().val('')
         }
       })
-      // 添加组操作
+      // 添加和修改组操作
       $('.modal-add').on('click', '.cancel,.mask,.confirm', function (e) {
         if ($(this).hasClass('confirm')) {
           var groupName = $(e.delegateTarget).find('input').val()
-          app.methods.addGroup(groupName)
+          app.data.isModify ? app.methods.modifyGroup(groupName) : app.methods.addGroup(groupName)
         }
         $(e.delegateTarget).hide()
       })
       // 操作分组
-      $('.modal-operation').on('click', '.cancel,.mask,.edit,.delete', function (e) {
-        if ($(this).hasClass('edit')) {
+      $('.modal-operation').on('click', '.cancel,.mask,.edit,.delete,.manage', function (e) {
+        if ($(this).hasClass('manage')) {
           $('.group-manage').show()
         }
         if ($(this).hasClass('delete')) {
           // todo
           console.log('删除分组')
+        }
+        if ($(this).hasClass('edit')) {
+          app.data.isModify = true
+          app.data.groupId = $(this).parents('li').attr('data-id')
+          var name = $(this).parent().prev().text()
+          $('.modal-add').show().find('.header').text('修改分组')
+            .end().find('p').text('请输入你要修改的分组名')
+            .next().val(name)
         }
         $(e.delegateTarget).hide()
       })
@@ -75,6 +89,15 @@ window.addEventListener('DOMContentLoaded', function () {
        */
       addGroup (name) {
         console.log(name)
+      },
+      /**
+       * 修改分组名
+       * @param name {String} 修改的分组名
+       */
+      modifyGroup (name) {
+        var groupId = app.data.groupId
+        $('.modal-operation').find('[data-id=' + groupId + ']').find('.name').text(name)
+        console.log(name, groupId)
       },
       /**
        * 删除选中的名片

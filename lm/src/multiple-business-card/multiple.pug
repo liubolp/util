@@ -1,0 +1,72 @@
+extends ../../common/layout/layout
+block append meta
+  title 多名片
+block localCss
+  link(rel='stylesheet' href='./css/multiple.css')
+block footerJs
+  script(src='./js/multiple.js')
+block script
+block content
+  header.header-box
+    a.personal(href='javascript:;')
+      img(src='../shop/images/tupian.png')
+      i.level.vip_icon_0
+    p.name 流年芳华
+    a.clock(href='javascript:;') 打卡榜
+  // 导航跳转部分
+  div.nav-entry
+    a(href='javascript:;').earning
+      div.icon
+      div 我的收益
+    a(href='javascript:;').ally
+      div.icon
+      div 我的盟友
+    a(href='javascript:;').credit
+      div.icon
+        span
+          i.full
+          i.full
+          i.half
+          i.nothing
+          i.nothing
+      div 增加诚信度
+    a(href='javascript:;').card
+      div.icon
+      div 已开
+        span.num 2
+        | 个/未开
+        span.num 3
+        | 个
+  // 店铺列表
+  div.card-list
+    span 所有名片
+    ul
+      // 当前为默认时，给li加上default这个类
+      // data-id 为当前名片的id
+      -for(var i=0;i<3;i++)
+        li(class={default: i === 0} data-id=i)
+          div.img-box
+            a(href='javascript:;')
+              img(src='../shop/images/tupian.png')
+            div.content
+              p.name 名片名字
+              div.statistics
+                div.read
+                  span.count 浏览量：100
+          div.btns
+            button.copy 复制名片
+            button.default 设为默认
+          div.operation
+            a.modify 修改
+            a.delete 删除
+  // 创建名片
+  div.create
+    a(href='javascript:;') 增加名片
+  // 添加名片弹框
+  div.modal-add
+    div.mask
+    div.content
+      div.header 新增名片
+      div.section
+        input(name='card-name' placeholder='请输入名片名称')
+      div.footer 关闭

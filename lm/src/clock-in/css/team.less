@@ -123,6 +123,25 @@ div,ul{
     }
     .personal{
       text-align: left;
+      display: flex;
+    }
+  }
+  .name-box{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    line-height: normal;
+  }
+  .make{
+    background: @default_color;
+    color: #fff;
+    border-radius: .24rem;
+    width: 1.3rem;
+    font-size: .28rem;
+    text-align: center;
+    margin-top: .2rem;
+    &:active{
+      background: lighten(@default_color,10%);
     }
   }
   .name{

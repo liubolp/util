@@ -1,0 +1,302 @@
+@import "../../../common/reset/rest";
+@import "../../../common/reset/level";
+div,ul{
+  .setTapColor()
+}
+.header-box{
+  height: 3rem;
+  position: relative;
+  background: url("../images/bg.jpg") no-repeat center;
+  background-size: 100%;
+  img{
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+  }
+  .personal{
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: .52rem;
+    left: 50%;
+    transform: translateX(-50%);
+    img{
+      border-radius: 50%;
+    }
+  }
+  .level{
+    position: absolute;
+    bottom: -.1rem;
+    right: -.1rem;
+  }
+  .name{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: .36rem;
+    .ellipsis();
+    max-width: 80%;
+  }
+  .clock{
+    position: absolute;
+    top: .2rem;
+    right: .2rem;
+    padding: 0 .2rem;
+    border-radius: .24rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: inherit;
+    &:active{
+      background-color: #ececec;
+    }
+  }
+}
+// 导航入口
+.nav-entry{
+  background: #fff;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: .28rem;
+  a{
+    padding: .1rem;
+    flex: 0 0 50%;
+    color: inherit;
+    text-align: center;
+    background-size: 1rem 1rem;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    border-top: 1px solid #eeeff3;
+    &:nth-child(2n-1){
+      border-right: 1px solid #eeeff3;
+    }
+    &:active{
+      background: #ececec;
+    }
+  }
+  .num{
+    background: @default_color;
+    border-radius: 50%;
+    width: .3rem;
+    height: .3rem;
+    line-height: .3rem;
+    display: inline-block;
+    color: #fff;
+    font-size: .26rem;
+  }
+  .icon{
+    display: inline-block;
+    height: .6rem;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .earning .icon{
+    background: url("../../statistics/images/header-3.jpg") no-repeat center;
+    background-size: contain;
+  }
+  .ally .icon{
+    background: url("../../statistics/images/header-2.jpg") no-repeat center;
+    background-size: contain;
+  }
+  .card .icon{
+    background: url("../images/card.png") no-repeat center;
+    background-size: contain;
+  }
+  .credit{
+    i{
+      display: inline-block;
+      width: .4rem;
+      height: .4rem;
+      background-image: url("../images/star-nothing.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      &.full{
+        background-image: url("../images/star-full.png");
+      }
+      &.half{
+        background-image: url("../images/star-half.png");
+      }
+    }
+  }
+}
+// 店铺列表
+.card-list{
+  margin-top: .3rem;
+  >span{
+    color: @default_color;
+    border-bottom: 2px solid @default_color;
+    margin-left: .2rem;
+  }
+  ul{
+    padding: 0 .2rem;
+    border-top: 1px solid #eeeff3;
+  }
+  li{
+    background: #fff;
+    list-style: none;
+    display: flex;
+    border: 1px solid #eeeff3;
+    border-radius: 5px;
+    margin-top: .2rem;
+    overflow: hidden;
+    box-shadow: 0 0 5px 0 #eeeff3;
+    &.default{
+      border-color: @default_color;
+    }
+  }
+  .img-box{
+    display: flex;
+    line-height: normal;
+    border-right: 1px solid #eeeff3;
+    padding: .2rem .1rem;
+    flex: 1;
+  }
+  img{
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: bottom;
+    border-radius: 5px;
+    margin-right: .1rem;
+  }
+  a{
+    flex-shrink: 0;
+  }
+  .content{
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+  .statistics{
+    font-size: .24rem;
+    color: #888;
+    .count{
+      margin-right: 3px;
+    }
+  }
+  .name{
+    .ellipsisLn(2)
+  }
+  .btns{
+    flex-shrink: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    border-right: 1px solid #eeeff3;
+    padding: 0 .1rem;
+  }
+  button{
+    border-radius: .24rem;
+    outline: none;
+    padding: .1rem .2rem;
+    background: @default_color;
+    color: #fff;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .operation{
+    flex-shrink: 0;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .modify,.delete{
+    flex: 0 0 50%;
+    background-position: .1rem center;
+    background-size: .3rem .3rem;
+    background-repeat: no-repeat;
+    padding-left: .5rem;
+    padding-right: .1rem;
+    line-height: .8rem;
+  }
+  .modify{
+    color: #fff;
+    background-color: #a4a4a4;
+    background-image: url('../images/edit.png');
+    &:active{
+      background-color: lighten(#a4a4a4, 10%);
+    }
+  }
+  .delete{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFZElEQVR4Xu1b7XHcNhDFkgVEriByBaGBAiJXkLiCOBXEriBSBbEriF2B5QqiFACEriBKBbYLIDezGt4NCALELgheNJO7nxIILh7ffrwFAGrHn9b6JQD8pJS6KnzNnVLqrbX2tvD57GOQHVE4QGv9BgB+KXx89hgivnXOvaoxVzjHLgB0XXfVtu0fNQ0ehuF53/fEiKq/XQDQWl8DwK81LUXEG+fcdc05aa69ALgDgO89Y98Pw/BOYnzbti+VUhQ/Hn6I+KdzrjSWJF99EgBKvl7IojMAZwac0AW6ruuapvlB4rPBWMr/l97f7hBRFMEBgPz96POIeK+UEsUR36ZxHD/2fd9n06Ax5kel1IcNi3/Mj74Ii6pFENRahxH8MS9IattHay194OMvBkD1HC61cq/xsWy0AKDruoumaajg6CZDLgDgO98oRPyklPqyl6GF8+bs7MdxvO77fmY3qw4wxqBv1F5laeHCHx6Lld/W2uz6sgNo8jMAAQOUUotouuXr1Xg2lr2qMUBr3ftxoKS0rbHItTkipfMn59whjm3TAmFqXAOAiqi2bX+jNw7D8DpWfHg++zBOKXWTanoE892kJHGpdmDFAAkAWuvPAHBBq0LEL865JzH4dxg3S99c8cQCwBhDJehRmiqlFgXF9FUv27b9O8gYz0IWTF/1r8JxT/u+p7J49osUcO+ttSSpV38sACT04mSMWMqKpVZJapOw1EfkDECOIvR/rfUrADgELPLte+fc04Rv3wPAt4f/IeJr59wbfyyXARHm/eOc81XmcVo/pkzxZ/HemL0sBtSm4gYAkm0xjuudAYggUMyAYRiehMKC5g8zRiwdCRgwk+ap/YGu62LZh9VGZwEwLYwliDgZYwMA0da4xEVDEjxqAIwxVCscy9lUBfqoAOCIEi4DwsCWEmGcd6ayHZsBXEHE+RqlAKT6EKVCiECRABAGJLY/hgGTAwB1ptq2/RyUy9HAxok7NRjABSBrOBOAxQZrSt+fBACuIOJkjB0AWOxFcoSQ1AXYcjMXvDgATIcrfvepu8IAFjuLK8FJD7AByCkzJgDV3remdyRBUCKIVr/IDgAcmzASISRyAU56OyBtjKEzPf7e4qw5wQGgZsypwgAJALmozAEg50b+okqV4GYGpATRKQHYIoREAHDS2+GrRBoos+YokwGhX//snFtsj0uYuSkLSADIGcUBgEvr3LvW/H83BuSMqgnAFiEkBkAgiFbb4zkAEv9PtcPDeoG1I3RgBrsOmIohdsW1RuESAPbQASUM+H8DIClOtNZhe/won3MMkOj70h2hUheoUp8XAJBsh0sKps1pMFfg+C9YM4wBwOyk+dpG56kBkAii5CIYALDa4VNgLhZC4iCYy+8BA5LuUgBA8qQ4t2Da3BKjCbYAoJTqrbXPUvP4DU9uO1xSne4GwMoO0eLE6SGX5xjA/apbhZDYBSSIr7GlIgDsxmkVBggBWJTDHgNinePjXmOEAdEyWOKSJwcgLJ3Djc0gfc2O3AQXrqLHcaaPkXSznAosKoSmRYmOzE1qTcVOgVHnl+aM6fy157y+wyYhVBoDwn7fnbX2ORfxmuOMMXQzzb9HlGRLNRcIuz008X9xdjjm/4gY7RqtgS6Sw1MOXwQwOg84juOLPe71xYynxTdN8+FwHnEa83UYhsvYoY2qAExxIHqnABHfjeN4CwC7HKVvmuYSEa8AYHH+r/T4rpgBXgCaBcOavi2di+4vcM4Fx+YtBmC6WEGiZXaZQmr81vG0+HEcr6TUL06DocE1L0lLwahxqbqYAb6xVJM3TUN+Sf5JZ3q+kS6GOf4rItLVt1uKNbEzw8x5jsP+BX2pnpvpyG0CAAAAAElFTkSuQmCC");
+    &:active{
+      background-color: #ececec;
+    }
+  }
+}
+// 创建店铺
+.create{
+  padding: .2rem;
+  margin-top: .6rem;
+  a{
+    display: inline-block;
+    width: 100%;
+    color: inherit;
+    border: 1px dashed #eeeff3;
+    box-shadow: 0 0 5px 0 #eeeff3;
+    background: #fff url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABYUlEQVR4Xu2bMUoEQRBFfx3ATDA03cKriIForJmCF3BA0MwTGGiipsKa7FnsmlAzAzNToWUWA3cOUD0wby/we/709NR77Jga/SKik3RRa/0xs3t3v22xFGsR2vf9ca31ZZR94O6r7PU0KSAiniSdjC722d1P51LAUtLh6GKX7n5EAckNtHoE2AE8ApwBHIK8BXgNbjbAHMAgxCTIKAwLJKOAYIHsxoe8iACGgCFgCBgChoAhYGijAWgQGoQGG9FgRJxJ2pe0lTQa70naHmV9SXpLyv+WtHL3B4uIG0nXScFTi+mslPJuZrtTW1nGemqtH0MBn2a2kxE4tYx1ARFxKanJnxMmUEi3FiJzPATN7HWxWDxihFpsQ4wQSgwniBRFiiJFkaJIUaQoUhQp+r8BrDBWGCvcyApnIzE4DA6Dw+AwOAwOg8PgMDgMDs8Uh2f/8fRw30spV2Z2/rcH7lp9Pv8LshJTDrx7ljQAAAAASUVORK5CYII=") no-repeat center .1rem;
+    background-size: .6rem .6rem;
+    padding-top: .8rem;
+    text-align: center;
+    font-size: .36rem;
+    &:active{
+      background-color: #ececec;
+    }
+  }
+}
+// 名片弹框
+.modal-add{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+  }
+  .content{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+  }
+  .section{
+    padding: .4rem;
+  }
+  input{
+    width: 100%;
+    padding: .2rem .4rem;
+    background: #eeeff3;
+    font-size: inherit;
+  }
+  .footer{
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .36rem;
+    color: #fff;
+    background: @default_color;
+    &:active{
+      background: lighten(@default_color,10%);
+    }
+  }
+  .header{
+    margin-top: .4rem;
+    font-size: .36rem;
+  }
+}
+#lm-footer{
+  z-index: 10 !important;
+}
