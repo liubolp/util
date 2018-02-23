@@ -8,10 +8,32 @@ window.addEventListener('DOMContentLoaded', function () {
     attachEvent () {
       // 切换功能入口
       $('.tabs').on('click', 'span', function (e) {
+        $('.lists .buffer').hide()
         if (!$(this).hasClass('current')) {
           $('.lists').toggleClass('next')
         }
         $(this).addClass('current').siblings().removeClass('current')
+      })
+      // 左右滑动处理
+      $('.lists').on('touchstart', function (e) {
+        app.data.startX = e.originalEvent.changedTouches[0].screenX
+        app.data.startY = e.originalEvent.changedTouches[0].screenY
+      }).on('touchend', function (e) {
+        app.data.distanceX = e.originalEvent.changedTouches[0].screenX - app.data.startX
+        app.data.distanceY = e.originalEvent.changedTouches[0].screenY - app.data.startY
+        if (Math.abs(app.data.distanceY) > Math.abs(app.data.distanceX)) { // 判断左右滑条件
+          return
+        }
+        var target = $(e.delegateTarget)
+        var isAdvance = target.hasClass('next')
+        if (app.data.distanceX < -20 && !isAdvance) { // 向左滑动
+          $('.lists .buffer').hide()
+          target.addClass('next')
+          $('.tabs-box').find('span.current').removeClass('current').siblings().addClass('current')
+        } else if (app.data.distanceX > 20 && isAdvance) { // 向右滑动
+          target.removeClass('next')
+          $('.tabs-box').find('span.current').removeClass('current').siblings().addClass('current')
+        }
       })
     },
     methods: {
