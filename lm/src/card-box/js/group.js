@@ -15,6 +15,17 @@ window.addEventListener('DOMContentLoaded', function () {
         .on('click', 'button.group', function (e) { // 打开选择分组弹框
           $('.modal-choose').fadeIn()
         })
+        .on('click', 'button.wechat', function (e) { // 添加微信好友
+          weui.dialog({
+            title: '微信二维码',
+            content: '<div><img src="../home/images/vip.png" style="width: 3rem;height: 3rem"></div>',
+            className: 'wechat-qr',
+            buttons: [{
+              label: '取消',
+              type: 'default'
+            }]
+          })
+        })
       // 分组操作
       $('.group-operation').on('click', 'span', function (e) {
         if ($(this).hasClass('manage')) { // 打开管理
@@ -54,9 +65,13 @@ window.addEventListener('DOMContentLoaded', function () {
         $(e.delegateTarget).hide()
       })
       // 选择分组
-      $('.modal-choose').on('click', '.mask,.cancel,.radio', function (e) {
+      $('.modal-choose').on('click', '.mask,.cancel,.radio,.confirm', function (e) {
         if ($(this).hasClass('radio')) {
           // 获取选中的组
+          return
+        }
+        if ($(this).hasClass('confirm')) {
+          // 确定修改
         }
         $(e.delegateTarget).hide()
       })

@@ -149,6 +149,32 @@
     vertical-align: middle;
   }
 }
+.modal-choose{
+  .footer{
+    display: flex;
+    position: relative;
+    border-top: 1px solid #c7c7c7;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      height: 100%;
+      border-right: 1px solid #c7c7c7;
+    }
+  }
+  button{
+    background: none;
+    font-size: .34rem;
+    flex: 1;
+    &:active{
+      background: darken(#f4f4f4,10%);
+    }
+  }
+  .confirm{
+    color: @default_color;
+  }
+}
 // 添加分组弹框
 .modal-add{
   display: none;

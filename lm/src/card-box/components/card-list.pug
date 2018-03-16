@@ -24,7 +24,7 @@ mixin cardList(buttons)
           div.info
             div
               span.name.demand 需求
-              div.desc 需求描述信息
+              div.desc http://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.11&manage_type=myprojects&projectId=576392&keyword=
             div
               span.name.supply 供应
               div.desc 供应信息描述
@@ -32,6 +32,8 @@ mixin cardList(buttons)
               span.name.recruitment 招聘
               div.desc 这里是招聘信息
         div.operation
+          if buttons.indexOf('wechat') > -1
+            button.wechat +微信
           if buttons.indexOf('delete') > -1
             button.delete.supply 删除
           if buttons.indexOf('accept') > -1
