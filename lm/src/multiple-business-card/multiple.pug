@@ -70,3 +70,29 @@ block content
       div.section
         input(name='card-name' placeholder='请输入名片名称')
       div.footer 关闭
+  // 升级购买
+  div.modal-purchase
+    div.mask
+    div.content
+      div.header 会员等级权益
+      div.section
+        ul
+          li
+            i.icon-card &#xe67d
+            span 会员
+            small 可创建1张名片
+          li
+            i.icon-card &#xe682
+            span 创客
+            small 可创建3张名片
+          li
+            i.icon-card &#xe60e
+            span 代理
+            small 可创建5张名片
+          li.spec
+            span +99元
+            small 多加一张永久名片
+      div.footer
+        button.cancel 取消
+        button.purchase 加购多名片
+        button.upgrade 去升级

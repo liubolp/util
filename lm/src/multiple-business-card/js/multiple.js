@@ -23,6 +23,10 @@ window.addEventListener('DOMContentLoaded', function () {
         var val = $(this).val() ? '确定' : '取消'
         $(this).parent().next().text(val)
       })
+      // 升级弹框处理
+      $('.modal-purchase').on('click', '.cancel,.purchase,.upgrade', function (e) {
+        $(e.delegateTarget).fadeOut()
+      })
       // 名片操作
       $('.card-list').on('click', 'button.default,button.copy,a.modify,a.delete', function (e) {
         var id = $(this).parents('li').attr('data-id')

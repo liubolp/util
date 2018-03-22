@@ -1,5 +1,15 @@
 @import "../../../common/reset/rest";
 @import "../../../common/reset/level";
+@font-face {
+  font-family: 'icon-card';
+  src: url('data:application/oetct-stream;base64,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')
+}
+.icon-card{
+  font-family: 'icon-card' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 div,ul{
   .setTapColor()
 }
@@ -295,6 +305,107 @@ div,ul{
   .header{
     margin-top: .4rem;
     font-size: .36rem;
+  }
+}
+// 加购弹框
+.modal-purchase{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 11;
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+  }
+  .content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 7rem;
+    background: #fff;
+    border-radius: .1rem;
+    overflow: hidden;
+  }
+  .header{
+    line-height: 1;
+    overflow: hidden;
+    font-size: .4rem;
+    color: #000;
+    padding: .5rem .6rem;
+    &::before{
+      content: '';
+      height: .4rem;
+      display: inline-block;
+      vertical-align: bottom;
+      border-right: .1rem solid @default_color;
+      margin-right: .1rem;
+    }
+  }
+  .section{
+    padding: 0 .6rem .5rem;
+  }
+  .footer{
+    display: flex;
+  }
+  button{
+    flex: 1.5;
+    background: none;
+    font-size: inherit;
+    height: .9rem;
+    line-height: .9rem;
+    box-shadow: 0 0 3px 0 #ddd;
+    &:active{
+      background: #ececec;
+    }
+  }
+  .cancel{
+    flex: 1;
+  }
+  li{
+    border-bottom: 1px solid #E5E5E5;
+    padding-left: .5rem;
+    height: 1rem;
+    line-height: 1rem;
+    span{
+      color: #000;
+      font-size: .4rem;
+      margin-right: .1rem;
+    }
+    &:last-child{
+      border: 0;
+    }
+    &.spec{
+      span{
+        color: #00B3EC;
+      }
+    }
+    &:nth-child(1) {
+      i{
+        color: #FF3895;
+      }
+    }
+    &:nth-child(2) {
+      i{
+        color: #6AE3C2;
+      }
+    }
+    &:nth-child(3) {
+      i{
+        color: #E483EE;
+      }
+    }
+  }
+  .icon-card{
+    font-size: .5rem;
+    margin-right: .1rem;
   }
 }
 #lm-footer{
