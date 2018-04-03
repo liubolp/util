@@ -1,5 +1,15 @@
 window.addEventListener('load', function () {
   $(function () {
+    // 启动banner轮播
+    new Swiper('.swiper-container', {
+      autoplay: {
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination'
+      },
+      loop: true
+    })
     // 处理打卡状态
     var hour = new Date().getHours(),
       start = 9,
