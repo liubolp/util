@@ -6,7 +6,8 @@ block footer
 block footerCss
 block append weui
   link(href="https://cdn.bootcss.com/Swiper/4.2.0/css/swiper.min.css" rel="stylesheet")
-  script(src="https://cdn.bootcss.com/Swiper/4.2.0/js/swiper.min.js")
+  script(src="https://cdn.bootcss.com/Swiper/4.2.0/js/swiper.min.js" defer)
+  script(src='//liubolp.xin/business-card/js/tour.js' defer)
 block content
   // 顶部切换
   ul.navbar
@@ -64,17 +65,7 @@ block content
       p 2.占领封面，霸屏广告
         span.num 18小时
       p 3.获取专属早安图和早安播报
-  // banner
-  div.banner
-    div.swiper-container
-      ul.banner.swiper-wrapper
-        li.item.swiper-slide
-          a(href='javascript:;')
-            img(src='images/banner-1.jpg' alt='图片1')
-        li.item.swiper-slide
-          a(href='javascript:;')
-            img(src='images/banner-1.jpg' alt='图片2')
-      div.swiper-pagination
+  div#banner
   // 排名切换
   ul.tab
     li.current 全国排名

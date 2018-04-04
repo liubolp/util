@@ -1,15 +1,77 @@
-window.addEventListener('load', function () {
+window.addEventListener('DOMContentLoaded', function () {
+  let app = {
+    data: {},
+    init () {
+      this.attachEvent()
+      this.methods.getBanner()
+    },
+    attachEvent () {},
+    methods: {
+      getBanner () {
+        let type = app.methods.getType()
+        if (!type) { // 如果没有广告
+          return false
+        } else if ($.isArray(type)) { // 数组对象表示静态轮播
+          let items = ''
+          type.forEach(function (item) {
+            items += `<li class="item swiper-slide"><a href="${item.href}"><img src="${item.src}"></a></li>`
+          })
+          let banner = $(`<div class="swiper-container"><ul class="banner swiper-wrapper"></ul></div>`)
+          let pagination = $(`<div class="swiper-pagination"></div>`)
+          banner.append(pagination).find('.banner').append(items)
+          $('#banner').append(banner)
+          // 启动banner轮播
+          new Swiper('.swiper-container', {
+            autoplay: {
+              disableOnInteraction: false
+            },
+            pagination: {
+              el: '.swiper-pagination'
+            },
+            loop: true
+          })
+        } else if (type.hasOwnProperty('xml')) { // 动态3D配置
+          let config = { // 3d背景参数
+            xml: '',
+            target: 'banner',
+            html5: document.domain ? 'prefer' : 'auto',
+            passQueryParameters: true
+          }
+          $.extend(config, type)
+          let a = $(`<a class="view-card" href="${type.src}">查看名片</a>`)
+          $('#banner').css({height: '3rem'}).append(a)
+          // 启动3d背景效果
+          embedpano(config)
+        }
+      },
+      /**
+       * 获取广告类型
+       */
+      getType () {
+        // todo 获取用户广告类型
+        // 如果用户没有广告就返回null
+        // 如果用户是静态轮播广告就返回[{href:'点击跳转链接',src:'图片资源地址'},...]
+        // 如果用户时动态3D背景就返回{xml:'后台配置路径',src: '进入名片的链接'}
+        let banner = [
+          {
+            href: 'www.baidu.com',
+            src: 'images/banner-1.jpg'
+          },
+          {
+            href: 'www.baidu.com',
+            src: 'images/banner-1.jpg'
+          }
+        ]
+        let pano = {
+          xml: 'http://member.xy22.cn/index.php?c=card_news&m=get3DImg&touid=238619&many_card_id=34887&fuid=238619',
+          src: 'http://liubolp.xin'
+        }
+        return pano
+      }
+    }
+  }
+  app.init()
   $(function () {
-    // 启动banner轮播
-    new Swiper('.swiper-container', {
-      autoplay: {
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination'
-      },
-      loop: true
-    })
     // 处理打卡状态
     var hour = new Date().getHours(),
       start = 9,
@@ -65,7 +127,7 @@ window.addEventListener('load', function () {
     // 检查用户打卡状态
     function checkStatus () {
       // todo 真实情况需要异步查询用户打卡状态
-      /*$.ajax({
+      /* $.ajax({
         url: '',
         type: 'get',
         dataType: 'json',
@@ -74,7 +136,7 @@ window.addEventListener('load', function () {
           handleStatus()
           // todo
         }
-      })*/
+      }) */
       status = false
       handleStatus()
     }
@@ -90,7 +152,7 @@ window.addEventListener('load', function () {
       var num = $(this).find('.count').text()
       // 只能点一次赞
       $(this).toggleClass('disabled')
-      if($(this).hasClass('disabled')) {// 如果用户添加一个赞
+      if ($(this).hasClass('disabled')) { // 如果用户添加一个赞
         // todo 插入数据库
         $(this).find('.count').text(+num + 1)
         $(this).find('.star').addClass('more')
@@ -116,7 +178,7 @@ window.addEventListener('load', function () {
       if ($(e.target).hasClass('pay')) {
         // todo 用户打赏支付
         var amount = $('.modal-reward li.selected')
-        if(amount.length) {
+        if (amount.length) {
           amount = amount.text().replace('元', '')
         } else {
           amount = $('.amount').val()
