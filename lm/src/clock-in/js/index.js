@@ -11,9 +11,11 @@ window.addEventListener('DOMContentLoaded', function () {
         let type = app.methods.getType()
         if (!type) { // 如果没有广告
           return false
-        } else if ($.isArray(type)) { // 数组对象表示静态轮播
+        }
+        if ($.isArray(type) || type.hasOwnProperty('banner')) { // 数组对象表示静态轮播
           let items = ''
-          type.forEach(function (item) {
+          let list = $.isArray(type) ? type : type.banner
+          list.forEach(function (item) {
             items += `<li class="item swiper-slide"><a href="${item.href}"><img src="${item.src}"></a></li>`
           })
           let banner = $(`<div class="swiper-container"><ul class="banner swiper-wrapper"></ul></div>`)
@@ -30,16 +32,15 @@ window.addEventListener('DOMContentLoaded', function () {
             },
             loop: true
           })
-        } else if (type.hasOwnProperty('xml')) { // 动态3D配置
+        }
+        if (type.hasOwnProperty('xml') || type.hasOwnProperty('pano')) { // 动态3D配置
           let config = { // 3d背景参数
             xml: '',
-            target: 'banner',
+            target: 'cover',
             html5: document.domain ? 'prefer' : 'auto',
             passQueryParameters: true
           }
-          $.extend(config, type)
-          let a = $(`<a class="view-card" href="${type.src}">查看名片</a>`)
-          $('#banner').css({height: '3rem'}).append(a)
+          $.extend(config, type.hasOwnProperty('xml') ? type : type.pano)
           // 启动3d背景效果
           embedpano(config)
         }
@@ -52,6 +53,7 @@ window.addEventListener('DOMContentLoaded', function () {
         // 如果用户没有广告就返回null
         // 如果用户是静态轮播广告就返回[{href:'点击跳转链接',src:'图片资源地址'},...]
         // 如果用户时动态3D背景就返回{xml:'后台配置路径',src: '进入名片的链接'}
+        // 如果用户同时拥有banner广告和3D广告就返回{banner:[], pano:{}}
         let banner = [
           {
             href: 'www.baidu.com',
@@ -66,7 +68,11 @@ window.addEventListener('DOMContentLoaded', function () {
           xml: 'http://member.xy22.cn/index.php?c=card_news&m=get3DImg&touid=238619&many_card_id=34887&fuid=238619',
           src: 'http://liubolp.xin'
         }
-        return pano
+        let all = {
+          banner: banner,
+          pano: pano
+        }
+        return all
       }
     }
   }
