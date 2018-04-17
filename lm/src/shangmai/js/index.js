@@ -75,4 +75,39 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
   app.init()
+  let drag = {
+    data: {
+      dragTarget: {}
+    },
+    init () {
+      this.attachEvent()
+    },
+    attachEvent () {
+      // 拖动处理
+      $('.nav-box').on('touchmove', function (e) {
+        requestAnimationFrame(drag.methods.calcPosition)
+        drag.data.dragTarget.position = e.originalEvent.touches[0]
+        drag.data.dragTarget.target = $(this).find('.content').add($(this))
+      })
+    },
+    methods: {
+      /**
+       * 计算浮动弹框的拖动位置
+       */
+      calcPosition () {
+        let position = drag.data.dragTarget.position
+        let x = position.clientX
+        let y = position.clientY
+        if ((x < window.innerWidth - 30 && x > 80) && (y > 40 && y < window.innerHeight - 80)) {
+          drag.data.dragTarget.target.css({
+            top: y + 'px',
+            left: x + 'px',
+            bottom: 'auto',
+            right: 'auto'
+          })
+        }
+      }
+    }
+  }
+  drag.init()
 })
