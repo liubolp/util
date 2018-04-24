@@ -48,6 +48,7 @@ div,ul{
     font-size: .36rem;
     .ellipsis();
     max-width: 80%;
+
   }
   .clock{
     position: absolute;
@@ -188,7 +189,9 @@ div,ul{
     }
   }
   .name{
-    .ellipsisLn(2)
+    .ellipsisLn(2);
+    word-break:break-all;
+    word-wrap:break-word;
   }
   .btns{
     flex-shrink: 0;

@@ -23,11 +23,15 @@ block content
       li.greeting 选贺卡
     // 功能开关
     div.toggle-tool
-      span.tool
-        i.icon &#xe6a1
-      span.music.rotate
-        i.icon &#xe60a
-        audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
+      div.tool
+        p 编辑
+        span
+          i.icon &#xe6a1
+      div
+        p 音乐
+        span.music.rotate
+          i.icon &#xe60a
+          audio#audio(src='http://web.lm720.com/upload/careershow/2017/11/49/music.mp3' preload='auto' autoplay="autoplay" loop='loop' hidden='hidden' controls='controls')
     // 动画文字
     div.text-box
       // 具体内容 center 居中对齐 right 右对齐

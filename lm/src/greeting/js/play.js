@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', function () {
       },
       attachEvent () {
         // 打开工具栏目和处理背景音乐
-        $('.toggle-tool').on('click', 'span', function (e) {
+        $('.toggle-tool').on('click', 'div', function (e) {
           e.stopPropagation()
           if ($(this).hasClass('tool')) {
             $('.toggle-tool').addClass('hide')
@@ -19,14 +19,14 @@ window.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () {
               $('.toggle-tool').hide()
             }, 500)
-          } else if ($(this).hasClass('pause')) { // 是暂停状态
-            $(this).removeClass('pause')
+          } else if ($(this).find('span').hasClass('pause')) { // 是暂停状态
+            $(this).find('span').removeClass('pause')
             $('#audio')[0].play()
-            $(this).addClass('rotate')
+            $(this).find('span').addClass('rotate')
           } else {
-            $(this).addClass('pause')
+            $(this).find('span').addClass('pause')
             $('#audio')[0].pause()
-            $(this).removeClass('rotate')
+            $(this).find('span').removeClass('rotate')
           }
         })
         // 工具栏按钮操作
