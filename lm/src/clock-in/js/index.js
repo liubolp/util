@@ -65,8 +65,7 @@ window.addEventListener('DOMContentLoaded', function () {
           }
         ]
         let pano = {
-          xml: 'http://member.xy22.cn/index.php?c=card_news&m=get3DImg&touid=238619&many_card_id=34887&fuid=238619',
-          src: 'http://liubolp.xin'
+          xml: 'http://member.xy22.cn/index.php?c=card_news&m=get3DImg&touid=238619&many_card_id=34887&fuid=238619'
         }
         let all = {
           banner: banner,
