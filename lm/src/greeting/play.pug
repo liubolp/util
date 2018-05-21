@@ -5,8 +5,10 @@ block script
 block footer
 block footerCss
 block localCss
+  link(rel='stylesheet' href='http://bgrins.github.io/spectrum/spectrum.css')
   link(rel='stylesheet' href='./css/play.css')
 block footerJs
+  script(src='http://bgrins.github.io/spectrum/spectrum.js' defer)
   script(src='./js/play.js')
   // 解决iOS自动播放
   script.
@@ -21,6 +23,7 @@ block content
       li.music 选音乐
       li.text 选祝福
       li.greeting 选贺卡
+      li.style 选样式
     // 功能开关
     div.toggle-tool
       div.tool
@@ -119,7 +122,7 @@ block content
                   i.icon &#xe6c0
         div.footer
           button.cancel 取消
-            button.confirm 确定
+          button.confirm 确定
   // 引导层
   // 如果是第一次进入页面，就渲染下面的引导层内容
   div.guide
@@ -133,3 +136,26 @@ block content
       img(src='./images/yindao01.png')
     div.upload-desc
       img(src='./images/upload.png')
+  // 样式选择弹框
+  div.modal-style
+    div.content
+      div.header 文字样式
+      div.section
+        div.item
+          span.name 颜色：
+          div.flex
+            ul.list
+              -for(var i=0;i<8;i++)
+                li.color(class=i==0?'current':'')
+                  i.icon &#xe6d4
+              li.color.add
+                i.icon &#xe648
+                i.icon.current &#xe6d4
+        div.item
+          span.name 动效：
+          div.flex.picker
+            span.value 无
+            i.icon &#xe615
+      div.footer
+        button.cancel 取消
+        button.confirm 保存

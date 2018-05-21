@@ -2,12 +2,28 @@ window.addEventListener('DOMContentLoaded', function () {
   $(function () {
     var play = {
       data: {
+        defaultColor: '#389EC6',
+        currentColor: '',
         src: '' // 图库选择时选中的图片
       },
       init () {
         this.attachEvent()
         // 如果要调用打字机动画就调用的
         this.methods.typewriter(200, 100)
+        // 初始化自定义颜色选择
+        $('.modal-style .add').spectrum({
+          color: play.data.defaultColor,
+          move: function (e) {
+            play.data.currentColor = e.toHexString()
+            requestAnimationFrame(play.methods.handleColor)
+          },
+          change: function (e) {
+            play.methods.addColor(e.toHexString())
+          },
+          hide: function (e) {
+            play.methods.cancelColor()
+          }
+        })
       },
       attachEvent () {
         // 打开工具栏目和处理背景音乐
@@ -38,8 +54,10 @@ window.addEventListener('DOMContentLoaded', function () {
           } else if ($(this).hasClass('text')) {
             // 选祝福
             $('.modal-text').fadeIn()
-          } else {
+          } else if ($(this).hasClass('style')) {
+            $('.modal-style').fadeIn()
             // 选贺卡
+          } else {
             window.location.pathname = '/greeting'
           }
         })
@@ -127,6 +145,19 @@ window.addEventListener('DOMContentLoaded', function () {
               play.methods.changeImg()
             }
             $(e.delegateTarget).hide()
+          })
+        $('.modal-style').on('click', '.color', function (e) {
+          $(this).addClass('current').siblings().removeClass('current')
+        })
+          .on('click', '.picker', function (e) {
+            play.methods.chooseTextType()
+          })
+          .on('click', 'button', function (e) {
+            if ($(this).hasClass('confirm')) { // 保存
+              play.methods.saveTextType()
+            } else {
+              $(e.delegateTarget).fadeOut()
+            }
           })
         // 点击空白关闭弹窗
         $('[class^=modal-]').on('click', function (e) {
@@ -325,6 +356,60 @@ window.addEventListener('DOMContentLoaded', function () {
               }, i * frequency + delay)
             })(index, item)
           })
+        },
+        /**
+         * 选择文字动效
+         */
+        chooseTextType () {
+          weui.picker([
+            {
+              label: '无',
+              value: 0
+            },
+            {
+              label: '滚动',
+              value: 1
+            },
+            {
+              label: '打字机',
+              value: 2
+            }
+          ], {
+            className: 'custom-classname',
+            container: 'body',
+            defaultValue: [1],
+            onConfirm: function (result) {
+              $('.picker .value').text(result[0].label)
+            },
+            id: 'singleLinePicker'
+          })
+        },
+        /**
+         * 保存文字动效
+         */
+        saveTextType () {
+          // todo
+        },
+        /**
+         * 动态颜色选择
+         */
+        handleColor () {
+          $('.modal-style .add').css({background: play.data.currentColor})
+        },
+        /**
+         * 取消颜色选择
+         */
+        cancelColor () {
+          $('.modal-style .add').css({background: play.data.defaultColor})
+        },
+        /**
+         * 添加主题颜色
+         * @param color { String } 选中的颜色
+         */
+        addColor (color) {
+          play.data.defaultColor = color
+          $('.modal-style .add').css({background: play.data.currentColor})
+            .addClass('current').siblings().removeClass('current')
         }
       }
     }
