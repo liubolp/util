@@ -121,13 +121,15 @@ div,input{
     height: 100%;
     user-select: none;
     word-break: normal;
-    //transform: translateY(100%);
-    //animation: moveText 20s linear infinite;
     &.center{
       text-align: center;
     }
     &.right{
       text-align: right;
+    }
+    &.animate{
+      transform: translateY(100%);
+      animation: moveText 20s linear infinite;
     }
   }
   .letter-to{
@@ -141,53 +143,71 @@ div,input{
   }
 }
 // 底部信息
-.personal{
+//.personal{
+//  position: absolute;
+//  bottom: 0;
+//  left: 0;
+//  right: 0;
+//  height: 1.3rem;
+//  padding: .3rem .4rem;
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//  background: rgba(0,0,0,.3);
+//  >div{
+//    flex: 1;
+//    line-height: normal;
+//    padding: 0 .2rem;
+//  }
+//  .avatar{
+//    width: .97rem;
+//    height: .97rem;
+//  }
+//  .nickname{
+//    color: #fff;
+//    .ellipsisLn(1)
+//  }
+//  .desc{
+//    color: #ccc;
+//    font-size: .26rem;
+//    .ellipsisLn(1)
+//  }
+//  img{
+//    width: 100%;
+//    height: 100%;
+//    border-radius: 50%;
+//    vertical-align: bottom;
+//  }
+//  .btn{
+//    border: none;
+//    outline: none;
+//    background: @default_color;
+//    border-radius: .29rem;
+//    color: #fff;
+//    padding: .04rem .2rem;
+//    font-size: .3rem;
+//    flex-shrink: 0;
+//    &:active{
+//      background: lighten(@default_color,10%);
+//    }
+//  }
+//}
+.btns{
   position: absolute;
-  bottom: 0;
   left: 0;
-  right: 0;
-  height: 1.3rem;
-  padding: .3rem .4rem;
+  bottom: 0.2rem;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0,0,0,.3);
-  >div{
-    flex: 1;
-    line-height: normal;
-    padding: 0 .2rem;
-  }
-  .avatar{
-    width: .97rem;
-    height: .97rem;
-  }
-  .nickname{
-    color: #fff;
-    .ellipsisLn(1)
-  }
-  .desc{
-    color: #ccc;
-    font-size: .26rem;
-    .ellipsisLn(1)
-  }
-  img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    vertical-align: bottom;
-  }
-  .btn{
-    border: none;
-    outline: none;
-    background: @default_color;
-    border-radius: .29rem;
-    color: #fff;
-    padding: .04rem .2rem;
-    font-size: .3rem;
-    flex-shrink: 0;
-    &:active{
-      background: lighten(@default_color,10%);
-    }
+  justify-content: space-around;
+  a{
+    width: 2.7rem;
+    height: 1.88rem;
+    color: #161616;
+    background: url('../images/button-bg.png') no-repeat;
+    background-size: contain;
+    font-weight: bold;
+    padding-top: .96rem;
+    padding-left: .2rem;
   }
 }
 // 上传背景
