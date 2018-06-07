@@ -13,14 +13,18 @@ var imagemin = require('gulp-imagemin') // 压缩图片
 var watch = require('gulp-watch') // 重新构建时只构建更改过的文件
 var changed = require('gulp-changed') // 只传递更改过的文件
 var pug = require('gulp-pug')
+var parseArgs = require('minimist')(process.argv.slice(2)) // 解析脚本参数
+
+var dir = parseArgs.dir
+var base = 'src/*' + (dir || '')
 
 gulp.task('css', function () {
-  return gulp.src(['src/*/css/*.less'])
-    .pipe(watch('src/*/css/*.less'))
+  return gulp.src([base + '/css/*.less'])
+    .pipe(watch(base + '/css/*.less'))
     .pipe(less().on('error', function (e) {
       console.error(e.message)
       this.emit('end')
-      gulp.watch('src/*/css/*.less', ['css'])
+      gulp.watch(base + '/css/*.less', ['css'])
     }))
     .pipe(base64({
       extensions: ['png', 'jpg', 'jpeg'],
@@ -43,8 +47,8 @@ gulp.task('css:min', function () {
 })
 
 gulp.task('js', function () {
-  return gulp.src(['src/*/js/*.js'])
-    .pipe(watch('src/*/js/*.js'))
+  return gulp.src([base + '/js/*.js'])
+    .pipe(watch(base + '/js/*.js'))
     .pipe(babel({
       presets: [
         ['env', {
@@ -57,7 +61,7 @@ gulp.task('js', function () {
     }).on('error', function (e) {
       console.error(e.message)
       this.emit('end')
-      gulp.watch('src/*/js/*.js', ['js'])
+      gulp.watch(base + '/js/*.js', ['js'])
     }))
     .pipe(gulp.dest('dist'))
     .pipe(broswerSync.reload({stream: true}))
@@ -74,30 +78,30 @@ gulp.task('js:min', function () {
 })
 
 gulp.task('html', function () {
-  return gulp.src('src/*/*.html')
-    .pipe(watch('src/*/*.html'))
+  return gulp.src(base + '/*.html')
+    .pipe(watch(base + '/*.html'))
     .pipe(gulp.dest('dist'))
     .pipe(broswerSync.reload({stream: true}))
 })
 
 gulp.task('pug', function () {
-  return gulp.src('src/*/*.pug')
-    .pipe(watch('src/*/*.pug'))
+  return gulp.src(base + '/*.pug')
+    .pipe(watch(base + '/*.pug'))
     .pipe(pug({
       pretty: true,
       cache: true
     })).on('error', function (e) {
       console.log(e.message)
       this.emit('end')
-      gulp.watch('src/*/*.pug', ['pug'])
+      gulp.watch(base + '/*.pug', ['pug'])
     })
     .pipe(gulp.dest('dist'))
     .pipe(broswerSync.reload({stream: true}))
 })
 
 gulp.task('assets', function () {
-  return gulp.src('src/*/images/*')
-    .pipe(watch('src/*/images/*'))
+  return gulp.src(base + '/images/*')
+    .pipe(watch(base + '/images/*'))
     .pipe(imagemin())
     .pipe(gulp.dest('dist'))
     .pipe(broswerSync.reload({stream: true}))
